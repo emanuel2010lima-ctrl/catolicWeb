@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="pt-br" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Por que sou Católico?</title>
+    <link rel="icon" type="image/png"class="logo" href="logo1.png">
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/blog/"
+    />
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="blog.css" rel="stylesheet" />
+    <style>
+        .logo{
+            height: 50px;
+            width: 50px;
+        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+      .bgs{
+        background-image: url(pentecostes.jpg);
+        background-position: 30% 0%;
+
+
+        
+      }
+      .lg{
+        width:50px; 
+        margin-right:10px;
+      }
+    </style>
+  </head>
+  <body class="bg-dark">
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+<!--<button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>-->
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol
+        id="aperture"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path
+          d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"
+        ></path>
+      </symbol>
+      <symbol id="cart" viewBox="0 0 16 16">
+        <path
+          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        ></path>
+      </symbol>
+      <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div class="container">
+      <header class="border-bottom lh-1 py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-4 pt-1">
+            <!--<a class="link-secondary" href="#">Subscribe</a>-->
+          </div>
+          <div class="col-4 text-center" style="display:flex; align-items:center;margin-left: -150px;">
+            <img src="logo1.png" class="lg">
+            <a style="color: white;"
+              class="blog-header-logo text-body-emphasis text-decoration-none"
+              href="#"
+              ><span style="color: white;">Por que sou</span> <span style="color: red;">Católico?</span> </a
+            >
+          </div>
+          <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="link-secondary" href="#" aria-label="Search">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="mx-3"
+                role="img"
+                viewBox="0 0 24 24"
+                style="color:white"
+              >
+                <title>Search</title>
+                <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                <path d="M21 21l-5.2-5.2"></path>
+              </svg>
+            </a>
+            <a class="btn btn-sm btn-outline-secondary"style="color:white;border-color:white" href="login.html">Login</a>
+          </div>
+        </div>
+      </header>
+
+    <ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="index.html" style="color:white;">Comunidade</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"href="igreja.html" style="color:white;">Igreja</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="batismo.html" style="color:white;">Batismo</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="crisma.html" style="color:red;">Crisma</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="confissao.html" style="color:white;">Confissão</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="comunhao.html" style="color:white;">Comunhão</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="ordem.html" style="color:white;">Ordem</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="matrimonio.html" style="color:white;">Matrimônio</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="santidade.html" style="color:white;">Santidade</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="oracao.html" style="color:white;">Oração</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="personalidade.html" style="color:white;">Personalidade</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="amor.html" style="color:white;">Amor</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="missa.html" style="color:white;">Missa</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color:white;">Santos</a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="jose.html">Santos</a></li>
+      <li><a class="dropdown-item" href="maria.html" style="color: aqua;">Maria</a></li>
+      <li><a class="dropdown-item" href="jose.html" style="color: chartreuse;">José</a></li>
+      <li><a class="dropdown-item" href="joao.html" style="color: yellow;">João Batista</a></li>
+     <!--<li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="#">Separated link</a></li>-->
+    </ul>
+  </li>
+</ul>
+   <!--   <nav class="navbar  fixed-top">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="color: goldenrod;">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="crisma.html">Crisma</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Comunidade</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="igreja.html">Igreja</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="batismo.html">Batismo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="confissao.html">Confissão</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="comunhao.html">Comunhão</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Ordem.html">Ordem</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="matrimonio.html">Matrimônio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="santidade.html">Santidade</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="oracao.html">Oração</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="personalidade.html">Personalidade</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="amor.html">Amor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="missa.html">Missa</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Santos
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="maria.html" style="color: aqua;">Maria</a></li>
+              <li><a class="dropdown-item" href="jose.html" style="color:chartreuse;">José</a></li>
+              <li><a class="dropdown-item" href="joao.html" style="color:yellow;">João</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+       <div class="nav-scroller py-1 mb-3 border-bottom">
+        <nav class="nav nav-underline justify-content-between">
+          <a class="nav-item nav-link link-body-emphasis" href="index.html"
+            >Comunidade</a
+          >
+          <a class="nav-item nav-link link-body-emphasis active" href="igreja.html">Igreja?</a>
+          <a class="nav-item nav-link link-body-emphasis" href="batismo.html"
+            >Batismo</a
+          >
+          <a class="nav-item nav-link link-body-emphasis" href="crisma.html">Crisma</a>
+          <a class="nav-item nav-link link-body-emphasis" href="confissao.html">Confissão</a>
+          <a class="nav-item nav-link link-body-emphasis" href="comunhao.html">Comunhão</a>
+          <a class="nav-item nav-link link-body-emphasis" href="ordem.html">Ordem</a>
+          <a class="nav-item nav-link link-body-emphasis" href="matrimonio.html">Matrimônio</a>
+          <a class="nav-item nav-link link-body-emphasis" href="santidade.html">Santidade</a>
+          <a class="nav-item nav-link link-body-emphasis" href="oracao.html">Oração</a>
+          <a class="nav-item nav-link link-body-emphasis" href="personalidade.html">Personalidade</a>
+          <a class="nav-item nav-link link-body-emphasis" href="santos.html">Santos de Devoção</a>
+          <a class="nav-item nav-link link-body-emphasis" href="maria.html"><span style="color:aqua">Maria</span></a>
+          <a class="nav-item nav-link link-body-emphasis" href="maria.html"><span style="color:chartreuse">José</span></a>
+          <a class="nav-item nav-link link-body-emphasis" href="missa.html">Santa Missa</a>
+          <a class="nav-item nav-link link-body-emphasis" href="amor.html"><span style="color: goldenrod;">Amor</span></a>
+        </nav>
+      </div>-->
+    </div>
+  <main class="container">
+    <div class="bgs">
+      <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis">
+        <div class="col-lg-6 px-0">
+          <h1 class="display-4 fst-italic" style="color:black">
+          
+          </h1>
+          <p class="lead my-3">
+            <br><BR><br><br><br><br>
+          </p>
+          </div>
+          <!--<p class="lead mb-0">
+            <a href="#" class="text-body-emphasis fw-bold"
+              >Continue reading...</a
+            >
+          </p>-->
+        </div>
+      </div>
+      <div class="row g-5">
+        <div class="col-md-8">
+          <h3 class="pb-4 mb-4 fst-italic border-bottom">Crisma:<span style="color: red;"> Firmes na Fé</span></h3>
+          <article class="blog-post">
+            <h2 class="display-5 link-body-emphasis mb-1" style="color: white;"><span style="color: white;">Eu Creio</span></h2>
+            <p class="blog-post-meta">
+              22 de Dezembro de 2025, por <a href="autor.html">Emanuel</a>
+            </p>
+            <p style="font-style: italic;font-family: 'Times New Roman', Times, serif;" id="jo20,21-23">
+          "Jesus disse de novo para eles: 'A paz esteja com vocês. Assim como o Pai me enviou, eu também envio vocês.' Tendo falado isso, Jesus soprou sobre eles, dizendo:
+          'Recebam o Espírito Santo. Os pecados daqueles que vocês perdoarem, serão perdoados. Os pecados daqueles que vocês não perdoarem, não serão perdoados.'"<br>João 20,21-23
+            </p>
+            <hr />
+        <p>
+          O sacramento da Crisma se resume a confirmação dos votos do batismo e pela efusão do Espírito Santo naquele que já possui o batismo. Quando (geralmente) o Jovem, recebe
+          o sacramento da Crisma ele dá início a sua "vida pública". Ele confirma que crê no evangelho e que aceita essa fé e esse Espírito Santo que lhe trás os 7 dons:
+          <ul>
+            <li style="color:red"><span style="color: white;"> Sabedoria</span></li>
+            <li style="color:red"><span style="color: white;">Entendimento</span></li>
+            <li style="color:red"><span style="color: white;">Conselho</span></li>
+            <li style="color:red"><span style="color: white;">Fortaleza</span></li>
+            <li style="color:red"><span style="color: white;">Ciência</span></li>
+            <li style="color:red"><span style="color: white;">Piedade</span></li>
+            <li style="color:red"><span style="color: white;">Temor de Deus</span></li>
+          </ul>
+        </p>
+        <blockquote class="blockquote">
+          <p>Os <span style="color: red;">7</span> Dons do Espírito Santo</p>
+        </blockquote>
+        <p><span class="pas">"Existem dons diferentes mas o Espírito é o mesmo; diferentes serviços, mas o Senhor é o mesmo; diferentes modos de agir 
+          mas é o mesmo Deus que realiza tudo em todos. Cada um recebe o dom de manifestar o Espírito para a utilidade de todos. A um o Espírito dá a palavra de sabedoria;
+          a outro a palavra de ciência segundo o mesmo Espírito; a outro, o mesmo Espírito dá a fé; a outro ainda, o único e mesmo Espírito concede o dom das curas; a outro,
+          o poder de fazer milagres; a outro, a profecia; a outro o discernimento dos espíritos; a outro, o dom de as interpretar. Mas é o único e mesmo Espírito quem realiza tudo 
+          isso, distribuindo os seus dons a cada um, conforme ele quer".<br>1 Coríntios 12,4-11<br>
+        </span></p>
+        <blockquote class="blockquote">
+              <p style="color: red;">Sabedoria</p>
+            </blockquote>
+        <p>
+        Eleva o coração e a mente para saborear as coisas de Deus. Dá capacidade de ver tudo à luz divina e buscar sempre o que é correto. Nos mostra a graça de Deus agindo em nossa realidade.
+       </p>
+       <blockquote class="blockquote">
+              <p style="color: red;">Entendimento</p>
+            </blockquote>
+       <p>
+       Permite penetrar nos mistérios da fé, compreendendo-os de forma mais profunda e espiritual. Ajuda a perceber a verdade divina além da lógica humana. 
+       Permite o entendimento da ação de Deus em diversar ocasiões.
+ 
+       </p>
+       <blockquote class="blockquote">
+              <p style="color: red;">Conselho</p>
+            </blockquote>
+        Dá discernimento para tomar decisões corretas, iluminando a consciência diante das escolhas da vida. É como uma bússola espiritual que orienta para o caminho certo.
+       <p>
+       </p>
+       <blockquote class="blockquote">
+              <p style="color: red;">Fortaleza</p>
+            </blockquote>
+                 <p>
+        Concede coragem e firmeza diante das dificuldades, tentações e perseguições. Sustenta o cristão para não desistir da fé e enfrentar desafios com confiança. E reforça 
+        a mensagem mais repetida na Bíblia:<span style="color:goldenrod"> "Não temas"</span>
+       </p>
+       <blockquote class="blockquote">
+              <p style="color: red;">Ciência</p>
+            </blockquote>
+          Ajuda a reconhecer a presença de Deus na criação e a distinguir o que é passageiro do que é eterno. É o dom que leva a ver o mundo com olhos de fé. Vale lembrar
+          que fé e ciência andam juntas, afinal, Deus criou tudo, inclusive tudo que a ciência estuda.
+       <p>
+       </p>
+       <blockquote class="blockquote">
+              <p style="color: red;">Piedade</p>
+            </blockquote>
+            
+       <p>Inspira amor filial a Deus e fraternidade com o próximo. Desperta atitudes de oração, devoção e misericórdia, tornando o coração mais compassivo. Antes de condenar o outro e 
+        relembrar as ofensas do outro, lembra-te que tu ofendeu a Deus por coisas muito maiores e ainda sim Ele te perdoou.
+       </p>
+       <blockquote class="blockquote">
+              <p style="color: red;">Temor de Deus</p>
+            </blockquote>
+            
+       <p>Não é medo, mas reverência e respeito profundo diante da grandeza divina. Mantém o fiel humilde e consciente de sua dependência de Deus. Isso me lembra a famosa passagem de 
+         S. Paulo:<span class="pas"> Eu sei em quem tenho crido, e estou certo de que é poderoso para guardar o meu depósito até àquele dia.</span> Que nós possamos nos lembrar de nossas 
+         fraquezas e de que precisamos de Cristo para viver. Afinal <span class="pas">"Viver é Cristo, Morrer é lucro"</span> e <span class="pas">"Se Deus é por nós, quem será contra nós?"</span>
+       </p>
+       <blockquote class="blockquote">
+        <p>A Crisma tem base bíblica?</p>
+       </blockquote>
+       <p>Sim, além de <a href="#jo20,21-23" style="text-decoration: none; color: goldenrod;">João 20,21-23</a> que já foi citado acima, podemos citar também:
+      <span class="pas" id="atos8,14-17"><br>"Os apóstolos, que estavam em Jerusalém, souberam que a Samaria acolhera a Palavra de Deus, e enviaram para lá Pedro e João. Ao chegarem, 
+      Pedro e João rezaram pelos samaritanos, a fim de que eles recebessem o Espírito Santo. De fato, o Espírito não viera sobre nenhum deles; e os 
+      samaritanos tinham apenas recebido o batismo em nome do Senhor Jesus. Então Pedro e João impuseram as mãos sobre os samaritanos, e eles receberam o Espírito Santo".<br>
+    Atos 8,14-17<br>
+    <span class="pas" id="atos19,5-6">"Ao ouvir isso, eles se fizeram batizar em nome do Senhor Jesus. Logo que Paulo lhes impôs as mãos, 
+      o Espírito Santo desceu sobre eles, e começaram a falar em línguas e a profetizar".<br> Atos 19,5-6
+      </span>
+      </p>
+      <blockquote class="blockquote">
+        <p>Porque o Bispo é quem preside a Crisma?</p>
+      </blockquote>
+      <p>Assim como em <a href="#atos8,14-17" style="text-decoration: none; color: goldenrod;">Atos 8,14-17</a> onde os apóstolos impõem as mãos e o Espírito Santo vem sobre os 
+      samaritanos, o Bispo  (sucessor dos apóstolos) faz com o óleo da Crisma. Por ser sucessor dos apóstolos ele tem essa função dentro da comunidade, bem como outras funções sacerdotais 
+    como: perdoar pecados através da confissão, presidir a celebração da missa, conssagrar a hóstia em Corpo e Sangue de Jeus, guiar a comunidade, efetuar batismos e etc.</p>
+        <blockquote class="blockquote">
+          <p>Como a Crisma ocorre?</p>
+        </blockquote>
+        <p>O sacramento da Crisma ocorre com a unção com o óleo sobre a fronte da pessoa, pelo Bispo. Supondo que o crismando tenha o nome de João, o Bispo pronunciaria:
+           "João, recebe, por este sinal, o dom do Espírito Santo". Esta confirmação imprime na alma do cristão um sinal. Por conta disto só se recebe este sacramento uma vez na vida.
+        </p>
+        <blockquote class="blockquote">
+          <p>O que muda em mim depois da Crisma?</p>
+        </blockquote>
+        <p>Todos nós depois de crismados participamos de maneira intensa da missão de Jesus e da plenitude do Espírito Santo. Agora, o Espírito Santo habita no 
+          seu coração como um templo e você deve frutificar essa graça pelo seu testemunho vivo do Evangelho, isto é, viver segundo os ensinamentos de Jesus e mostrar que 
+          você não vive para este mundo mas sim espera o seu encontro com o Senhor no céu e que você LUTA por esse céu dentro da sua realidade. Depois deste sacramento 
+          nós não "tiramos férias da catequese" e nos afastamos da Igreja. Temos então um compromisso sério de viver segundo Cristo e evangelhisar, seja pela palavra, 
+          pelas nossas ações ou pelo nosso amor. 
+        </p>
+        <p><span class="pas">"A Igreja não quer que algum de seus filhos, mesmo as crianças, deixem este mundo sem ter-se tornado perfeito pelo Espírito Santo 
+          com o dom da plenitude de Cristo".<br>(CDC, cân.883,3)<br>
+        </span>
+        <p>Isso quer dizer que o sacramento da Crisma é obrigatório e não facultativo. Se você pode ser crismado, busque o quanto antes a preparação para receber este lindo e 
+          importantíssimo sacramento. Afinal, pela Crisma:
+          <ul style="color: red;">
+            <li><span style="color: white;">Somos profundamente enraizados na filiação divina, <span class="pas">"Abba, Pai" (Rm 8,15)</span></span></li>
+            <li><span style="color: white;">Somos unidos mais ainda a Cristo</span></li>
+            <li><span style="color: white;">Recebemos os dons e consequentemente os frutos do Espírito Santo</span></li>
+            <li><span style="color: white;">Somos chamados a espalhar e defender a fé que recebemos do próprio Cristo.</span></li>
+          </ul>
+        </p>
+        <p> Para sabermos dos frutos do Espírito Santo, vamos antes conhecer as:
+          <blockquote class="blockquote"><p>Obras da carne:</p>
+        </blockquote></p><ul>
+          <li>Fornicação</li>
+          <li>Impureza</li>
+          <li>Libertinagem</li>
+          <li>Idolatria</li>
+          <li>Feitiçaria</li>
+          <li>Odio</li>
+          <li>Discórdia</li>
+          <li>Ciúme</li>
+          <li>ira</li>
+          <li>Rivalidade</li>
+          <li>Divisão</li>
+          <li>Sectarismo</li>
+          <li>Inveja</li>
+          <li>Bebedeira</li>
+          <li>Orgias</li>
+        </ul>
+        <blockquote class="blockquote">Frutos do Espírito:</blockquote>
+        <p><ul style="color:red">
+          <li><span style="color: white;">Amor</span></li>
+          <li><span style="color: white;">Alegria</span></li>
+          <li><span style="color: white;">Paz</span></li>
+          <li><span style="color: white;">Paciência</span></li>
+          <li><span style="color: white;">Bondade</span></li>
+          <li><span style="color: white;">Benevolência</span></li>
+          <li><span style="color: white;">Fé</span></li>
+          <li><span style="color: white;">Mansidão</span></li>
+          <li><span style="color: white;">Domínio de si</span></li>
+        </ul></p>
+        <p><span class="pas">Se vocês viverem segundo os instintos egoístas, vocês morrerão; mas se com a ajuda do Espírito fazem morrer as obras do corpo, vocês viverão". 
+          <br>Romanos 8,13
+        </span></p>
+      </p>
+        <blockquote class="blockquote">
+          <p>Requisitos para ser <span style="color:goldenrod">Crismado</span>:</p>
+        </blockquote>
+        <p>
+          <ul style="color:goldenrod">
+            <li>Ser batizado</li>
+            <li>Estar em estado de Graça <span style="color:white">(por isso se confessa antes de receber a Crisma)</span></li>
+            <li>O ministro da confirmação <span style="color:white">(o Bispo ou um sacerdote ordenado por ele)</span></li>
+          </ul>
+        </p>
+      <p>Para encerrarmos nosso estudo a respeito deste belíssimo sacramento, vamos listar os efeitos de uma vida com o Espírito Santo:
+        <ul style="color:red">
+        <li><span style="color:white">Gosto pela palavra de Deus</span></li>
+        <li><span style="color:white">Gosto pela oração; intimidade com Deus</span></li>
+        <li><span style="color:white">Vivência do Amor</span></li>
+        <li><span style="color:white">Purificação dos Pecados</span></li>
+        <li><span style="color:white">Gosto pela Liturgia</span></li>
+        <li><span style="color:white">Zelo missionário</span></li>
+        <li><span style="color:white">Amor à Igreja, ao Papa</span></li>
+        <li><span style="color:white">Devoção a nossa Senhora, aos Santos, Anjos</span></li>
+        <li><span style="color:white">Abandono em Deus</span></li>
+        </ul>
+      </p>
+  </nav>
+        </div>
+        <div class="col-md-4">
+          <div class="position-sticky" style="top: 2rem">
+            <div>
+              <div class="card shadow-lg border-0 rounded-4 overflow-hidden my-4">
+  <div class="card-header bg-dark text-white p-3 border-bottom border-secondary">
+    <h5 class="mb-0">Se tiver dúvidas, pergunte a nossa IA</h5>
+  </div>
+  <div class="card-body p-0" style="height: 70vh; min-height: 500px;">
+    <iframe 
+      src="https://ia-catolica.vercel.app/" 
+      style="width: 100%; height: 100%; border: none;" 
+      title="IA Católica"
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+              </div>
+            <div class="p-4">
+              <h4 class="fst-italic">Redes Sociais</h4>
+              <ol class="list-unstyled">
+                <small class="text-body-secondary"
+                       style="color: white;"  ><span style="color: white;">Redes da paróquia:</span></small>
+                <li><a href="https://www.instagram.com/psantoantoniodelisboa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Instagram</a></li>
+                <li><a href="https://www.facebook.com/paroquiastoantoniodelisboa/?locale=pt_BR">Facebook</a></li>
+                <small class="text-body-secondary"
+                     style="color: white;"    ><span style="color: white;">Redes do desenvolvedor:</span></small>
+                <li><a href="https://www.instagram.com/thelimahd/">Instagram </a></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+      <p>
+        Blog template built for
+        <a href="https://getbootstrap.com/" style="text-decoration: none; color: goldenrod;">Bootstrap</a> by
+        <a href="https://x.com/mdo" style="text-decoration: none; color: goldenrod;">@mdo</a>.
+      </p>
+      <p>Site desenvolvido por: <a href="#" style="color: goldenrod;">Emanuel</a></p>
+      <p class="mb-0"><a href="#" style="color: goldenrod;">Voltar ao topo</a></p>
+    </footer>
+    <script
+      src="../assets/dist/js/bootstrap.bundle.min.js"
+      class="astro-vvvwv3sm"
+    ></script>
+  </body>
+</html>

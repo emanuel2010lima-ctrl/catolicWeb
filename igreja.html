@@ -749,5 +749,13 @@
       src="../assets/dist/js/bootstrap.bundle.min.js"
       class="astro-vvvwv3sm"
     ></script>
+    <script>
+  window.onload = function() {
+    // Garante que a página comece no topo (coordenada 0,0)
+    setTimeout(function() {
+      window.scrollTo(0, 0);
+    }, 100); // Um pequeno atraso de 100ms para garantir que o foco da IA já aconteceu
+  };
+</script>
   </body>
 </html>

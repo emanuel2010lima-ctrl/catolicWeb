@@ -51,11 +51,56 @@ html, body {
 .navbar, .nav-scroller {
     background-color: transparent !important;
 }
+/* Container principal da Bíblia */
+.bible-container {
+    border: 1px solid #444;
+    background-color: #1a1a1a !important;
+}
+
+/* Botão Estilizado */
+.btn-ler-agora {
+    background-color: goldenrod;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-ler-agora:hover {
+    background-color: #daa520;
+}
+
+/* AJUSTE CRUCIAL: Área de Leitura */
+.bible-reader-area {
+    height: 70vh; /* No celular, ocupa 70% da altura da tela */
+    overflow-y: auto;
+    line-height: 1.6;
+    font-size: 1.15rem; /* Fonte levemente maior para facilitar leitura no celular */
+    padding: 15px;
+    background-color: #121212;
+    border-radius: 8px;
+}
+
+/* Ajuste para telas muito pequenas */
+@media (max-width: 576px) {
+    .bible-reader-area {
+        height: 60vh; /* Reduz um pouco no celular para sobrar espaço para o menu */
+        font-size: 1.1rem;
+        padding: 10px;
+    }
+    
+    .display-4 { font-size: 2.5rem; } /* Diminui títulos grandes no mobile */
+}
+
+/* Estilo dos versículos */
 #leitor-texto p {
     margin-bottom: 1.2rem;
-    color: #f8f9fa;
+    color: #e0e0e0;
 }
+
 #leitor-texto b {
-    margin-right: 8px;
-    font-size: 0.9em;
+    color: goldenrod;
+    font-size: 0.85rem;
+    margin-right: 5px;
+    vertical-align: super; /* Faz o número do versículo ficar pequeno e no topo */
 }

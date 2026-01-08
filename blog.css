@@ -51,3 +51,11 @@ html, body {
 .navbar, .nav-scroller {
     background-color: transparent !important;
 }
+#leitor-texto p {
+    margin-bottom: 1.2rem;
+    color: #f8f9fa;
+}
+#leitor-texto b {
+    margin-right: 8px;
+    font-size: 0.9em;
+}

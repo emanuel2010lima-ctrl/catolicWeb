@@ -432,10 +432,10 @@
   <div class="row g-5">
     <div class="col-md-8">
       <h3 class="pb-4 mb-4 fst-italic border-bottom">
-        <span style="color: lightcoral;">Bíblia Sagrada</span> - Tradução do Pe. Manuel de Matos Soares
+        <span style="color: lightcoral;">Bíblia Sagrada</span> - Ave Maria
       </h3>
         <P>Se você estiver acessando pelo celular, terá que baixar o PDF pois ele não é visualizado dentro do site no seu caso.</P>
-      <div class="mb-3 d-flex align-items-center gap-3">
+      <!-- <div class="mb-3 d-flex align-items-center gap-3">
         <div class="dropdown">
           <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: goldenrod; color: black; font-weight: bold;">
             Escolher Livro / Seção
@@ -460,15 +460,118 @@
           </ul>
         </div>
         <small class="text-white-50 fst-italic">O PDF saltará para a página escolhida.</small>
-      </div>
+      </div> -->
 
-      <div class="ratio ratio-4x3 shadow rounded overflow-hidden bg-secondary">
-        <iframe 
-          id="leitorBiblia"
-          src="https://yausha.com.br/wp-content/uploads/2022/11/Vulgata-Padre-Matos-Soares-1.pdf#pagemode=bookmarks&view=FitH" 
-          title="Bíblia Sagrada" 
-          allowfullscreen>
-        </iframe>
+      <div class="ratio ratio-1x1 shadow rounded overflow-hidden bg-secondary">
+        <div class="col-md-8">
+  <h3 class="pb-4 mb-4 fst-italic border-bottom" style="text-align: center;">
+    <span style="color: lightcoral;">Bíblia Sagrada</span>
+  </h3>
+
+  <div class="d-flex gap-2 mb-4 flex-wrap">
+  <select id="select-livro" class="form-select w-auto bg-dark text-white border-secondary">
+    <optgroup label="Pentateuco">
+  <option value="Gênesis">Gênesis</option>
+  <option value="Êxodo">Êxodo</option>
+  <option value="Levítico">Levítico</option>
+  <option value="Números">Números</option>
+  <option value="Deuteronômio">Deuteronômio</option>
+</optgroup>
+<optgroup label="Históricos">
+  <option value="Josué">Josué</option>
+  <option value="Juízes">Juízes</option>
+  <option value="Rute">Rute</option>
+  <option value="I Samuel">1 Samuel</option>
+  <option value="II Samuel">2 Samuel</option>
+  <option value="I Reis">1 Reis</option>
+  <option value="II Reis">2 Reis</option>
+  <option value="I Crônicas">1 Crônicas</option>
+  <option value="II Crônicas">2 Crônicas</option>
+  <option value="Esdras">Esdras</option>
+  <option value="Neemias">Neemias</option>
+  <option value="Tobias">Tobias</option>
+  <option value="Judite">Judite</option>
+  <option value="Ester">Ester</option>
+  <option value="I Macabeus">1 Macabeus</option>
+  <option value="II Macabeus">2 Macabeus</option>
+</optgroup>
+<optgroup label="Sapienciais">
+  <option value="Jó">Jó</option>
+  <option value="Salmos">Salmos</option>
+  <option value="Provérbios">Provérbios</option>
+  <option value="Eclesiastes">Eclesiastes</option>
+  <option value="Cântico dos Cânticos">Cântico dos Cânticos</option>
+  <option value="Sabedoria">Sabedoria</option>
+  <option value="Eclesiástico">Eclesiástico</option>
+</optgroup>
+<optgroup label="Profetas Maiores">
+  <option value="Isaías">Isaías</option>
+  <option value="Jeremias">Jeremias</option>
+  <option value="Lamentações">Lamentações</option>
+  <option value="Baruc">Baruc</option>
+  <option value="Ezequiel">Ezequiel</option>
+  <option value="Daniel">Daniel</option>
+</optgroup>
+<optgroup label="Profetas Menores">
+  <option value="Oseias">Oseias</option>
+  <option value="Joel">Joel</option>
+  <option value="Amós">Amós</option>
+  <option value="Abdias">Abdias</option>
+  <option value="Jonas">Jonas</option>
+  <option value="Miqueias">Miqueias</option>
+  <option value="Naum">Naum</option>
+  <option value="Habacuc">Habacuc</option>
+  <option value="Sofonias">Sofonias</option>
+  <option value="Ageu">Ageu</option>
+  <option value="Zacarias">Zacarias</option>
+  <option value="Malaquias">Malaquias</option>
+</optgroup>
+<optgroup label="Evangelhos e Atos">
+  <option value="São Mateus">Mateus</option>
+  <option value="São Marcos">Marcos</option>
+  <option value="São Lucas">Lucas</option>
+  <option value="São João">João</option>
+  <option value="Atos dos Apóstolos">Atos dos Apóstolos</option>
+</optgroup>
+<optgroup label="Epístolas de São Paulo">
+  <option value="Romanos">Romanos</option>
+  <option value="I Coríntios">1 Coríntios</option>
+  <option value="II Coríntios">2 Coríntios</option>
+  <option value="Gálatas">Gálatas</option>
+  <option value="Efésios">Efésios</option>
+  <option value="Filipenses">Filipenses</option>
+  <option value="Colossenses">Colossenses</option>
+  <option value="I Tessalonicenses">1 Tessalonicenses</option>
+  <option value="II Tessalonicenses">2 Tessalonicenses</option>
+  <option value="I Timóteo">1 Timóteo</option>
+  <option value="II Timóteo">2 Timóteo</option>
+  <option value="Tito">Tito</option>
+  <option value="Filêmon">Filêmon</option>
+  <option value="Hebreus">Hebreus</option>
+</optgroup>
+<optgroup label="Epístolas Católicas e Apocalipse">
+  <option value="São Tiago">Tiago</option>
+  <option value="I São Pedro">1 Pedro</option>
+  <option value="II São Pedro">2 Pedro</option>
+  <option value="I São João">1 João</option>
+  <option value="II São João">2 João</option>
+  <option value="III São João">3 João</option>
+  <option value="São Judas">Judas</option>
+  <option value="Apocalipse">Apocalipse</option>
+</optgroup>
+</select>
+
+ <input type="number" id="select-capitulo" class="form-control w-auto bg-dark text-white border-secondary" value="1" min="1">
+
+  <button onclick="carregarTexto()" class="btn" style="background-color: goldenrod; color: black; font-weight: bold; max-height: 80px;">
+    Ler Agora
+  </button>
+</div>
+
+  <div id="leitor-texto" class="p-4 rounded shadow-sm bg-dark border border-secondary" style="height: 1000px; overflow-y: auto; line-height: 1.8; font-size: 1.1rem;">
+    <p class="text-muted text-center mt-5">Selecione um livro e capítulo para começar a leitura.</p>
+  </div>
+</div>
       </div>
     </div>
 
@@ -523,18 +626,42 @@
   };
 </script>
 <script>
-  function irParaPagina(num) {
-    const iframe = document.getElementById('leitorBiblia');
-    const urlBase = "https://yausha.com.br/wp-content/uploads/2022/11/Vulgata-Padre-Matos-Soares-1.pdf";
-    
-    // 1. Primeiro limpamos o src para "resetar" o componente
-    iframe.src = ""; 
-    
-    // 2. Usamos um pequeno delay (tempo de um piscar de olhos) para carregar a nova página
-    setTimeout(() => {
-      iframe.src = urlBase + "#page=" + num + "&pagemode=bookmarks&view=FitH";
-    }, 50);
+let bibliaCache = null;
+
+async function carregarTexto() {
+  const livroSelecionado = document.getElementById('select-livro').value;
+  const capituloSelecionado = parseInt(document.getElementById('select-capitulo').value);
+  const container = document.getElementById('leitor-texto');
+
+  try {
+    if (!bibliaCache) {
+      const response = await fetch('biblia.json');
+      bibliaCache = await response.json();
+    }
+
+    // Procura primeiro no Antigo Testamento, se não achar, procura no Novo
+    let livro = bibliaCache.antigoTestamento.find(l => l.nome === livroSelecionado);
+    if (!livro) {
+      livro = bibliaCache.novoTestamento.find(l => l.nome === livroSelecionado);
+    }
+
+    // Encontra o capítulo (o seu JSON usa o número do capítulo como identificador)
+    const capitulo = livro ? livro.capitulos.find(c => c.capitulo === capituloSelecionado) : null;
+
+    if (livro && capitulo) {
+      let html = `<h2 style="color: goldenrod;">${livro.nome} ${capituloSelecionado}</h2><hr>`;
+      capitulo.versiculos.forEach(v => {
+        html += `<p><b style="color: goldenrod;">${v.versiculo}</b> ${v.texto}</p>`;
+      });
+      container.innerHTML = html;
+      container.scrollTop = 0;
+    } else {
+      container.innerHTML = '<p class="text-danger">Livro ou Capítulo não encontrado.</p>';
+    }
+  } catch (e) {
+    container.innerHTML = '<p class="text-danger">Erro ao ler o ficheiro biblia.json.</p>';
   }
+}
 </script>
   </body>
 </html>

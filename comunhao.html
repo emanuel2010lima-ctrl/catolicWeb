@@ -527,7 +527,7 @@ os fiéis beberão do vinho novo (169) tornado sangue de Cristo. <br>(Cat. n. 13
         Exemplificando: O que faz de mim um homem? Olhos? Ouvidos? Pelos? cérebro? Não, os animais também tem tudo isso. Oque me faz homem é a minha essência. Que é oque ninguém 
         vê, o meu espírito. Do mesmo modo, a matéria do pão ainda é pão, mas a essência dele é o corpo de Cristo Jesus (Mesma coisa com o vinho).
         <p>Se quiser saber a diferença entre alma e espírito
-        <a href="javascript:void(0)"onclick="toggleCaixa()" style="color: goldenrod; text-decoration: underline;">
+        <a href="javascript:void(0)" onclick="toggleCaixa('caixa-informativa')" style="text-decoration: none; color: goldenrod;">
           clique aqui</a></p>
         <div id="caixa-informativa" class="caixa-oculta shadow-lg">
     <div class="d-flex justify-content-between align-items-center mb-2">
@@ -545,7 +545,7 @@ os fiéis beberão do vinho novo (169) tornado sangue de Cristo. <br>(Cat. n. 13
     <blockquote class="blockquote">
       <p>Por que eu devo comungar?</p>
     </blockquote>
-    <p><a href="javascript:void(0)"onclick="toggleCaixa()" style="color: goldenrod; text-decoration: underline;">
+    <p><a href="javascript:void(0)" onclick="toggleCaixa('caixa-informativa2')" style="text-decoration: none; color: goldenrod;">
       (antes clique aqui para ver o que é necessário para a comunhão)</a>
       
       <div id="caixa-informativa2" class="caixa-oculta shadow-lg">
@@ -623,19 +623,8 @@ Portanto, lembre-se da sua NECESSIDADE de comungar DIÁRIAMENTE se for possível
   };
 </script>
 <script>
-  function toggleCaixa() {
-    const caixa = document.getElementById('caixa-informativa');
-    
-    if (caixa.style.display === "block") {
-        caixa.style.display = "none";
-    } else {
-        caixa.style.display = "block";
-    }
-}
-</script>
-<script>
-  function toggleCaixa() {
-    const caixa = document.getElementById('caixa-informativa2');
+function toggleCaixa(idDaCaixa) {
+    const caixa = document.getElementById(idDaCaixa);
     
     if (caixa.style.display === "block") {
         caixa.style.display = "none";

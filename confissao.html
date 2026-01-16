@@ -274,98 +274,71 @@
           </div>
         </div>
       </header>
-    <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <li class="nav-item">
-    <a class="nav-link" href="biblia.html" style="color:lightcoral;">Bíblia</a>
-  </li>
-    <a class="nav-link" href="index.html" style="color:white;">Comunidade</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="igreja.html" style="color:white;">Igreja</a>
-  </li>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuCatequese" aria-controls="menuCatequese" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div class="btn-group">
-  
-  <span data-bs-toggle="dropdown" class="btn btn-outline-warning text-white" style="border-color: goldenrod; background-color: transparent;">
-    Sacramentos
-  </span>
-  
-  <button type="button" class="btn btn-outline-warning dropdown-toggle dropdown-toggle-split text-white" 
-          data-bs-toggle="dropdown" aria-expanded="false" 
-          style="border-color: goldenrod; background-color: goldenrod;">
-    <span class="visually-hidden">Toggle Dropdown</span>
-  </button>
-  
-  <ul class="dropdown-menu dropdown-menu-dark border-secondary">
-    <li><h6 class="dropdown-header text-warning">Sacramentos da Igreja</h6></li>
-    <li><a class="dropdown-item" href="batismo.html" style="color:white">Batismo</a></li>
-    <li><a class="dropdown-item" href="crisma.html" style="color:white">Crisma</a></li>
-    <li><a class="dropdown-item active" href="confissao.html" style="color:rgb(37, 130, 252);">Confissão</a></li>
-    <!-- <li><hr class="dropdown-divider border-secondary"></li> -->
-    <li><a class="dropdown-item" href="comunhao.html" style="color:white">Comunhão</a></li>
-  </ul>
-</div>
+    <div class="collapse navbar-collapse" id="menuCatequese">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="biblia.html" style="color: lightcoral;">Bíblia</a>
+        </li>
 
-<div class="btn-group">
-  
-  <span data-bs-toggle="dropdown" class="btn btn-outline-warning text-white" style="border-color: goldenrod; background-color: transparent;">
-   Vocações
-  </span>
-  
-  <button type="button" class="btn btn-outline-warning dropdown-toggle dropdown-toggle-split text-white" 
-          data-bs-toggle="dropdown" aria-expanded="false" 
-          style="border-color: goldenrod; background-color: goldenrod;">
-    <span class="visually-hidden">Toggle Dropdown</span>
-  </button>
-  
-  <ul class="dropdown-menu dropdown-menu-dark border-secondary">
-    <li><h6 class="dropdown-header text-warning">Vocações</h6></li>
-    <li><a class="dropdown-item" href="santidade.html" style="color:white">Santidade</a></li>
-    <li><a class="dropdown-item" href="ordem.html" style="color:white">Ordem</a></li>
-    <li><a class="dropdown-item" href="confissao.html" style="color:white">Matrimônio</a></li>
-  </ul>
-</div>
-  <div class="btn-group">
-  
-  <span data-bs-toggle="dropdown"class="btn btn-outline-warning text-white" style="border-color: goldenrod; background-color: transparent;">
-    Santos
-  </span>
-  
-  <button type="button" class="btn btn-outline-warning dropdown-toggle dropdown-toggle-split text-white" 
-          data-bs-toggle="dropdown" aria-expanded="false" 
-          style="border-color: goldenrod; background-color: goldenrod;">
-    <span class="visually-hidden">Toggle Dropdown</span>
-  </button>
-  
-  <ul class="dropdown-menu dropdown-menu-dark border-secondary">
-    <li><h6 class="dropdown-header text-warning">Principais Devoções</h6></li>
-    <li><hr class="dropdown-divider border-secondary"></li>
-  <li><a class="dropdown-item" href="santos.html" style="color:goldenrod">Intercessão do Santos</a></li>
-    <li><hr class="dropdown-divider border-secondary"></li>
-    <li><a class="dropdown-item" href="maria.html" style="color:aqua
-    ">Nossa Senhora (Maria)</a></li>
-    <li><a class="dropdown-item" href="jose.html" style="color:greenyellow
-    ">São José</a></li>
-    <li><a class="dropdown-item" href="joao.html" style="color:goldenrod">São João Batista</a></li>
-  
-    <li><hr class="dropdown-divider border-secondary"></li>
-    <li><a class="dropdown-item" href="antonio.html">Santo Antônio de Lisboa</a></li>
-  </ul>
-</div>
-  <li class="nav-item">
-    <a class="nav-link" href="oracao.html" style="color:white;">Oração</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="personalidade.html" style="color:white;">Personalidade</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="amor.html" style="color:white;">Amor</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="missa.html" style="color:white;">Missa</a>
-  </li>
-  </ul>
+        <li class="nav-item">
+          <a class="nav-link" style="color:white" href="index.html">Comunidade</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="igreja.html">Igreja</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sacramentos
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="batismo.html">Batismo</a></li>
+            <li><a class="dropdown-item" href="crisma.html">Crisma</a></li>
+            <li><a class="dropdown-item active" href="confissao.html" style="color:rgb(37, 130, 252);">Confissão</a></li>
+            <li><a class="dropdown-item" href="comunhao.html">Comunhão</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Vocações
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="santidade.html">Santidade</a></li>
+            <li><a class="dropdown-item" href="ordem.html">Ordem</a></li>
+            <li><a class="dropdown-item" href="matrimonio.html">Matrimônio</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
+            Santos
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="santos.html" style="color: goldenrod">Intercessão dos Santos</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="maria.html" style="color: aqua">Maria</a></li>
+            <li><a class="dropdown-item" href="jose.html" style="color: greenyellow">José</a></li>
+            <li><a class="dropdown-item" href="antonio.html">Santo Antônio</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link text-white" href="oracao.html">Oração</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="personalidade.html">Personalidade</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="amor.html">Amor</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="missa.html">Missa</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
      <!-- <nav class="navbar  fixed-top">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">

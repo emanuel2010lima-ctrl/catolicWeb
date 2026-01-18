@@ -129,3 +129,8 @@ html, body {
     /* Se quiser que fique dourado como seus links principais: */
     /* border-left: 3px solid goldenrod; */ 
 }
+  .lg{
+        width:70px; 
+       margin-right:-80px;
+      
+      }

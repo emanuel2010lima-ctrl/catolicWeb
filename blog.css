@@ -3,6 +3,7 @@
 .blog-header-logo {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
   font-size: 2.25rem;
+  
 }
 
 .blog-header-logo:hover {
@@ -129,8 +130,24 @@ html, body {
     /* Se quiser que fique dourado como seus links principais: */
     /* border-left: 3px solid goldenrod; */ 
 }
-  .lg{
-        width:70px; 
-       margin-right:-80px;
-      
-      }
+.lg {
+  width: 50px; /* Reduzimos um pouco para caber melhor no celular */
+  height: auto;
+}
+
+/* Ajuste para o título não ficar grudado na logo */
+.blog-header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Cria um espaço fixo entre a logo e o texto sem quebrar o layout */
+  font-size: 1.2rem; /* Tamanho ajustável para celular */
+}
+
+@media (min-width: 768px) {
+  .lg {
+    width: 70px; /* Tamanho original para computador */
+  }
+  .blog-header-logo {
+    font-size: 2rem;
+  }
+}

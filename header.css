@@ -39,7 +39,24 @@ header{
     border-bottom: 3px solid #efc200;
 }
 
+/* Força a cor branca em todos os estados do link no menu */
+#nav_list .nav-item a, 
+#mobile_nav_list .nav-item a {
+    color: white !important;
+    text-decoration: none !important;
+}
 
+/* Garante que ele continue branco mesmo após o clique ou ao passar o mouse */
+#nav_list .nav-item a:visited,
+#nav_list .nav-item a:hover,
+#nav_list .nav-item a:active {
+    color: white !important;
+}
+
+/* Se você quiser que o efeito dourado do hover continue funcionando, use: */
+#nav_list .nav-item a:hover {
+    color: #efc200 !important;
+}
 #mobile_btn {
     display: none;
 }

@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*  estilo principal */
+* {
+   font-family: 'Poppins', sans-serif; 
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   color: white;
+}
+
+body {
+    background-color: black;
+}
+
+.btn-default {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #efc200;
+    border-radius: 40px;
+    padding: 10px 14px;
+    font-weight: 700;
+    transition: background-color .3s ease;
+    color: black;
+    text-decoration: none;
+}
+
+.btn-default:hover {
+    background-color: white;
+    color: #efc200; 
+}
+
+
+/* header */
+header{
+    width: 100%;
+    padding: 8px 8%;
+    position: sticky;
+    top: 0;
+    background-color: black;
+}
+
+#navbar {
+    width:  100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+#nav_list {
+    display: flex;
+    list-style: none;
+    gap: 45px
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.nav-item a:hover {
+    color: #efc200;
+    border-bottom: 3px solid #efc200;
+}
+
+.nav-item.active a {
+    border-bottom: 3px solid #efc200;
+}
+
+
+#mobile_btn {
+    display: none;
+}
+
+#mobile_menu {
+    display: none;
+}
+
+@media screen and (max-width: 1170px) {
+    #nav_list,
+    #navbar .btn-default {
+        display: none;
+    }
+
+    #mobile_btn {
+        display: block;
+        border: none;
+        background-color: transparent;
+        font-size: 1.6rem;
+        cursor: pointer;
+        color: white;
+    }
+
+    #mobile_menu.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mobile_nav_list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 12px 0px;
+
+    }
+
+    #mobile_nav_list .nav-item {
+        list-style: none;
+        text-align: center;
+    }
+}
+
+
+/* home */
+@import url('https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+#home {
+    background-image: url('../../imagens/img1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.title {
+    font-family: "Economica", sans-serif;
+    text-align: center;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 450%;
+}
+
+.description {
+    text-align: center;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 150%;
+}
+
+#cta_buttons_1 {
+    text-align: center;
+    align-items: center;
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: space-around;
+}
+
+#btn-forms {
+    justify-content: center;
+    border-radius: 40px;
+    padding: 10px 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    font-size: 90%;
+}
+
+.phone-btn {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 40px;
+    padding: 10px 14px;
+    font-weight: 700;
+    transition: background-color .3s ease;
+    color: #efc200;
+    border: solid 2px  #efc200;
+    text-decoration: none;
+}
+
+.phone-btn:hover {
+    background-color: transparent;
+    color: white; 
+    border: solid 2px  white;
+}
+
+#phone_button {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1170px) {
+    .title {
+        font-size: 150;
+    }
+    .description {
+        font-size: 100%;
+    }
+
+    #cta_buttons_1 {
+        text-align: center;
+        align-items: center;
+        width: 100%;
+        display: auto;
+        flex-direction: column;
+        margin: auto;
+        margin-bottom:12px;
+    }
+}
+
+/* inovação */
+@import url('https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+#inovacao {
+    background-image: url('../../imagens/img2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.text-1 {
+    margin-left: 80px;
+    margin-right: 80px;
+    font-weight: 300;
+    font-size: 150%;
+}
+
+.text-2 {
+    margin-left: 80px;
+    margin-right: 80px;
+    font-weight: 700;
+    font-size: 140%;
+}
+
+.text-3 {
+    margin-left: 80px;
+    margin-right: 80px;
+    font-weight: 300;
+    font-size: 150%;
+}
+
+#btn-inovacao {
+    margin: auto;
+    border-radius: 40px;
+    padding: 10px 40px;
+    font-weight: 700;
+    font-size: 100%;
+}
+
+
+
+@media screen and (max-width: 1170px) {
+    .inovacao {
+        background-image: url('../../imagens/img2.1.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; 
+    }
+
+    .text-1 {
+        margin-left: 80px;
+        margin-right: 80px;
+        font-weight: 300;
+        font-size: 100%;
+    }
+    
+    .text-2 {
+        margin-left: 80px;
+        margin-right: 80px;
+        font-weight: 700;
+        font-size: 80%;
+    }
+    
+    .text-3 {
+        margin-left: 80px;
+        margin-right: 80px;
+        font-weight: 300;
+        font-size: 100%;
+    }
+
+    .title {
+        font-size: 250%;
+    }
+}
+
+/* metodologia */
+#metodologia {
+    align-items: center;
+    justify-content: center;
+    text-align: center;  
+    background-image: url(../../imagens/img3.2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#cta_buttons_2 {
+    text-align: center;
+    align-items: center;
+    width: 20%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    font-size: 110%;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+}
+
+ @media screen and (max-width: 785px) {
+    .metodologia {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-image: url(../../imagens/img3.1.png);
+    }
+    .img-met1 {
+        content: url(../../imagens/icon1-mobile.png);
+        width: 80%;
+        height: 80%;
+    }
+    .img-met2 {
+        content: url(../../imagens/icon2-mobile.png);
+        width: 80%;
+        height: 80%;
+    }
+
+    .img-met3 {
+        content: url(../../imagens/icon3-mobile.png);
+        width: 80%;
+        height: 80%;
+    }
+
+    .img-met4 {
+        content: url(../../imagens/icon4-mobile.png);
+        width: 80%;
+        height: 80%;
+    }
+
+    .img-met5 {
+        content: url(../../imagens/icon5-mobile.png);
+        width: 80%;
+        height: 80%;
+    }
+
+    #cta_buttons_2 {
+        text-align: center;
+        align-items: center;
+        width: 40%;
+        display: auto;
+        flex-direction: column;
+        margin: auto;
+        margin-bottom:12px;
+        font-size: 100%;
+        
+    }
+   
+ }
+
+/* sobre-nos */
+
+#sobre-nos {
+    background-color: #1f1f1f;
+}
+
+.text {
+    margin-left: 80px;
+    margin-right: 80px;
+    /* margin-right: 650px; */
+    font-weight: 300;
+    font-size: 150%;
+}
+
+@media screen and (max-width: 1170px) {
+ 
+    .text {
+        margin-left: 20px;
+        margin-right: 20px;
+        font-weight: 300;
+        font-size: 100%;
+    }
+}
+
+/* rodapé */
+
+footer{
+    position: fixed;
+    bottom:0;
+    left: 0;
+}
+
+.rodape {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+}
+
+
+.social-media {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;    
+}
+
+
+#social-media-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 30px;
+    background-color: #efc200;
+    font-size: 1.25rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-neutral-1);
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow .3s ease;
+    margin: 0 10px;
+}
+
+#social-media-buttons a:hover {
+    box-shadow: 0px 0px 12px 8px rgba(0, 0, 0, 0.1);
+    background-color:  #1f1f1f;
+
+}
+
+#direitos a {
+    text-decoration: none;
+}
+
+#direitos a:hover {
+    color: #efc200;
+    text-decoration: line;
+}
+
+@media screen and (max-width: 1170px) {
+ 
+    .rodape {
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+}

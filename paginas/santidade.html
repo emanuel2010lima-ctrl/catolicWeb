@@ -11,7 +11,7 @@
     <meta name="generator" content="Astro v5.13.2" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title style="color: white;">O que é ser Católico?</title>
-    <link rel="icon" type="image/png"class="logo" href="imagens/logo1.png">
+    <link rel="icon" type="image/png"class="logo" href="../imagens/logo1.png">
     <link
       rel="canonical"
       href="https://getbootstrap.com/docs/5.3/examples/blog/"
@@ -23,7 +23,10 @@
       href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap"
       rel="stylesheet"
     />
-    <link href="blog.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link href="../blog.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../header.css">
     <style>
         .logo{
             height: 50px;
@@ -102,13 +105,13 @@
         display: block !important;
       }
       .bgs{
-        background-image: url(imagens/santidade.jpg);
+        background-image: url(../imagens/santidade.jpg);
         background-position: 60% 60%;
       }
     
     </style>
   </head>
-  <body class="bg-dark">
+  <body class="b">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path
@@ -232,200 +235,40 @@
       </symbol>
     </svg>
     <div class="container">
-      <header class="border-bottom lh-1 py-3">
-        <div class="row flex-nowrap justify-content-between align-items-center">
-          <div class="col-4 pt-1">
-            <!--<a class="link-secondary" href="#">Subscribe</a>-->
-          </div>
-          <div class="col-4 text-center d-flex align-items-center justify-content-center">
-  <a class="blog-header-logo text-decoration-none" href="index.html">
-    <img src="imagens/logo1.png" class="lg" alt="Logo">
-    <div class="d-flex flex-column flex-md-row align-items-center">
-       <span class="text-white">O QUE É SER&nbsp;</span>
-       <span style="color: goldenrod;">CATÓLICO?</span>
-    </div>
-  </a>
-</div>
-          <div class="col-4 d-flex justify-content-end align-items-center">
-            <a class="link-secondary" href="#" aria-label="Search">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                class="mx-3"
-                role="img"
-                viewBox="0 0 24 24"
-                style="color:white"
-              >
-                <title>Search</title>
-                <circle cx="10.5" cy="10.5" r="7.5"></circle>
-                <path d="M21 21l-5.2-5.2"></path>
-              </svg>
-            </a>
-            <a class="btn btn-sm btn-outline-secondary"style="color:white;border-color:white" href="login.html">Login</a>
-          </div>
-        </div>
-      </header>
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuCatequese" aria-controls="menuCatequese" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="menuCatequese">
-      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
-        
-        <li class="nav-item">
-          <a class="nav-link" href="biblia.html" style="color: lightcoral;">Bíblia</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" style="color:white" href="index.html">Comunidade</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="igreja.html">Igreja</a>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sacramentos
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="batismo.html">Batismo</a></li>
-            <li><a class="dropdown-item" href="crisma.html">Crisma</a></li>
-            <li><a class="dropdown-item" href="confissao.html">Confissão</a></li>
-            <li><a class="dropdown-item" href="comunhao.html">Comunhão</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Vocações
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item active" href="santidade.html" style="color: goldenrod;">Santidade</a></li>
-            <li><a class="dropdown-item" href="ordem.html">Ordem</a></li>
-            <li><a class="dropdown-item" href="matrimonio.html">Matrimônio</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
-            Santos
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="santos.html" style="color: goldenrod">Intercessão dos Santos</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="maria.html" style="color: aqua">Maria</a></li>
-            <li><a class="dropdown-item" href="jose.html" style="color: greenyellow">José</a></li>
-            <li><a class="dropdown-item" href="antonio.html">Santo Antônio</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item"><a class="nav-link text-white" href="oracao.html">Oração</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="personalidade.html">Personalidade</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="amor.html">Amor</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="missa.html">Missa</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-      <!--<nav class="navbar  fixed-top">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="color: goldenrod;">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Igreja</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Comunidade</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="batismo.html">Batismo</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="crisma.html">Crisma</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="confissao.html">Confissão</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="comunhao.html">Comunhão</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Ordem.html">Ordem</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="matrimonio.html">Matrimônio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="santidade.html">Santidade</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="oracao.html">Oração</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="personalidade.html">Personalidade</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="amor.html">Amor</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="missa.html">Missa</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Santos
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="maria.html" style="color: aqua;">Maria</a></li>
-              <li><a class="dropdown-item" href="jose.html" style="color:chartreuse;">José</a></li>
-              <li><a class="dropdown-item" href="joao.html" style="color:yellow;">João</a></li>
-            </ul>
-          </li>
+       <header>
+    <nav id="navbar">
+        <img src="../imagens/logo1.png"class="lg" id="nav_logo" alt="Logo">
+        <ul id="nav_list">
+            <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="batismo.html">Batismo</a></li>
+            <li class="nav-item"><a href="confissao.html">Confissão</a></li>
+            <li class="nav-item"><a href="comunhao.html">Comunhão</a></li>
+             <li class="nav-item"><a href="crisma.html">Crisma</a></li>
+            <li class="nav-item"><a href="igreja.html">Igreja</a></li>
+            <li class="nav-item active"><a href="santidade.html">Santos</a></li>
+            <li class="nav-item"><a href="oracoes.html">Orações</a></li>
+            <li class="nav-item"><a href="login.html">Login</a></li>
         </ul>
-      </div>
+        <button id="mobile_btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+    <div id="mobile_menu">
+        <ul id="mobile_nav_list">
+            <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="batismo.html">Batismo</a></li>
+            <li class="nav-item" ><a href="confissao.html">Confissão</a></li>
+            <li class="nav-item"><a href="comunhao.html">Comunhão</a></li>
+             <li class="nav-item active"><a href="crisma.html">Crisma</a></li>
+            <li class="nav-item"><a href="igreja.html">Igreja</a></li>
+            <li class="nav-item active"><a href="santidade.html">Santos</a></li>
+            <li class="nav-item"><a href="oracoes.html">Orações</a></li>
+            <li class="nav-item"><a href="login.html">Login</a></li>
+            </ul>
     </div>
-  </div>
-</nav>
-      <div class="nav-scroller py-1 mb-3 border-bottom">
-        <nav class="nav nav-underline justify-content-between">
-          <a class="nav-item nav-link link-body-emphasis" href="index.html"
-            >Comunidade</a
-          >
-          <a class="nav-item nav-link link-body-emphasis active" href="igreja.html">Igreja?</a>
-          <a class="nav-item nav-link link-body-emphasis" href="batismo.html"
-            >Batismo</a
-          >
-          <a class="nav-item nav-link link-body-emphasis" href="crisma.html">Crisma</a>
-          <a class="nav-item nav-link link-body-emphasis" href="confissao.html">Confissão</a>
-          <a class="nav-item nav-link link-body-emphasis" href="comunhao.html">Comunhão</a>
-          <a class="nav-item nav-link link-body-emphasis" href="ordem.html">Ordem</a>
-          <a class="nav-item nav-link link-body-emphasis" href="matrimonio.html">Matrimônio</a>
-          <a class="nav-item nav-link link-body-emphasis" href="santidade.html">Santidade</a>
-          <a class="nav-item nav-link link-body-emphasis" href="oracao.html">Oração</a>
-          <a class="nav-item nav-link link-body-emphasis" href="personalidade.html">Personalidade</a>
-          <a class="nav-item nav-link link-body-emphasis" href="santos.html">Santos de Devoção</a>
-          <a class="nav-item nav-link link-body-emphasis" href="maria.html"><span style="color:aqua">Maria</span></a>
-          <a class="nav-item nav-link link-body-emphasis" href="maria.html"><span style="color:chartreuse">José</span></a>
-          <a class="nav-item nav-link link-body-emphasis" href="missa.html">Santa Missa</a>
-          <a class="nav-item nav-link link-body-emphasis" href="amor.html"><span style="color: goldenrod;">Amor</span></a>
-        </nav>
-      </div>-->
+</header>
     </div>
   <main class="container">
     <div class="bgs">
@@ -645,45 +488,31 @@ Foi então dada a cada um deles uma veste branca, e foi-lhes dito que aguardasse
 <p>Os santos aqui não estão agindo depois da volta de Cristo. Pois como vemos, eles aimda rogam por justiça. E eles não dormem e sim estão ativos rogando para que se completem os que "estavam com eles para serem mortos". Vemos que os santos interagem com Deus sobre assuntos aqui deste plano. 
   Vemos que os santos participam do conhecimento divino sobre oque ocorre na terra e que eles podem conversar com Deus e saber do que acontece.</p>
 
-</nav>
-        </div>
-        <div class="col-md-4">
+</article> </div> <div class="col-md-4">
           <div class="position-sticky" style="top: 2rem">
-            <div>
-              <div class="card shadow-lg border-0 rounded-4 overflow-hidden my-4">
-  <div class="card-header bg-dark text-white p-3 border-bottom border-secondary">
-    <h5 class="mb-0">Se tiver dúvidas, pergunte a nossa IA</h5>
-  </div>
-  <div class="card-body p-0" style="height: 70vh; min-height: 500px;">
-    <iframe 
-      src="https://ia-catolica.vercel.app/" 
-      style="width: 100%; height: 100%; border: none;" 
-      title="IA Católica"
-      loading="lazy">
-    </iframe>
-  </div>
-</div>
-              </div>
-            <div class="p-4">
-              <h4 class="fst-italic">Redes Sociais</h4>
-              <ol class="list-unstyled">
-                <small class="text-body-secondary"
-                         style="color: white;"><span style="color: white;">Redes da paróquia:</span></small>
-                <li><a href="https://www.instagram.com/psantoantoniodelisboa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Instagram</a></li>
-                <li><a href="https://www.facebook.com/paroquiastoantoniodelisboa/?locale=pt_BR">Facebook</a></li>
-                <small class="text-body-secondary"
-                         style="color: white;"><span style="color: white;">Redes do desenvolvedor:</span></small>
-                <li><a href="https://www.instagram.com/thelimahd/">Instagram </a></li>
-              </ol>
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden my-4">
+              <div class="card-header bg-dark text-white p-3 border-bottom border-secondary">
+                <h5 class="mb-0">Se tiver dúvidas, pergunte a nossa IA</h5>
+              </div>
+              <div class="card-body p-0" style="height: 70vh; min-height: 500px;">
+                <iframe src="https://ia-catolica.vercel.app/" style="width: 100%; height: 100%; border: none;" title="IA Católica" loading="lazy"></iframe>
+              </div>
             </div>
           </div>
-        </div>
+        </div> </div> </main> <footer class="py-5 text-center bg-body-tertiary">
+      <div class="container">
+        <section class="footer-content">
+          <div class="rodape" id="direitos">
+            <img src="../imagens/logo1.png" style="height: 60px;" id="footer_logo"><br><br>
+            <p class="ca">2026 © Todos os direitos reservados.</p>
+            <p class="ctt"><a href="autor.html" class="ca">Desenvolvido por Emanuel</a></p>
+          </div>
+          <div class="social-media" id="social-media-buttons">
+            <a href="https://wa.me/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </section>
       </div>
-    </main>
-    <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
-      
-      <p>Site desenvolvido por: <a href="#" style="color: goldenrod;">Emanuel</a></p>
-      <p class="mb-0"><a href="#" style="color: goldenrod;">Voltar ao topo</a></p>
     </footer>
     <script
       src="../assets/dist/js/bootstrap.bundle.min.js"

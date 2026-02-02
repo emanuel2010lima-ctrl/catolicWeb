@@ -516,5 +516,13 @@
     }, 100); // Um pequeno atraso de 100ms para garantir que o foco da IA já aconteceu
   };
 </script>
+<script>
+    const mobileBtn = document.getElementById('mobile_btn');
+    const mobileMenu = document.getElementById('mobile_menu');
+
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active'); // Isso ativa o display flex configurado no styles.css
+    });
+</script>
   </body>
 </html>

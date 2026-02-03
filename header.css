@@ -116,11 +116,14 @@ ul, li {
     padding-left: 0;
     background-color: black;
     color: white;
+    border: solid 1px white;
 }
 
 #mobile_menu li {
     list-style: none;
 }
+
+
 
 /* DESKTOP: submenu oculto */
 @media screen and (min-width: 1171px) {

@@ -1,33 +1,20 @@
-$(document).ready(function() {
-    $('#mobile_btn').on('click', function () {
-        $('#mobile_menu').toggleClass('active');
-        $('#mobile_btn').find('i').toggleClass('fa-x');
-    });
-}); 
-
-document.querySelectorAll('.dropdown-btn').forEach(btn => {
-    btn.addEventListener('click', function () {
-        const li = this.closest('li');
-        const submenu = li.querySelector('ul');
-        const icon = this.querySelector('i');
-
-        const isOpen = submenu.style.display === 'block';
-
-        // fecha todos
-        document.querySelectorAll('#mobile_menu li ul').forEach(ul => {
-            ul.style.display = 'none';
-        });
-
-        document.querySelectorAll('.dropdown-btn i').forEach(i => {
-            i.classList.remove('fa-caret-up');
-            i.classList.add('fa-caret-down');
-        });
-
-        // abre o clicado
-        if (!isOpen) {
-            submenu.style.display = 'block';
-            icon.classList.remove('fa-caret-down');
-            icon.classList.add('fa-caret-up');
+// Seleciona a DIV que contém o link e o botão
+document.querySelectorAll('#mobile_menu .nav-link').forEach(container => {
+    container.addEventListener('click', function (e) {
+        // Se houver um submenu abaixo desta div
+        const submenu = this.nextElementSibling; 
+        if (submenu && submenu.classList.contains('dropdown-menu')) {
+            e.preventDefault(); // Impede o link de navegar
+            
+            const isOpen = submenu.style.display === 'block';
+            submenu.style.display = isOpen ? 'none' : 'block';
+            
+            // Gira a setinha
+            const icon = this.querySelector('.dropdown-btn i');
+            if(icon) {
+                icon.classList.toggle('fa-caret-up');
+                icon.classList.toggle('fa-caret-down');
+            }
         }
     });
 });

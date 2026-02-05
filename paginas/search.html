@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="color: white;">O que é ser Católico?</title>
+    <link rel="icon" type="image/png" href="../imagens/logo1.png">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    
+    <style>
+        /* Estilos Base do Site */
+        body {
+            background-color: #000; /* Fundo preto conforme o site */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .container-search {
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .logo-search {
+            height: 80px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #efc200; /* Dourado padrão */
+            margin-bottom: 20px;
+        }
+
+        /* --- Barra de Pesquisa Estilizada --- */
+        .input-group {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px; /* Arredondamento moderno */
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .input-group:focus-within {
+            border-color: #efc200;
+            background-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 20px rgba(239, 194, 0, 0.2);
+        }
+
+        .input-icon {
+            color: #efc200;
+            font-size: 1.2rem;
+        }
+
+        .input-field {
+            width: 100%;
+            border: none;
+            background-color: transparent;
+            color: white;
+            font-size: 1.1rem;
+            outline: none;
+        }
+
+        /* --- Resultados --- */
+        .itens {
+            display: none;
+            flex-direction: column;
+            background-color: #1a1a1a;
+            border-radius: 20px;
+            margin-top: 15px;
+            overflow: hidden;
+            border: 1px solid #333;
+            text-align: left;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .item {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            border-bottom: 1px solid #333;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+
+        .item:hover { background-color: #252525; }
+
+        .item-image img {
+            width: 50px; height: 50px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .item-title { color: #efc200; font-weight: bold; margin: 0; font-size: 1rem; }
+        .item-description { color: #aaa; font-size: 0.85rem; margin-top: 4px; }
+
+        .no_results { padding: 20px; color: #666; display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="container-search">
+        <a href="index.html">
+            <img src="../imagens/logo1.png" alt="Logo" class="logo-search"> 
+        </a>
+        <h1>O que você busca?</h1>
+
+        <div class="input-group">
+            <div class="input-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <input id="search" type="text" class="input-field" placeholder="Digite um tema, sacramento ou oração...">
+        </div>
+
+        <div class="itens"></div> 
+
+    </div>
+    
+    <script src="../dados.js"></script> 
+
+    <script src="../js5.js"></script>
+    <script>
+        // Pequeno teste de diagnóstico para você ver no navegador (F12)
+        console.log("--- Diagnóstico de Busca ---");
+        if (typeof dadosSite === 'undefined') {
+            console.error("❌ ERRO: O arquivo dados.js não foi carregado. Verifique o caminho!");
+        } else {
+            console.log("✅ SUCESSO: dados.js carregado com", dadosSite.length, "itens.");
+        }
+        
+        const testInput = document.getElementById('search');
+        const testList = document.querySelector('.itens');
+        console.log("Campo de busca encontrado:", testInput ? "Sim" : "Não");
+        console.log("Container de resultados encontrado:", testList ? "Sim" : "Não");
+    </script>
+</body>
+</body>
+</html>

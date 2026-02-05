@@ -80,35 +80,42 @@ if (searchInput && itemsList) {
     });
 }
 
-window.onload = function() {
-    const hash = window.location.hash;
-    
-    if (hash) {
-        const target = document.querySelector(hash);
-        if (target) {
-            // Remove o scroll travado no topo (aquele seu código antigo)
-            // E faz um scroll manual preciso
-            const headerOffset = 110; // Altura do seu header + um pouco de folga
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+// 1. Bloqueia a restauração de scroll do navegador
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
-
-            // Adiciona a borda temporária para "gritar" onde está o texto
-            target.style.outline = "3px solid goldenrod";
-            target.style.borderRadius = "5px";
-            target.style.transition = "outline 2s";
-
-            // Remove a borda depois de 3 segundos
-            setTimeout(() => {
-                target.style.outline = "3px solid transparent";
-            }, 3000);
-        }
-    } else {
-        // Se não houver pesquisa/id, aí sim vai para o topo
+// 2. Função que trava o scroll no topo
+function forcarTopo() {
+    if (!window.location.hash) {
         window.scrollTo(0, 0);
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }
-};
+}
+
+// 3. Cria um "laço" que força o topo a cada 10ms durante o carregamento inicial
+// Isso impede que qualquer script atrasado puxe a página para baixo
+const travaScroll = setInterval(forcarTopo, 10);
+
+// 4. Para de travar o scroll após a página carregar totalmente (ou após 1.5s)
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        clearInterval(travaScroll);
+        
+        // Se houver pesquisa, aí sim ele permite descer
+        const hash = window.location.hash;
+        if (hash) {
+            const target = document.querySelector(hash);
+            if (target) {
+                const headerOffset = 110;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+            }
+        }
+    }, 500); // Tempo de segurança
+});
+
+// Segurança extra: se o 'load' demorar, libera o scroll em 1.5 segundos
+setTimeout(() => clearInterval(travaScroll), 1500);

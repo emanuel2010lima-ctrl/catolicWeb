@@ -159,3 +159,27 @@ color: goldenrod;
     font-size: 2rem;
   }
 }
+/* Isso cria um "respiro" para o navegador não colar o título no topo da tela */
+[id] {
+    scroll-margin-top: 100px; 
+}
+html {
+    scroll-behavior: smooth;
+}
+/* Define a animação de brilho */
+@keyframes highlight-fade {
+    0% {
+        outline: 3px solid goldenrod;
+        background-color: rgba(218, 165, 32, 0.3); /* Um leve dourado no fundo */
+        border-radius: 4px;
+    }
+    100% {
+        outline: 3px solid transparent;
+        background-color: transparent;
+    }
+}
+
+/* Classe que será aplicada ao elemento alvo */
+.temp-highlight {
+    animation: highlight-fade 10s ease-in-out; /* Dura 3 segundos */
+}

@@ -22,7 +22,7 @@ Mateus 16,18-19
 
 Romana: O termo existe porque a Igreja tem sua sede sobre o túmulo de Pedro, que é o primeiro dos apóstolos, ou seja, aquele que liderava os apóstolos (função dada a ele pelo próprio Jesus). E pelo túmulo de São Pedro estar em Roma, a sede católica está também em Roma. Pois foi nesse local que Pedro alcançou a graça. (morreu e então foi para o encontro de Deus).
         `,
-        link: "igreja.html",
+        link: "igreja.html#nome",
         imagem: "../imagens/bannerIg.jpg"
     },
      
@@ -83,7 +83,7 @@ Jesus ainda descreve mais ainda a necessidade de Pedro confirmar os fiéis na f�
 “Simão, Simão, eis que Satanás vos reclamou para vos peneirar como o trigo; mas eu roguei por ti, para que a tua confiança não desfaleça; e tu, por tua vez, confirma os teus irmãos."
 Lucas 22,31-32
         `,
-        link: "igreja.html",
+        link: "igreja.html#papa",
         imagem: "../imagens/bannerIg.jpg"
     },
     {
@@ -111,7 +111,7 @@ Magistério Ordinário: O Magistério Ordinário ocorre quando o Papa ou os Bisp
 Magistério Extraordinário: O Magistério Extraordinário ocorre quando o Papa ou os Bispos em comunhão com ele, definem um ato solene como definitivo. O melhor exemplo possível, são as declarações solenes "ex-cathedra" (de cadeira) do Papa. Outro exemplo são as proclamações definitivas dos Bispos em comunhão com o Papa num Concílio Ecumênico. De modo geral, para assuntos Dogmáticos.
 
         `,
-        link: "igreja.html",
+        link: "igreja.html#erro",
         imagem: "../imagens/bannerIg.jpg"
     },
     {
@@ -131,7 +131,7 @@ importância Litúrgica Elevada;
 formalidade e cerimonial;
 eventos Significativos;
 obrigação (dias de preceito).`,
-        link: "igreja.html",
+        link: "igreja.html#solene",
         imagem: "../imagens/bannerIg.jpg"
     },
 {
@@ -152,7 +152,7 @@ Então foi Teodósio que fundou a Igreja?
 Novamente é outro engano esquecer de Mateus 16,18-19 e querer dizer que Teodósio fundou a Igreja de Cristo. Teodósio, imperador, decretou que o cristianismo deveria ser a religião do império. Para agregar a religião a sociedade romana. Salienta-se o ponto mais importante, agregar algo que já era realidade, mas que agora passava a ser a religião oficial de Roma.
 
 A fé apóstolica sempre foi e será mantida pela Igreja, porém, influências como por exemplo roupas diferentes para diferentes cargos do clero, possivelmente foram adicionadas com essa conexão a Roma. Porém as funções clericais já existiam na fé apostólica, oque se adicionou foi um esmiuçamento dessa fé já existente.`,
-        link: "igreja.html",
+        link: "igreja.html#funda",
         imagem: "../imagens/bannerIg.jpg"
     },
 
@@ -169,7 +169,7 @@ Creio Apostólico: Creio em Deus Pai Todo-Poderoso, criador do céu e da terra, 
 Creio niceno-constantinopolitano:Creio em um só Deus, Pai Todo-Poderoso, Criador do céu e da terra, e de todas as coisas visíveis e invisíveis. Creio em um só Senhor, Jesus Cristo, Filho Unigênito de Deus, nascido do Pai antes de todos os séculos. Deus de Deus, luz da luz, Deus verdadeiro de Deus verdadeiro; gerado, não criado, consubstancial ao Pai. Por Ele todas as coisas foram feitas. E por nós, homens, e para nossa salvação, desceu dos céus e se encarnou pelo Espírito Santo no seio da Virgem Maria e se fez homem. Também por nós foi crucificado sob Pôncio Pilatos, padeceu e foi sepultado. Ressuscitou ao terceiro dia, conforme as escrituras, e subiu aos céus, onde está sentado à direita do Pai. E de novo há de vir, em sua glória, para julgar os vivos e os mortos; e o seu reino não terá fim. Creio no Espírito Santo, Senhor que dá a vida, e procede do Pai e do Filho; e com o Pai e o Filho é adorado e glorificado; Ele que falou pelos profetas. Creio na Igreja, una, santa, católica e apostólica. Professo um só batismo para a remissão dos pecados e espero a ressurreição dos mortos e a vida do mundo que há de vir. Amém
 Percebe-se que o Credo niceno-constantinopolitano detalha as verdades de fé, para assim evitar confusões e heresias.
 Nota: a maior autoridade da Igreja não é o Papa, e sim os concílios.`,
-        link: "igreja.html",
+        link: "igreja.html#creio",
         imagem: "../imagens/bannerIg.jpg"
     },
 
@@ -191,7 +191,7 @@ O modo mais certeiro de buscar a verdade é escutando a própria verdade. Se Jes
 Jesus respondeu, "Eu sou o Caminho, a Verdade e a Vida. Ninguém vai ao Pai senão por mim."
 João 14,6
 Desse modo podemos concluir que estar com a Igreja que ele fundou e a Igreja na qual ele está presente no nosso mundo (pela Eucaristia e pelo Espírito Santo por exemplo), é o meio mais seguro e confiável de se buscar a salvação. Por isso sendo nós membros VIVOS da igreja por meio do nosso estado de graça e das nossas boas obras, estamos a caminho da salvação do modo mais certeiro.`,
-        link: "igreja.html",
+        link: "igreja.html#fora",
         imagem: "../imagens/bannerIg.jpg"
     },
     {
@@ -200,7 +200,7 @@ Desse modo podemos concluir que estar com a Igreja que ele fundou e a Igreja na 
         textoCompleto: `Não, pois ela é o Corpo e Jesus é a cabeça. Dizer que a igreja hoje é mentirosa é dizer que Jesus mentiou ou deixou o mal prevalecer contra a sua igreja. O que vemos ser impossível dado Mateus 16,18-19. Jesus também diz:
 "e ensinando-os a observar tudo o que ordenei a vocês. Eis que eu estarei com vocês todos os dias, até o fim do mundo."
 Mateus 28,20 O que torna a ideia de que a Igreja não pode errar ou ensinar uma mentira pois Cristo está com ela e nela. Portanto quando se trata de verdades de fé, a igreja não erra e não pode ser destruída. Mas pode ser perseguida e assim ela é desde os primeiros cristãos.`,
-        link: "igreja.html",
+        link: "igreja.html#destruida",
         imagem: "../imagens/bannerIg.jpg"
     },
     {
@@ -209,7 +209,7 @@ Mateus 28,20 O que torna a ideia de que a Igreja não pode errar ou ensinar uma 
         textoCompleto: `Igreja Militante: Nós que estamos lutando pela salvação, lutando contra os três inimigos da alma: O demônio, o mundo e a concupiscência da carne. Isso inclui aqueles que estão no corpo da Igreja mas são membros mortos.
 Igreja Triunfante: São os Anjos, os santos e todos aqueles nossos irmãos que já se encontram junto de Deus. Tanto os que tiveram de passar pelo purgatório, quanto os que tiveram a graça de ir direto ao céu. A igreja Triunfante é composta por aqueles que já alcançaram o paraíso.
 Igreja Padecente: A igreja padecente é composta por aqueles que se encontram no estado do purgatório, ou seja, morreram como membros vivos do corpo de Cristo, porém não estavam totalmente livres das impurezas do pecado. Portanto como nenhum resquício de pecado entra no céu, estes devem ser purificados (no purgatório) e formam então a igreja padecente.`,
-        link: "igreja.html",
+        link: "igreja.html#tipo",
         imagem: "../imagens/bannerIg.jpg"
     },
     {
@@ -226,7 +226,7 @@ Nota do escritor:
 Sou feliz porque sou católico e estou buscando a salvação. Nutra seu amor pela Igreja e por Cristo atravéz do conhecimento. Não tenha medo de descobrir estar errado.
 
 `,
-        link: "igreja.html",
+        link: "igreja.html#face",
         imagem: "../imagens/bannerIg.jpg"
     },
     {

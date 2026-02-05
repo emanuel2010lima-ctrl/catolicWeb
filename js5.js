@@ -79,3 +79,36 @@ if (searchInput && itemsList) {
         }
     });
 }
+
+window.onload = function() {
+    const hash = window.location.hash;
+    
+    if (hash) {
+        const target = document.querySelector(hash);
+        if (target) {
+            // Remove o scroll travado no topo (aquele seu código antigo)
+            // E faz um scroll manual preciso
+            const headerOffset = 110; // Altura do seu header + um pouco de folga
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+
+            // Adiciona a borda temporária para "gritar" onde está o texto
+            target.style.outline = "3px solid goldenrod";
+            target.style.borderRadius = "5px";
+            target.style.transition = "outline 2s";
+
+            // Remove a borda depois de 3 segundos
+            setTimeout(() => {
+                target.style.outline = "3px solid transparent";
+            }, 3000);
+        }
+    } else {
+        // Se não houver pesquisa/id, aí sim vai para o topo
+        window.scrollTo(0, 0);
+    }
+};

@@ -449,37 +449,16 @@
         <span style="color: lightcoral;">Bíblia Sagrada</span> - Ave Maria
       </h3>
         
-      <!-- <div class="mb-3 d-flex align-items-center gap-3">
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: goldenrod; color: black; font-weight: bold;">
-            Escolher Livro / Seção
-          </button>
-          <ul class="dropdown-menu shadow">
-            <li><a class="dropdown-item" href="#" onclick="irParaPagina(1)">Capa / Prólogo</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><h6 class="dropdown-header">Antigo Testamento</h6></li>
-            <li><a class="dropdown-item" href="#" onclick="irParaPagina(18)">Gênesis</a></li>
-            <li><a class="dropdown-item" href="#" onclick="irParaPagina(116)">Êxodo</a></li>
-            <li><a class="dropdown-item" href="#" onclick="irParaPagina(194)">Levítico</a></li>
-            <li><a class="dropdown-item" href="#" onclick="irParaPagina(1043)">Salmos</a></li>
-            <li><a class="dropdown-item" href="#" onclick="irParaPagina(1313)">Isaias</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><h6 class="dropdown-header">Novo Testamento</h6></li>
-            <li><a class="dropdown-item" href="#" onclick="irParaPagina(1847)">São Mateus</a></li>
-            <li><a class="dropdown-item" href="#" onclick="irParaPagina(1915)">São Marcos</a></li>
-            <li><a class="dropdown-item" href="#" onclick="irParaPagina(1959)">São Lucas</a></li>
-            <li><a class="dropdown-item" href="#" onclick="irParaPagina(2033)">São João</a></li>
-            <li><a class="dropdown-item" href="#" onclick="irParaPagina(2085)">Atos dos Apóstolos</a></li>
-            <li><a class="dropdown-item" href="#" onclick="irParaPagina(2145)">Apocalipse</a></li>
-          </ul>
-        </div>
-        <small class="text-white-50 fst-italic">O PDF saltará para a página escolhida.</small>
-      </div> -->
+
 
       <div class="img-fluid vh-100 shadow rounded overflow-hidden"alt="Full screen image">
         <div class="col-md-8">
   <h3 class="pb-4 mb-4 fst-italic border-bottom" style="text-align: center;">
-    <span style="color: lightcoral;">Bíblia Sagrada</span>
+    <div class="text-center my-4">
+    <button type="button" class="btn btn-outline-warning btn-lg" data-bs-toggle="modal" data-bs-target="#modalBusca">
+        <i class="fas fa-search me-2"></i> Buscar por Passagem ou Trecho
+    </button>
+</div>
   </h3>
 
   <div class="d-flex gap-2 mb-4 flex-wrap">
@@ -582,13 +561,32 @@
   </button>
 </div>
 
-  <div id="leitor-texto" class="p-4 rounded shadow-sm bg-dark border border-secondary" style="height: 75vh; overflow-y: auto; line-height: 1.8; font-size: 1.1rem;">
+  <div id="leitor-texto" class="p-4 rounded shadow-sm bg-dark border border-secondary" style="height: 72vh; overflow-y: auto; line-height: 1.8; font-size: 1.1rem;">
     <p class="text-muted text-center mt-5">Selecione um livro e capítulo para começar a leitura.</p>
   </div>
 </div>
       </div>
     </div>
-
+<div class="modal fade" id="modalBusca" tabindex="-1" aria-labelledby="modalBuscaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark border-secondary">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title text-warning" id="modalBuscaLabel">Explorar a Bíblia</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <input type="text" id="termoBusca" class="form-control bg-dark text-white border-secondary" placeholder="Ex: O pão da vida..." onkeypress="handleSearchKeyPress(event)">
+          <button class="btn btn-warning" type="button" onclick="realizarBusca()">Buscar</button>
+        </div>
+        
+        <div id="resultadosBusca" class="mt-3" style="max-height: 400px; overflow-y: auto;">
+            <p class="text-muted text-center italic">Digite um termo acima para pesquisar em toda a Bíblia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
    <div class="col-md-4">
           <div class="position-sticky" style="top: 2rem">
             <div class="card shadow-lg border-0 rounded-4 overflow-hidden my-4">
@@ -658,6 +656,103 @@ async function carregarTexto() {
   }
 }
 </script>
+<script>// Adicione/Substitua esta função no seu script
+function realizarBusca() {
+    const termoInput = document.getElementById('termoBusca');
+    const termo = termoInput.value.toLowerCase().trim();
+    const containerResultados = document.getElementById('resultadosBusca');
+    
+    // 1. Limpa tudo antes de começar
+    containerResultados.innerHTML = "";
+
+    if (!bibliaCache) {
+        containerResultados.innerHTML = '<p class="text-warning text-center">Aguarde... A Bíblia ainda está carregando.</p>';
+        return;
+    }
+
+    if (termo.length < 3) {
+        containerResultados.innerHTML = '<p class="text-warning text-center">Digite pelo menos 3 letras para pesquisar.</p>';
+        return;
+    }
+
+    let encontrados = [];
+
+    // Função para varrer os testamentos
+    const varrer = (lista) => {
+        lista.forEach(livro => {
+            livro.capitulos.forEach(cap => {
+                cap.versiculos.forEach(vers => {
+                    if (vers.texto.toLowerCase().includes(termo)) {
+                        encontrados.push({
+                            livro: livro.nome,
+                            cap: cap.capitulo,
+                            ver: vers.versiculo,
+                            texto: vers.texto
+                        });
+                    }
+                });
+            });
+        });
+    };
+
+    varrer(bibliaCache.antigoTestamento);
+    varrer(bibliaCache.novoTestamento);
+
+    // 2. Monta o HTML dos resultados
+    if (encontrados.length > 0) {
+        let html = `<p class="text-muted small">Foram encontrados ${encontrados.length} versículos.</p>`;
+        
+        // Limitamos a 50 resultados para performance
+        encontrados.slice(0, 50).forEach(item => {
+            // Destaca a palavra buscada
+            const textoFormatado = item.texto.replace(new RegExp(termo, "gi"), (match) => `<span style="background-color: #efc200; color: black; font-weight: bold;">${match}</span>`);
+
+            html += `
+                <div class="card-resultado p-3 mb-2 border-bottom border-secondary" 
+                     style="cursor: pointer; background: #1a1a1a;" 
+                     onclick="irParaCapitulo('${item.livro}', ${item.cap})">
+                    <strong style="color: #efc200;">${item.livro} ${item.cap}:${item.ver}</strong>
+                    <p class="mb-0 text-white" style="font-size: 0.95rem;">${textoFormatado}</p>
+                </div>
+            `;
+        });
+        containerResultados.innerHTML = html;
+    } else {
+        containerResultados.innerHTML = '<p class="text-center text-muted">Nenhuma passagem encontrada com esse termo.</p>';
+    }
+}
+function irParaCapitulo(nomeLivro, numeroCapitulo) {
+    // 1. Fecha a modal de busca automaticamente
+    const modalElement = document.getElementById('modalBusca');
+    const modal = bootstrap.Modal.getInstance(modalElement);
+    if (modal) modal.hide();
+
+    // 2. Preenche os selects da página principal
+    const selectLivro = document.getElementById('livro');
+    selectLivro.value = nomeLivro;
+    
+    // Chama sua função existente para carregar os capítulos
+    carregarCapitulos(); 
+
+    // Aguarda carregar o DOM do select e seleciona o capítulo
+    setTimeout(() => {
+        const selectCapitulo = document.getElementById('capitulo');
+        selectCapitulo.value = numeroCapitulo;
+        
+        // Chama sua função principal para exibir o texto
+        carregarTexto();
+        
+        // Rola para o início do texto bíblico na página principal
+        document.getElementById('texto-biblico').scrollIntoView({ behavior: 'smooth' });
+    }, 150);
+}
+
+// Função auxiliar para o Enter no teclado
+function handleSearchKeyPress(e) {
+    if (e.key === 'Enter') {
+        realizarBusca();
+    }
+}</script>
 <script>
     const mobileBtn = document.getElementById('mobile_btn');
     const mobileMenu = document.getElementById('mobile_menu');

@@ -118,7 +118,7 @@ Magistério Extraordinário: O Magistério Extraordinário ocorre quando o Papa 
         titulo: "Dogmas",
         descricao: "O que é um dogma?",
         textoCompleto: `A Igreja nunca cria ou inventa dógmas. Ela apenas confirma como verdade as crenças presentes na Revelação Divina, sejam elas explícitas ou implícitas. Exemplo simples: Maria Imaculada (sem pecado), se na bíblia diz "cheia de graça", pressupõe que para estar na plenitude da graça, cheio de graça, se está sem pecado. E isso alinhado a outros fatores que os cristãos sempre acreditaram desde os 12 apóstolos, fez com que a Igreja pudesse proclamar como dogma (verdade absoluta e sem discussão) que Maria é Imaculada. Ou seja, a Igreja apenas confirma, oficializa oque a comunidade já crê com base nas Sagradas Escrituras e na Tradição Apostólica.`,
-        link: "igreja.html",
+        link: "igreja.html#dog",
         imagem: "../imagens/bannerIg.jpg"
     },
 

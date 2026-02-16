@@ -230,6 +230,37 @@ Sou feliz porque sou católico e estou buscando a salvação. Nutra seu amor pel
         imagem: "../imagens/bannerIg.jpg"
     },
     {
+        titulo: "Magistério, Tradição e Escritura",
+        descricao: "O que é o Depósito da Fé e quem pode interpreta-lo?",
+        textoCompleto: `O magistério tem a infalibilidade concedida pelo Espírito Santo de interpretar o depósito da Fé. Que é a Sagrada Escritura e a Sagrada Tradição:
+
+Sagrada Escritura: Depósito da Fé escrita por sugestão do Espírito Santo. Mensagem da Salvação, Palavra de Deus.
+" Toda a Escritura é inspirada por Deus, e útil para ensinar, para repreender, para corrigir e para formar na justiça."
+2 Timóteo 3,16
+
+Sagrada Tradição: Depósito da Fé transmitida oralmente (parte dela foi escrita posteriormente e toda ela tem fundamento na Escritura, pois ambas vem da mesma fonte: Deus). Foi transmitida por palavras, convivência com Cristo e das obras de Cristo ou sugestão do Espírito Santo.
+"Assim, pois, irmãos, ficai firmes e conservai os ensinamentos que de nós aprendestes, seja por palavras, seja por carta nossa."
+2 Tessalonicenses 2,15
+
+Porém, para garantir que o depósito da fé não seja entendido de forma errada e cause a mentira, Deus por meio do magistério, guia a interpretação dessa revelação. A autoridade do Magistério tem base bíblica quando entendemos algumas passagens como:
+
+"Em verdade vos digo: tudo o que ligardes sobre a terra será ligado no céu, e tudo o que desligar­des sobre a terra será também desligado no céu.'"
+Mateus 18,18
+
+Aqui Jesus após dar a Pedro as chaves (Mt 16,19), Jesus então em outro momento dá as chaves aos 12 apóstolos. Estes que posteriormente passaram a função de guiar a Igreja e preservar o depósito da fé para seus sucessores.
+
+Deve ficar evidente que nada é acrescentado a Tradição, a função dos bispos é guarda-la tal como ela é: Completa e perfeita. Se algum bispo prega algo fora da Revelação Divina, ele automaticamente diz que a Revelação não acabou, oque sabemos não ser verdade. O bispo deve guardar a Tradição recebida dos apóstolos e com toda a Igreja promover uma explicação, entendimento, vivência e disseminação da Boa Nova, da Revelação do Deus que se fez homem, ensinou e formou discípulos, morreu na cruz para remir nossos pecados e depois venceu a morte e ressucitou, trazendo para todos os batizados a glória de sermos novo homem, de sermos uma nova criatura, de sermos filhos por adoção de Deus Pai.
+
+É como se a Escritura fosse o esqueleto e a Tradição fosse a carne, sangue, movimento desse corpo. Os bispos devem manter acesa a "tocha" que receberam dos apóstolos, para que a Fé permaneça viva no HOJE.
+
+A Tradição não completa a Escritura. Ela apenas explica e vive no hoje a Escritura. Produzindo frutos e crescimento na vivificação da Escritura.
+
+Magistério Universal: Papa e Concílio
+Magistério Ordinário Universal: Bispos dispersos em comunhão com o Papa. Não se trata de atos solenes como definições ex cathedra ou concílios ecumênicos, mas da pregação habitual/comum e unânime da Igreja inteira. A infallibilidade aqui opera quando: Os bispos, em comunhão com o Papa, propõem unanimemente uma doutrina de fé ou moral.`,
+        link: "igreja.html#mag",
+        imagem: "../imagens/bannerIg.jpg"
+    },
+    {
         titulo: "Os Sacramentos",
         descricao: "Conheça os 7 sacramentos da fé católica.",
         textoCompleto: "Batismo, Crisma, Eucaristia, Confissão, Matrimônio, Ordem e Unção dos enfermos...",

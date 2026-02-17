@@ -261,6 +261,15 @@ Magistério Ordinário Universal: Bispos dispersos em comunhão com o Papa. Não
         imagem: "../imagens/bannerIg.jpg"
     },
     {
+        titulo: "Oração antes do estudo",
+        descricao: "Oração de São Tomás de Aquino antes dos estudos",
+        textoCompleto: `"Criador inefável, que, em meio aos tesouros de Vossa Sabedoria, elegestes três hierarquias de anjos e as dispusestes em uma ordem admirável acima dos Céus, que dispusestes com tanta beleza as partes do universo; Vós, a quem chamamos a verdadeira Fonte de Luz e de Sabedoria, e o Princípio supereminente, dignai-vos derramar sobre as trevas de minha inteligência um raio de Vossa clareza. Afastai para longe de mim a dupla obscuridade na qual nasci: o pecado e a ignorância.
+
+Vós, que tornais eloquente a língua das criancinhas, modelai minha palavra e derramai nos meus lábios a graça de Vossa bênção. Dai-me a penetração da inteligência, a faculdade de lembrar-me, o método e a facilidade do estudo, a profundidade na interpretação e uma graça abundante de expressão. Fortificai meu estudo, dirigi o seu curso, aperfeiçoai o seu fim, Vós que sois verdadeiro Deus e verdadeiro homem, e que viveis nos séculos dos séculos. Amém."`,
+        link: "index.html#estudo",
+        imagem: "../imagens/santoAntonio.jpg"
+    },
+    {
         titulo: "Os Sacramentos",
         descricao: "Conheça os 7 sacramentos da fé católica.",
         textoCompleto: "Batismo, Crisma, Eucaristia, Confissão, Matrimônio, Ordem e Unção dos enfermos...",

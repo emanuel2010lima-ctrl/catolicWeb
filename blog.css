@@ -183,3 +183,32 @@ html {
 .temp-highlight {
     animation: highlight-fade 10s ease-in-out; /* Dura 3 segundos */
 }
+/* --- Fundo Preto para o Exame de Consciência --- */
+
+/* Altera o fundo do item, do botão e do corpo da sanfona para preto */
+#accordionExame .accordion-item,
+#accordionExame .accordion-button,
+#accordionExame .accordion-body {
+    background-color: black !important;
+    color: white !important;
+}
+
+/* Adiciona uma borda cinza escura para separar os itens, já que tudo será preto */
+#accordionExame .accordion-item {
+    border: 1px solid #333 !important;
+}
+
+/* Estilo do botão quando ele estiver aberto (opcional) */
+#accordionExame .accordion-button:not(.collapsed) {
+    background-color: #111111 !important; /* Um preto levemente diferente para destacar */
+    color: #efc200 !important; /* Deixa o texto do título dourado quando aberto */
+    box-shadow: none !important; /* Remove aquela sombra azul padrão do Bootstrap */
+}
+
+/* Garante que a setinha do accordion continue visível (branca/dourada) */
+#accordionExame .accordion-button::after {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+#accordionExame .accordion-button:not(.collapsed)::after {
+    filter: invert(70%) sepia(100%) saturate(1000%) hue-rotate(1deg) brightness(100%); /* Tenta puxar para o dourado */
+}

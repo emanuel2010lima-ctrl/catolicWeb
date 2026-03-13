@@ -461,13 +461,16 @@
         <span style="color: lightcoral;">Breviário</span>
       </h3>
       
-      <div class="shadow rounded overflow-hidden" style="height: 80vh; min-height: 600px; border: 2px solid goldenrod;background: #fff;">
-        <iframe src="https://www.ibreviary.com/m2/breviario.php?lang=pt" 
-                width="100%" 
-                height="100%" 
-                frameborder="0">
-        </iframe>
-      </div>
+      <div class="mb-2">
+  <button onclick="mudarZoom(0.1)" style="border: 2px solid goldenrod; background-color: black;" class="btn btn-sm btn-secondary"><i class="fa-solid fa-plus"></i> Aumentar Texto</button>
+  <button onclick="mudarZoom(-0.1)" style="border: 2px solid goldenrod; background-color: black;" class="btn btn-sm btn-secondary"><i class="fa-solid fa-minus"></i> Diminuir</button>
+</div>
+
+<div id="container-breviario" class="shadow rounded overflow-hidden" style="height: 75vh; min-height: 500px; background: #e5d3ab;">
+    <iframe id="frame-breviario" src="https://www.ibreviary.com/m2/breviario.php?lang=pt" 
+            width="100%" height="100%" frameborder="0" style="transform-origin: 0 0; transition: transform 0.2s;">
+    </iframe>
+</div>
     </div>
 
     <div class="col-md-4">
@@ -533,6 +536,14 @@
     ></script>
     
 <script>
+    let zoomAtual = 1;
+function mudarZoom(delta) {
+    zoomAtual += delta;
+    const frame = document.getElementById('frame-breviario');
+    frame.style.transform = `scale(${zoomAtual})`;
+    frame.style.width = `${100 / zoomAtual}%`;
+    frame.style.height = `${100 / zoomAtual}%`;
+}
 </script>
 <script src="../dados.js"></script>
 <script src="../js5.js"></script>

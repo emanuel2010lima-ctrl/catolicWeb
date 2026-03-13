@@ -1,5 +1,4 @@
 <!doctype html>
-<!--Atualizar o atraves do index-->
 <html lang="pt-br" data-bs-theme="dark">
   <head>
     <meta charset="utf-8" />
@@ -12,29 +11,36 @@
     <meta name="generator" content="Astro v5.13.2" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title style="color: white;">O que é ser Católico?</title>
-    <link rel="icon" type="image/png" href="../imagens/logo1.png">
+    <link rel="icon" type="image/png"class="logo" href="../imagens/logo1.png">
     <link
       rel="canonical"
       href="https://getbootstrap.com/docs/5.3/examples/blog/"
     />
     <script src="../assets/js/color-modes.js"></script>
+    
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
     <meta name="theme-color" content="#712cf9" />
     <link
       href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap"
       rel="stylesheet"
     />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
     <link href="../blog.css" rel="stylesheet" />
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../header.css">
     <style>
-       .logo {
-    height: 50px;
-    width: auto; /* Deixe o navegador calcular a largura proporcional */
-    display: block;
+        @media (max-width: 768px) {
+  .col-md-8 {
+    margin-bottom: 2rem;
+  }
+  iframe {
+    height: 70vh; /* Altura um pouco menor no celular para facilitar a navegação */
+  }
 }
+        .logo{
+            height: 50px;
+            width: 50px;
+        }
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -108,17 +114,13 @@
         display: block !important;
       }
       .bgs{
-        background-image: url(../imagens/bannerSf.png);
-        background-position: 50% 20%;
+        background-image: url(../imagens/bibliabanner.webp);
+        background-position: 30% 40%;
       }
-   
-   
-
+    
     </style>
   </head>
   <body class="b">
-
-
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path
@@ -144,7 +146,76 @@
         ></path>
       </symbol>
     </svg>
- 
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+<!--<button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>-->
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol
         id="aperture"
@@ -172,15 +243,15 @@
         ></path>
       </symbol>
     </svg>
-  <div class="container">
-  <header>
+    <div class="container">
+     <header>
     <nav id="navbar">
         <img src="../imagens/logo1.png" id="nav_logo" class="lg"alt="Logo">
 
         <ul id="nav_list">
-            <li class="nav-item active"><a href="#">Início</a></li>
+            <li class="nav-item"><a href="index.html">Início</a></li>
             <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
-            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+            <li class="nav-item active"><a href="breviario.html">Breviário</a></li>
 
             <li class="nav-item has-dropdown">
                 <div class="nav-link">
@@ -274,14 +345,13 @@
         <a href="search.html" style="text-decoration: none;" class="input-icon">
             <i class="fa-solid fa-magnifying-glass"></i>
         </a>
-        </div>
     </nav>
 
     <div id="mobile_menu">
         <ul id="mobile_nav_list">
-            <li class="nav-item active"><a href="#">Início</a></li>
+         <li class="nav-item"><a href="index.html">Início</a></li>
             <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
-            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+            <li class="nav-item active"><a href="breviario.html">Breviário</a></li>
 
             <li class="nav-item has-dropdown">
                 <div class="nav-link">
@@ -292,7 +362,7 @@
                 </div>
                 <ul class="dropdown-menu">
                     <li><a href="https://arquidiocesesjrp.org.br/">Arquidiocese de Rio Preto</a></li><hr style="color: white;">
-                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li>
+                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li><hr style="color: white;">
                 </ul>
             </li>
 
@@ -305,7 +375,7 @@
                 </div>
                 <ul class="dropdown-menu">
                     <li><a href="igreja.html">Fundada por Cristo</a></li><hr style="color: white;">
-                    <li><a href="calendariolit.html">Calendário</a></li>
+                    <li><a href="calendariolit.html">Calendário</a></li><hr style="color: white;">
                 </ul>
             </li>
             <li class="nav-item has-dropdown">
@@ -368,201 +438,55 @@
                 </ul>
             </li>
         </ul>
-        
+       
     </div>
 </header>
-</div>
-    <main class="container">
-    <div class="bgs">
-      <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis">
-        <div class="col-lg-6 px-0">
-          <h1 class="display-4 fst-italic" style="color: white;">
-            Quem <span style="color: goldenrod;">somos?</span>
-          </h1>
-          <p class="lead my-3" style="color: white;">
-            Nós da equipe "O que é ser Católico",<br>buscamos através deste site, mostrar 
-            as <br> belezas da fé católica e responder dúvidas<br> sobre ela. Também visamos manter <br> uma comunidade que se ajuda<br> e
-             se apoia na fé.
-          </p>
-          </div>
-          <!--<p class="lead mb-0">
-            <a href="#" class="text-body-emphasis fw-bold"
-              >Continue reading...</a
-            >
-          </p>-->
-        </div>
+    
+  
+      
+    </div>
+  <main class="container">
+  <div class="bgs">
+    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis">
+      <div class="col-lg-6 px-0">
+        <h1 class="display-4 fst-italic" style="color:black"></h1>
+        <p class="lead my-3"><br><br><br><br><br><br></p>
       </div>
-      <div class="row mb-2">
-        <div class="col-md-6">
-          <div
-            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-          >
-           <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 text-primary-emphasis"
-                ><span style="color: goldenrod;">Igreja?</span></strong
-              >
-              <h3 class="mb-0">Fundada por Cristo</h3>
-              <!--<div class="mb-1 text-body-secondary">Nov 12</div>-->
-              <p class="card-text mb-auto">
-                Por que dizemos que a Igreja foi fundada por Cristo Jesus?<br>
-                Quais passagens bíblicas confirmam isso?<br> a Igreja pode mudar a
-                bíblia hoje e quando ela quiser?  
-              </p>
-              <a
-                href="igreja.html"
-                class="icon-link gap-1 icon-link-hover stretched-link"
-              >
-                <span class="ca">Leia a matéria completa</span>
-                <svg class="bi" aria-hidden="true">
-                  <use xlink:href="#chevron-right"></use>
-                </svg>
-              </a>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <!--<svg
-                aria-label="Placeholder: Thumbnail"
-                class="bd-placeholder-img"
-                height="250"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text x="60%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-              </svg>-->
-              <img src="../imagens/jsPd.jpg" height="250" width="200">
-            </div>
+    </div>
+  </div>
+
+  <div class="row g-5">
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        <span style="color: lightcoral;">Breviário</span>
+      </h3>
+      
+      <div class="shadow rounded overflow-hidden" style="height: 80vh; min-height: 600px; border: 2px solid goldenrod;background: #fff;">
+        <iframe src="https://www.ibreviary.com/m2/breviario.php?lang=pt" 
+                width="100%" 
+                height="100%" 
+                frameborder="0">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem">
+        <div class="card shadow-lg border-0 rounded-4 overflow-hidden my-4">
+          <div class="card-header bg-dark text-white p-3 border-bottom border-secondary">
+            <h5 class="mb-0">Dúvidas? Pergunte a nossa IA</h5>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div
-            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-          >
-            <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 text-success-emphasis"
-                ><span style="color: goldenrod;">Batismo</span></strong
-              >
-              <h3 class="mb-0">Filho de Deus</h3>
-              <!-- <div class="mb-1 text-body-secondary">Nov 11</div> -->
-              <p class="mb-auto">
-                Batizado na água do espírito eu agora sou filho de Deus, já estou salvo então?<br>
-                E quem morre sem batismo?<br>
-                Antes do batismo o que eu era?
-              </p>
-              <a
-                href="batismo.html"
-                class="icon-link gap-1 icon-link-hover stretched-link"
-              >
-               <span class="ca"> Leia a matéria completa</span>
-                <svg class="bi" aria-hidden="true">
-                  <use xlink:href="#chevron-right"></use>
-                </svg>
-              </a>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <!-- <svg
-                aria-label="Placeholder: Thumbnail"
-                class="bd-placeholder-img"
-                height="250"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-              </svg> -->
-              <img src="../imagens/jbJc.avif" height="250" width="200">
-            </div>
+          <div class="card-body p-0" style="height: 70vh; min-height: 500px;">
+            <iframe src="https://ia-catolica.vercel.app/" 
+                    style="width: 100%; height: 100%; border: none;" 
+                    title="IA Católica" 
+                    loading="lazy">
+            </iframe>
           </div>
         </div>
       </div>
-      <div class="row g-5">
-        <div class="col-md-8">
-          <h3 class="pb-4 mb-4 fst-italic border-bottom">Catequese: Santo Antônio de Lisboa</h3>
-          <article class="blog-post">
-            <h2 class="display-5 link-body-emphasis mb-1"> <span style="color: white;">Comunidade</span></h2>
-            <p class="blog-post-meta">
-              29 de Novembro de 2025, por <a href="#">Emanuel</a>
-            </p>
-            <p>
-              Esta página, embora desenvolvida por mim (Emanuel), representa e acolhe toda a comunidade da Paróquia Santo Antônio de Lisboa
-              e todo fiel católico (se não, seja bem-vindo mesmo asssim!).
-              
-            </p>
-            <hr />
-            <p>
-              Com base no catecismo da Igreja Católica e é claro, nas Sagradas Escrituras, nosso desafio foi organizar informações
-              essenciais para todo católico nesta página. Desejamos de coração que, com mente aberta, todos que vierem a ler as postagens
-              aqui realizadas, as compreendam e acolham a verdade de mente e alma abertas. <br><br><span class="pas">"Só se ama aquilo que se conhece!" (Santo Agostinho).</span>
-            </p>
-            <blockquote class="blockquote">
-              <p>Como vamos aprender?</p>
-            </blockquote>
-            <p>
-              Nós iremos aprender por meio de perguntas e respostas na maioria dos tópicos.
-              O texto apresenta uma dúvida e em seguida uma resposta de fácil entendimento. Nosso objetivo
-              é que você, leitor, entenda as partes essenciais da sua fé. Diversas citações bíblicas irão ser utilizadas. Porém vale ressaltar que 
-              não serão todas as citações sobre o tema, e sim aquelas que o escritor julgar apropriadas para direcionar o leitor. Obviamente existem DIVERSAS passagens 
-              que infelizmente não estarão presentes mas que falam sobre os temas aqui tratados. Por isso, se você quiser mais citações, utilize sua biblia e a sua conexão a 
-              internet para pesquisar o quanto quiser 😉.
-            </p>
-            <blockquote class="blockquote">
-              <p>Quem vai me ensinar?</p>
-            </blockquote>
-            <p>
-            Eu (Emanuel), em parceria com toda a comunidade e pastoral catequética da Paróquia Santo Antônio de Lisboa vamos administrar
-            os conteúdos aqui escritos. Porém quero deixar claro que <span style="color: goldenrod; font-weight: bold;">Eu, Emanuel Pimentel Lima, declaro que qualquer
-                <span style="text-decoration: underline; color: goldenrod;">erro</span> aqui documentado é por <span style=" color: goldenrod;text-decoration: underline;">
-                    minha culpa e ignorância</span> e que todo <span style=" color: goldenrod;text-decoration: underline;">
-                        acerto</span> aqui também declarado é por culpa e mérito
-            exclusivo da comunidade e da <span style=" color: goldenrod;text-decoration: underline;">Santa Igreja.</span> </span>
-            </p>
-
-            <blockquote class="blockquote">
-              <p>A lição mais importante</p>
-            </blockquote>
-            <p>
-              Gostaria de pedir a todos os leitores que leiam com atenção e que busquem compreender
-              que as intenções depositadas nesse projeto são as mais puras e belas. Esse conteúdo é fornecido de modo gratuito para que não existam barreiras que possam dificultar o 
-              SEU acesso a essa introdução a grandeza da nossa fé.
-              <Blockquote class="blockquote" id="estudo"><p>Oração antes de Estudar: </p></Blockquote>
-             <p class="pas">"Criador inefável, que, em meio aos tesouros de Vossa Sabedoria, elegestes três hierarquias de anjos e as dispusestes em uma ordem admirável acima dos Céus, que dispusestes com tanta beleza as partes do universo; Vós, a quem chamamos a verdadeira Fonte de Luz e de Sabedoria, e o Princípio supereminente, dignai-vos derramar sobre as trevas de minha inteligência um raio de Vossa clareza. Afastai para longe de mim a dupla obscuridade na qual nasci: o pecado e a ignorância.
-
-Vós, que tornais eloquente a língua das criancinhas, modelai minha palavra e derramai nos meus lábios a graça de Vossa bênção. Dai-me a penetração da inteligência, a faculdade de lembrar-me, o método e a facilidade do estudo, a profundidade na interpretação e uma graça abundante de expressão. Fortificai meu estudo, dirigi o seu curso, aperfeiçoai o seu fim, Vós que sois verdadeiro Deus e verdadeiro homem, e que viveis nos séculos dos séculos. Amém."</p> 
-            </p>
-            <p>
-                Embora as comunidades ofereçam a catequese a qualquer um que esteja interessado, quero que estes não se limitem a uma sala
-                de aula (que gosto muito inclusive), mas que busquem conhecer mais e mais as coisas de Deus, seja na internet, nos diálogos,
-                nos noticiários e nas suas respectivas vidas. Por isso meu caro leitor, aproveite cada palavra e cada ensinamento. E o mais 
-                importante de tudo: <span style="color: goldenrod;">Não tenha preguiça e nem medo de buscar o conhecimento!</span>  
-            </p>
-            <blockquote class="blockquote">
-              <p>Fontes:</p>
-            </blockquote>
-            <p>As fontes usadas são em suma as partes da Bíblia, Catecismo da Igreja Católica, e outros documentos da Igreja que serão citados a medida em que forem utilizados. 
-              Vale lembrar que também se valeu de alguns vídeos do canal 
-              <a style="color: orangered;" href="https://www.youtube.com/@santacarona">Santa Carona</a> e do programa <a style="color: blueviolet;" href="https://www.youtube.com/watch?v=7vNEnEkT4So&list=PLgzp587mOb1nqTid6aTpuSUsePXCWarFT">Escola da Fé</a> da Canção Nova
-            </p>
-          <p>
-                Embora as comunidades ofereçam a catequese a qualquer um que esteja interessado... 
-                <span style="color: goldenrod;">Não tenha preguiça e nem medo de buscar o conhecimento!</span>  
-            </p>
-          </article> </div> <div class="col-md-4">
-          <div class="position-sticky" style="top: 2rem">
-            <div class="card shadow-lg border-0 rounded-4 overflow-hidden my-4">
-              <div class="card-header bg-dark text-white p-3 border-bottom border-secondary">
-                <h5 class="mb-0">Se tiver dúvidas, pergunte a nossa IA</h5>
-              </div>
-              <div class="card-body p-0" style="height: 70vh; min-height: 500px;">
-                <iframe src="https://ia-catolica.vercel.app/" style="width: 100%; height: 100%; border: none;" title="IA Católica" loading="lazy"></iframe>
-              </div>
-            </div>
-          </div>
-        </div> </div> </main> <footer class="py-5 text-center" style="background-color: rgb(66, 65, 65);">
+    </div> 
+  </div> </main> <footer class="py-5 text-center" style="background-color: rgb(66, 65, 65);">
       <div class="container">
         <section class="footer-content">
           <div class="rodape" id="direitos">
@@ -577,24 +501,40 @@ Vós, que tornais eloquente a língua das criancinhas, modelai minha palavra e d
         </section>
       </div>
     </footer>
-   
-    
     <script
       src="../assets/dist/js/bootstrap.bundle.min.js"
       class="astro-vvvwv3sm"
     ></script>
     
-
 <script>
-    const mobileBtn = document.getElementById('mobile_btn');
-    const mobileMenu = document.getElementById('mobile_menu');
-
-    mobileBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active'); // Isso ativa o display flex configurado no styles.css
-    });
 </script>
-
-<script src="js/dados.js"></script>
+<script src="../dados.js"></script>
+<script src="../js5.js"></script>
+  </body>
+</html>
+ <footer class="py-5 text-center" style="background-color: rgb(66, 65, 65);">
+      <div class="container">
+        <section class="footer-content">
+          <div class="rodape" id="direitos">
+            <img src="../imagens/logo1.png" style="height: 60px;" id="footer_logo"><br><br>
+            <p class="ca">2026 © Todos os direitos reservados.</p>
+            <p class="ctt"><a href="autor.html" class="ca">Desenvolvido por Emanuel</a></p>
+          </div>
+          <div class="social-media" id="social-media-buttons">
+            <a href="https://wa.me/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </section>
+      </div>
+    </footer>
+    <script
+      src="../assets/dist/js/bootstrap.bundle.min.js"
+      class="astro-vvvwv3sm"
+    ></script>
+    
+<script>
+</script>
+<script src="../dados.js"></script>
 <script src="../js5.js"></script>
   </body>
 </html>

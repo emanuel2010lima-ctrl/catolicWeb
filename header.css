@@ -17,9 +17,15 @@ header{
 #nav_list {
     display: flex;
     list-style: none;
-    gap: 45px
+  gap: 20px;
+    margin: 0;
+    padding: 0;
 }
-
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 .nav-logo {
       width: 150px;      /* ajusta o tamanho */
   height: auto;      /* mantém a proporção */

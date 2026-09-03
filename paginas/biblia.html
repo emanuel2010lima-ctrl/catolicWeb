@@ -11,7 +11,7 @@
     <meta name="generator" content="Astro v5.13.2" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title style="color: white;">O que é ser Católico?</title>
-    <link rel="icon" type="image/png"class="logo" href="../imagens/logo1.png">
+    <link rel="icon" type="image/png" class="logo" href="../imagens/logo1.png">
     <link
       rel="canonical"
       href="https://getbootstrap.com/docs/5.3/examples/blog/"
@@ -141,17 +141,6 @@
     <div
       class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
     >
-<!--<button
-        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-        id="bd-theme"
-        type="button"
-        aria-expanded="false"
-        data-bs-toggle="dropdown"
-        aria-label="Toggle theme (auto)"
-      >
-        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
-          <use href="#circle-half"></use>
-        </svg>-->
         <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
       </button>
       <ul
@@ -238,11 +227,11 @@
     <div class="container">
      <header>
     <nav id="navbar">
-        <img src="../imagens/logo1.png" id="nav_logo" class="lg"alt="Logo">
+        <img src="../imagens/logo1.png" id="nav_logo" class="lg" alt="Logo">
 
         <ul id="nav_list">
             <li class="nav-item"><a href="index.html">Início</a></li>
-            <li class="nav-item  active"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item active"><a href="biblia.html">Bíblia</a></li>
             <li class="nav-item"><a href="breviario.html">Breviário</a></li>
 
             <li class="nav-item has-dropdown">
@@ -453,7 +442,7 @@
         
 
 
-      <div class="img-fluid vh-100 shadow rounded overflow-hidden"alt="Full screen image">
+      <div class="img-fluid vh-100 shadow rounded overflow-hidden" alt="Full screen image">
         <div class="col-md-8">
   <h3 class="pb-4 mb-0 fst-italic" style="text-align: center;">
     <div class="text-center my-4">
@@ -462,10 +451,9 @@
     </button>
 </div>
   </h3>
-<p>Nota: Clicar no "LER AGORA" antes de buscar um trecho.</p>
 
   <div class="d-flex gap-3 mb-2 flex-wrap">
-  <select id="select-livro" class="form-select w-auto bg-dark text-white border-secondary">
+  <select id="select-livro" class="form-select w-auto bg-dark text-white border-secondary" onchange="carregarTexto()">
     <optgroup label="Pentateuco">
   <option value="Gênesis">Gênesis</option>
   <option value="Êxodo">Êxodo</option>
@@ -557,15 +545,10 @@
 </optgroup>
 </select>
 
- <input type="number" id="select-capitulo" class="form-control w-auto bg-dark text-white border-secondary" value="1" min="1">
-
-  <button onclick="carregarTexto()" class="btn" style="background-color: goldenrod; color: black; font-weight: bold; max-height: 80px;">
-    Ler Agora
-  </button>
+ <input type="number" id="select-capitulo" class="form-control w-auto bg-dark text-white border-secondary" value="1" min="1" onchange="carregarTexto()">
 </div>
 
   <div id="leitor-texto" class="p-4 rounded shadow-sm bg-dark border border-secondary" style="height: 37em; overflow-y: auto; line-height: 1.8; font-size: 1.1rem;">
-    <p class="text-muted text-center mt-5">Selecione um livro e capítulo para começar a leitura.</p>
   </div>
 </div>
       </div>
@@ -624,6 +607,11 @@
 <script>
 let bibliaCache = null;
 
+// Chama a função automaticamente quando a página terminar de carregar
+document.addEventListener("DOMContentLoaded", () => {
+  carregarTexto();
+});
+
 async function carregarTexto() {
   const livroSelecionado = document.getElementById('select-livro').value;
   const capituloSelecionado = parseInt(document.getElementById('select-capitulo').value);
@@ -641,7 +629,7 @@ async function carregarTexto() {
       livro = bibliaCache.novoTestamento.find(l => l.nome === livroSelecionado);
     }
 
-    // Encontra o capítulo (o seu JSON usa o número do capítulo como identificador)
+    // Encontra o capítulo
     const capitulo = livro ? livro.capitulos.find(c => c.capitulo === capituloSelecionado) : null;
 
     if (livro && capitulo) {
@@ -659,13 +647,12 @@ async function carregarTexto() {
   }
 }
 </script>
-<script>// Adicione/Substitua esta função no seu script
+<script>
 function realizarBusca() {
     const termoInput = document.getElementById('termoBusca');
     const termo = termoInput.value.toLowerCase().trim();
     const containerResultados = document.getElementById('resultadosBusca');
     
-    // 1. Limpa tudo antes de começar
     containerResultados.innerHTML = "";
 
     if (!bibliaCache) {
@@ -680,7 +667,6 @@ function realizarBusca() {
 
     let encontrados = [];
 
-    // Função para varrer os testamentos
     const varrer = (lista) => {
         lista.forEach(livro => {
             livro.capitulos.forEach(cap => {
@@ -701,13 +687,10 @@ function realizarBusca() {
     varrer(bibliaCache.antigoTestamento);
     varrer(bibliaCache.novoTestamento);
 
-    // 2. Monta o HTML dos resultados
     if (encontrados.length > 0) {
         let html = `<p class="text-muted small">Foram encontrados ${encontrados.length} versículos.</p>`;
         
-        // Limitamos a 50 resultados para performance
         encontrados.slice(0, 50).forEach(item => {
-            // Destaca a palavra buscada
             const textoFormatado = item.texto.replace(new RegExp(termo, "gi"), (match) => `<span style="background-color: #efc200; color: black; font-weight: bold;">${match}</span>`);
 
             html += `
@@ -724,44 +707,35 @@ function realizarBusca() {
         containerResultados.innerHTML = '<p class="text-center text-muted">Nenhuma passagem encontrada com esse termo.</p>';
     }
 }
+
 function irParaCapitulo(nomeLivro, numeroCapitulo) {
-    // 1. Fecha a modal de busca automaticamente
     const modalElement = document.getElementById('modalBusca');
     const modal = bootstrap.Modal.getInstance(modalElement);
     if (modal) modal.hide();
 
-    // 2. Preenche os selects da página principal
-    const selectLivro = document.getElementById('livro');
+    const selectLivro = document.getElementById('select-livro');
     selectLivro.value = nomeLivro;
-    
-    // Chama sua função existente para carregar os capítulos
-    carregarCapitulos(); 
 
-    // Aguarda carregar o DOM do select e seleciona o capítulo
-    setTimeout(() => {
-        const selectCapitulo = document.getElementById('capitulo');
-        selectCapitulo.value = numeroCapitulo;
-        
-        // Chama sua função principal para exibir o texto
-        carregarTexto();
-        
-        // Rola para o início do texto bíblico na página principal
-        document.getElementById('texto-biblico').scrollIntoView({ behavior: 'smooth' });
-    }, 150);
+    const selectCapitulo = document.getElementById('select-capitulo');
+    selectCapitulo.value = numeroCapitulo;
+    
+    carregarTexto();
+    
+    document.getElementById('leitor-texto').scrollIntoView({ behavior: 'smooth' });
 }
 
-// Função auxiliar para o Enter no teclado
 function handleSearchKeyPress(e) {
     if (e.key === 'Enter') {
         realizarBusca();
     }
-}</script>
+}
+</script>
 <script>
     const mobileBtn = document.getElementById('mobile_btn');
     const mobileMenu = document.getElementById('mobile_menu');
 
     mobileBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active'); // Isso ativa o display flex configurado no styles.css
+        mobileMenu.classList.toggle('active');
     });
 </script>
 <script src="../dados.js"></script>

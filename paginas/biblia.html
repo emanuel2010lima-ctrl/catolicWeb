@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="pt-br" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title style="color: white;">O que é ser Católico?</title>
+    <link rel="icon" type="image/png" class="logo" href="../imagens/logo1.png">
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/blog/"
+    />
+    <script src="../assets/js/color-modes.js"></script>
+    
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link href="../blog.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../header.css">
+    <style>
+        .logo{
+            height: 50px;
+            width: 50px;
+        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+      .bgs{
+        background-image: url(../imagens/bibliabanner.webp);
+        background-position: 30% 40%;
+      }
+    
+    </style>
+  </head>
+  <body class="b">
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol
+        id="aperture"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path
+          d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"
+        ></path>
+      </symbol>
+      <symbol id="cart" viewBox="0 0 16 16">
+        <path
+          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        ></path>
+      </symbol>
+      <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div class="container">
+     <header>
+    <nav id="navbar">
+        <img src="../imagens/logo1.png" id="nav_logo" class="lg" alt="Logo">
+
+        <ul id="nav_list">
+            <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item active"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="#">Comunidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://arquidiocesesjrp.org.br/">Arquidiocese de Rio Preto</a></li>
+                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="igreja.html">Igreja</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="igreja.html">Fundada por Cristo</a></li>
+                    <li><a href="calendariolit.html">Calendário</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="batismo.html">Sacramentos</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="batismo.html">Batismo</a></li>
+                    <li><a href="confissao.html">Confissão</a></li>
+                    <li><a href="comunhao.html">Eucaristia</a></li>
+                    <li><a href="crisma.html">Crisma</a></li>
+                    <li><a href="sacraordem.html">Ordem</a></li>
+                    <li><a href="sacramatri.html">Matrimônio</a></li>
+                    <li><a href="extremauncao.html">Unção dos Enfermos</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/igreja.html">Vocações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="matrimonio.html">Matrimôniados</a></li>
+                    <li><a href="ordem.html">Ordenados</a></li>
+                    <li><a href="religioso.html">Religiosos Consagrados</a></li>
+                    <li><a href="leigo.html">Leigos</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="santidade.html">Santidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="santidade.html">Santos</a></li>
+                    <li><a href="#">Beatos</a></li>
+                    <li><a href="#">Veneráveis</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/oracoes.html">Orações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Terços</a></li>
+                    <li><a href="#">Novenas</a></li>
+                    <li><a href="#">Orações próprias</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <button id="mobile_btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <a href="search.html" style="text-decoration: none;" class="input-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+    </nav>
+
+    <div id="mobile_menu">
+        <ul id="mobile_nav_list">
+         <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item active"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="#">Comunidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://arquidiocesesjrp.org.br/">Arquidiocese de Rio Preto</a></li><hr style="color: white;">
+                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="igreja.html">Igreja</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="igreja.html">Fundada por Cristo</a></li><hr style="color: white;">
+                    <li><a href="calendariolit.html">Calendário</a></li><hr style="color: white;">
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="batismo.html">Sacramentos</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="batismo.html">Batismo</a></li><hr style="color: white;">
+                    <li><a href="confissao.html">Confissão</a></li><hr style="color: white;">
+                    <li><a href="comunhao.html">Eucaristia</a></li><hr style="color: white;">
+                    <li><a href="crisma.html">Crisma</a></li><hr style="color: white;">
+                    <li><a href="sacraordem.html">Ordem</a></li><hr style="color: white;">
+                    <li><a href="sacramatri.html">Matrimônio</a></li><hr style="color: white;">
+                    <li><a href="extremauncao.html">Unção dos Enfermos</a></li><hr style="color: white;">
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/igreja.html">Vocações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="matrimonio.html.html">Matrimôniados</a></li><hr style="color: white;">
+                    <li><a href="ordem.html">Ordenados</a></li><hr style="color: white;">
+                    <li><a href="religioso.html">Religiosos Consagrados</a></li><hr style="color: white;">
+                    <li><a href="leigo.html">Leigos</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="santidade.html">Santidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="santidade.html">Santos</a></li><hr style="color: white;">
+                    <li><a href="#">Beatos</a></li><hr style="color: white;">
+                    <li><a href="#">Veneráveis</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/oracoes.html">Orações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Terços</a></li><hr style="color: white;">
+                    <li><a href="#">Novenas</a></li><hr style="color: white;">
+                    <li><a href="#">Orações próprias</a></li><hr style="color: white;">
+                </ul>
+            </li>
+        </ul>
+       
+    </div>
+</header>
+      
+    </div>
+  <main class="container">
+  <div class="bgs">
+    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis">
+      <div class="col-lg-6 px-0">
+        <h1 class="display-4 fst-italic" style="color:black"></h1>
+        <p class="lead my-3"><br><br><br><br><br><br></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-5">
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        <span style="color: lightcoral; ">Bíblia Sagrada</span> - Ave Maria
+      </h3>
+        
+
+
+      <div class="img-fluid vh-100 shadow rounded overflow-hidden" alt="Full screen image">
+        <div class="col-md-8">
+  <h3 class="pb-4 mb-0 fst-italic" style="text-align: center;">
+    <div class="text-center my-4">
+    <button type="button" class="btn btn-outline-warning btn-lg" data-bs-toggle="modal" data-bs-target="#modalBusca">
+        <i class="fas fa-search me-2"></i> Buscar por Passagem ou Trecho
+    </button>
+</div>
+  </h3>
+
+  <div class="d-flex gap-3 mb-2 flex-wrap">
+  <select id="select-livro" class="form-select w-auto bg-dark text-white border-secondary" onchange="carregarTexto()">
+    <optgroup label="Pentateuco">
+  <option value="Gênesis">Gênesis</option>
+  <option value="Êxodo">Êxodo</option>
+  <option value="Levítico">Levítico</option>
+  <option value="Números">Números</option>
+  <option value="Deuteronômio">Deuteronômio</option>
+</optgroup>
+<optgroup label="Históricos">
+  <option value="Josué">Josué</option>
+  <option value="Juízes">Juízes</option>
+  <option value="Rute">Rute</option>
+  <option value="I Samuel">1 Samuel</option>
+  <option value="II Samuel">2 Samuel</option>
+  <option value="I Reis">1 Reis</option>
+  <option value="II Reis">2 Reis</option>
+  <option value="I Crônicas">1 Crônicas</option>
+  <option value="II Crônicas">2 Crônicas</option>
+  <option value="Esdras">Esdras</option>
+  <option value="Neemias">Neemias</option>
+  <option value="Tobias">Tobias</option>
+  <option value="Judite">Judite</option>
+  <option value="Ester">Ester</option>
+  <option value="I Macabeus">1 Macabeus</option>
+  <option value="II Macabeus">2 Macabeus</option>
+</optgroup>
+<optgroup label="Sapienciais">
+  <option value="Jó">Jó</option>
+  <option value="Salmos">Salmos</option>
+  <option value="Provérbios">Provérbios</option>
+  <option value="Eclesiastes">Eclesiastes</option>
+  <option value="Cântico dos Cânticos">Cântico dos Cânticos</option>
+  <option value="Sabedoria">Sabedoria</option>
+  <option value="Eclesiástico">Eclesiástico</option>
+</optgroup>
+<optgroup label="Profetas Maiores">
+  <option value="Isaías">Isaías</option>
+  <option value="Jeremias">Jeremias</option>
+  <option value="Lamentações">Lamentações</option>
+  <option value="Baruc">Baruc</option>
+  <option value="Ezequiel">Ezequiel</option>
+  <option value="Daniel">Daniel</option>
+</optgroup>
+<optgroup label="Profetas Menores">
+  <option value="Oseias">Oseias</option>
+  <option value="Joel">Joel</option>
+  <option value="Amós">Amós</option>
+  <option value="Abdias">Abdias</option>
+  <option value="Jonas">Jonas</option>
+  <option value="Miqueias">Miqueias</option>
+  <option value="Naum">Naum</option>
+  <option value="Habacuc">Habacuc</option>
+  <option value="Sofonias">Sofonias</option>
+  <option value="Ageu">Ageu</option>
+  <option value="Zacarias">Zacarias</option>
+  <option value="Malaquias">Malaquias</option>
+</optgroup>
+<optgroup label="Evangelhos e Atos">
+  <option value="São Mateus">Mateus</option>
+  <option value="São Marcos">Marcos</option>
+  <option value="São Lucas">Lucas</option>
+  <option value="São João">João</option>
+  <option value="Atos dos Apóstolos">Atos dos Apóstolos</option>
+</optgroup>
+<optgroup label="Epístolas de São Paulo">
+  <option value="Romanos">Romanos</option>
+  <option value="I Coríntios">1 Coríntios</option>
+  <option value="II Coríntios">2 Coríntios</option>
+  <option value="Gálatas">Gálatas</option>
+  <option value="Efésios">Efésios</option>
+  <option value="Filipenses">Filipenses</option>
+  <option value="Colossenses">Colossenses</option>
+  <option value="I Tessalonicenses">1 Tessalonicenses</option>
+  <option value="II Tessalonicenses">2 Tessalonicenses</option>
+  <option value="I Timóteo">1 Timóteo</option>
+  <option value="II Timóteo">2 Timóteo</option>
+  <option value="Tito">Tito</option>
+  <option value="Filêmon">Filêmon</option>
+  <option value="Hebreus">Hebreus</option>
+</optgroup>
+<optgroup label="Epístolas Católicas e Apocalipse">
+  <option value="São Tiago">Tiago</option>
+  <option value="I São Pedro">1 Pedro</option>
+  <option value="II São Pedro">2 Pedro</option>
+  <option value="I São João">1 João</option>
+  <option value="II São João">2 João</option>
+  <option value="III São João">3 João</option>
+  <option value="São Judas">Judas</option>
+  <option value="Apocalipse">Apocalipse</option>
+</optgroup>
+</select>
+
+ <input type="number" id="select-capitulo" class="form-control w-auto bg-dark text-white border-secondary" value="1" min="1" onchange="carregarTexto()">
+</div>
+
+  <div id="leitor-texto" class="p-4 rounded shadow-sm bg-dark border border-secondary" style="height: 37em; overflow-y: auto; line-height: 1.8; font-size: 1.1rem;">
+  </div>
+</div>
+      </div>
+    </div>
+<div class="modal fade" id="modalBusca" tabindex="-1" aria-labelledby="modalBuscaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark border-secondary">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title text-warning" id="modalBuscaLabel">Explorar a Bíblia</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <input type="text" id="termoBusca" class="form-control bg-dark text-white border-secondary" placeholder="Ex: O pão da vida..." onkeypress="handleSearchKeyPress(event)">
+          <button class="btn btn-warning" type="button" onclick="realizarBusca()">Buscar</button>
+        </div>
+        
+        <div id="resultadosBusca" class="mt-3" style="max-height: 400px; overflow-y: auto;">
+            <p class="text-muted text-center italic">Digite um termo acima para pesquisar em toda a Bíblia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+   <div class="col-md-4">
+          <div class="position-sticky" style="top: 2rem">
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden my-4">
+              <div class="card-header bg-dark text-white p-3 border-bottom border-secondary">
+                <h5 class="mb-0">Se tiver dúvidas, pergunte a nossa IA</h5>
+              </div>
+              <div class="card-body p-0" style="height: 70vh; min-height: 500px;">
+                <iframe src="https://ia-catolica.vercel.app/" style="width: 100%; height: 100%; border: none;" title="IA Católica" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+        </div> </div> </main> <footer class="py-5 text-center" style="background-color: rgb(66, 65, 65);">
+      <div class="container">
+        <section class="footer-content">
+          <div class="rodape" id="direitos">
+            <img src="../imagens/logo1.png" style="height: 60px;" id="footer_logo"><br><br>
+            <p class="ca">2026 © Todos os direitos reservados.</p>
+            <p class="ctt"><a href="autor.html" class="ca">Desenvolvido por Emanuel</a></p>
+          </div>
+          <div class="social-media" id="social-media-buttons">
+            <a href="https://wa.me/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </section>
+      </div>
+    </footer>
+    <script
+      src="../assets/dist/js/bootstrap.bundle.min.js"
+      class="astro-vvvwv3sm"
+    ></script>
+    
+<script>
+let bibliaCache = null;
+
+// Chama a função automaticamente quando a página terminar de carregar
+document.addEventListener("DOMContentLoaded", () => {
+  carregarTexto();
+});
+
+async function carregarTexto() {
+  const livroSelecionado = document.getElementById('select-livro').value;
+  const capituloSelecionado = parseInt(document.getElementById('select-capitulo').value);
+  const container = document.getElementById('leitor-texto');
+
+  try {
+    if (!bibliaCache) {
+      const response = await fetch('biblia.json');
+      bibliaCache = await response.json();
+    }
+
+    // Procura primeiro no Antigo Testamento, se não achar, procura no Novo
+    let livro = bibliaCache.antigoTestamento.find(l => l.nome === livroSelecionado);
+    if (!livro) {
+      livro = bibliaCache.novoTestamento.find(l => l.nome === livroSelecionado);
+    }
+
+    // Encontra o capítulo
+    const capitulo = livro ? livro.capitulos.find(c => c.capitulo === capituloSelecionado) : null;
+
+    if (livro && capitulo) {
+      let html = `<h2 style="color: goldenrod;">${livro.nome} ${capituloSelecionado}</h2><hr>`;
+      capitulo.versiculos.forEach(v => {
+        html += `<p><b style="color: goldenrod;">${v.versiculo}</b> ${v.texto}</p>`;
+      });
+      container.innerHTML = html;
+      container.scrollTop = 0;
+    } else {
+      container.innerHTML = '<p class="text-danger">Livro ou Capítulo não encontrado.</p>';
+    }
+  } catch (e) {
+    container.innerHTML = '<p class="text-danger">Erro ao ler o ficheiro biblia.json.</p>';
+  }
+}
+</script>
+<script>
+function realizarBusca() {
+    const termoInput = document.getElementById('termoBusca');
+    const termo = termoInput.value.toLowerCase().trim();
+    const containerResultados = document.getElementById('resultadosBusca');
+    
+    containerResultados.innerHTML = "";
+
+    if (!bibliaCache) {
+        containerResultados.innerHTML = '<p class="text-warning text-center">Aguarde... A Bíblia ainda está carregando.</p>';
+        return;
+    }
+
+    if (termo.length < 3) {
+        containerResultados.innerHTML = '<p class="text-warning text-center">Digite pelo menos 3 letras para pesquisar.</p>';
+        return;
+    }
+
+    let encontrados = [];
+
+    const varrer = (lista) => {
+        lista.forEach(livro => {
+            livro.capitulos.forEach(cap => {
+                cap.versiculos.forEach(vers => {
+                    if (vers.texto.toLowerCase().includes(termo)) {
+                        encontrados.push({
+                            livro: livro.nome,
+                            cap: cap.capitulo,
+                            ver: vers.versiculo,
+                            texto: vers.texto
+                        });
+                    }
+                });
+            });
+        });
+    };
+
+    varrer(bibliaCache.antigoTestamento);
+    varrer(bibliaCache.novoTestamento);
+
+    if (encontrados.length > 0) {
+        let html = `<p class="text-muted small">Foram encontrados ${encontrados.length} versículos.</p>`;
+        
+        encontrados.slice(0, 50).forEach(item => {
+            const textoFormatado = item.texto.replace(new RegExp(termo, "gi"), (match) => `<span style="background-color: #efc200; color: black; font-weight: bold;">${match}</span>`);
+
+            html += `
+                <div class="card-resultado p-3 mb-2 border-bottom border-secondary" 
+                     style="cursor: pointer; background: #1a1a1a;" 
+                     onclick="irParaCapitulo('${item.livro}', ${item.cap})">
+                    <strong style="color: #efc200;">${item.livro} ${item.cap},${item.ver}</strong>
+                    <p class="mb-0 text-white" style="font-size: 0.95rem;">${textoFormatado}</p>
+                </div>
+            `;
+        });
+        containerResultados.innerHTML = html;
+    } else {
+        containerResultados.innerHTML = '<p class="text-center text-muted">Nenhuma passagem encontrada com esse termo.</p>';
+    }
+}
+
+function irParaCapitulo(nomeLivro, numeroCapitulo) {
+    const modalElement = document.getElementById('modalBusca');
+    const modal = bootstrap.Modal.getInstance(modalElement);
+    if (modal) modal.hide();
+
+    const selectLivro = document.getElementById('select-livro');
+    selectLivro.value = nomeLivro;
+
+    const selectCapitulo = document.getElementById('select-capitulo');
+    selectCapitulo.value = numeroCapitulo;
+    
+    carregarTexto();
+    
+    document.getElementById('leitor-texto').scrollIntoView({ behavior: 'smooth' });
+}
+
+function handleSearchKeyPress(e) {
+    if (e.key === 'Enter') {
+        realizarBusca();
+    }
+}
+</script>
+<script>
+    const mobileBtn = document.getElementById('mobile_btn');
+    const mobileMenu = document.getElementById('mobile_menu');
+
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+    });
+</script>
+<script src="../dados.js"></script>
+<script src="../js5.js"></script>
+  </body>
+</html>

@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="pt-br" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>O que é ser Católico?</title>
+    <link rel="icon" type="image/png"class="logo" href="../imagens/logo1.png">
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/blog/"
+    />
+    <script src="../assets/js/color-modes.js"></script>
+    
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link href="../blog.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../header.css">
+    <style>
+        .logo{
+            height: 50px;
+            width: 50px;
+        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+      .bgs{
+        background-image: url(../imagens/uncaoEnfermos.jpg);
+        background-position: 60% 50%;
+      }
+ 
+    </style>
+  </head>
+  <body class="b">
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+<!--<button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>-->
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol
+        id="aperture"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path
+          d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"
+        ></path>
+      </symbol>
+      <symbol id="cart" viewBox="0 0 16 16">
+        <path
+          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        ></path>
+      </symbol>
+      <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div class="container">
+      <header>
+    <nav id="navbar">
+        <img src="../imagens/logo1.png" id="nav_logo" class="lg"alt="Logo">
+
+        <ul id="nav_list">
+            <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="#">Comunidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://arquidiocesesjrp.org.br/">Arquidiocese de Rio Preto</a></li>
+                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="igreja.html">Igreja</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="igreja.html">Fundada por Cristo</a></li>
+                    <li><a href="calendariolit.html">Calendário</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="batismo.html">Sacramentos</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="batismo.html">Batismo</a></li>
+                    <li><a href="confissao.html">Confissão</a></li>
+                    <li><a href="comunhao.html">Eucaristia</a></li>
+                    <li><a href="crisma.html">Crisma</a></li>
+                    <li><a href="sacraordem.html">Ordem</a></li>
+                    <li><a href="sacramatri.html">Matrimônio</a></li>
+                    <li class="nav-item active"><a href="extremauncao.html">Unção dos Enfermos</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/igreja.html">Vocações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="matrimonio.html">Matrimôniados</a></li>
+                    <li><a href="ordem.html">Ordenados</a></li>
+                    <li><a href="religioso.html">Religiosos Consagrados</a></li>
+                    <li><a href="leigo.html">Leigos</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="santidade.html">Santidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="santidade.html">Santos</a></li>
+                    <li><a href="#">Beatos</a></li>
+                    <li><a href="#">Veneráveis</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/oracoes.html">Orações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Terços</a></li>
+                    <li><a href="#">Novenas</a></li>
+                    <li><a href="#">Orações próprias</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <button id="mobile_btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <a href="search.html" style="text-decoration: none;" class="input-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+    </nav>
+
+    <div id="mobile_menu">
+        <ul id="mobile_nav_list">
+            <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="#">Comunidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://arquidiocesesjrp.org.br/">Arquidiocese de Rio Preto</a></li><hr style="color: white;">
+                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="igreja.html">Igreja</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="igreja.html">Fundada por Cristo</a></li><hr style="color: white;">
+                    <li><a href="calendariolit.html">Calendário</a></li><hr style="color: white;">
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="batismo.html">Sacramentos</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="batismo.html">Batismo</a></li><hr style="color: white;">
+                    <li><a href="confissao.html">Confissão</a></li><hr style="color: white;">
+                    <li><a href="comunhao.html">Eucaristia</a></li><hr style="color: white;">
+                    <li><a href="crisma.html">Crisma</a></li><hr style="color: white;">
+                    <li><a href="sacraordem.html">Ordem</a></li><hr style="color: white;">
+                    <li><a href="sacramatri.html">Matrimônio</a></li><hr style="color: white;">
+                    <li class="nav-item active"><a href="extremauncao.html">Unção dos Enfermos</a></li><hr style="color: white;">
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/igreja.html">Vocações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="matrimonio.html.html">Matrimôniados</a></li><hr style="color: white;">
+                    <li><a href="ordem.html">Ordenados</a></li><hr style="color: white;">
+                    <li><a href="religioso.html">Religiosos Consagrados</a></li><hr style="color: white;">
+                    <li><a href="leigo.html">Leigos</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="santidade.html">Santidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="santidade.html">Santos</a></li><hr style="color: white;">
+                    <li><a href="#">Beatos</a></li><hr style="color: white;">
+                    <li><a href="#">Veneráveis</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/oracoes.html">Orações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Terços</a></li><hr style="color: white;">
+                    <li><a href="#">Novenas</a></li><hr style="color: white;">
+                    <li><a href="#">Orações próprias</a></li><hr style="color: white;">
+                </ul>
+            </li>
+        </ul>
+        
+    </div>
+</header>
+    
+    </div>
+  <main class="container">
+    <div class="bgs">
+      <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis">
+        <div class="col-lg-6 px-0">
+          <h1 class="display-4 fst-italic" style="color:black">
+          
+          </h1>
+          <p class="lead my-3">
+            <br><BR><br><br><br><br>
+          </p>
+          </div>
+          <!--<p class="lead mb-0">
+            <a href="#" class="text-body-emphasis fw-bold"
+              >Continue reading...</a
+            >
+          </p>-->
+        </div>
+      </div>
+      <div class="row g-5">
+        <div class="col-md-8">
+          <h3 class="pb-4 mb-4 fst-italic border-bottom">Unção dos Enfermos:<span style="color: goldenrod;"> Graça até na enfermidade</span></h3>
+          <article class="blog-post">
+            <h2 class="display-5 link-body-emphasis mb-1" style="color: white;"><span style="color: white;">Cura</span></h2>
+            <p class="blog-post-meta">
+              02 de Abril de 2026, por <a href="autor.html">Emanuel</a>
+            </p>
+            <p class="pas" id="tg5_14_15">
+          "Está alguém enfermo? Chame os sacerdotes da Igreja, e estes façam oração sobre ele, ungindo-o com óleo em nome do Senhor.*
+
+A oração da fé salvará o enfermo e o Senhor o restabelecerá. Se ele cometeu pecados, lhe serão perdoados."<br>Tiago 5,14-15
+            </p>
+            <hr />
+        <p>A doença sempre esteve presente na humanidade. A doença seja ela mental ou espiritual não é sinal da 
+          ausência de Deus, muitas vezes a enfermidade é uma cura para nossa vaidade, 
+          nossa auto-suficiência, nossa falta de fé ou outras coisas que só a Sabedoria Divina saberá nos dizer.
+        </p>
+        <blockquote class="blockquote">
+            <p>Unção dos enfermos: A Cura</p>
+        </blockquote>
+        <p class="pas">
+          " nu e me vestistes; enfermo e me visitastes; estava na prisão e viestes a mim’."<br>Mateus 25,36
+        </p>
+        <p>Jesus se idenfica também com aqueles que sofrem de enfermidade, até porque 
+          Ele é o médico que não só cura mas também perdoa os pecados de seu povo.
+         <p class="pas">"Assim se cumpriu a predição do pro­feta Isaías: Tomou as nossas enfermidades e 
+          sobrecarregou-se dos nossos males (Is 53,4)."<br>Mateus 8,17</p> 
+          Ele também toma sobre si as nossas enfermidades e os nosso pecados, estes de que nos livrou por sua Santa Cruz e assim, curando-nos do pecado, nos livra também da doença que é consequência desse pecado, como vemos em:
+        <p class="pas">"Por isso, como por um só homem entrou o pecado no mundo, e pelo pecado a morte, assim a morte passou a todo o gênero humano, porque todos pecaram..."<br>Romanos 5,12</p>
+        </p>
+        <blockquote class="blockquote">
+          <p>Unção dos enfermos para os Apóstolos</p>
+        </blockquote>
+        <p>Jesus envia os apóstolos e estes fazem curas ungindo as pessoas com óleo. Isso é prova deste sacramento já sendo vivido no século I e sendo conservado pela Santa Igreja desde sempre:
+          <p class="pas">"Eles partiram e pregaram a penitência.
+
+Expeliam numerosos demônios, ungiam com óleo a muitos enfermos e os curavam. (= Mt 14,1-12 = Lc 3,19s; 9,7s)"<br>Marcos 6,12-13</p>
+        </p>
+          <blockquote class="blockquote">
+            <p>Sempre seremos curados?</p>
+          </blockquote>
+          <p>Nem sempre a Unção dos Enfermos nos traz a cura que tanto esperamos. 
+            A alguns Deus dá essa graça para nos lembrar da força do Ressucitado. 
+            A outros porém cabe dizer como São Paulo: <p class="pas">"Mas ele me disse: 
+              “Basta-te minha graça, porque é na fraqueza que se revela totalmente a minha força”. 
+              Portanto, prefiro gloriar-me das minhas fraquezas, 
+              para que habite em mim a força de Cristo."<br>Coríntios 12,9</p></p>
+              <p>Também se orienta que nós, ao passarmos por tribulações e doenças, ofereçamos a Deus essa dor para nos unirmos a cruz de Cristo, como também diz o apóstolo: 
+                <p class="pas">"Agora me alegro nos sofrimentos suportados por vós. O que falta às tribulações de Cristo, completo na minha carne, por seu corpo que é a Igreja.*"<br>Colossenses 1,24</p>
+
+              </p>
+              <blockquote class="blockquote">
+            <p>Quem recebe e quem administra esse sacramento?</p>
+          </blockquote>
+          <p>Pode receber este sacramento qualquer fiel batizado (com idade suficiente para usar a razão), que esteja passando por uma doença grave ou que passará por uma sirurgia com alto risco por exemplo. Vale ressaltar que se o doente vier a ser curado e posteriormente adoecer de novo por qualquer que seja o motivo, ele pode receber novamente o sacramento (o mesmo vale para o caso de a mesma doença
+             se tornar mais grave ou idosos cuja fragilidade se acentua).</p>
+             <p>Somente os sacerdotes(Bispos e presbíteros) podem ser ministros desse sacramento.</p>
+             <blockquote class="blockquote">
+            <p>Os efeitos espirituais da Extrema Unção
+            <br>(Parágrafos do catecismo: 1520-1523)
+
+            </p>
+           </blockquote>
+           <p>
+            O primeiro efeito desse sacramento é uma graça que traz reconforto, paz que dão coragem ao enfermo para vivenciar seu estado. Essa graça é dom de Deus que permite ao doente 
+            ter força, fé e confiança em Deus para resistir as tentações do Maligno. O catecismo diz que a principal dessas tentações é o desânimo e a angústia da morte. Esse auxílio do Espirito Santo 
+            procura lever o doente a cura da alma e até a cura do corpo, se assim for da vontade de Deus, como já vimos anteriormente. Também é um efeito desse sacramento o perdão dos pecados. 
+            <p class="pas" id="tg5_15">
+              "se ele cometeu pecados, ser-lhe-ão perdoados"<br>Tiago 5, 15
+            </p>
+           </p>
+           <p>Outro efeito é a união à paixão do Senhor Jesus. Por meio desse sacramento o doente recebe o dom e a força para fortalecer essa união, sendo de certo modo consagrado a 
+            produzir frutos pela configuração a paixão de Cristo. O sofrimento derivado do pecado original agora tem um sentido novo: Participar da obra salvífica de Jesus.
+           </p>
+           <p>A Igreja na comunhão dos santos intercede pelo bem do doente e o doente pelo sacramento contribui para a santificação da Igreja e para o bem de todos pelos quais a 
+            Igreja se oferece, por Cristo a Deus Pai, como diz a Igreja no Catecismo da Igreja Católica.
+           </p>
+           <p>Outrossim este sacramento completa a união com a morte e ressurreição de Cristo que foi iniciada no Batismo, afinal a Unção dos enfermos é o sacramento dos que partem 
+            (pelo menos isso é presumido pelo seu estado físico). O catecismo da Igreja propõe o seguinte entendimento: O Batismo nos dá vida nova, a Crisma nos prepara e mune para o combate dessa vida e 
+          a Unção dos Enfermos nos equipa com um "escudo" para as últimas batalhas, antes de  entrarmos na casa do Pai. </p>
+
+             <blockquote class="blockquote">
+              <p>Como é celebrado este sacramento?</p>
+            </blockquote>
+            <p>O sacramento da unção dos enfermos é celebrado aonde estiver o doente, mas preferêncialmente na casa, hospital, igreja, seja para um grupo de enfermos ou apenas um. A Igreja orienta que se for possível 
+              é indicado que esse sacramento seja feito durante uma Missa, após uma confisão e antes da Eucaristia. Sendo que a Eucaristia deve ser o último sacramento a ser recebido. A liturgia da palavra e o ato penitencial da Santa Missa
+              preparam o coração do doente para o sacramento e despertam a fé para pedir força para seu espírito.
+            </p>
+            <!-- Estrutura da Tabela Litúrgica - Unção dos Enfermos -->
+<div class="sacramento-container">
+  <h2 class="sacramento-titulo">Celebração do Sacramento da Unção dos Enfermos</h2>
+  
+  <div class="tabela-responsive">
+    <table class="tabela-liturgia">
+      <thead>
+        <tr>
+          <th>Etapa</th>
+          <th>Momento / Rito</th>
+          <th>Descrição e Ação Litúrgica</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 1. Ritos Iniciais -->
+        <tr>
+          <td rowspan="3" class="etapa-coluna">
+            <span class="etapa-badge">1. Ritos Iniciais</span>
+          </td>
+          <td class="momento-titulo">Saudação Inicial</td>
+          <td>O sacerdote saúda o enfermo e todos os presentes transmitindo a paz de Cristo.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Aspersão com Água Benta</td>
+          <td>É realizada a aspersão com água benta sobre o doente e o local, fazendo memória do Sacramento do Batismo.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Ato Penitencial / Confissão</td>
+          <td>Realiza-se o Ato Penitencial comunitário ou o sacramento da Confissão individual antes de iniciar o rito (caso o enfermo necessite e esteja consciente).</td>
+        </tr>
+
+        <!-- 2. Liturgia da Palavra -->
+        <tr>
+          <td rowspan="3" class="etapa-coluna">
+            <span class="etapa-badge">2. Liturgia da Palavra</span>
+          </td>
+          <td class="momento-titulo">Leituras Bíblicas</td>
+          <td>Leitura de trechos do Evangelho ou das Epístolas focados na cura, no alívio do sofrimento e na fé.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Exortação / Homilia</td>
+          <td>Breve explicação do texto bíblico feita pelo sacerdote para fortalecer a esperança dos presentes.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Oração Comunitária</td>
+          <td>Preces e oração dos fiéis pedindo pela saúde do doente e abençoando a equipe responsável por seus cuidados.</td>
+        </tr>
+
+        <!-- 3. Rito Central -->
+        <tr class="linha-destaque">
+          <td rowspan="3" class="etapa-coluna">
+            <span class="etapa-badge ouro">3. Rito Central</span>
+          </td>
+          <td class="momento-titulo">Imposição das Mãos</td>
+          <td>Em silêncio, o presbítero impõe as mãos sobre a cabeça do enfermo em sinal de bênção e invocação do Espírito Santo.</td>
+        </tr>
+        <tr class="linha-destaque">
+          <td class="momento-titulo">Oração sobre o Óleo</td>
+          <td>O sacerdote rende graças pelo Óleo dos Enfermos (previamente abençoado pelo bispo na Missa do Crisma).</td>
+        </tr>
+        <tr class="linha-destaque">
+          <td class="momento-titulo">Santa Unção</td>
+          <td>
+            O padre unge a testa e as palmas das mãos do doente, proferindo as palavras da fórmula sacramental:
+            <blockquote class="formula-sacramental">
+              "Por esta santa unção e pela sua infinita misericórdia, o Senhor venha em teu auxílio com a graça do Espírito Santo, para que, liberto dos teus pecados, Ele te salve e, na sua bondade, alivie os teus sofrimentos."
+            </blockquote>
+          </td>
+        </tr>
+
+        <!-- 4. Rito de Conclusão -->
+        <tr>
+          <td rowspan="3" class="etapa-coluna">
+            <span class="etapa-badge">4. Rito de Conclusão</span>
+          </td>
+          <td class="momento-titulo">Oração do Pai-Nosso</td>
+          <td>Todos os presentes rezam juntos a oração do Pai-Nosso.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Eucaristia (Viático)</td>
+          <td>O doente recebe a Eucaristia (que recebe o nome de <em>Viático</em> caso o fiel esteja em perigo iminente de morte).</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Bênção Final</td>
+          <td>O sacerdote encerra o momento ministrando uma bênção especial sobre o enfermo e seus acompanhantes.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Estilos CSS (Tema Preto e Dourado) -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+  .sacramento-container {
+    background-color: #121212;
+    color: #e0e0e0;
+    padding: 30px 20px;
+    font-family: 'Lora', Georgia, serif;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    max-width: 1100px;
+    margin: 20px auto;
+  }
+
+  .sacramento-titulo {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 12px;
+  }
+
+  .tabela-responsive {
+    overflow-x: auto;
+  }
+
+  .tabela-liturgia {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1a1a1a;
+    color: #d1d1d1;
+    font-size: 0.95rem;
+  }
+
+  .tabela-liturgia th {
+    background-color: #0d0d0d;
+    color: #d4af37;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid #d4af37;
+    letter-spacing: 0.5px;
+  }
+
+  .tabela-liturgia td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #2a2a2a;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .tabela-liturgia tbody tr:hover {
+    background-color: #222222;
+  }
+
+  .etapa-coluna {
+    width: 22%;
+    background-color: #141414;
+    border-right: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .etapa-badge {
+    display: inline-block;
+    color: #f0e6d2;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    border-left: 3px solid #d4af37;
+    background-color: rgba(212, 175, 55, 0.08);
+  }
+
+  .etapa-badge.ouro {
+    color: #ffd700;
+    border-left: 3px solid #ffd700;
+    background-color: rgba(255, 215, 0, 0.15);
+  }
+
+  .momento-titulo {
+    font-weight: 600;
+    color: #e5c158;
+    width: 28%;
+  }
+
+  .linha-destaque {
+    background-color: rgba(212, 175, 55, 0.04);
+  }
+
+  .formula-sacramental {
+    margin: 10px 0 4px 0;
+    padding: 10px 14px;
+    background-color: #0f0f0f;
+    border-left: 3px solid #d4af37;
+    color: #f3e5ab;
+    font-style: italic;
+    font-size: 0.92rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  @media (max-width: 768px) {
+    .sacramento-titulo {
+      font-size: 1.3rem;
+    }
+    .tabela-liturgia th, .tabela-liturgia td {
+      padding: 10px;
+      font-size: 0.88rem;
+    }
+  }
+</style>
+
+            </article> </div> <div class="col-md-4">
+          <div class="position-sticky" style="top: 2rem">
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden my-4">
+              <div class="card-header bg-dark text-white p-3 border-bottom border-secondary">
+                <h5 class="mb-0">Se tiver dúvidas, pergunte a nossa IA</h5>
+              </div>
+              <div class="card-body p-0" style="height: 70vh; min-height: 500px;">
+                <iframe src="https://ia-catolica.vercel.app/" style="width: 100%; height: 100%; border: none;" title="IA Católica" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+        </div> </div> </main> <footer class="py-5 text-center" style="background-color: rgb(66, 65, 65);">
+      <div class="container">
+        <section class="footer-content">
+          <div class="rodape" id="direitos">
+            <img src="../imagens/logo1.png" style="height: 60px;" id="footer_logo"><br><br>
+            <p class="ca">2026 © Todos os direitos reservados.</p>
+            <p class="ctt"><a href="autor.html" class="ca">Desenvolvido por Emanuel</a></p>
+          </div>
+          <div class="social-media" id="social-media-buttons">
+            <a href="https://wa.me/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </section>
+      </div>
+    </footer>
+    <script
+      src="../assets/dist/js/bootstrap.bundle.min.js"
+      class="astro-vvvwv3sm"
+    ></script>
+    
+<script>
+    const mobileBtn = document.getElementById('mobile_btn');
+    const mobileMenu = document.getElementById('mobile_menu');
+
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active'); // Isso ativa o display flex configurado no styles.css
+    });
+</script>
+<script src="../dados.js"></script>
+<script src="../js5.js"></script>
+  </body>
+</html>

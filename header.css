@@ -1,0 +1,327 @@
+header{
+    width: 100%;
+    padding: 8px 8%;
+    position: sticky;
+    top: 0;
+    background-color: black;
+}
+
+#navbar {
+    width:  100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+#nav_list {
+    display: flex;
+    list-style: none;
+  gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.nav-logo {
+      width: 150px;      /* ajusta o tamanho */
+  height: auto;      /* mantém a proporção */
+}
+.nav-item a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.nav-item a:hover {
+    color: #efc200;
+    border-bottom: 3px solid #efc200;
+}
+
+.nav-item.active a {
+    border-bottom: 3px solid #efc200;
+}
+
+
+#mobile_btn {
+    display: none;
+}
+
+#mobile_menu {
+    display: none;
+}
+
+.dropdown-btn i {
+    font-size: 12px;
+    color: #f8c200;
+}
+.dropdown-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+}
+@media screen and (max-width: 1170px) {
+    #nav_list,
+    #navbar .btn-default {
+        display: none;
+    }
+
+    #mobile_btn {
+        display: block;
+        border: none;
+        background-color: transparent;
+        font-size: 1.6rem;
+        cursor: pointer;
+        color: white;
+    }
+
+    #mobile_menu.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mobile_nav_list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 12px 0px;
+
+    }
+
+    #mobile_nav_list .nav-item {
+        list-style: none;
+        text-align: center;
+    }
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.lis li{
+    list-style: upper-roman;
+    color: goldenrod;
+}
+
+
+    #mobile_nav_list .nav-item {
+        list-style: none;
+        text-align: center;
+    }
+
+ .dropdown-menu {
+    list-style: none;
+    padding-left: 0;
+    background-color: black;
+    color: white;
+    border: solid 1px white;
+}
+
+#mobile_menu li {
+    list-style: none;
+}
+
+
+
+/* DESKTOP: submenu oculto */
+@media screen and (min-width: 1171px) {
+
+    .nav-item {
+        position: relative;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: black;
+        padding: 10px 0;
+        min-width: 180px;
+        z-index: 1000;
+    }
+
+    .dropdown-menu li {
+        padding: 8px 20px;
+        text-align: left;
+    }
+
+    .dropdown-menu li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+
+    .dropdown-menu li a:hover {
+        color: #f8c200;
+    }
+
+    /* HOVER ABRE */
+    .nav-item:hover > .dropdown-menu {
+        display: block;
+    }
+
+    /* SETINHA DESKTOP */
+    .dropdown-btn {
+        pointer-events: none; /* desativa clique */
+    }
+
+    .dropdown-btn i {
+        margin-left: 5px;
+        font-size: 10px;
+    }
+}
+/* --- Barra de Pesquisa (Design Arredondado) --- */
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo sutil */
+    backdrop-filter: blur(10px); /* Efeito de vidro (moderno) */
+    padding: 5px 20px 5px 5px; /* Mais espaço interno lateral */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50px; /* ARREDONDAMENTO MÁXIMO (Pill Shape) */
+    gap: 12px;
+    color: white;
+    position: relative;
+    width: 280px;
+    transition: all 0.3s ease;
+}
+
+/* Efeito de Foco */
+.input-group:focus-within {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-color: #efc200;
+    box-shadow: 0 0 15px rgba(239, 194, 0, 0.2);
+    width: 300px; /* Expande levemente ao focar */
+}
+
+.input-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    min-width: 36px; /* Ícone levemente maior */
+    min-height: 36px;
+    background-color: #efc200; /* Fundo Dourado no ícone */
+    color: black; /* Lupa preta */
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-left: 10px;
+}
+
+
+.input-field {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 0.95rem;
+    padding-right: 10px;
+}
+
+.input-field:focus {
+    outline: none;
+}
+
+/* --- Lista de Resultados (Arredondada e Flutuante) --- */
+.itens {
+    display: none; /* O JS controla isso */
+    flex-direction: column;
+    gap: 0;
+    
+    position: absolute;
+    top: 125%; /* Um pouco mais afastado da barra */
+    right: 0;
+    z-index: 1000;
+    
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    
+    /* AQUI ESTÁ O SEGREDO DO VISUAL "NÃO QUADRADO": */
+    border-radius: 20px; /* Cantos bem arredondados */
+    overflow: hidden; /* Garante que nada vaze dos cantos redondos */
+    
+    width: 340px;
+    max-height: 400px;
+    overflow-y: auto;
+    
+    /* Sombra suave e difusa para destacar do fundo */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+/* Item individual */
+.item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    align-items: center;
+}
+
+.item:hover {
+    background-color: #252525;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.item-image img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 12px; /* Imagem redondinha também */
+    border: 2px solid #333;
+}
+
+.item-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #efc200;
+    margin-bottom: 2px;
+}
+
+.item-description {
+    font-size: 12px;
+    color: #aaa;
+    line-height: 1.3;
+}
+
+/* --- Personalizando a Barra de Rolagem (Para não ficar aquele quadrado cinza) --- */
+.itens::-webkit-scrollbar {
+    width: 8px;
+}
+
+.itens::-webkit-scrollbar-track {
+    background: #1a1a1a; 
+}
+
+.itens::-webkit-scrollbar-thumb {
+    background-color: #444; 
+    border-radius: 10px; /* Rolagem redonda */
+    border: 2px solid #1a1a1a;
+}
+
+/* Estilo para a palavra encontrada na busca */
+.highlight {
+    color: #000;              /* Texto preto para contrastar com o fundo dourado */
+    background-color: #efc200; /* Dourado padrão do seu site */
+    padding: 0 2px;
+    border-radius: 3px;
+    font-weight: bold;
+}

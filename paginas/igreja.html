@@ -1,0 +1,864 @@
+<!doctype html>
+<html lang="pt-br" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title style="color: white;">O que é ser Católico?</title>
+    <link rel="icon" type="image/png"class="logo" href="../imagens/logo1.png">
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/blog/"
+    />
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link href="../blog.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../header.css">
+    <style>
+        .logo{
+            height: 50px;
+            width: 50px;
+        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+      .bgs{
+        background-image: url(../imagens/bannerIg.jpg);
+        background-position: 40% 80%;
+      }
+    
+    </style>
+  </head>
+  <body class="b">
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+<!--<button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>-->
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol
+        id="aperture"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path
+          d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"
+        ></path>
+      </symbol>
+      <symbol id="cart" viewBox="0 0 16 16">
+        <path
+          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        ></path>
+      </symbol>
+      <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div class="container">
+
+      <header>
+    <nav id="navbar">
+        <img src="../imagens/logo1.png" id="nav_logo" class="lg"alt="Logo">
+
+        <ul id="nav_list">
+            <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="#">Comunidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://arquidiocesesjrp.org.br/">Arquidiocese de Rio Preto</a></li>
+                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="igreja.html">Igreja</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li class="nav-item active"><a href="igreja.html">Fundada por Cristo</a></li>
+                    <li><a href="calendariolit.html">Calendário</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="batismo.html">Sacramentos</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="batismo.html">Batismo</a></li>
+                    <li><a href="confissao.html">Confissão</a></li>
+                    <li><a href="comunhao.html">Eucaristia</a></li>
+                    <li><a href="crisma.html">Crisma</a></li>
+                    <li><a href="sacraordem.html">Ordem</a></li>
+                    <li><a href="sacramatri.html">Matrimônio</a></li>
+                    <li><a href="extremauncao.html">Unção dos Enfermos</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/igreja.html">Vocações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="matrimonio.html">Matrimôniados</a></li>
+                    <li><a href="ordem.html">Ordenados</a></li>
+                    <li><a href="religioso.html">Religiosos Consagrados</a></li>
+                    <li><a href="leigo.html">Leigos</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="santidade.html">Santidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="santidade.html">Santos</a></li>
+                    <li><a href="#">Beatos</a></li>
+                    <li><a href="#">Veneráveis</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/oracoes.html">Orações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Terços</a></li>
+                    <li><a href="#">Novenas</a></li>
+                    <li><a href="#">Orações próprias</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <button id="mobile_btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <a href="search.html" style="text-decoration: none;" class="input-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+    </nav>
+
+    <div id="mobile_menu">
+        <ul id="mobile_nav_list">
+            <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="#">Comunidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://arquidiocesesjrp.org.br/">Arquidiocese de Rio Preto</a></li><hr style="color: white;">
+                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="igreja.html">Igreja</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li class="nav-item active"><a href="igreja.html">Fundada por Cristo</a></li>
+                    <li><a href="calendariolit.html">Calendário</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="batismo.html">Sacramentos</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="batismo.html">Batismo</a></li><hr style="color: white;">
+                    <li><a href="confissao.html">Confissão</a></li><hr style="color: white;">
+                    <li><a href="comunhao.html">Eucaristia</a></li><hr style="color: white;">
+                    <li><a href="crisma.html">Crisma</a></li><hr style="color: white;">
+                    <li><a href="sacraordem.html">Ordem</a></li><hr style="color: white;">
+                    <li><a href="sacramatri.html">Matrimônio</a></li><hr style="color: white;">
+                    <li><a href="extremauncao.html">Unção dos Enfermos</a></li><hr style="color: white;">
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/igreja.html">Vocações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="matrimonio.html.html">Matrimôniados</a></li><hr style="color: white;">
+                    <li><a href="ordem.html">Ordenados</a></li><hr style="color: white;">
+                    <li><a href="religioso.html">Religiosos Consagrados</a></li><hr style="color: white;">
+                    <li><a href="leigo.html">Leigos</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="santidade.html">Santidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="santidade.html">Santos</a></li><hr style="color: white;">
+                    <li><a href="#">Beatos</a></li><hr style="color: white;">
+                    <li><a href="#">Veneráveis</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/oracoes.html">Orações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Terços</a></li><hr style="color: white;">
+                    <li><a href="#">Novenas</a></li><hr style="color: white;">
+                    <li><a href="#">Orações próprias</a></li><hr style="color: white;">
+                </ul>
+            </li>
+        </ul>
+        
+    </div>
+</header>
+
+      
+    </div>
+  <main class="container">
+    <div class="bgs">
+      <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis">
+        <div class="col-lg-6 px-0">
+          <h1 class="display-4 fst-italic" style="color:black">
+          
+          </h1>
+          <p class="lead my-3">
+            <br><BR><br><br><br><br>
+          </p>
+          </div>
+          <!--<p class="lead mb-0">
+            <a href="#" class="text-body-emphasis fw-bold"
+              >Continue reading...</a
+            >
+          </p>-->
+        </div>
+      </div>
+      <div class="row g-5">
+        <div class="col-md-8">
+          <h3 class="pb-4 mb-4 fst-italic border-bottom">Igreja: <span style="color: goldenrod;">Católica Apostólica Romana</span> 
+            e Fundada por<span style="color: goldenrod;"> Cristo</span> 😉</h3>
+          <article class="blog-post">
+            <h2 class="display-5 link-body-emphasis mb-1"><span  style="color: white;">As chaves</span></h2>
+            <p class="blog-post-meta">
+              30 de Novembro de 2025, por <a href="autor.html">Emanuel</a>
+            </p>
+            <p class="pas" id="mt16:18">
+             "Eu também lhe digo: Você é Pedro, e sobre esta pedra construirei a minha igreja. E as portas do inferno não dominarão sobre ela."<br>Mateus 16,18-19
+            </p>
+            <hr />
+            <p id="nome">
+         Vamos primeiramente entender o que significa o nome de nossa Santa Igreja.
+         <ul>
+          <li style="list-style:circle;color: goldenrod;"><span style="color: white;">Católica: É católica porque é universal, para todos
+            que desejam a salvação. Jesus então deixa a igreja tanto para judeus quanto para os não-judeus.
+            <span class="pas"><br>"Vão Primeiro às ovelhas perdidas da casa de Israel".<br> Mateus 10,6
+            <br><br>"Pois então, fiquem sabendo vocês: esta salvação de Deus é enviada aos pagãos, e eles a escutarão".<br> Atos 28,28<br></span>
+          </span></li><br>
+          <li style="list-style:circle;color: goldenrod;"><span style="color: white;">Apostólica: É apostólica pois a autoridade de ensinar e 
+            de manter vivos os ensinamentos de Cristo Jesus foi dada aos apóstolos e seus sucessores (os bispos). ensinamentos estes que chamamos magistério
+            da igreja.<span class="pas"><br>"Por isso, irmãos,fiquem firmes e mantenham as tradições 
+              que lhes ensinamos de viva voz ou por meio da nossa carta".<br> 2 Tessalonicenses 2,15<br></span>
+              <span class="pas"><br>"Eu elogio vocês, porque em todas as ocasiões se lembram
+                de mim, e porque conservam as tradições conforme eu transmiti".<br> 1 coríntios 11,2<br></span>
+                <span class="pas"><br>"Eu também lhe digo: Você é Pedro, e sobre esta pedra construirei a minha igreja. E as portas do inferno não dominarão sobre ela."<br>Mateus 16,18-19</span>
+          </span></li><br>
+          <li style="list-style:circle;color: goldenrod;"><span style="color: white;">Romana: O termo existe porque a Igreja tem sua sede sobre o túmulo de Pedro,
+            que é o primeiro dos apóstolos, ou seja, aquele que liderava os apóstolos (função dada a ele pelo próprio Jesus). E pelo túmulo de São Pedro estar em Roma,
+            a sede católica está também em Roma. Pois foi nesse local que Pedro alcançou a graça. (morreu e então foi para o encontro de Deus). 
+          </span></li><br>
+         </ul>
+            </p>
+            <blockquote class="blockquote" id="papa">
+              <p>São Pedro foi mesmo o primeiro Papa?</p>
+            </blockquote>
+            <p >Sim, São Pedro foi o primeiro Papa. Por diversos motivos. A seguir, temos diversas passagens bíblicas que citam os nomes dos apóstolos. E SEMPRE, o nome de Simão Pedro, 
+              é citado primeiro. E lógicamente, essas palavras vieram do Espírito Santo, são palavra de Deus. E Deus sempre colocava Pedro, separado relativamente 
+              dos apóstolos. Não por ele ser melhor, mas por ter uma função diferente.
+            </p>
+            <p class="pas">"Tendo convocado os seus doze discípulos, deu-lhes Jesus poder de expulsar os espíritos imundos, e de curar todas as doenças e todas as enfermidades.
+              Os nomes dos doze Apóstolos são: O primeiro é Simão, chamado Pedro, depois André, seu irmão; Tiago, filho de Zebedeu, e João, seu irmão; Filipe e Bartolomeu; Tomé e Mateus, o publicano; Tiago, filho de Alfeu, e Tadeu; 
+Simão Cannaneu, e Judas Iscariotes, que foi quem o entregou." <br>Mateus 10,1-4
+            </p>
+            <p class="pas">
+              "Escolheu pois doze: Simão, a quem pós o nome de Pedro. 
+Tiago, filho de Zebedeu, e João, irmão de Tiago, aos quais pôs o nome de Boanerges, que quer dizer filhos do trovão, André, Filipe, Bartolomeu, Mateus, Tomé, Tiago, filho de Alfeu, Tadeu, Simão o Cananeu 
+e Judas Iscariotes, que o entregou." <br>Marcos 3,16-19
+            </p>
+            <p class="pas">
+              Simão, a quem deu o sobrenome de Pedro, André, seu irmão, Tiago, João, Filipe, Bartolomeu, 
+Mateus, Tomé, Tiago, filho de Alfeu, Simão, chamado o Zelador, Judas, irmão de Tiago, e Judas Escariotes, que foi o traidor. <br>Lucas 6,14-16
+            </p>
+            <p class="pas">
+             "Tendo entrado no cenáculo, subiram ao quarto de cima, onde costumavam permanecer. Eram eles: Pedro e João, Tiago, André, 
+              Filipe, Tomé, Bartolomeu, Mateus, Tiago, filho de Alfeu, Simão, o Zelador, e Judas, irmão de Tiago".<br>Atos 1,13 
+            </p>
+            <p class="pas">Entretanto, Pedro e seus companheiros tinham-se deixado vencer pelo sono; ao despertarem, viram a glória de Jesus e os dois personagens em sua companhia.
+              <br>Lucas 9,32
+            </p>
+            <p>Fica evidente também que Pedro é sempre o primeiro a tomar decisões, a perguntar e a responder pelos apóstolos. Como exemplo:</p>
+              <p class="pas">"Disse-lhes Jesus: 'E vós quem dizeis que eu sou?' Simão Pedro respondeu: 'Tu és o Cristo, o Filho de Deus vivo!'.
+Jesus, então, lhe disse: 'Feliz és, Simão, filho de Jonas, porque não foi a carne nem o sangue que te revelou isto, mas meu Pai que está nos céus'".<br>Mateus 16,13-17</p>
+
+                <p class="pas">"Então, Pedro se aproximou dele e disse: 'Senhor, quantas vezes devo per­doar a meu irmão, quando ele pecar contra mim? Até sete vezes?'" 
+                  <br>Mateus 18,21</p>
+                  <p class="pas">"Então, perguntou-lhes Jesus: 'E vós, quem dizeis que eu sou?'. Respondeu Pedro: 'Tu és o Cristo'".<br>Marcos 8,29</p>
+                <p class="pas">"Disse-lhe Pedro: 'Senhor, propões esta parábola só a nós ou também a todos?'".<br>Lucas 12,41</p>
+                <p class="pas">"Então, Jesus perguntou aos Doze: 'Quereis vós também retirar-vos?'. Respondeu-lhe Simão Pedro: 'Senhor, a 
+                  quem iríamos nós? Tu tens as palavras da vida eterna'".<br>João 6,67-68</p>
+
+            <blockquote class="blockquote">
+              <p>E quando Pedro se torna definitivamente Papa?</p>
+            </blockquote>
+            <p>Na passgem onde Jesus dá o nome de Pedro, e entrega as chaves a ele:
+              <p class="pas">Chegando ao território de Cesareia de Filipe, Jesus perguntou a seus discípulos: “No dizer do povo, quem é o Filho do Homem?”.
+Responderam: 'Uns dizem que é João Batista; outros, Elias; outros, Jeremias ou um dos profetas'.
+Disse-lhes Jesus: “E vós quem dizeis que eu sou?” Simão Pedro respondeu: 'Tu és o Cristo, o Filho de Deus vivo!''.Jesus, então, lhe disse: 'Feliz és, Simão, 
+filho de Jonas, porque não foi a carne nem o sangue que te revelou isto, mas meu Pai que está nos céus. E eu te declaro: tu és Pedro, e sobre esta pedra edificarei a minha 
+Igreja; as portas do inferno não prevalecerão contra ela. Eu te darei as chaves do Reino dos Céus: tudo o que ligares na terra será ligado nos céus, e tudo o que 
+desligares na terra será desligado nos céus'".<br>Mateus 16,13-17</p>
+                <p>Aqui além do Espírito Santo agindo em Pedro e lhe revelando a identidade do Cristo, temos também Jesus dando a autoridade Papal de "ligar e desligar" e 
+                  também dizendo que ele é a pedra sobre a qual a Igreja (comunidade dos fíeis) será edificada.
+                </p>
+                <p>Temos também Jesus descrevendo a função de Papa para Pedro:</p>
+                <p class="pas">"Era esta já a terceira vez que Jesus se manifestava aos seus discípulos, depois de ter ressuscitado. Tendo eles comido, Jesus perguntou a 
+                  Simão Pedro: 'Simão, filho de João, amas-me mais do que estes?'. Respondeu ele: 'Sim, Senhor, tu sabes que te amo'. Disse-lhe Jesus: 
+                  'Apascenta os meus cordeiros'. Perguntou-lhe outra vez: 'Simão, filho de João, amas-me?'. Respondeu-lhe: 'Sim, Senhor, tu sabes que te amo'. 
+                  Disse-lhe Jesus: 'Apascenta os meus cordeiros'.Perguntou-lhe pela terceira vez: 'Simão, filho de João, amas-me?'. Pedro entristeceu-se porque 
+                  lhe perguntou pela terceira vez: 'Amas-me?' –, e respondeu-lhe: 'Senhor, sabes tudo, tu sabes que te amo'. 
+                  Disse-lhe Jesus: 'Apascenta as minhas ovelhas'."<br>João 21,15-17</p>
+                  <p>Jesus ainda descreve mais ainda a necessidade de Pedro confirmar os fiéis na fé, ou seja, garantir que os ensinamentos dados por Jesus sejam mantidos entre 
+                    os cristãos:
+                    <p class="pas">“Simão, Simão, eis que Satanás vos reclamou para vos peneirar como o trigo; mas eu roguei por ti, para que a tua 
+                      confiança não desfaleça; e tu, por tua vez, confirma os teus irmãos."<br> Lucas 22,31-32</p>
+                  </p>
+            </p>
+
+            <blockquote class="blockquote" id="erro">
+              <p>A igreja nunca erra?</p>
+            </blockquote>
+            <p>
+              O tema da infalibilidade da igreja é pouco compreendido por não católicos. A questão aqui não é dizer que
+              o papa ou os membros da igreja não pecam. Eles pecam sim, e não é disso que se trata a infalibilidade da igreja.
+              </p>
+              <P>
+                Segundo o evangelho de São Mateus, o Magistério da igreja possúi a assistência divina do Espírito Santo.
+                como podemos comprovar por:
+                <span class="pas"><br>"Eu também lhe digo: Você é Pedro, e sobre esta pedra construirei a minha igreja. 
+                  E as portas do inferno não dominarão sobre ela."<br>Mateus 16,18-19</span>
+                  <span class="pas"><br>ensinando-os a obedecer a tudo o que eu lhes ordenei. 
+                    E eu estarei sempre com vocês, até o fim dos tempos". 
+                    <br>Mateus 28,20<br></span>
+                  </P>
+                  <p>Isto significa que a igreja fundada por Cristo está sempre sobre seu auxílio e assistência, pois Deus, visando
+                    garantir que a igreja instituída por ele permanecesse na verdade, concedeu essa participação da igreja em sua infalibilidade. 
+                    Afinal se Deus é infalivél, ele pode (e assim o fez) garantir essa infalibilidade a sua Igreja para que ela ensine somente a 
+              verdade ensinada por Cristo Jesus.</p>
+                    <p>
+                      É importante dizer que a Igreja tem como função guardar a Revelação Divina. Exemplo prático: Seria vantajoso para a Igreja
+                      ordenar mulheres como sacerdotas. Porém, a Revelação nos mostra que Jesus era homem e seus discípulos (bispos da Igreja) também eram homens.
+                      portanto, o Magistério da Igreja, garantiu que apenas homens possam ser sacerdotes, não por machismo, mas sim pela tradição e Revelação Divina (ensinamentos de Jesus).
+                     </p>
+              <blockquote class="blockquote">
+                <p>Como essa infalibilidade se manifesta?</p>
+              </blockquote>
+              <p>
+                Ela ocorre por duas principais formas:
+              </p>
+              <ul>
+                <li style="list-style:circle;color: goldenrod;"><span style="color: white;">Magistério Ordinário: O Magistério Ordinário ocorre
+                  quando o Papa ou os Bispos que estão em comunhão com ele concordam em definir uma doutrina como definitiva. Um exemplo clássico 
+                  é a impossibilidade de uma mulher ser ordenada sacerdote. Neste caso não foi utilizado <a style="color:goldenrod;text-decoration: none;" href="#sol">recurso solene.</a>
+                </span></li><br>
+                <li style="list-style:circle;color: goldenrod;"><span style="color: white;">Magistério Extraordinário: O Magistério 
+                  Extraordinário ocorre quando o Papa ou os Bispos em comunhão com ele, definem um ato solene como definitivo. O melhor exemplo
+                possível, são as declarações solenes "ex-cathedra" (de cadeira) do Papa. Outro exemplo são
+                 as proclamações definitivas dos Bispos em comunhão com o Papa num Concílio Ecumênico. De modo geral, para assuntos Dogmáticos.
+                </span></li><br>
+
+                <blockquote class="blockquote" id="mag">
+                <p>Magistério:</p>
+              </blockquote>
+              <p>O magistério tem a infalibilidade concedida pelo Espírito Santo de interpretar o depósito da Fé. Que é a Sagrada Escritura e a Sagrada Tradição:
+                <ul>
+                  <li>Sagrada Escritura: Depósito da Fé escrita por sugestão do Espírito Santo. Mensagem da Salvação, Palavra de Deus. <P class="pas">" Toda a Escritura é inspirada por Deus, e útil para ensinar, para repreender, para corrigir e para formar na justiça."<br>2 Timóteo 3,16</P></li>
+                    <li>Sagrada Tradição: Depósito da Fé transmitida oralmente 
+                      (parte dela foi escrita posteriormente e toda ela tem fundamento na Escritura, pois ambas vem da mesma fonte: Deus). Foi transmitida por palavras, convivência com Cristo e das obras de Cristo ou sugestão do Espírito Santo. <p class="pas">"Assim, pois, irmãos, ficai firmes e conservai os ensinamentos que de nós aprendestes, seja por palavras, seja por carta nossa."<br> 2 Tessalonicenses 2,15</p> </li>
+                </ul>
+              </p>
+              <p>Porém, para garantir que o depósito da fé não seja entendido de forma errada e cause a mentira, Deus por meio do magistério, guia a interpretação dessa revelação. A autoridade do Magistério 
+                tem base bíblica quando entendemos algumas passagens como:
+                <p class="pas">"Em verdade vos digo: tudo o que ligardes sobre a terra será ligado no céu, e tudo o que desligar­des sobre a terra será também desligado no céu.'"<br>Mateus 18,18</p>
+                <p>Aqui Jesus após dar a Pedro as chaves (Mt 16,19), Jesus então em outro momento dá as chaves aos 12 apóstolos. 
+                  Estes que posteriormente passaram a função de guiar a Igreja e preservar o depósito da fé para seus sucessores.</p>
+                </p>
+                <p>Deve ficar evidente que nada é acrescentado a Tradição, a função dos bispos é guarda-la tal como ela é: Completa e perfeita. Se algum bispo prega algo fora da Revelação Divina, ele 
+                  automaticamente diz que a Revelação não acabou, oque sabemos não ser verdade. O bispo deve guardar a Tradição recebida dos apóstolos e com toda a Igreja promover uma explicação, entendimento, vivência e disseminação da Boa Nova, da Revelação do Deus que se fez homem, ensinou e formou discípulos, morreu na cruz para remir nossos pecados e depois venceu a morte e ressucitou, 
+                  trazendo para todos os batizados a glória de sermos novo homem, de sermos uma nova criatura, de sermos filhos por adoção de Deus Pai.
+                </p>
+                <p>É como se a Escritura fosse o esqueleto e a Tradição fosse a carne, sangue, movimento desse corpo. Os bispos devem manter acesa a "tocha" que receberam dos apóstolos, para que a Fé permaneça viva no HOJE.
+                </p>
+                <p>A Tradição não completa a Escritura. Ela apenas explica e vive no hoje a Escritura. Produzindo frutos e crescimento na vivificação da Escritura.</p>
+                <ul>
+                  <li><span style="color: goldenrod;">Magistério Universal</span>: Papa e Concílio</li>
+                  <li><span style="color: goldenrod;">Magistério Ordinário Universal</span>: Bispos dispersos em comunhão com o Papa. Não se trata de atos solenes como definições ex cathedra ou concílios ecumênicos, 
+                    mas da pregação habitual/comum e unânime da Igreja inteira. A infallibilidade aqui opera quando: Os bispos, em comunhão com o Papa, propõem unanimemente uma doutrina de fé ou moral.</li>
+                </ul>
+                <blockquote class="blockquote" id="dog">
+                <p>Dogmas:</p>
+              </blockquote>
+              <p>
+                A Igreja não cria nem inventa dogmas. Ela confirma e define como verdades de fé aquelas realidades presentes no depósito da 
+                Revelação Divina — contidas na Sagrada Escritura e na Tradição Apostólica —, sejam elas explícitas ou implícitas. Quando a Igreja, por meio do 
+                Magistério vivo, atinge a maturidade do discernimento e reconhece a necessidade de proteger a fé de heresias ou erros, proclama essas verdades como dogmas, 
+                tornando-as obrigatórias para a crença de todos os fiéis.
+                Esses dogmas já estão presentes na vivência da Igreja desde os tempos apostólicos, embora nem sempre tenham sido explicitamente detalhados ou definidos 
+                de forma solene. Um exemplo claro é o dogma da Imaculada Conceição de Maria: a Escritura a descreve como "cheia de graça" (Lc 1,28), 
+                o que pressupõe a ausência de pecado original desde o primeiro instante de sua concepção, em virtude dos méritos de Cristo. Essa crença, enraizada na
+                 Tradição desde os Padres da Igreja e vivida pela comunidade cristã, foi solenemente proclamada como dogma pelo Beato Pio IX em 1854, na constituição 
+                 apostólica Ineffabilis Deus. Assim, a Igreja não inventa nada novo, mas, guiada pelo Espírito Santo, desenvolve a compreensão do depósito da fé, preservando
+                  sua imutabilidade enquanto a torna mais explícita para as gerações presentes.
+              </p>
+
+                  <blockquote class="blockquote" id="sol">
+                    <p style="color: goldenrod;" id="solene">Recurso solene</p>
+                  </blockquote>
+                  <p>Significa um rito de maior importância e 
+                    formalidade dentro da Igreja Católica, que envolve um profundo sentido de reverência. Como exemplo pode-se citar:<br>
+                    <ul> <li>importância Litúrgica Elevada;</li> 
+                      <li>formalidade e cerimonial;</li>
+                      <li>eventos Significativos;</li>
+                      <li>obrigação (dias de preceito).</li>
+                    </ul></p>
+                    <blockquote class="blockquote" id="funda">
+                      <p>Constantino fundou a Igreja Católica?</p>
+                    </blockquote>
+                    <p>Essa é uma acusação e uma dúvida clássica sobre nossa fé. A resposta curta é NÃO, ele não fundou a Igreja pois
+                      quem fez isto foi o próprio Jesus quando entrega as chaves a São Pedro e diz a ele que ele é a pedra:<p class="pas">"Eu também lhe digo: Você é Pedro, 
+                      e sobre esta pedra construirei a minha igreja. E as portas do inferno não dominarão sobre ela."<br>Mateus 16,18-19</p>
+                      Porém, vamos entender qual foi o papel de Constantino para a Igreja. Naquele tempo, todos podiam ter a sua fé desde que adorasse o imperador
+                      romano como uma divindade maior. No entanto, os cristãos primitivos Obviamente se recusavam a ter outro Deus além do Deus verdadeiro. E
+                      isso fez com que eles fossem perseguidos, mortos e feitos mártires. Constantino permitiu a tolerância a religião cristã, permitindo asssim
+                      que eles adorassem a Deus e somente a Deus, sem serem perseguidos.
+                    </p>
+                    <p>Por volta do século IV ocorrereu uma onde de conversão sobre o povo de Roma, pois eles se adimiravam com este povo 
+                      que não tinha medo de morrer por seu Deus e que havia enfrentado a soberania do imperador. Por conta desse crescimento da fé
+                      cristã, alguns acreditaram que a Igreja passara a existir neste ponto. Mal sabem estes que a Igreja já existia desde a década
+                      dos anos 30 depois de Cristo. E que Constantino apenas permitiu a livre execução da fé cristã.
+                    </p>
+                    <blockquote class="blockquote" #funda>
+                      <p>Então foi Teodósio que fundou a Igreja?</p>
+                    </blockquote>
+                    <p>Novamente é outro engano esquecer de <a href="#mt16:18" 
+                        style="text-decoration: none;color: goldenrod;"> Mateus 16,18-19</a> e querer dizer que Teodósio fundou a Igreja de Cristo.
+                      Teodósio, imperador, decretou que o cristianismo deveria ser a religião do império. Para agregar a religião a sociedade romana.
+                    Salienta-se o ponto mais importante, agregar algo que já era realidade, mas que agora passava a ser a religião oficial de Roma.</p>
+                    <p>A fé apóstolica sempre foi e será mantida pela Igreja, porém, influências como por exemplo roupas diferentes para diferentes
+                      cargos do clero, possivelmente foram adicionadas com essa conexão a Roma. Porém as funções clericais já existiam na fé apostólica, oque se 
+                      adicionou foi um esmiuçamento dessa fé já existente.
+                    </p>
+                    <blockquote class="blockquote" id="creio">
+                      <p>A Profissão de Fé</p>
+                    </blockquote>
+                    <p>Todo católico já rezou ou ao menos escutou sobre a oração do Creio/Credo. A oração do Credo é a profissão de fé dos
+                      apóstolos, ou seja, tudo que nós como cristãos acreditamos. O que a igreja fez com os seus concílios foi destrinchar
+                      a crença dos apóstolos e conserva-la por meio da proclamação dos dógmas. </p>
+                      <p> Para combater as heresias (mentirar sobre nossa fé), a oração do Credo foi formulada ao longo do tempo como uma forma de 
+                        lembrar e confirmar as verdades de fé (que não mudarão) para os verdadeiros cristãos.
+                      </p>
+                      <p>O creio começou a ser formulado no concílio que foi convocado a pedido de Constantino, para defender a Igreja contra 
+                        a heresia Ariana (que dizia que Jesus não é Deus e sim um humano de espírito elevado). E isso vai formar outro creio. Que 
+                        detalha mais o creio dos apóstolos. Abaixo você poderá ver a diferença entre eles:
+                        <ul>
+                          <li><span style="color: goldenrod">Creio Apostólico:</span> Creio em Deus Pai Todo-Poderoso, criador do céu e da terra, e em Jesus Cristo, 
+                            seu único Filho Nosso Senhor, que foi concebido pelo poder do Espírito Santo, nasceu da Virgem Maria , 
+                            padeceu sob Pôncio Pilatos, foi crucificado, morto e sepultado, desceu a mansão dos mortos, ressuscitou ao 
+                            terceiro dia, subiu aos céus, está sentado à direita de Deus Pai todo-poderoso, de onde há de vir a julgar os 
+                            vivos e mortos. Creio no Espírito Santo, na Santa Igreja Católica, na comunhão dos santos, na remissão dos 
+                            pecados, na ressurreição da carne, na vida eterna, amém.</li>
+                            <li><span style="color: goldenrod"> Creio niceno-constantinopolitano:</span>Creio em um só Deus, Pai Todo-Poderoso, 
+                              Criador do céu e da terra, e de todas as coisas visíveis e invisíveis. Creio em um só Senhor, Jesus Cristo, Filho Unigênito de 
+                              Deus, nascido do Pai antes de todos os séculos. Deus de Deus, luz da luz, Deus verdadeiro de Deus verdadeiro; gerado, não criado, 
+                              consubstancial ao Pai. Por Ele todas as coisas foram feitas. E por nós, homens, e para nossa salvação, desceu dos céus e se encarnou 
+                              pelo Espírito Santo no seio da Virgem Maria e se fez homem. Também por nós foi crucificado sob Pôncio Pilatos, padeceu e foi 
+                              sepultado. Ressuscitou ao terceiro dia, conforme as escrituras, e subiu aos céus, onde está sentado à direita do Pai. E de novo há 
+                              de vir, em sua glória, para julgar os vivos e os mortos; e o seu reino não terá fim. Creio no Espírito Santo, Senhor que dá a vida, 
+                              e procede do Pai e do Filho; e com o Pai e o Filho é adorado e glorificado; Ele que falou pelos profetas. Creio na Igreja, una, 
+                              santa, católica e apostólica. Professo um só batismo para a remissão dos pecados e espero a ressurreição dos mortos e a vida do 
+                              mundo que há de vir. Amém</li>
+                        </ul>
+                        Percebe-se que o Credo niceno-constantinopolitano detalha as verdades de fé, para assim evitar confusões e heresias.
+                      </p>
+                      <p style="color:goldenrod;font-weight: bold;">Nota: a maior autoridade da Igreja não é o Papa, e sim os concílios.<br>
+                      </p>
+
+                      <blockquote class="blockquote" id="fora">
+                        <p>Fora da Igreja Católica há salvação?</p>
+                      </blockquote>
+                      <p>O dógma "Extra ecclesiam nulla salus" é frequentemente incompreendido por diversos fatores. Entre eles podemos
+                        notar dois tipos de heresias/pensamentos. 
+                        <ul>
+                          <li>Feeneyismo: Essa heresia afirma que literalmente só serão salvos os que estiverem NA IGREJA, do modo
+                            mais radical e literal dessa afirmação. Afirmando que apenas os católicos batizados com água podem ir para o céu,
+                            por exemplo.
+                          </li>
+                          <li>Irenismo: Essa heresia afirma que todos, basicamente já estamos salvos. Não importa a sua crença, acreditar em Deus 
+                            já pode ser sucifiente para se salvar. </li>
+                        </ul>
+                        Na realidade oque este dógma quer dizer é que a plenitude da salvação está na Igreja Católica porque ela foi fundada pelo
+                        próprio Cristo Jesus e preservada pelos apóstolos. Com passagens como <a href="#mt16:18" 
+                        style="text-decoration: none;color: goldenrod;">Mateus 16,18-19</a>, que conforta nossa preocupação afiramando
+                        que as portas do inferno não irão prevalecer sobre esta igreja, ou seja, a mentira não vencerá a verdade de Cristo.
+                      </p>
+                      <p style="color:goldenrod;font-weight: bold;" id="membros">Nota: A Igreja é como um indivíduo e possui corpo e alma. A alma são as coisas invisíveis como o Espírito Santo, 
+                    a fé, a caridade. Já o corpo são as coisas visíveis como: Os sacramentos, a hierarquia da Igreja, e as pessoas 
+                  participantes dessa igreja. (A cabeça da igreja é cristo e os membros vivos do corpo somos nós que participamos dela, enquanto
+                  os membros mortos são os participantes que estão em pecado mortal).</p>
+                      <p>São Pio X afirma que do mesmo modo que só se salvaram aqueles que estiveram na arca de Noé, também assim só se salva
+                        aqueles que estão na Igreja verdadeira. Até mesmo Elias, Moisés e outros, foram salvos porque eles tinham a esperança 
+                      do Salvador e consequentemente eles também estavam, de modo espiritual, com Igreja deste Salvador que é Jesus Cristo.</p>
+                      <p>Vale ressaltar que aquele indivíduo que não tem conhecimento/evangelização ou possui batismo válido ou desejo do batismo
+                        (<a style="color: goldenrod; text-decoration: goldenrod;" href="batismo.html#bie">implícito ou explícito</a>). E sinceramente busca a verdade 
+                        e busca fazer a vontade de Deus, este então está fora do Corpo da Igreja mas está inserido na Alma da igreja. Por fim, se elas 
+                        podem ser salvas pois estão de algum modo com a Igreja Católica, a Igreja de Cristo Jesus.
+                      </p>
+                      <p>O modo mais certeiro de buscar a verdade é escutando a própria verdade. Se Jesus é a verdade como vemos nesta passagem:                        
+                        <span class="pas"><br>Jesus respondeu, "Eu sou o Caminho, a Verdade 
+                          e a Vida. Ninguém vai ao Pai senão por mim."<br>João 14,6<Br></span>
+                            Desse modo podemos concluir que estar com a Igreja que ele fundou e a Igreja na qual ele está presente no nosso mundo
+                            (pela Eucaristia e pelo Espírito Santo por exemplo), é o meio mais seguro e confiável de se buscar a salvação. Por isso
+                            sendo nós membros VIVOS da igreja por meio do nosso <a style="color:goldenrod;text-decoration: none;">estado 
+                              de graça</a> e das nossas boas obras, estamos a caminho da salvação do modo mais certeiro.
+                      </p>
+                      <blockquote class="blockquote" id="destruida">
+                        <p>A Igreja pode ser destruída?</p>
+                      </blockquote>
+                      <p>Não, pois ela é o Corpo e Jesus é a cabeça. Dizer que a igreja hoje é mentirosa é dizer que Jesus mentiou ou 
+                        deixou o mal prevalecer contra a sua igreja. O que vemos ser impossível dado <a href="#mt16:18" 
+                        style="text-decoration: none;color: goldenrod;">Mateus 16,18-19</a>. Jesus também diz:
+                        <span class="pas"><br>"e ensinando-os a observar tudo o que ordenei a vocês. 
+                          Eis que eu estarei com vocês todos os dias, até o fim do mundo."<br>Mateus 28,20</span>
+                          O que torna a ideia de que a Igreja não pode errar ou ensinar uma mentira pois Cristo está com ela e nela. Portanto 
+                          quando se trata de verdades de fé, a igreja não erra e não pode ser destruída. Mas pode ser perseguida e assim ela é desde os primeiros
+                          cristãos.
+                      </p>
+                      <blockquote class="blockquote" id="tipo">
+                        <p>Os tipos da Igreja</p>
+                      </blockquote>
+                      <p>
+                        <ul>
+                          <li>
+                            Igreja Militante: Nós que estamos lutando pela salvação, lutando contra os três inimigos da alma: O demônio, 
+                            o mundo e a concupiscência da carne. Isso inclui aqueles que estão no corpo da Igreja mas são 
+                            <a style="text-decoration: none;color: goldenrod;" href="#membros">membros mortos.</a>
+                          </li>
+                          <li>
+                            Igreja Triunfante: São os Anjos, os santos e todos aqueles nossos irmãos que já se encontram junto de Deus.
+                            Tanto os que tiveram de passar pelo purgatório, quanto os que tiveram a graça de ir direto ao céu. A igreja 
+                            Triunfante é composta por aqueles que já alcançaram o paraíso. 
+                          </li>
+                          <li>
+                            Igreja Padecente: A igreja padecente é composta por aqueles que se encontram no estado do purgatório, ou seja,
+                            morreram como membros vivos do corpo de Cristo, porém não estavam totalmente livres das impurezas do pecado. 
+                            Portanto como nenhum resquício de pecado entra no céu, estes devem ser purificados (no purgatório) e formam então 
+                            a igreja padecente.
+                          </li>
+                        </ul>
+                        <blockquote class="blockquote" id="face">
+                        <p>A Igreja em duas faces</p>
+                      </blockquote>
+                      <ul>
+                        <li>Docente: É a igreja que ensina, ou seja, os Papas, Bispos e sacerdotes. Se algum Leigo (membro comum da igreja,
+                          como eu e você provavelmente), souber muito sobre a Igreja. Ainda sim ele não possui autoridade para ensinar 
+                        com a garantia da Igreja docente. Porque a Igreja docente tem o auxílio e a unção do Espírito Santo. (Por isso apenas
+                        o Padre e o Diácono podem realizar a homilia na Santa Missa por exemplo.) Outra função da Igreja Docente é a de 
+                      adiministrar as coisas santas, como: A liturgia, O código da Igreja, Os tesouros da Misericórdia Divina (Indulgências),etc...
+                        <br>O sacerdote possui um Tríplice Múnus (três funções):
+                      <li style="list-style:inside;">Profeta (ensinar): Pregar a Santa Doutrina, aquilo que está contido no Catecismo
+                        e na Palavra de Deus. (Por conta deste Múnus, somente o sacerdote pode fazer o sermão na missa).
+                      </li>
+                   <li style="list-style:inside;">Sacerdote (Santificar): Te trazer os sacramentos (sinais visíveis da Graça de Deus). Exemplo:
+                    O Sacerdote te batiza, te traz a comunhão, te confessa, leva a unção dos enfermos, efetua a celebração do matrimônio. Ou seja,
+                    o Sacerdote Santifica as pessoas pelos sacramentos, mas não necessariamente é santo. Os Sacramentos não estão ligados diretamente
+                    as virtudes do Sacerdote.
+                   </li>
+                  <li style="list-style:inside;">Rei (govermar): Guiar, dirigir a comunidade para Deus. Ser o diretor espiritual das pessoas
+                    daquela comunidade.
+                  </li>
+                </li>
+                        <li>Discente: São os Leigos, Fiéis, que seguem os ensinamentos da Igreja Docente e vivem a fé e participação na Igreja.
+                          Cumprindo com o sensus fidei, ou o "sentido da fé" do povo de Deus. </li>
+                      </ul>
+                        
+                      </p>
+                      <blockquote class="blockquote">
+                        <p>Nota do escritor:</p>
+                      </blockquote>
+                      <p>Sou feliz porque sou católico e estou buscando a salvação. Nutra seu amor pela Igreja e por Cristo atravéz do 
+                        conhecimento. Não tenha medo de descobrir estar errado.
+                      </p>
+
+                   
+           </article> </div> <div class="col-md-4">
+          <div class="position-sticky" style="top: 2rem">
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden my-4">
+              <div class="card-header bg-dark text-white p-3 border-bottom border-secondary">
+                <h5 class="mb-0">Se tiver dúvidas, pergunte a nossa IA</h5>
+              </div>
+              <div class="card-body p-0" style="height: 70vh; min-height: 500px;">
+                <iframe src="https://ia-catolica.vercel.app/" style="width: 100%; height: 100%; border: none;" title="IA Católica" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+        </div> </div> </main> <footer class="py-5 text-center" style="background-color: rgb(66, 65, 65);">
+      <div class="container">
+        <section class="footer-content">
+          <div class="rodape" id="direitos">
+            <img src="../imagens/logo1.png" style="height: 60px;" id="footer_logo"><br><br>
+            <p class="ca">2026 © Todos os direitos reservados.</p>
+            <p class="ctt"><a href="autor.html" class="ca">Desenvolvido por Emanuel</a></p>
+          </div>
+          <div class="social-media" id="social-media-buttons">
+            <a href="https://wa.me/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </section>
+      </div>
+    </footer>
+    <script
+      src="../assets/dist/js/bootstrap.bundle.min.js"
+      class="astro-vvvwv3sm"
+    ></script>
+    
+<script>
+    const mobileBtn = document.getElementById('mobile_btn');
+    const mobileMenu = document.getElementById('mobile_menu');
+
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active'); // Isso ativa o display flex configurado no styles.css
+    });
+</script>
+<script src="../dados.js"></script>
+<script src="../js5.js"></script>
+  </body>
+</html>

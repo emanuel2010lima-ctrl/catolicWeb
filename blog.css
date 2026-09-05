@@ -1,0 +1,214 @@
+/* stylelint-disable @stylistic/selector-list-comma-newline-after */
+
+.blog-header-logo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+  font-size: 2.25rem;
+  
+}
+
+.blog-header-logo:hover {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+}
+
+.flex-auto {
+  flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+/* Pagination */
+.blog-pagination {
+  margin-bottom: 4rem;
+}
+
+/*
+ * Blog posts
+ */
+.blog-post {
+  margin-bottom: 4rem;
+}
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #727272;
+}
+.pas{
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+html, body {
+    background-color:black !important;
+    color: #f8f9fa !important;
+}
+
+
+.navbar, .nav-scroller {
+    background-color: transparent !important;
+}
+/* Container principal da Bíblia */
+.bible-container {
+    border: 1px solid #444;
+    background-color: black !important;
+}
+
+/* Botão Estilizado */
+.btn-ler-agora {
+    background-color: goldenrod;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-ler-agora:hover {
+    background-color: #daa520;
+}
+
+/* AJUSTE CRUCIAL: Área de Leitura */
+.bible-reader-area {
+    height: 70vh; /* No celular, ocupa 70% da altura da tela */
+    overflow-y: auto;
+    line-height: 1.6;
+    font-size: 1.15rem; /* Fonte levemente maior para facilitar leitura no celular */
+    padding: 15px;
+    background-color: #121212;
+    border-radius: 8px;
+}
+
+/* Ajuste para telas muito pequenas */
+@media (max-width: 576px) {
+    .bible-reader-area {
+        height: 60vh; /* Reduz um pouco no celular para sobrar espaço para o menu */
+        font-size: 1.1rem;
+        padding: 10px;
+    }
+    
+    .display-4 { font-size: 2.5rem; } /* Diminui títulos grandes no mobile */
+}
+
+/* Estilo dos versículos */
+#leitor-texto p {
+    margin-bottom: 1.2rem;
+    color: #e0e0e0;
+}
+
+#leitor-texto b {
+    color: goldenrod;
+    font-size: 0.85rem;
+    margin-right: 5px;
+    vertical-align: super; /* Faz o número do versículo ficar pequeno e no topo */
+}
+.caixa-oculta {
+    display: none; /* Esconde o elemento */
+    background-color: #2b2b2b;
+    border: 1px solid goldenrod;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 15px;
+    color: white;
+    animation: fadeIn 0.3s ease-in-out; /* Efeito suave ao aparecer */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.ca{
+  color: white;
+}
+.ca:hover{
+color: goldenrod;
+}
+
+/* Customiza o estado ativo para parecer com o hover */
+.dropdown-menu-dark .dropdown-item.active {
+    background-color: rgba(255, 255, 255, 0.15); /* Cinza suave do hover dark */
+    /* Se quiser que fique dourado como seus links principais: */
+    /* border-left: 3px solid goldenrod; */ 
+}
+.lg {
+  width: 50px; /* Reduzimos um pouco para caber melhor no celular */
+  height: auto;
+}
+.lg2 {
+  width: 30px; /* Reduzimos um pouco para caber melhor no celular */
+  height: auto;
+}
+/* Ajuste para o título não ficar grudado na logo */
+.blog-header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Cria um espaço fixo entre a logo e o texto sem quebrar o layout */
+  font-size: 1.2rem; /* Tamanho ajustável para celular */
+}
+
+@media (min-width: 768px) {
+  .lg {
+    width: 70px; /* Tamanho original para computador */
+  }
+  .blog-header-logo {
+    font-size: 2rem;
+  }
+}
+/* Isso cria um "respiro" para o navegador não colar o título no topo da tela */
+[id] {
+    scroll-margin-top: 100px; 
+}
+html {
+    scroll-behavior: smooth;
+}
+/* Define a animação de brilho */
+@keyframes highlight-fade {
+    0% {
+        outline: 3px solid goldenrod;
+        background-color: rgba(218, 165, 32, 0.3); /* Um leve dourado no fundo */
+        border-radius: 4px;
+    }
+    100% {
+        outline: 3px solid transparent;
+        background-color: transparent;
+    }
+}
+
+/* Classe que será aplicada ao elemento alvo */
+.temp-highlight {
+    animation: highlight-fade 10s ease-in-out; /* Dura 3 segundos */
+}
+/* --- Fundo Preto para o Exame de Consciência --- */
+
+/* Altera o fundo do item, do botão e do corpo da sanfona para preto */
+#accordionExame .accordion-item,
+#accordionExame .accordion-button,
+#accordionExame .accordion-body {
+    background-color: black !important;
+    color: white !important;
+}
+
+/* Adiciona uma borda cinza escura para separar os itens, já que tudo será preto */
+#accordionExame .accordion-item {
+    border: 1px solid #333 !important;
+}
+
+/* Estilo do botão quando ele estiver aberto (opcional) */
+#accordionExame .accordion-button:not(.collapsed) {
+    background-color: #111111 !important; /* Um preto levemente diferente para destacar */
+    color: #efc200 !important; /* Deixa o texto do título dourado quando aberto */
+    box-shadow: none !important; /* Remove aquela sombra azul padrão do Bootstrap */
+}
+
+/* Garante que a setinha do accordion continue visível (branca/dourada) */
+#accordionExame .accordion-button::after {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+#accordionExame .accordion-button:not(.collapsed)::after {
+    filter: invert(70%) sepia(100%) saturate(1000%) hue-rotate(1deg) brightness(100%); /* Tenta puxar para o dourado */
+}

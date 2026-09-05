@@ -1,0 +1,1354 @@
+<!doctype html>
+<html lang="pt-br" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>O que é ser Católico?</title>
+    <link rel="icon" type="image/png"class="logo" href="../imagens/logo1.png">
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/blog/"
+    />
+    <script src="../assets/js/color-modes.js"></script>
+    
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link href="../blog.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../header.css">
+    <style>
+        .logo{
+            height: 50px;
+            width: 50px;
+        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+      .bgs{
+        background-image: url(../imagens/confissaojesus.jpg);
+        background-position: 50% 10%;
+
+      }
+   
+    </style>
+  </head>
+  <body class="b">
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+<!--<button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>-->
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol
+        id="aperture"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path
+          d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"
+        ></path>
+      </symbol>
+      <symbol id="cart" viewBox="0 0 16 16">
+        <path
+          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        ></path>
+      </symbol>
+      <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div class="container">
+      <header>
+    <nav id="navbar">
+        <img src="../imagens/logo1.png" id="nav_logo" class="lg"alt="Logo">
+
+        <ul id="nav_list">
+            <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="#">Comunidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://arquidiocesesjrp.org.br/">Arquidiocese de Rio Preto</a></li>
+                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="igreja.html">Igreja</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="igreja.html">Fundada por Cristo</a></li>
+                    <li><a href="calendariolit.html">Calendário</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="batismo.html">Sacramentos</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="batismo.html">Batismo</a></li>
+                    <li class="nav-item active"><a href="confissao.html">Confissão</a></li>
+                    <li><a href="comunhao.html">Eucaristia</a></li>
+                    <li><a href="crisma.html">Crisma</a></li>
+                    <li><a href="sacraordem.html">Ordem</a></li>
+                    <li><a href="sacramatri.html">Matrimônio</a></li>
+                    <li><a href="extremauncao.html">Unção dos Enfermos</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/igreja.html">Vocações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="matrimonio.html">Matrimôniados</a></li>
+                    <li><a href="ordem.html">Ordenados</a></li>
+                    <li><a href="religioso.html">Religiosos Consagrados</a></li>
+                    <li><a href="leigo.html">Leigos</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="santidade.html">Santidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="santidade.html">Santos</a></li>
+                    <li><a href="#">Beatos</a></li>
+                    <li><a href="#">Veneráveis</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/oracoes.html">Orações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Terços</a></li>
+                    <li><a href="#">Novenas</a></li>
+                    <li><a href="#">Orações próprias</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <button id="mobile_btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <a href="search.html" style="text-decoration: none;" class="input-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+    </nav>
+
+    <div id="mobile_menu">
+        <ul id="mobile_nav_list">
+            <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="#">Comunidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://arquidiocesesjrp.org.br/">Arquidiocese de Rio Preto</a></li><hr style="color: white;">
+                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="igreja.html">Igreja</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="igreja.html">Fundada por Cristo</a></li><hr style="color: white;">
+                    <li><a href="calendariolit.html">Calendário</a></li><hr style="color: white;">
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="batismo.html">Sacramentos</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="batismo.html">Batismo</a></li><hr style="color: white;">
+                    <li class="nav-item active"><a href="confissao.html">Confissão</a></li><hr style="color: white;">
+                    <li><a href="comunhao.html">Eucaristia</a></li><hr style="color: white;">
+                    <li><a href="crisma.html">Crisma</a></li><hr style="color: white;">
+                    <li><a href="sacraordem.html">Ordem</a></li><hr style="color: white;">
+                    <li><a href="sacramatri.html">Matrimônio</a></li><hr style="color: white;">
+                    <li><a href="extremauncao.html">Unção dos Enfermos</a></li><hr style="color: white;">
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/igreja.html">Vocações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="matrimonio.html.html">Matrimôniados</a></li><hr style="color: white;">
+                    <li><a href="ordem.html">Ordenados</a></li><hr style="color: white;">
+                    <li><a href="religioso.html">Religiosos Consagrados</a></li><hr style="color: white;">
+                    <li><a href="leigo.html">Leigos</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="santidade.html">Santidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="santidade.html">Santos</a></li><hr style="color: white;">
+                    <li><a href="#">Beatos</a></li><hr style="color: white;">
+                    <li><a href="#">Veneráveis</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/oracoes.html">Orações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Terços</a></li><hr style="color: white;">
+                    <li><a href="#">Novenas</a></li><hr style="color: white;">
+                    <li><a href="#">Orações próprias</a></li><hr style="color: white;">
+                </ul>
+            </li>
+        </ul>
+      
+    </div>
+</header>
+    </div>
+  <main class="container">
+    <div class="bgs">
+      <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis">
+        <div class="col-lg-6 px-0">
+          <h1 class="display-4 fst-italic" style="color:black">
+          
+          </h1>
+          <p class="lead my-3">
+            <br><BR><br><br><br><br>
+          </p>
+          </div>
+          <!--<p class="lead mb-0">
+            <a href="#" class="text-body-emphasis fw-bold"
+              >Continue reading...</a
+            >
+          </p>-->
+        </div>
+      </div>
+      <div class="row g-5">
+        <div class="col-md-8">
+          <h3 class="pb-4 mb-4 fst-italic border-bottom">Confissão:<span style="color:rgb(37, 130, 252);"> O remédio da alma</span></h3>
+          <article class="blog-post">
+            <h2 class="display-5 link-body-emphasis mb-1" style="color: white;"><span style="color: white;">Jesus, nosso médico</span></h2>
+            <p class="blog-post-meta">
+              02 de Janeiro de 2026, por <a href="autor.html">Emanuel</a>
+            </p>
+            <p class="pas" id="at2:38">
+          "Se confessarmos os nossos pecados, ele é fiel e justo para perdoar os nossos pecados e nos purificar de toda injustiça."<br>1 João 1,9
+            </p>
+            <hr />
+        <p>
+         A confissão é um poderoso Sacramento deixado por Jesus para que nós possamos receber a graça do perdão de nossos pecados. É pelo próprio sangue de Jesus que somos 
+         purificados de nossos pecados, isso é o que torna a confissão tão valiosa. Antes de mostrar como a confissão é feita e a base bíblica para ela, 
+         vamos entender 3 pontos cruciais.
+         <ul>
+          <li style="color:rgb(37, 130, 252)">Estado de Graça:<span style="color: white;"> O estado de Graça é quando o indivíduo está sem a ação do pecado na sua vida.
+            ele está purificado e em contato constante com a graça de Deus. É um estado de santidade, de pureza, de amor e de obediência a Deus. 
+            Vale lembrar que nós não conseguimos esse estado por mérito próprio e sim por um dom que Deus nos concede.
+
+          </span></li>
+          <li style="color: goldenrod;">Pecado Venial:<span style="color: white;"> Os pecados veniais são faltas leves que cometemos. Eles são pecados que não nos 
+            separam completamente da graça de Deus. Mas que ainda sim são motivos para uma atenção e para a busca pelo perdão. Realizar uma série de pecados veniais é a "receita
+            de bolo" para cometer um pecado mortal. De graça em graça, alcançamos a santidade. Mas de pecadinho em pecadinho, alcançamos um "pecadão".
+          </span></li>
+          <li style="color:red" id="mort">Pecado Mortal:<span style="color: white;">Estes são os mais terríveis pecados pois nos separam completamente da graça santificante de Deus. 
+            Quando cometemos um pecado mortal estamos (mesmo que sem perceber) em inimizade com Deus. O pecado mortal tem esse nome porque causa a morte da alma. Lembra da 
+          página sobre a <a href="igreja.html" style="text-decoration: none; color: goldenrod;">Igreja</a>? Onde falamos sobre os membros mortos do corpo de Cristo? Pois é, o pecado mortal é o que faz um 
+          membro vivo se tornar um membro morto. Em resumo: Esse é o pecado que te tira a graça de Deus e pode te levar ao inferno.</span></li>
+         </ul>
+
+        </p>
+        <blockquote class="blockquote">
+              <p>Quando um pecado é grave (mortal)?</p>
+            </blockquote>
+        <p>
+        Para um pecado ser mortal, é necessário 3 condições:
+        <ul>
+          <li style="color: goldenrod;"><span style="color: white;">Matéria grave: Para algo ser matéria grave é necessário que este algo viole diretamente a lei de Deus. 
+            Como por exemplo o assassinato, o adultério, a blasfêmia, etc.</span> </li>
+          <li style="color: goldenrod;"><span style="color: white;">Plena advertência: A plena advertência significa que o indivíduo deve saber que aquela ação que ele vai realizar é pecado. 
+            A plena advertência também se manifesta na nossa consciência. Quando você se "toca" e pensa algo como: "Opa! isso aqui que eu iria fazer não é algo bom..."</span></li>
+          <li style="color: goldenrod;"><span style="color: white;">Pleno consentimento: Se depois de ser alertado na sua consciência, você decidir aceitar e até estimular essa ação, você acaba de dizer sim 
+            ao pecado e dizer não a graça de Deus. Se você resistiu a tentação e não consentiu com ela, a gravidade do seu pecado muda para venial. Para que um pecado seja grave é necessário cumprir estes 3 requisitos.
+            </li></span>  
+        </ul>
+        <p>Dica: O pecado grave é um "elefante numa sala de cristais". O estrago é visível e a culpa na consciência também. Quando nós dizemos sim ao pecado no consentimento, essa decisão geralmente não gera dúvida.
+            Quando pecamos mortalmente, isso nos é uma certeza. Novamente: O consentimento pleno é aceitar deliberadamente o erro e não voltar atrás até que o ato seja consumado. Se você interrompe a ação quando sente o 
+            início da culpa ou o alerta da consciência, é um indício de que você não consentiu plenamente e que talvez você tenha vacilado ou tenha uma consciência mais lenta. (É sempre bom procurar um sacerdote para 
+            esclarecer suas dúvidas e guiar você com a direção espiritual.) Se você ficou confuso, acalme-se. Vou explicar melhor adiante.</p>
+        </p>
+        <blockquote class="blockquote">
+          <p>Porque eu devo me confessar se já recebi a purificação no Batismo?</p>
+        </blockquote>
+        <p>O Batismo nos inicia na vida cristã, nos tira a culpa dos pecados (pecado original no caso dos bebês), nos torna filhos de Deus e participantes da morte e ressurreição de Cristo. Porém, ele não 
+          tira o que a Igreja chama de concupiscência. Que é a nossa inclinação ao pecado e a busca pelo prazer. Porém, com a graça do batismo, essa concupiscência se torna prova do amor a Cristo e caminho de 
+          crescimento para quem escolhe resistir a ela e escolher sofrer por amor a Deus do que aceitar seus caprichos da carne. São João nos diz:
+          <p class="pas">Se dissermos que não temos pecado, estamos enganando a nós mesmos, e a verdade não está em nós"<br>1João 1,8</p> 
+          Isso quer dizer que mesmo após o batismo, por falha nossa, ainda erramos com Deus e necessitamos de perdão e reconciliação.
+        </p>
+        
+        <blockquote class="blockquote">
+          <p>Qual é a base bíblica da confissão?</p>
+        </blockquote>
+        <p>O sacramento da confissão não só tem base bíblica como tem diversas passagens. Nesta a seguir vemos Jesus, após enviar o Espírito Santo aos apóstolos dando-lhes 
+          a função de perdoar pecados:
+          <span class="pas" id="jo202123"> "Da mesma forma que o Pai me enviou, eu vos envio a vocês. E, após dizer isso, soprou sobre eles e disse: 'Recebei o Espírito Santo. <br>
+            Aqueles a quem perdoardes os pecados, serão perdoados; e aqueles a quem não perdoardes, não serão perdoados'" <br>Jo 20,21-23</span> <br>
+            Fica claro aqui que não são os apóstolos que perdoam os pecados por mérito ou santidade deles, e sim que Deus através dos apóstolos (agora com a graça do Espírito Santo) 
+            perdoa os pecados. Como os Padres e Bispos por exemplo, são a sucessão dos apóstolos, eles também são instrumento de Deus para nos perdoar de nossas faltas. Como 
+            vemos em:<br>
+            <span class="pas" id="tg516">"Confessai os vossos pecados uns aos outros, e orai uns pelos outros, para que sejais curados. A oração do justo tem grande poder em 
+              sua eficácia."<br>Tiago 5,16</span>
+              <br> Outra passagem que indica as confissões públicas está em:
+              <span class="pas" id="at1918">"Muitos dos que creram vieram confessando e denunciando publicamente as suas próprias obras"<br>Atos 19,18</span>
+        </p> 
+        <blockquote class="blockquote">
+              <p>E se eu morrer antes de me confessar?</p>
+            </blockquote>
+            <p>Se assim como no batismo nós temos o desejo do batismo explícito e implítico
+               (conferir <a style="text-decoration: none; color: goldenrod;"  href="batismo.html#dejesob)">Desejo Implícito e Explícito ao Batismo</a>), na confissão temos algo 
+              similar. O sacramento da confissão começa no instante onde você acaba de pecar. Resumidadmente o sacramento da confissão tem 3 etapas:</p>
+              <ol>
+                <li style="list-style: upper-roman; color: goldenrod;"><span style="color: white;">Contrição: Após pecar você se arrepende</span></li>
+                <li style="list-style: upper-roman; color: goldenrod;"><span style="color: white;">Confissão: Aqui você se acusa de seus pecados para um sacerdote</span></li>
+                <li style="list-style: upper-roman; color: goldenrod;"><span style="color: white;">Satisfação: A satisfação se dá ao cumprir a penitência dada pelo sacerdote</span></li>
+              </ol>
+              <p>A contrição envolve a decisão de não pecar mais além de ser a matéria do sacramento da confissão é a contrição. A contrição tem dois tipos:</p>
+              <ul style="list-style: circle;">
+                <li>Perfeita: A contrição Perfeita tem como motivo o arrependimento de ter desagradado e ofendido a Deus. É o arrempendimento por amor a Cristo. Esta contrição é capaz de perdoar os pecados veniais e os pecados mortais desde que ela 
+                  tenha consigo a decisão de não pecar mais. Portanto se o individúo pecar gravemente e morrer após ter a contrição perfeita, ele vai para o purgatório pois sua culpa foi perdoada e ele simplesmente só não conseguiu terminar o sacramento que já havia começado. (Isso levando em conta que ele já buscava se confessar o mais rápido possível).  </li>
+                <li>Imperfeita: A contrição Imperfeita tem como motivo o medo do inferno. Porém ambas as contrições são dons divinos e válidas para o sacramento. A contrição Imperfeita ou Atrição perdoa os pecados veniais apenas, porém também é necessário a firme decisão de não pecar mais. </li>
+              </ul>
+              <p>Nota: A contrição não tira a necessidade da confissção, ela é uma etapa do sacramento e não deve ser uma desculpa para não terminar a busca pela confissão.</p>
+
+              <blockquote class="blockquote">
+                <p>Existe sucessão apostólica? Porque o padre pode confessar alguém?</p>
+              </blockquote>
+              <p>Como vemos em  
+                <a class="pas" style="color: goldenrod;" href="confissao.html#jo202123"> Jo 20,21-23<span style="color: white;">,</span></a>
+                <a class="pas" style=" color: goldenrod;" href="confissao.html#tg516">Tg 5,16 <span style="color: white;">e</span></a>
+                <a class="pas" style=" color: goldenrod;" href="confissao.html#at1918">At 19,18</a>
+                a confissão é possível dada a autoridade dos apóstolos que foi concedida por Jesus e que isso era feito na comunidade da Igreja primitiva. Além de 
+                <a class="pas" style=" color: goldenrod;" href="confissao.html#at1918">At 19,18</a>, temos referências a confissão na Igreja primitiva em fontes como 
+                o livro Didaqué do ano 48 depois de Cristo. Nele está:
+                <p class="pas">"Na Igreja, confessarás tuas faltas e não entrarás em oração com má consciência"<br>(4,14)</p>
+                <p class="pas">"Reuni-vos no Dia do Senhor para a Fração do Pão e rendei ação de graças [em grego, Eucaristia], depois de haverdes 
+                  confessado vossos pecados, para que vosso sacrifício seja puro"<br>(14,1)
+                </p>
+                A confissão era pública nessa época, ou seja, todos se confessavam na frente de todos na igreja. Como vemos na carta aos Coríntios de São Clemente de Roma (4º Papa):
+                <p class="pas">Capítulo LI<br>1 - Peçamos perdão de nossas quedas e faltas ocorridas pela sugestão do
+inimigo. Mas também devem considerar nossa comum esperança aqueles
+que se tornaram os líderes dessa revolta e cisão.<br>
+2 - Pois os que vivem no temor e na caridade preferem ver-se a si mesmos
+atormentados do que os seus irmãos. Preferem ser censurados a ver
+censurada a concórdia que nos foi transmitida por tão bela e santa tradição.<br>
+3 - Mais vale ao homem confessar publicamente suas faltas do que
+endurecer o coração, da mesma forma como endureceu o coração daqueles
+que se revoltaram contra Moisés, servo de Deus, e que foram castigados mais
+tarde,<br>
+4 - pois desceram vivos para o inferno, onde a morte os apascentará.<br>
+5 - O faraó, seu exército, todos os chefes do Egito, os carros e os que neles
+estavam não foram lançados ao Mar Vermelho por outro motivo. Aí
+pereceram porque endureceram seus corações insensatos, após os sinais e
+milagres realizados por Moisés, servo de Deus, no Egito.</p>
+
+<p class="pas">VIII. A necessidade do arrependimento enquanto vivermos neste mundo
+<br>
+Nós que estamos na terra, portanto, devemos nos arrepender, porque somos
+argila na mão do artesão. O oleiro modela uma vasilha e a deforma ou
+rompe com suas mãos, dando-lhe uma nova forma; uma vez, porém, que a
+tenha posto no forno aceso, não mais poderá repará-la. Assim também
+ocorre conosco, enquanto estamos neste mundo: arrependendo-nos de todo
+coração das coisas más que fizemos na carne, poderemos ser salvos pelo
+Senhor, em razão da oportunidade para o arrependimento. Mas, quando
+tivermos partido deste mundo, não poderemos mais confessar, muito
+menos arrepender-se. Portanto, irmãos, se fazemos a vontade do Pai, se
+mantemos pura a carne, se guardamos os mandamentos do Senhor,
+receberemos a vida eterna. Eis o que o Senhor diz no Evangelho: "Se não
+guardastes o que era pequeno, quem vos dará o que é grande? Pois eu vos
+digo: o que é fiel no pouco, é fiel também no muito". Na verdade, o que Ele
+quer dizer é: mantenham a carne pura e o selo sem mácula, para que possam
+receber a vida. 
+</p>
+      </p> 
+      <p>Temos outras menções sobre a confissão em diversos outros escritos da Igreja primitiva. Porém nessa época de perseguição as pessoas que 
+        tinham sofrido por não negar a fé se revoltavam com os "covardes" que vinham ao bispo para 
+        pedir perdão sem terem sofrido. Por isso o sacramento da confissão foi sendo mais "protegido" para que não fosse banalizado. 
+        Porém no século 3º a heresia montanista (acreditava que o mundo iria acabar em breve) pregava que os pecados 
+        não fossem perdoados nas confissões para que as pessoas levassem a vida a "sério" e buscar a misericórdia do Senhor. Depois desses confrontos a Igreja começou a colocar regras para esses perdões, 
+      para evitar banalizações. Isso era definido pelo Bispo local da época. Isso gerava penitências longas ou algumas não absovições.</p>
+      <p>Porém no norte da Europa um grupo de sacerdotes começou a atender as confissões de forma particular usando o manual de penitência de Santo agostinho por exemplo. 
+        Essa modalidade foi se espalhando até que São Pio V instituiu como a forma oficial da Igreja.</p>
+        <p>Agora que sabemos que a confissão estava presente desde o início e foi se adaptando as necessidades dos fiéis, sem perder a sua sacralidade, vamos ver como o Padre da sua paróquia tem essa graça de 
+          ter Jesus perdoandos pecados através dele. Esse dom veio através da sucessão apostólica, que inicialmente se dava dos apóstolos aos Bispos que iriam cuidar das comunidades cristãs. Temos exemplos bíblicos dessa sucessão em:
+          <p class="pas">"Apresentaram-nos aos apóstolos, e estes, orando, impuseram-lhes as mãos."<br>Atos 6,6</p>
+          <p class="pas">"Então, jejuando e orando, impuseram-lhes as mãos e os despediram."<br>Atos 13,3</p>
+          <p class="pas">"Quando me vêm ao pensamento as tuas lágrimas, sinto grande desejo de te ver para me encher de alegria. 
+            Conservo a lembrança daquela tua fé tão sincera, que foi primeiro a de tua avó Loide e de tua mãe Eunice e que, não tenho a menor dúvida, habita em ti também. 
+            Por esse motivo, eu te exorto a reavivar a chama do dom de Deus que recebeste pela imposição das minhas mãos.*"<br>2 Timóteo 1,4-6</p>
+            <p class="pas">"O que de mim ouviste em presença de muitas testemunhas, confia-o a homens fiéis que, por sua vez, sejam capazes de instruir a ou­tros."<br>2 Timóteo 2,2</p>
+            <p class="pas"> "Convém, pois, que destes homens que têm estado em nossa companhia todo o tempo em que o Senhor Jesus viveu entre nós,
+
+a começar do batismo de João até o dia em que de nosso meio foi arrebatado, um deles se torne conosco testemunha da sua Ressurreição”.
+
+Propuseram dois: José, chamado Bar­sabás, que tinha por sobrenome Justo, e Matias.
+
+E oraram nestes termos: “Ó Senhor, que conheces os corações de todos, mostra-nos qual destes dois escolheste
+
+para tomar neste ministério e apostolado o lugar de Judas que se transviou, para ir para o seu próprio lugar”.
+
+Deitaram sorte e caiu a sorte em Matias, que foi incorporado aos onze apóstolos."<br>Atos 1,21-26</p>
+<p class="pas">"Não negligencies o carisma que está em ti e que te foi dado por profecia, quando a assembleia dos anciãos te impôs as mãos.*"<br>1 Timóteo 4,14</p>
+<p class="pas">"Em verdade, todo pontífice é escolhido entre os homens e constituído a favor dos homens como mediador nas coisas que dizem respeito a Deus, para oferecer dons e sacrifícios pelos pecados.
+
+Sabe compadecer-se dos que estão na ignorância e no erro, porque também ele está cercado de fraqueza.
+
+Por isso, ele deve oferecer sacrifícios tanto pelos próprios pecados quanto pelos pecados do povo.
+
+Ninguém se apropria desta honra, senão somente aquele que é chamado por Deus, como Aarão."<br>Hebreus 5,1-4</p>
+        </p>
+        <p>Aqui vemos a comunidade cristã apostólica formando presbíteros, sucessores, homens instruidos por eles e também abençoados pelas mãos deles para servirem a comunidade. Graças a essa sucessão e a 
+          autoridade das <a href="igreja.html#mt16:18" style="color: goldenrod;">chaves</a> o padre tem a autoridade dada por Deus para ser aquele pelo qual a misericórdia de Deus alcança os fiéis. A confissão é 
+          como se Deus nos desse um copo para colocarmos graça Dele até o topo. E quando pecados venialmente, riscamos ou trincamos o copo. Quando pecamos mortalmente, o copo se quebra por completo e 
+          perdemos tudo que nele havia. O Sacerdote (Padre ou Bispo) é aquele homem que Deus dá o copo para que ele nos entregue caso assumimos que não cuidamos bem do copo. Então o Padre ou Bispo nos entrega o copo dado por Deus com todas as graças que havíamos perdido.
+        </p>
+        <p>Rezemos todos os dias por nossos irmãos que não tem a graça da confissão, que eles alcancem a misericórdia de Deus para que ao lado de nós e de todos os santos louvem a Deus.</p>
+
+        <blockquote class="blockquote">
+          <p>Fundamentos da Confissão</p>
+        </blockquote>           
+        <p>Para uma válida confissão precisamos de:
+          <ol>
+            <li style="list-style: upper-roman; color:goldenrod"><span style="color: white;">Exame de consciência</span> </li>
+            <li style="list-style: upper-roman; color:goldenrod"><span style="color: white;">Contrição/Arrependimento</span></li>
+            <li style="list-style: upper-roman; color:goldenrod"><span style="color: white;">Propósito</span></li>
+            <li style="list-style: upper-roman; color:goldenrod"><span style="color: white;">Confissão</span></li>
+            <li style="list-style: upper-roman; color:goldenrod"><span style="color: white;">Penitência</span></li>
+          </ol>
+          <blockquote class="blockquote">
+          <p style="color:goldenrod">Exame de consciência</p>
+        </blockquote>   
+        O Exame de consciência é a prática de examinar a própria consciência e as ações praticadas na busca de identificar os pecados cometidos e os agravantes ou atenuantes.
+        Se por exemplo alguém comete adultério. Esse pecado que ela identificou na sua consciência é grave, pois fere diretamente os 10 mandamentos (matéria grave), ela sabia que 
+        isso era pecado e foi alertada pela consciência (plena advertência) e ela consumou o ato aceitando ofender a Deus (pleno consentimento). Por si só, este pecado já é grave. Porém, se 
+        essa pessoa cometeu este ato com outra pessoa casada ou outra pessoa do mesmo sexo, essas são circunstâncias agravantes e que devem ser ditas ao sacerdote. 
+        </p>
+        <p>É preciso dizer também o número de vezes em que se cometeu tal pecado (se não for possível lembrar, diga algo como: "Aproximadamente x vezes...."). Porém a confissão 
+          não é uma fofoca e nem uma terapia, por isso não exagere em detalhes e em descrições. Apenas diga o pecado (sem generalizar, diga oque fez), os agravantes e a quantidade de vezes.
+        </p>
+        <p>Os atenuantes são circunstâncias que afetam os 3 requisitos de um pecado grave. Pode se citar por exemplo alguém que não tinha como saber que algo era pecado e fez 
+          (faltou a plena advertência) ou alguém que foi forçado a fazer algo (faltou o pleno consentimento). Dependendo do atenuante, o pecado pode diminuir de gravidade, tornando-se 
+          venial.
+        </p>
+        <blockquote class="blockquote">
+          <p style="color:goldenrod">Contrição</p>
+        </blockquote> 
+        <p>A contrição ou arrependimento é o ato de reconhecer os pecados e a nossa culpa. Entendendo assim que faltamos com amor e caridade para com o nosso próximo e a Deus. Esse 
+          arrependimento está atrelado a todos os pecados. Devemos renunciar a todos os atos que nos afastam de Deus, nos arrependendo de TODOS.
+        </p>
+        <blockquote class="blockquote">
+          <p style="color:goldenrod">Propósito</p>
+        </blockquote> 
+        <p>O propósito implica na decisão de abandonar a prática de todos os pecados. É uma decisão imediata e perpétua onde o indivíduo afirma não querer mais pecar e evitar todo tipo de 
+          ocasião que o leve a pecar. Aquele grupo de amigos, grupo nas redes sociais, festa, qualquer coisa que te leve ao pecado deve ser renunciada. A sua salvação e amor por Cristo 
+          devem ser mais valiosas do que os consolos do mundo. 
+        </p>
+        <blockquote class="blockquote">
+          <p style="color:goldenrod">Confissão</p>
+        </blockquote> 
+        <p>Como dissemos anteriormente, a sua confissão deve ser feita dizendo o pecado que você cometeu de maneira clara e não generalizada. E também as circunstâncias agravantes ou 
+          atenuantes desse pecado. Porfim deve conter o número de vezes 
+          em que foi cometido ou algo próximo. Tendo essas 3 coisas, é bem provável que você tenha uma ótima confissão.
+        </p>
+        <blockquote class="blockquote">
+          <p style="color:goldenrod">Penitência</p>
+        </blockquote> 
+        <p>Após a confissão, nossos pecados já estão perdoados. Porém o sacerdote nos dá uma Penitência. Para a maioria dos pecados, essa Penitência consiste em algumas orações 
+          como Ave Maria, Pai nosso entre outras. Porém em alguns casos como pecados de calúnia, difamação, roubo, furto, destruição de bens e coisas similares o sacerdote vai impor 
+          um tipo de reparação. Afinal, você afetou a outras pessoas e não só a sua alma.
+        </p>
+        <blockquote class="blockquote">
+          <p>Exame de consciência</p>
+        </blockquote> 
+        <p>Faça uma oração ao Espírito Santo pedindo que te mostre teus pecados e te dê a graça da contrição perfeita. Pode-se realizar a 
+          oração vinde Espírito Santo: <p class="pas">"Vinde Espírito Santo,
+enchei os corações dos vossos fiéis
+e acendei neles o fogo do Vosso Amor.
+
+Enviai o Vosso Espírito e tudo será criado
+e renovareis a face da terra.
+
+Oremos: Ó Deus que instruíste os corações dos vossos fiéis,
+com a luz do Espírito Santo,
+fazei que apreciemos retamente todas as coisas
+segundo o mesmo Espírito
+e gozemos da sua consolação.
+
+Por Cristo Senhor Nosso.
+Amém"</p>
+<p>Segue abaixo um exame de consciência baseado no exame de consciência fornecido pelos <a  style="color: goldenrod;" href="https://reconquista.arautos.org/wp-content/uploads/2021/10/Exame-de-Consciencia.pdf">Arautos do Evangelho</a></p>
+        </p>
+        <div class="accordion shadow" id="accordionExame">
+    
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          1º Mandamento - Amar a Deus sobre todas as coisas
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExame">
+        <div class="accordion-body">
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m1_1">
+            <label class="form-check-label" for="m1_1">Tenho posto em dúvida alguma verdade de fé? Critiquei algum ensinamento da Igreja?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m1_2">
+            <label class="form-check-label" for="m1_2">Rezo diariamente? Distraio-me voluntariamente nas orações?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m1_3">
+            <label class="form-check-label" for="m1_3">Deixei-me levar pelo desânimo? Revoltei-me contra Deus?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m1_4">
+            <label class="form-check-label" for="m1_4">Frequentei lugares contrários à fé? Consultei videntes, benzedores ou fiz superstições?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m1_5">
+            <label class="form-check-label" for="m1_5">Tenho sido orgulhoso, vaidoso ou invejoso? Sou arrogante ou malcriado?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m1_5">
+            <label class="form-check-label" for="m1_5">Sou avarento passando o dia inteiro a pensar em dinheiro
+ou em obter coisas?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m1_5">
+            <label class="form-check-label" for="m1_5">Tenho-me demorado em pensamentos sobre mim,
+exagerando as minhas qualidades?</label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          2º Mandamento - Não invocar o Santo Nome de Deus em vão
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExame">
+        <div class="accordion-body">
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m2_1">
+            <label class="form-check-label" for="m2_1">Pronunciei sem respeito o nome de Deus ou dos Santos? Falei mal da Igreja ou de padres?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m2_2">
+            <label class="form-check-label" for="m2_2">Tenho jurado à toa ou falso? Deixei de cumprir promessas?</label>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          3º Mandamento - Santificar os domingos e festas de guarda
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExame">
+        <div class="accordion-body">
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m3_1">
+            <label class="form-check-label" for="m3_1">Faltei à Missa aos domingos ou dias santos por culpa própria?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m3_2">
+            <label class="form-check-label" for="m3_2">Trabalhei ou obriguei outros a trabalhar desnecessariamente no domingo?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m3_3">
+            <label class="form-check-label" for="m3_3">Tenho deixado de confessar? Escondi pecados na confissão? Comunguei sem estar em estado de graça?</label>
+          </div>
+            <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m3_3">
+            <label class="form-check-label" for="m3_3">Cumpri o preceito de receber a Comunhão pelo menos
+uma vez ao ano no período da Páscoa?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m3_3">
+            <label class="form-check-label" for="m3_3">Tenho-me apresentado para a Sagrada Comunhão com
+espírito frio e pouco recolhido?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m3_3">
+            <label class="form-check-label" for="m3_3">Contribuo para as necessidades da Igreja segundo as
+minhas possibilidades? </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m3_3">
+            <label class="form-check-label" for="m3_3">Guardei a abstinência de carne nas sextas-feiras? Jejuei
+Quarta-feira de cinzas e Sexta-feira Santa? </label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          4º Mandamento - Honrar pai e mãe
+        </button>
+      </h2>
+      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExame">
+        <div class="accordion-body">
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m4_1">
+            <label class="form-check-label" for="m4_1">Desobedeci ou faltei ao respeito com meus pais? Deixei de ajudá-los?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m4_2">
+            <label class="form-check-label" for="m4_2">Tratei mal meu cônjuge ou dei mau exemplo aos meus filhos?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m4_2">
+            <label class="form-check-label" for="m4_2">Ao corrigir os meus filhos deixo-me dominar pela
+ira? Omito repreensões ou advertências que sei serem
+necessárias para a formação deles? Regulei o uso que
+fazem da televisão, internet, celular, revistas e outros
+instrumentos que podem apresentar algum risco para a
+sua formação moral? </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m4_2">
+            <label class="form-check-label" for="m4_2">Descuidei-me de dar aos filhos a formação religiosa?
+Atrasei o Batismo ou a Primeira Comunhão deles por
+negligência?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m4_2">
+            <label class="form-check-label" for="m4_2">Deixei de ajudar, dentro das minhas possibilidades, os
+meus familiares nas suas necessidades espirituais ou
+materiais??</label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFive">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          5º Mandamento - Não matar
+        </button>
+      </h2>
+      <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExame">
+        <div class="accordion-body">
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m5_1">
+            <label class="form-check-label" for="m5_1">Tive ódio ou rancor? Fiz ou desejei mal a alguém? Deixei de perdoar?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m5_2">
+            <label class="form-check-label" for="m5_2">Pratiquei, aconselhei ou facilitei um aborto? Usei drogas ou me embriaguei?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m5_2">
+            <label class="form-check-label" for="m5_2">Fiz ou desejei mal a alguém? Aconselhei alguém a
+fazê-lo? Insultei alguém? Alegrei-me com as desgraças
+alheias? Tive inveja de alguém? </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m5_2">
+            <label class="form-check-label" for="m5_2">Deixei de perdoar as ofensas que recebi?  </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m5_2">
+            <label class="form-check-label" for="m5_2">Desleixei-me quanto à minha saúde? Atentei contra a
+minha vida? Desejei morrer?  </label>
+          </div>  
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m5_2">
+            <label class="form-check-label" for="m5_2">Prejudiquei a minha saúde embriagando-me ou comendo
+em excesso? Fiz uso de drogas?  </label>
+          </div>  
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m5_2">
+            <label class="form-check-label" for="m5_2">Cheguei a ferir ou tirar a vida do próximo? Fui
+imprudente ao dirigir automóveis?  </label>
+          </div>  
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m5_2">
+            <label class="form-check-label" for="m5_2">Preocupei-me com o próximo, advertindo-o de algum
+grave perigo material ou espiritual?  </label>
+          </div>  
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m5_2">
+            <label class="form-check-label" for="m5_2">Tive mau convívio, por culpa própria, com os meus
+familiares, amigos ou conhecidos?  </label>
+          </div>  
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m5_2">
+            <label class="form-check-label" for="m5_2">Disse palavrões? Dei escândalo?  </label>
+          </div>  
+           <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m5_2">
+            <label class="form-check-label" for="m5_2">Por preguiça, deixei de me levantar à hora devida?</label>
+          </div>  
+
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingSix">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          6º e 9º Mandamentos - Castidade e Pureza
+        </button>
+      </h2>
+      <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExame">
+        <div class="accordion-body">
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m6_1">
+            <label class="form-check-label" for="m6_1">Vi coisas indecentes? Tive pensamentos ou desejos impuros?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m6_2">
+            <label class="form-check-label" for="m6_2">Pratiquei ações impuras sozinho ou acompanhado? Faltei à modéstia no vestir?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m6_2">
+            <label class="form-check-label" for="m6_2">Olhei para alguém com intenção de obter um prazer impuro?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m6_2">
+            <label class="form-check-label" for="m6_2">Tive liberdades no namoro?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m6_2">
+            <label class="form-check-label" for="m6_2">Faltei à fidelidade conjugal por pensamentos ou ações?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m6_2">
+            <label class="form-check-label" for="m6_2">Dei atenção a conversas imorais ou participei delas?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m6_2">
+            <label class="form-check-label" for="m6_2">Mantenho amizades que me levam ao pecado? Estou
+disposto a abandoná-las?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m6_2">
+            <label class="form-check-label" for="m6_2">Tenho faltado ao pudor, despindo-me levianamente à
+vista de outra pessoa?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m6_2">
+            <label class="form-check-label" for="m6_2">Visto-me com modéstia ou utilizo roupas que realçam
+algumas partes do corpo? </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m6_2">
+            <label class="form-check-label" for="m6_2">Assisti a espetáculos, li revistas, livros ou mensagens
+que me colocaram em ocasião próxima de pecar? </label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingSeven">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          7º e 10º Mandamentos - Não roubar e não cobiçar
+        </button>
+      </h2>
+      <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExame">
+        <div class="accordion-body">
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m7_1">
+            <label class="form-check-label" for="m7_1">Roubei ou ajudei a roubar? Prejudiquei alguém financeiramente?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m7_2">
+            <label class="form-check-label" for="m7_2">Tenho inveja dos bens alheios? Gasto dinheiro com vícios?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m7_2">
+            <label class="form-check-label" for="m7_2">Paguei o justo salário aos empregados? Retenho ou
+atraso indevidamente o pagamento de bens e serviços?
+Lesei alguém nos seus direitos? </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m7_2">
+            <label class="form-check-label" for="m7_2">Trabalhei com empenho as horas que devia, ou
+desperdicei tempo no meu trabalho?  </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m7_2">
+            <label class="form-check-label" for="m7_2">Prejudiquei alguém com enganos, coações, etc., nos
+contratos ou relações comerciais?  </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m7_2">
+            <label class="form-check-label" for="m7_2">Gastei mais do que permitem as minhas possibilidades?
+Tenho o vício do jogo?
+ </label>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingEight">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+          8º Mandamento - Não mentir
+        </button>
+      </h2>
+      <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExame">
+        <div class="accordion-body">
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m8_1">
+            <label class="form-check-label" for="m8_1">Menti? Caluniei ou difamei o próximo? Espalhei boatos?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m7_2">
+            <label class="form-check-label" for="m7_2">Permiti que outros falassem mal do próximo? Escutei
+com gosto tais conversas?</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="m7_2">
+            <label class="form-check-label" for="m7_2">Enganei o próximo, assegurando-lhe que uma coisa, na
+realidade proibida, era boa ou lícita?</label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="mt-4"><center>
+    <button class="btn btn-outline-danger" onclick="limparExame()">Limpar Todas as Marcações</button>
+    </center>
+  </div>
+
+
+<script>
+  function limparExame() {
+    const checkboxes = document.querySelectorAll('.form-check-input');
+    checkboxes.forEach(cb => cb.checked = false);
+  }
+</script>
+<br>
+<blockquote class="blockquote">
+  <p>5 Mandamentos da Igreja</p>
+</blockquote>
+<p>Devemos também meditar se cumprimos com os mandamentos da Igreja, que não são regras vazias, mas sim oque nós precisamos.</p>
+<ol>
+  <li style="list-style: upper-roman; color: goldenrod;"><span style="color: white;">Participar da Missa inteira aos domingos e festas de guarda;</span></li>
+  <li style="list-style: upper-roman; color: goldenrod;"><span style="color: white;">Confessar-se ao menos uma vez por ano;</span></li>
+  <li style="list-style: upper-roman; color: goldenrod;"><span style="color: white;">Receber a Eucaristia (Comunhão) ao menos pela Páscoa;</span></li>
+  <li style="list-style: upper-roman; color: goldenrod;"><span style="color: white;">Jejuar e abster-se de carne quando a Igreja manda (Quarta-feira de Cinzas 
+    e Sexta-feira Santa);</span></li>
+  <li style="list-style: upper-roman; color: goldenrod;"><span style="color: white;">Ajudar a Igreja em suas necessidades (dízimos/ofertas).</span></li>
+</ol>
+<blockquote class="blockquote">
+  <p>7 Pecados capitais</p>
+</blockquote>
+<p>Devemos também nos examinar e notar se cometemos alguns dos 7 pecados capitais</p>
+<ol>
+  <li style="list-style: upper-roman; color: red;"><span style="color: white;">Soberba;</span></li>
+  <li style="list-style: upper-roman; color: red;"><span style="color: white;">Avareza;</span></li>
+  <li style="list-style: upper-roman; color: red;"><span style="color: white;">Luxúria;</span></li>
+  <li style="list-style: upper-roman; color: red;"><span style="color: white;">Ira;</span></li>
+  <li style="list-style: upper-roman; color: red;"><span style="color: white;">Gula;</span></li>
+  <li style="list-style: upper-roman; color: red;"><span style="color: white;">Inveja;</span></li>
+  <li style="list-style: upper-roman; color: red;"><span style="color: white;">Preguiça;</span></li>
+</ol>
+
+<blockquote class="blockquote">
+<p style="color: goldenrod; font-weight: bold;">Ato de Contrição</p>
+</blockquote>
+<p>Meu Deus, porque sois infinitamente bom e Vos amo de todo o meu coração, pesa-me de Vos ter ofendido e, com o auxílio da Vossa divina graça, 
+  proponho firmemente emendar-me e nunca mais Vos tornar a ofender. 
+  Peço e espero o perdão das minhas culpas pela Vossa infinita misericórdia. Amém.</p>
+  <blockquote class="blockquote">
+    <p>Devo confessar os pecados veniais?</p>
+  </blockquote>
+  <p>A prática de confessar pecados veniais é uma excelente ação contra eles. Embora esses pecados possam ser perdoados no Ato Penitencial da Santa Missa, quando nós 
+    confessamos eles nitidamente é mais fácil não praticá-los mais.<br><span style="color: goldenrod;">DICA:</span> Confesse de um a três pecados veniais que os são mais 
+    frequentes por vez e busque 
+  com todas as forças parar de cometê-los. Depois lute com os outros.</p>
+<blockquote class="blockquote">
+            <p>Como é celebrado este sacramento?</p>
+           </blockquote>
+           <!-- Estrutura da Tabela Litúrgica - Sacramento da Penitência / Confissão (Tema Azul) -->
+<div class="sacramento-container-azul">
+  <h2 class="sacramento-titulo-azul">Celebração do Sacramento da Reconciliação (Confissão)</h2>
+  
+  <div class="tabela-responsive">
+    <table class="tabela-liturgia-azul">
+      <thead>
+        <tr>
+          <th>Etapa</th>
+          <th>Momento / Rito</th>
+          <th>Descrição e Ação Litúrgica</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 1. Preparação e Acolhida -->
+        <tr>
+          <td rowspan="2" class="etapa-coluna">
+            <span class="etapa-badge">1. Preparação e Acolhida</span>
+          </td>
+          <td class="momento-titulo">Exame de Consciência</td>
+          <td>Preparação pessoal e silenciosa na qual o fiel examina a sua vida à luz da Palavra de Deus para reconhecer seus pecados com sincero arrependimento.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Acolhida e Sinal da Cruz</td>
+          <td>O sacerdote acolhe fraternalmente o penitente com palavras de encorajamento, e ambos fazem o sinal da cruz em nome da Santíssima Trindade.</td>
+        </tr>
+
+        <!-- 2. Confissão dos Pecados -->
+        <tr>
+          <td rowspan="2" class="etapa-coluna">
+            <span class="etapa-badge">2. Confissão dos Pecados</span>
+          </td>
+          <td class="momento-titulo">Acusação dos Pecados</td>
+          <td>O penitente confessa verbalmente seus pecados ao sacerdote com humildade, contrição e firme propósito de emenda.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Proposta da Penitência</td>
+          <td>O sacerdote oferece orientações espirituais e propõe uma obra de satisfação (penitência/oração) para reparar o dano do pecado e auxiliar na conversão.</td>
+        </tr>
+
+        <!-- 3. Rito Central e Absolvição -->
+        <tr class="linha-destaque">
+          <td rowspan="2" class="etapa-coluna">
+            <span class="etapa-badge azul-destaque">3. Rito Central</span>
+          </td>
+          <td class="momento-titulo">Ato de Contrição</td>
+          <td>O penitente recita a oração do Ato de Contrição, manifestando o seu dor interior, a rejeição ao pecado e a confiança na misericórdia divina.</td>
+        </tr>
+        <tr class="linha-destaque">
+          <td class="momento-titulo">Absolvição Sacramental</td>
+          <td>
+            O sacerdote estende a mão direita sobre a cabeça do penitente e profere a fórmula sacramental da absolvição:
+            <blockquote class="formula-sacramental">
+              "Deus, Pai de misericórdia, que pela morte e ressurreição de seu Filho reconciliou o mundo consigo e enviou o Espírito Santo para a remissão dos pecados, te conceda, pelo ministério da Igreja, o perdão e a paz. E eu te absolvo dos teus pecados em nome do Pai, e do Filho e do Espírito Santo."
+            </blockquote>
+            <em>O penitente responde: "Amém!"</em>
+          </td>
+        </tr>
+
+        <!-- 4. Ritos Finais -->
+        <tr>
+          <td rowspan="2" class="etapa-coluna">
+            <span class="etapa-badge">4. Ritos Finais</span>
+          </td>
+          <td class="momento-titulo">Ação de Graças</td>
+          <td>O sacerdote convida o fiel a louvar ao Senhor por sua infinita misericórdia e perdão concedidos.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Despedida e Envio</td>
+          <td>O sacerdote despede o penitente em paz ("O Senhor perdoou os teus pecados. Vai em paz"), e o fiel cumpre a penitência recebida.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Estilos CSS (Tema Azul Noite / Azul Celeste) -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+  .sacramento-container-azul {
+    background-color: #0b1326;
+    color: #e2e8f0;
+    padding: 30px 20px;
+    font-family: 'Lora', Georgia, serif;
+    border-radius: 8px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    max-width: 1100px;
+    margin: 20px auto;
+  }
+
+  .sacramento-titulo-azul {
+    font-family: 'Cinzel', serif;
+    color: #38bdf8;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #38bdf8;
+    padding-bottom: 12px;
+  }
+
+  .tabela-responsive {
+    overflow-x: auto;
+  }
+
+  .tabela-liturgia-azul {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #111c35;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+  }
+
+  .tabela-liturgia-azul th {
+    background-color: #070d1a;
+    color: #38bdf8;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid #38bdf8;
+    letter-spacing: 0.5px;
+  }
+
+  .tabela-liturgia-azul td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #1e2d4a;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .tabela-liturgia-azul tbody tr:hover {
+    background-color: #172545;
+  }
+
+  .etapa-coluna {
+    width: 22%;
+    background-color: #0b1326;
+    border-right: 1px solid rgba(56, 189, 248, 0.2);
+  }
+
+  .etapa-badge {
+    display: inline-block;
+    color: #93c5fd;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    border-left: 3px solid #2563eb;
+    background-color: rgba(37, 99, 235, 0.15);
+  }
+
+  .etapa-badge.azul-destaque {
+    color: #38bdf8;
+    border-left: 3px solid #38bdf8;
+    background-color: rgba(56, 189, 248, 0.2);
+  }
+
+  .momento-titulo {
+    font-weight: 600;
+    color: #60a5fa;
+    width: 28%;
+  }
+
+  .linha-destaque {
+    background-color: rgba(56, 189, 248, 0.05);
+  }
+
+  .formula-sacramental {
+    margin: 10px 0 4px 0;
+    padding: 10px 14px;
+    background-color: #060b17;
+    border-left: 3px solid #38bdf8;
+    color: #bfdbfe;
+    font-style: italic;
+    font-size: 0.92rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  @media (max-width: 768px) {
+    .sacramento-titulo-azul {
+      font-size: 1.3rem;
+    }
+    .tabela-liturgia-azul th, .tabela-liturgia-azul td {
+      padding: 10px;
+      font-size: 0.88rem;
+    }
+  }
+</style>
+            </article> </div> <div class="col-md-4">
+          <div class="position-sticky" style="top: 2rem">
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden my-4">
+              <div class="card-header bg-dark text-white p-3 border-bottom border-secondary">
+                <h5 class="mb-0">Se tiver dúvidas, pergunte a nossa IA</h5>
+              </div>
+              <div class="card-body p-0" style="height: 70vh; min-height: 500px;">
+                <iframe src="https://ia-catolica.vercel.app/" style="width: 100%; height: 100%; border: none;" title="IA Católica" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+        </div> </div> </main> <footer class="py-5 text-center" style="background-color: rgb(66, 65, 65);">
+      <div class="container">
+        <section class="footer-content">
+          <div class="rodape" id="direitos">
+            <img src="../imagens/logo1.png" style="height: 60px;" id="footer_logo"><br><br>
+            <p class="ca">2026 © Todos os direitos reservados.</p>
+            <p class="ctt"><a href="autor.html" class="ca">Desenvolvido por Emanuel</a></p>
+          </div>
+          <div class="social-media" id="social-media-buttons">
+            <a href="https://wa.me/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </section>
+      </div>
+    </footer>
+    <script
+      src="../assets/dist/js/bootstrap.bundle.min.js"
+      class="astro-vvvwv3sm"
+    ></script>
+    
+<script>
+    const mobileBtn = document.getElementById('mobile_btn');
+    const mobileMenu = document.getElementById('mobile_menu');
+
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active'); // Isso ativa o display flex configurado no styles.css
+    });
+</script>
+<script src="../dados.js"></script>
+<script src="../js5.js"></script>
+  </body>
+</html>

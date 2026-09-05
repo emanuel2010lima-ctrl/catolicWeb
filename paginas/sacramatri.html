@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="pt-br" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>O que é ser Católico?</title>
+    <link rel="icon" type="image/png"class="logo" href="../imagens/logo1.png">
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/blog/"
+    />
+    <script src="../assets/js/color-modes.js"></script>
+    
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link href="../blog.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../header.css">
+    <style>
+        .logo{
+            height: 50px;
+            width: 50px;
+        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+      .bgs{
+        background-image: url(../imagens/familia.jpg);
+        background-position: 50% 30%;
+      }
+ 
+    </style>
+  </head>
+  <body class="b">
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+<!--<button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>-->
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol
+        id="aperture"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path
+          d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"
+        ></path>
+      </symbol>
+      <symbol id="cart" viewBox="0 0 16 16">
+        <path
+          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        ></path>
+      </symbol>
+      <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div class="container">
+      <header>
+    <nav id="navbar">
+        <img src="../imagens/logo1.png" id="nav_logo" class="lg"alt="Logo">
+
+        <ul id="nav_list">
+            <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="#">Comunidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://arquidiocesesjrp.org.br/">Arquidiocese de Rio Preto</a></li>
+                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="igreja.html">Igreja</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="igreja.html">Fundada por Cristo</a></li>
+                    <li><a href="calendariolit.html">Calendário</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="batismo.html">Sacramentos</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="batismo.html">Batismo</a></li>
+                    <li><a href="confissao.html">Confissão</a></li>
+                    <li><a href="comunhao.html">Eucaristia</a></li>
+                    <li><a href="crisma.html">Crisma</a></li>
+                    <li><a href="sacraordem.html">Ordem</a></li>
+                    <li class="nav-item active"><a href="sacramatri.html">Matrimônio</a></li>
+                    <li><a href="extremauncao.html">Unção dos Enfermos</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/igreja.html">Vocações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="matrimonio.html">Matrimôniados</a></li>
+                    <li><a href="ordem.html">Ordenados</a></li>
+                    <li><a href="religioso.html">Religiosos Consagrados</a></li>
+                    <li><a href="leigo.html">Leigos</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="santidade.html">Santidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="santidade.html">Santos</a></li>
+                    <li><a href="#">Beatos</a></li>
+                    <li><a href="#">Veneráveis</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/oracoes.html">Orações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Terços</a></li>
+                    <li><a href="#">Novenas</a></li>
+                    <li><a href="#">Orações próprias</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <button id="mobile_btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <a href="search.html" style="text-decoration: none;" class="input-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+    </nav>
+
+    <div id="mobile_menu">
+        <ul id="mobile_nav_list">
+            <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="#">Comunidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://arquidiocesesjrp.org.br/">Arquidiocese de Rio Preto</a></li><hr style="color: white;">
+                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="igreja.html">Igreja</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="igreja.html">Fundada por Cristo</a></li><hr style="color: white;">
+                    <li><a href="calendariolit.html">Calendário</a></li><hr style="color: white;">
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="batismo.html">Sacramentos</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="batismo.html">Batismo</a></li><hr style="color: white;">
+                    <li><a href="confissao.html">Confissão</a></li><hr style="color: white;">
+                    <li><a href="comunhao.html">Eucaristia</a></li><hr style="color: white;">
+                    <li><a href="crisma.html">Crisma</a></li><hr style="color: white;">
+                    <li><a href="sacraordem.html">Ordem</a></li><hr style="color: white;">
+                    <li class="nav-item active"><a href="sacramatri.html">Matrimônio</a></li><hr style="color: white;">
+                    <li><a href="extremauncao.html">Unção dos Enfermos</a></li><hr style="color: white;">
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/igreja.html">Vocações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="matrimonio.html.html">Matrimôniados</a></li><hr style="color: white;">
+                    <li><a href="ordem.html">Ordenados</a></li><hr style="color: white;">
+                    <li><a href="religioso.html">Religiosos Consagrados</a></li><hr style="color: white;">
+                    <li><a href="leigo.html">Leigos</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="santidade.html">Santidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="santidade.html">Santos</a></li><hr style="color: white;">
+                    <li><a href="#">Beatos</a></li><hr style="color: white;">
+                    <li><a href="#">Veneráveis</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/oracoes.html">Orações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Terços</a></li><hr style="color: white;">
+                    <li><a href="#">Novenas</a></li><hr style="color: white;">
+                    <li><a href="#">Orações próprias</a></li><hr style="color: white;">
+                </ul>
+            </li>
+        </ul>
+        
+    </div>
+</header>
+    
+    </div>
+  <main class="container">
+    <div class="bgs">
+      <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis">
+        <div class="col-lg-6 px-0">
+          <h1 class="display-4 fst-italic" style="color:black">
+          
+          </h1>
+          <p class="lead my-3">
+            <br><BR><br><br><br><br>
+          </p>
+          </div>
+          <!--<p class="lead mb-0">
+            <a href="#" class="text-body-emphasis fw-bold"
+              >Continue reading...</a
+            >
+          </p>-->
+        </div>
+      </div>
+      <div class="row g-5">
+        <div class="col-md-8">
+          <h3 class="pb-4 mb-4 fst-italic border-bottom">Matrimônio:<span style="color: goldenrod;"> Uma só carne</span></h3>
+          <article class="blog-post">
+            <h2 class="display-5 link-body-emphasis mb-1" style="color: white;"><span style="color: white;">Família</span></h2>
+            <p class="blog-post-meta">
+              20 de Fevereiro de 2026, por <a href="autor.html">Emanuel</a>
+            </p>
+            <p class="pas" id="at2:38">
+          "Deus os abençoou: 'Frutificai – disse ele – e multiplicai-vos, enchei a terra e submetei-a. Dominai sobre os peixes do mar, sobre as aves do céu e sobre todos os animais que se arrastam sobre a terra'."<br>Gênesis 1,28
+            </p>
+            <hr />
+        <p>
+            O plano de Deus começa com a família, por isso Jesus que é o próprio Deus escolheu vir ao mundo por meio de uma família.
+            E por isso também o Diabo não cansa de tentar destruir a família.
+        </p>
+        <blockquote class="blockquote">
+            <p>Família: Igreja doméstica</p>
+        </blockquote>
+        <p>Esse conceito de Igreja doméstica foi resgatado no Concílio Vaticano II e nos reforça a mais pura verdade. É na família 
+            que o dom da vida se manifesta e é na família que o sinal da Santíssima Trindade se manifesta. O amor na família deve ser 
+            tanto que a realidade da família seja uma só.
+            é na família que a criança aprende as grandes virtudes que serão a estrada para a santidade: Bondade, Mansidão, Paciência, 
+            Fé, Coragem, Desprendimento, Humildade, Pureza, Descrição, Trabalho.
+        </p>
+          <blockquote class="blockquote">
+            <p>O Ataque a família</p>
+        </blockquote>
+           <p>O principal recurso do demônio para afetar o plano de Deus é destruir a família. Ele não pode destruir a Igreja, como vemos em:</p>
+           <p class="pas">"E eu te declaro: tu és Pedro, e sobre esta pedra edificarei a minha Igreja; as portas do inferno não prevalecerão contra ela."<br>Mateus 16,18</p>
+           <p>Então ele foca na chamada Igreja doméstica, que além de produzir frutos e virtudes lindas, pode ainda povoar o céu com o surgimento de uma nova vida pela graça de Deus.
+            Os ataques a família se dão de tais formas segundo o Papa São João Paulo II (FC,7):
+            <ul>
+              <li>Proliferação do divórsio e nova união</li>
+              <li>Aceitação do matrimônio civil apenas</li>
+              <li>Celebração dos matrimônios sem fé viva</li>
+              <li>Recusa das normais morais que guiam e promovem o exercício humano e cristão da sexualidade.</li>
+            </ul>
+           </p>
+           <p class="pas">"No contexto da civilização do desfrutamento, a mulher pode tornar-se para o homem um objecto, os filhos um obstáculo para os pais, a família uma instituição embaraçante para a liberdade dos membros que a compõem. Para convencer-se disto, basta examinar certos programas de educação sexual introduzidos nas escolas, não obstante o frequente parecer contrário e até os protestos de muitos pais; ou então, as tendências pró-abortistas que em vão procuram esconder-se atrás do chamado «direito de escolha» (pro choice) por parte de ambos os cônjuges, e particularmente por parte da mulher. São apenas dois exemplos dos muitos que se poderiam recordar."<br>Carta as Famílias, 13</p>
+           <p>Além disso, ideais contra a abertura a vida (preservativos e aborto por exemplo) e ideologias de gênero, também contribuem para a disvirtualização da família de acordo com o plano de Deus. (Iremos abordar tudo com mais detalhes)</p>
+           <p>O matrimônio começou no gênesis, quando Deus apresenta Eva para Adão para que juntos formem uma família numerosa.
+            Porém com a queda do pecado original, o ser humano com suas paixões desordenadas acaba por deturpar o significado do matrimônio e da sexualidade.
+            O casamento quando não é visto como passe livre para o sexo ou como um "investimento" ou como um "mero objetivo de vida", perde a sua natureza de sacramento, ou seja, 
+            perde sua função de santificar aqueles que recebem este sinal de união. O sacramento do matrimônio não deve ser rebaixado aos prazeres momentâneos, pois ele exige sacrifício e renûncia por amor ao parceiro.
+            Também não deve ser rebaixado a um mero estado civil, pois a graça presente no sacramento é algo espiritual e que dá início a uma caminhada a dois em direção a santidade e a família.
+           </p>
+           
+           <blockquote class="blockquote">
+            <p>Vocação e Namoro</p>
+           </blockquote>
+           <p>O matrimônio não é uma obrigação do ser humano. Ele é um chamado de Deus para se santificar por meio da vida em família e 
+            assim ser participante dessa Igreja doméstica que se for da vontade de Deus, povoará o céu com filhos.</p>
+            <p>O matrimônio exige uma preparação, que é o namoro. O namoro é tão importante para o matrimônio quanto o seminário é importante para um sacerdote.
+              É no namoro que se conhece as virtudes da pessoa em questão, desse modo se pode analizar se realmente essa pessoa é a certa para se casar com você.
+              </p>
+              <blockquote class="blockquote">
+                <p>Namoro foi feito para acabar</p>
+              </blockquote>
+              <p>O namoro é um tempo de discernimento, conhcimento e amadurecimento. Por isso ou ele acaba em casamento ou em término. 
+              No namoro não se tem a posse ou o "passe livre" para usar a outra pessoa. Ambos somos imagem e semelhança de Deus:
+                <p class="pas">"Então Deus disse: “Façamos o homem à nossa imagem e semelhança. Que ele reine sobre os peixes do mar, s
+                  obre as aves do céu, 
+                  sobre os animais domésticos e sobre toda a terra, e sobre todos os répteis que se arrastam sobre a terra”."<br>Gênesis 1,26</p>
+                  E também somos templo do Espírito Santo:
+                  <p class="pas">"Ou não sabeis que o vosso corpo é templo do Espírito Santo, que habi­ta em vós, o qual recebes­tes de Deus e que, por isso mesmo, já não vos pertenceis?"<br>I Coríntios 6,19</p>
+              </p>
+              <p>Mais informações na pagina sobre <a href="matrimoniados.html" style="color:red">Matrimôniados</a></p>
+              <blockquote class="blockquote">
+                <p>O que significa Matrimônio?</p>
+              </blockquote>
+              <p>A palavra vem do latim: mater (mãe) e -monium (sufixo que indica estado ou ação). Literalmente, significa "ação de ser mãe"</p>
+
+              <blockquote class="blockquote">
+                <p>Pra que serve o matrimônio?</p>
+              </blockquote>
+              <p>Aqui temos dois fins, um primário e um segundário (não quer dizer que o segundário não tenha valor, ambos são de altíssima importância e relevância).</p>
+                <ol class="lis">
+                <li><Span style="color: white;">Dar filhos (fim procriativo)<br>Povoar o céu através de filhos é o bem maior do matrimônio. Se até Deus quis estar em uma família como vemos 
+                com Jesus na encarnação, fica evidente que a família é um canal de graça. Obviamente se um casal vier a não poder ter filhos por 
+              causas naturais isso não tem o menor dos problemas. Porém aqueles que são abençoados com esta graça de serem pais devem abraçar 
+            as cruzes e as bençãos que esta ocasião oferece e deve educar e guiar esses filhos para Deus e para a sociedade de modo ordenado e 
+          santo.<br>É por este motivo que métodos contraceptivos não convém. Não se deve fechar a possibilidade de surgir vida no matrimônio, pois 
+        seu fim primeiro é este (está até no nome <span style="font-style: italic;">"Mater - Monium")</span>.</Span></li>
+                <li><Span style="color: white;">Assistência mûtua (fim unitivo)<br>
+                Deve existir um apoio entre os cônjudes, para juntos enfrentarem as cruzes e as alegrias da vida e da vida a dois principalmente. 
+                A intimidade e amizade entre o casal é também um fim do matrimônio, juntos eles devem espressar o amor que recebem de Deus em suas vidas e 
+                viverem juntos a fé em família. A confiança no parceiro e na providência divida são essenciais. Carinho, afeto, sacrifício das vontades pelo parceiro serão os meios para demonstrar essa união.  
+                </Span></li>
+                </ol>
+           <blockquote class="blockquote">
+            <p>O que o sacramento do matrimônio faz na alma?</p>
+           </blockquote>
+           <p>Este sacramento do meso modo que Cristo, o divino esposo é unido a Igreja que é sua divina esposa, o casal é unido 
+            nesse mistério. Porém é necessário que o casal se empenhe para frutificar esse amor por meio do perdão, do amor, do carinho, 
+            da compreensão e os demais compromissos do casal um para com o outro.</p>
+            <blockquote class="blockquote">
+            <p>Abertura a vida</p>
+           </blockquote>
+           <p>
+            <span class="pas">
+            "«Pela sua própria natureza, a instituição matrimonial e o amor conjugal estão ordenados à procriação e à 
+            educação dos filhos, que constituem o ponto alto da sua missão e a sua coroa»
+«Os filhos são, sem dúvida, o mais excelente dom do Matrimónio e contribuem muitíssimo para o bem dos próprios pais. 
+O mesmo Deus que disse: "não é bom que o homem esteja só" (Gn 2, 18) e que "desde o princípio fez o homem varão e mulher" (Mt 19, 4), 
+querendo comunicar-lhe uma participação especial na sua obra criadora, abençoou o homem e a mulher dizendo: "Sede fecundos e 
+multiplicai-vos" (Gn 1, 28). Por isso, o culto autêntico do amor conjugal e toda a vida familiar que dele nasce, sem pôr de lado os 
+outros fins do Matrimónio, tendem a que os esposos, com fortaleza de ânimo, estejam dispostos a colaborar com o amor do Criador e do
+ Salvador, que, 
+por meio deles, aumenta continuamente e enriquece a sua família» (176).
+A fecundidade do amor conjugal estende-se aos frutos da vida moral, espiritual e 
+sobrenatural que os pais transmitem aos filhos pela educação. Os pais são os principais e primeiros educadores dos seus filhos(177). 
+Neste sentido, a missão fundamental do Matrimónio e da família é estar ao serviço da vida (178)."<br>CIC 1652-1653</span></p>
+<p>Como vemos aceitar os filhos que Deus dará pelo matrimônio, não só é bom para o casal quanto é dever do mesmo. 
+  Em casos naturais de infertilidade por exemplo, isso é atenuado, porém quando a infertilidade é por opção do casal, 
+  utilizando métodos como: contraceptivos, preservativos, aborto e os demais métodos, temos aqui uma falta grave 
+  contra Deus, pois se fechar a vida no matrimônio é tirar a natureza dessa união, que é (como já foi citado acima) 
+  procriativo e unitivo (mais detalhes na pagina sobre <a href="matrimoniados.html" style="color:red">Matrimôniados</a>).</p>
+  <blockquote class="blockquote">
+            <p>Como é celebrado este sacramento?</p>
+           </blockquote>
+           <!-- Estrutura da Tabela Litúrgica - Sacramento do Matrimônio -->
+<div class="sacramento-container">
+  <h2 class="sacramento-titulo">Celebração do Sacramento do Matrimônio</h2>
+  
+  <div class="tabela-responsive">
+    <table class="tabela-liturgia">
+      <thead>
+        <tr>
+          <th>Etapa</th>
+          <th>Momento / Rito</th>
+          <th>Descrição e Ação Litúrgica</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 1. Ritos Iniciais e Liturgia da Palavra -->
+        <tr>
+          <td rowspan="2" class="etapa-coluna">
+            <span class="etapa-badge">1. Ritos Iniciais e Palavra</span>
+          </td>
+          <td class="momento-titulo">Entrada e Acolhida</td>
+          <td>Procissão de entrada dos noivos, padrinhos e celebrante, seguida da acolhida inicial da Igreja à família e aos convidados.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Liturgia da Palavra e Homilia</td>
+          <td>Proclamação de leituras bíblicas sobre o amor conjugal, a fidelidade e a família, acompanhada pela instrução da homilia.</td>
+        </tr>
+
+        <!-- 2. Rito Central -->
+        <tr class="linha-destaque">
+          <td rowspan="3" class="etapa-coluna">
+            <span class="etapa-badge ouro">2. Rito Central</span>
+          </td>
+          <td class="momento-titulo">Escrutínio e Consentimento</td>
+          <td>
+            O sacerdote interroga os noivos sobre a liberdade, fidelidade e acolhimento dos filhos. Em seguida, os noivos declaram o consentimento e trocam os votos:
+            <blockquote class="formula-sacramental">
+              "Eu, (nome), te recebo a ti, (nome), por minha esposa/meu esposo, e te prometo ser fiel, amar-te e respeitar-te, na alegria e na tristeza, na saúde e na doença, todos os dias da nossa vida."
+            </blockquote>
+          </td>
+        </tr>
+        <tr class="linha-destaque">
+          <td class="momento-titulo">Bênção e Troca das Alianças</td>
+          <td>O sacerdote abençoa as alianças e os noivos as colocam mutuamente no anelar da mão esquerda como sinal do amor, fidelidade e aliança eterna.</td>
+        </tr>
+        <tr class="linha-destaque">
+          <td class="momento-titulo">Bênção Nupcial</td>
+          <td>O celebrante estende as mãos sobre os recém-casados invocando o Espírito Santo e pedindo a bênção especial de Deus para a nova família.</td>
+        </tr>
+
+        <!-- 3. Ritos Finais -->
+        <tr>
+          <td rowspan="3" class="etapa-coluna">
+            <span class="etapa-badge">3. Ritos Finais</span>
+          </td>
+          <td class="momento-titulo">Oração dos Fiéis e Pai-Nosso</td>
+          <td>Preces comunitárias pelo novo casal e por todas as famílias, seguidas da recitação em conjunto do Pai-Nosso.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Bênção Final e Envio</td>
+          <td>O sacerdote concede a bênção solene de despedida sobre o casal, padrinhos e toda a assembleia.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Assinatura das Atas</td>
+          <td>Noivos, testemunhas (padrinhos) e o celebrante assinam os livros e documentos oficiais do matrimônio.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Estilos CSS (Tema Preto e Dourado) -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+  .sacramento-container {
+    background-color: #121212;
+    color: #e0e0e0;
+    padding: 30px 20px;
+    font-family: 'Lora', Georgia, serif;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    max-width: 1100px;
+    margin: 20px auto;
+  }
+
+  .sacramento-titulo {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 12px;
+  }
+
+  .tabela-responsive {
+    overflow-x: auto;
+  }
+
+  .tabela-liturgia {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1a1a1a;
+    color: #d1d1d1;
+    font-size: 0.95rem;
+  }
+
+  .tabela-liturgia th {
+    background-color: #0d0d0d;
+    color: #d4af37;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid #d4af37;
+    letter-spacing: 0.5px;
+  }
+
+  .tabela-liturgia td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #2a2a2a;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .tabela-liturgia tbody tr:hover {
+    background-color: #222222;
+  }
+
+  .etapa-coluna {
+    width: 22%;
+    background-color: #141414;
+    border-right: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .etapa-badge {
+    display: inline-block;
+    color: #f0e6d2;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    border-left: 3px solid #d4af37;
+    background-color: rgba(212, 175, 55, 0.08);
+  }
+
+  .etapa-badge.ouro {
+    color: #ffd700;
+    border-left: 3px solid #ffd700;
+    background-color: rgba(255, 215, 0, 0.15);
+  }
+
+  .momento-titulo {
+    font-weight: 600;
+    color: #e5c158;
+    width: 28%;
+  }
+
+  .linha-destaque {
+    background-color: rgba(212, 175, 55, 0.04);
+  }
+
+  .formula-sacramental {
+    margin: 10px 0 4px 0;
+    padding: 10px 14px;
+    background-color: #0f0f0f;
+    border-left: 3px solid #d4af37;
+    color: #f3e5ab;
+    font-style: italic;
+    font-size: 0.92rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  @media (max-width: 768px) {
+    .sacramento-titulo {
+      font-size: 1.3rem;
+    }
+    .tabela-liturgia th, .tabela-liturgia td {
+      padding: 10px;
+      font-size: 0.88rem;
+    }
+  }
+</style>
+            </article> 
+          </div> <div class="col-md-4">
+          <div class="position-sticky" style="top: 2rem">
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden my-4">
+              <div class="card-header bg-dark text-white p-3 border-bottom border-secondary">
+                <h5 class="mb-0">Se tiver dúvidas, pergunte a nossa IA</h5>
+              </div>
+              <div class="card-body p-0" style="height: 70vh; min-height: 500px;">
+                <iframe src="https://ia-catolica.vercel.app/" style="width: 100%; height: 100%; border: none;" title="IA Católica" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+        </div> </div> </main> <footer class="py-5 text-center" style="background-color: rgb(66, 65, 65);">
+      <div class="container">
+        <section class="footer-content">
+          <div class="rodape" id="direitos">
+            <img src="../imagens/logo1.png" style="height: 60px;" id="footer_logo"><br><br>
+            <p class="ca">2026 © Todos os direitos reservados.</p>
+            <p class="ctt"><a href="autor.html" class="ca">Desenvolvido por Emanuel</a></p>
+          </div>
+          <div class="social-media" id="social-media-buttons">
+            <a href="https://wa.me/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </section>
+      </div>
+    </footer>
+    <script
+      src="../assets/dist/js/bootstrap.bundle.min.js"
+      class="astro-vvvwv3sm"
+    ></script>
+    
+<script>
+    const mobileBtn = document.getElementById('mobile_btn');
+    const mobileMenu = document.getElementById('mobile_menu');
+
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active'); // Isso ativa o display flex configurado no styles.css
+    });
+</script>
+<script src="../dados.js"></script>
+<script src="../js5.js"></script>
+  </body>
+</html>

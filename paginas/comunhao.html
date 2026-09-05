@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="pt-br" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title style="color: white;">O que é ser Católico?</title>
+    <link rel="icon" type="image/png"class="logo" href="../imagens/logo1.png">
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/blog/"
+    />
+    <script src="../assets/js/color-modes.js"></script>
+  
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link href="../blog.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../header.css">
+    <style>
+        .logo{
+            height: 50px;
+            width: 50px;
+        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+      .bgs{
+        background-image: url(../imagens/santaceia.jpg);
+        background-position: 60% 60%;
+      }
+  
+    </style>
+  </head>
+  <body class="b">
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+<!--<button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>-->
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol
+        id="aperture"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path
+          d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"
+        ></path>
+      </symbol>
+      <symbol id="cart" viewBox="0 0 16 16">
+        <path
+          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        ></path>
+      </symbol>
+      <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div class="container">
+      <header>
+    <nav id="navbar">
+        <img src="../imagens/logo1.png" id="nav_logo" class="lg"alt="Logo">
+
+        <ul id="nav_list">
+            <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="#">Comunidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://arquidiocesesjrp.org.br/">Arquidiocese de Rio Preto</a></li>
+                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="igreja.html">Igreja</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="igreja.html">Fundada por Cristo</a></li>
+                    <li><a href="calendariolit.html">Calendário</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="batismo.html">Sacramentos</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="batismo.html">Batismo</a></li>
+                    <li><a href="confissao.html">Confissão</a></li>
+                    <li class="nav-item active"><a href="comunhao.html">Eucaristia</a></li>
+                    <li><a href="crisma.html">Crisma</a></li>
+                    <li><a href="sacraordem.html">Ordem</a></li>
+                    <li><a href="sacramatri.html">Matrimônio</a></li>
+                    <li><a href="extremauncao.html">Unção dos Enfermos</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/igreja.html">Vocações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="matrimonio.html">Matrimôniados</a></li>
+                    <li><a href="ordem.html">Ordenados</a></li>
+                    <li><a href="religioso.html">Religiosos Consagrados</a></li>
+                    <li><a href="leigo.html">Leigos</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="santidade.html">Santidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="santidade.html">Santos</a></li>
+                    <li><a href="#">Beatos</a></li>
+                    <li><a href="#">Veneráveis</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/oracoes.html">Orações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Terços</a></li>
+                    <li><a href="#">Novenas</a></li>
+                    <li><a href="#">Orações próprias</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <button id="mobile_btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <a href="search.html" style="text-decoration: none;" class="input-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+    </nav>
+
+    <div id="mobile_menu">
+        <ul id="mobile_nav_list">
+            <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="#">Comunidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://arquidiocesesjrp.org.br/">Arquidiocese de Rio Preto</a></li><hr style="color: white;">
+                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="igreja.html">Igreja</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="igreja.html">Fundada por Cristo</a></li><hr style="color: white;">
+                    <li><a href="calendariolit.html">Calendário</a></li><hr style="color: white;">
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="batismo.html">Sacramentos</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="batismo.html">Batismo</a></li><hr style="color: white;">
+                    <li><a href="confissao.html">Confissão</a></li><hr style="color: white;">
+                    <li class="nav-item active"><a href="comunhao.html">Eucaristia</a></li><hr style="color: white;">
+                    <li><a href="crisma.html">Crisma</a></li><hr style="color: white;">
+                    <li><a href="sacraordem.html">Ordem</a></li><hr style="color: white;">
+                    <li><a href="sacramatri.html">Matrimônio</a></li><hr style="color: white;">
+                    <li><a href="extremauncao.html">Unção dos Enfermos</a></li><hr style="color: white;">
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/igreja.html">Vocações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="matrimonio.html.html">Matrimôniados</a></li><hr style="color: white;">
+                    <li><a href="ordem.html">Ordenados</a></li><hr style="color: white;">
+                    <li><a href="religioso.html">Religiosos Consagrados</a></li><hr style="color: white;">
+                    <li><a href="leigo.html">Leigos</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="santidade.html">Santidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="santidade.html">Santos</a></li><hr style="color: white;">
+                    <li><a href="#">Beatos</a></li><hr style="color: white;">
+                    <li><a href="#">Veneráveis</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/oracoes.html">Orações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Terços</a></li><hr style="color: white;">
+                    <li><a href="#">Novenas</a></li><hr style="color: white;">
+                    <li><a href="#">Orações próprias</a></li><hr style="color: white;">
+                </ul>
+            </li>
+        </ul>
+      
+       
+    </div>
+</header>
+    </div>
+  <main class="container">
+    <div class="bgs">
+      <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis">
+        <div class="col-lg-6 px-0">
+          <h1 class="display-4 fst-italic" style="color:black">
+          
+          </h1>
+          <p class="lead my-3">
+            <br><BR><br><br><br><br>
+          </p>
+          </div>
+          <!--<p class="lead mb-0">
+            <a href="#" class="text-body-emphasis fw-bold"
+              >Continue reading...</a
+            >
+          </p>-->
+        </div>
+      </div>
+      <div class="row g-5">
+        <div class="col-md-8">
+          <h3 class="pb-4 mb-4 fst-italic border-bottom">Eucaristia: <span style="color: goldenrod;">Corpo</span> e <span style="color: red;">Sangue</span> 
+            de Jesus</h3>
+          <article class="blog-post">
+            <h2 class="display-5 link-body-emphasis mb-1"><span  style="color: white;">Tomai e comei</span></h2>
+            <p class="blog-post-meta">
+              05 de Janeiro de 2026, por <a href="autor.html">Emanuel</a>
+            </p>
+            <p class="pas" id="mt26,26">
+             "Enquanto comiam, tomou Jesus um pão e, abençoando-o, o partiu e o deu aos discípulos: Tomai, comei; isto é o meu corpo. A seguir tomou um cálice 
+             e, tendo dado graças, o deu aos discípulos, dizendo: Bebei dele todos; Porque isto é o meu sangue, o sangue da [nova] aliança, derramado em favor de muitos, 
+             para a remissão dos pecados."<br>Mateus 26,26-28
+            </p>
+            <hr />
+            <p>
+         
+            </p>
+            <blockquote class="blockquote">
+              <p>A Eucaristia é o próprio Jesus?</p>
+            </blockquote>
+            <p>Sim, a eucaristia É JESUS. <br>Após a consagração (ato ordenado por Jesus aos apóstolos quando ele diz: 
+                <p class="pas">"Tomai, comei; isto é o meu corpo que é partido por vós; fazei isto em memória de mim."<br> 1 Coríntios 11, 24</p>) o pão (hóstia) se torna 
+            o próprio corpo de Jesus e o vinho se torna o sangue.</p>
+            <p>Isso é evidente quando Jesus diz "isto é o..." ele não diz "isto representa" ou "isto é quase" ele diz "ISTO É"! 
+                E justamente por ser o próprio Deus ali, que nós, católicos batizados (e crismados) devemos ter muito zelo e respeito por este sacramento. Afinal o Deus que se
+             fez carne agora também se faz pão para ficar ainda mais perto de nós. 
+            </p>   
+            <blockquote class="blockquote">
+              <p>Porque não posso comungar estando em pecado?</p>
+            </blockquote>
+            <p>Além desse estado nos deixar em inimizade com Deus (oque já é um motivo bem alarmante), na própria bíblia temos:
+                <span class="pas"><br>"Por isso aquele que comer o pão ou beber o cálice do Senhor, indignamente, será réu do corpo e do sangue do Senhor. 
+                    Examine-se pois, o homem a si mesmo, e 
+                    assim coma do pão e beba do cálice; pois quem come e beb, sem discernir o corpo, come e bebe o juízo pra si."<br>1 Coríntios 11,27-29</span>
+            </p>
+            <p>Isso quer dizer que não devemos comungar sem antes examinar nossa consciência e acaso se percebermos pecados, devemos antes de comungar buscar o sacramento da 
+                <a href="confissao.html" style="text-decoration: none; color: goldenrod;">Confissão</a> ou fazer um ato de contrição no caso de pecados veniais. 
+            </p>
+            <p>Se você limpa sua casa para uma visita qualquer, vai deixar de limpar o coração para receber o próprio Deus? É sim verdade que Jesus acolhe os pecadores e que todos 
+                temos pecados, porém isso não muda o fato de que devemos ter respeito e amor pela Sagrada Comunhão e não devemos comungar se estamos em inimizade com Deus na nossa alma.
+                Aproxime-se de Jesus, não para receber carinhos e se manter igual, mas para que com a ajuda dele e com a Palavra da verdade você possa buscar melhorar. As vezes, melhorar significa 
+                comungar e receber a graça de ter Jesus físicamente com você, porém as vezes melhorar significa se arrepender dos pecados e voltar ao Pai, como na parábola do filho pródigo.
+            </p>
+            <p>Os apóstolos e os primeiros cristãos já possuiam a comunhão?</p>
+            <p>Sim, prova disso são os textos dos cristãos primitivos (mais tarde falaremos deles) e principalmente as passagens:</p>
+            <p class="pas">O cálice de bênção, que benzemos, não é a comunhão do sangue de Cristo? E o pão, que partimos, não é a 
+              comunhão do corpo de Cristo? Uma vez que há um único pão, nós, embora sendo muitos, formamos um só corpo, porque todos nós comungamos do mesmo pão.
+              <br>1 Coríntios 10,16-17</p>
+
+              <p>A Igreja também atesta que o milagre da multiplicação dos pães, prefigura a abundância desse único pão, do pão da vida, que é o próprio Cristo, que é Deus.
+                E a o milagre do vinho, prefigura a hora da glorificação de Jesus, onde beberemos o vinho novo no reino de Deus.
+              </p>
+              <p class="pas">Os milagres da multiplicação dos pães, quando o Senhor disse a bênção,
+partiu e distribuiu os pães pelos seus discípulos para alimentar a multidão,
+prefiguram a superabundância deste pão único da sua Eucaristia (167). O sinal da
+água transformada em vinho em Caná (168) já anuncia a «Hora» da glorificação de
+Jesus. E manifesta o cumprimento do banquete das núpcias no Reino do Pai, onde
+os fiéis beberão do vinho novo (169) tornado sangue de Cristo. <br>(Cat. n. 1335)</p></p>
+
+                <p>Por que no Domingo?</p>
+                <p>Existem registros históricos de que os primeiros cristãos se reuniam no Domingo. Como a "Apologia de Justino Mártir 1" onde temos:</p>
+                <p class="pas">"No dia que chamam Dia do Sol, realiza-se a reunião num mesmo lugar de todos os que habitam a cidade ou o campo. Lêem-se as memórias dos Apóstolos e os escritos dos Profetas, tanto quanto o tempo o permite. Quando o leitor acabou, aquele que preside toma a palavra para incitar e exortar à imitação dessas belas coisas.
+ 
+   Em seguida, levantamo-nos todos juntamente e fazemos orações» (175) «por nós mesmos [...] e por todos os outros, [...] onde quer que estejam, para que sejamos encontrados justos por nossa vida e acções, e fiéis aos mandamentos, e assim obtenhamos a salvação eterna.
+  
+   Terminadas as orações, damo-nos um ósculo uns aos outros. Depois, apresenta-se àquele que preside aos irmãos pão e uma taça de água e vinho misturados. Ele toma-os e faz subir louvor e glória ao Pai do universo, pelo nome do Filho e do Espírito Santo, e dá graças (em grego: eucharistian) longamente, por termos sido julgados dignos destes dons.
+  
+   Quando ele termina as orações e acções de graças, todo o povo presente aclama: Ámen. [...] Depois de aquele que preside ter feito a acção de graças e de o povo ter respondido, aqueles a que entre nós chamamos diáconos distribuem a todos os que estão presentes pão, vinho e água "eucaristizados" e também os levam aos ausentes» (176)." 
+  
+   <br>São Justino, Apologia, 1. 65: CA 1, 176-180 (PG 6. 428)</p>
+   <p>Na cultura pagã esse "dia do sol" era o dia do "deus sol" que hoje no inglês ainda é "sunday", ou seja, eles se reuniam no Domingo! Outra evidência é:</p>
+   <p class="pas">"No primeiro dia da semana, estando nós reunidos para partir o pão, Paulo, que havia de viajar no dia seguinte, conversava com os discípulos e
+     prolongou a palestra até a meia-noite."<br>Atos 20,7</p>
+     <p>É lógico que o primeiro dia da semana é o Domingo (afinal o próximo é a SEGUNDA).<br>A ressurreição de Cristo marca a nova aliança, marca o dia de uma nova criação. Por isso os cristãos 
+    se reuniam no dia em que o senhor ressuscitou.</p>
+
+    <blockquote class="blockquote">
+      <p>Por que o padre fala em primeira pessoa?</p>
+    </blockquote>
+    <p>Na Santa Missa o padre quando vai consagrar as espécies, ele diz assim como Jesus: "Isto é o meu corpo" e "Isto é o meu sangue". Ele diz dessa forma porque ele ali está em 
+      "In persona Christi" ou seja, é Cristo que fala através do padre e não o padre que diz por ele mesmo. </p>
+
+      <blockquote class="blockquote">
+      <p>O que é a transubstanciação do pão e do vinho?</p>
+    </blockquote>
+      <p>A transubstanciação ocorre quando o pão (ocorre o mesmo para o vinho) continua com a aparência física de pão, mas a essência, a substância dele, já não é mais pão.
+        Exemplificando: O que faz de mim um homem? Olhos? Ouvidos? Pelos? cérebro? Não, os animais também tem tudo isso. Oque me faz homem é a minha essência. Que é oque ninguém 
+        vê, o meu espírito. Do mesmo modo, a matéria do pão ainda é pão, mas a essência dele é o corpo de Cristo Jesus (Mesma coisa com o vinho).
+        <p>Se quiser saber a diferença entre alma e espírito
+        <a href="javascript:void(0)" onclick="toggleCaixa('caixa-informativa')" style="text-decoration: none; color: goldenrod;">
+          clique aqui</a></p>
+        <div id="caixa-informativa" class="caixa-oculta shadow-lg">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <h5 class="m-0" style="color: goldenrod;">Alma e Espírito</h5>
+        <button onclick="toggleCaixa()" class="btn-close btn-close-white"></button>
+    </div>
+    <p>Os anjos habitam somente o plano espiritual, os animais habitam somente o plano material. Mas nós homens, habitamos os dois! Por isso vamos entender que o plano material 
+      que nós possuímos inclúi o corpo e a alma. Os animais também. Porém, nossa alma É ESPIRITUAL. Isso quer dizer que nossa alma tem acesso também ao plano espiritual, 
+      ela não É espírito porque não habita somente no plano espiritual e também não É alma porque não habita somente no plano material. Nós temos uma alma espiritual, ou seja, que 
+      tem acesso aos dois planos. Por isso nós podemos ir aos céus ou ao inferno, enquanto os animais tem sua alma e corpo somente nesse plano material e não podem ir ao paraíso.
+      É um pouco confuso, sugiro que pesquise e pergunte ao seu catequista/padre se tiver mais dúvidas (ou pergunta a nossa IA).
+    </p>
+</div>
+      </p>
+    <blockquote class="blockquote">
+      <p>Por que eu devo comungar?</p>
+    </blockquote>
+    <p><a href="javascript:void(0)" onclick="toggleCaixa('caixa-informativa2')" style="text-decoration: none; color: goldenrod;">
+      (antes clique aqui para ver o que é necessário para a comunhão)</a>
+      
+      <div id="caixa-informativa2" class="caixa-oculta shadow-lg">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <h5 class="m-0" style="color: goldenrod;">Comunhão adequada</h5>
+        <button onclick="toggleCaixa()" class="btn-close btn-close-white"></button>
+    </div>
+    <p>
+      Para comungar é necessário: 
+      <ul>
+        <li><span style="color: goldenrod;">Batismo:</span> Ser um membro da Igreja Católica.</li>
+        <li><span style="color: goldenrod;">Primeira Comunhão:</span> Ter recebido a Primeira Eucaristia.</li>
+        <li><span style="color: goldenrod;">Estado de Graça:</span> Não ter consciência de <a style="text-decoration: none; color: red;" href="confissao.html#mort">pecado mortal</a>. Se houver, deve-se confessar antes.</li>
+        <li><span style="color: goldenrod;">Jejum Eucarístico:</span> Abster-se de comida e bebida (exceto água) por pelo menos uma hora antes da comunhão.</li>
+        <li><span style="color: goldenrod;">Fé e Intenção: </span>Ter fé na Eucaristia, entendendo que se recebe o próprio Cristo, e ter um desejo sincero de se unir a Ele. </li>
+      </ul>
+    </p>
+</div>
+Se você pode comungar você deve se lembrar que o próprio Deus se fez pão para estar próximo de você. Você não é e não será digno de comungar porque você é pecador e uma pequena criatura. 
+Porém Deus nos dá a graça da Eucaristia para que possamos ser como maria, que teve Jesus em seu corpo. Por isso, por alguns instantes, podemos ter esse contato físico com Jesus pela sua graça.
+Além disso a Eucaristia é um remédio para nossos pecados veniais e também um combústível para nós buscarmos cada vez mais a santidade. Graças a Eucaristia, temos nosso alimento da Alma. Nosso maná
+que alimenta a alma, nosso Deus sendo como o pão multiplicado (Deus é um só, cada pedaço da hóstia e cada gota do vinho, tem Deus por inteiro assim como o pão e o vinho em quantidades maiores).
+Portanto, lembre-se da sua NECESSIDADE de comungar DIÁRIAMENTE se for possível. Porque Deus espera sua visita, ele quer encontrar você porque ele te ama e você deve querer encontrá-lo porque deve amá-lo com todas as suas forças.  
+</p>
+<blockquote class="blockquote">
+              <p>Como é celebrado este sacramento?</p>
+ </blockquote>
+ <!-- Estrutura da Tabela Litúrgica - Sacramento da Eucaristia -->
+<div class="sacramento-container">
+  <h2 class="sacramento-titulo">Celebração do Sacramento da Santa Eucaristia</h2>
+  
+  <div class="tabela-responsive">
+    <table class="tabela-liturgia">
+      <thead>
+        <tr>
+          <th>Etapa</th>
+          <th>Momento / Rito</th>
+          <th>Descrição e Ação Litúrgica</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 1. Ritos Iniciais -->
+        <tr>
+          <td rowspan="3" class="etapa-coluna">
+            <span class="etapa-badge">1. Ritos Iniciais</span>
+          </td>
+          <td class="momento-titulo">Entrada e Saudação</td>
+          <td>Procissão de entrada, veneração do altar e a saudação trinitária do sacerdote à assembleia reunida.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Ato Penitencial</td>
+          <td>Momento de reflexão e pedido de perdão a Deus para celebrar dignamente os santos mistérios.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Hino de Louvor e Coleta</td>
+          <td>Canto do Glória (nos dias festivos) e a Oração da Coleta, que reúne e apresenta as intenções da comunidade.</td>
+        </tr>
+
+        <!-- 2. Liturgia da Palavra -->
+        <tr>
+          <td rowspan="3" class="etapa-coluna">
+            <span class="etapa-badge">2. Liturgia da Palavra</span>
+          </td>
+          <td class="momento-titulo">Leituras e Salmo</td>
+          <td>Proclamação dos textos do Antigo e do Novo Testamento, entrelaçados com a oração do Salmo Responsorial.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Evangelho e Homilia</td>
+          <td>Proclamação solene da Palavra do Evangelho e a reflexão explicativa ministrada pelo celebrante.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Credo e Preces</td>
+          <td>Profissão de Fé da Igreja e a Oração Universal da comunidade em prol da Igreja e do mundo.</td>
+        </tr>
+
+        <!-- 3. Rito Central -->
+        <tr class="linha-destaque">
+          <td rowspan="3" class="etapa-coluna">
+            <span class="etapa-badge ouro">3. Rito Central</span>
+          </td>
+          <td class="momento-titulo">Apresentação das Ofertas</td>
+          <td>Preparação da mesa do altar, apresentação do pão e do vinho e o rito de lavagem das mãos (lavabo).</td>
+        </tr>
+        <tr class="linha-destaque">
+          <td class="momento-titulo">Oração Eucarística e Consagração</td>
+          <td>
+            Invocação do Espírito Santo (Epiclese) e a oração consecratória onde ocorre a Transubstanciação mediante a reprodução das palavras de Cristo:
+            <blockquote class="formula-sacramental">
+              "Tomai, todos, e comei: isto é o meu Corpo, que será entregue por vós. [...] Tomai, todos, e bebei: este é o cálice do meu Sangue, o Sangue da nova e eterna aliança, que será derramado por vós e por todos para remissão dos pecados. Fazei isto em memória de mim."
+            </blockquote>
+          </td>
+        </tr>
+        <tr class="linha-destaque">
+          <td class="momento-titulo">Rito da Comunhão</td>
+          <td>Recitação comunitária do Pai-Nosso, o abraço da paz, a fração da Hóstia Sagrada e a recepção do Corpo e Sangue de Cristo pelos fiéis.</td>
+        </tr>
+
+        <!-- 4. Ritos Finais -->
+        <tr>
+          <td rowspan="2" class="etapa-coluna">
+            <span class="etapa-badge">4. Ritos Finais</span>
+          </td>
+          <td class="momento-titulo">Avisos e Bênção Final</td>
+          <td>Comunicações da comunidade e a Bênção Solene invocada pelo sacerdote sobre a assembleia.</td>
+        </tr>
+        <tr>
+          <td class="momento-titulo">Despedida e Envio</td>
+          <td>Despedida litúrgica exortando os fiéis a saírem em missão para viver o Evangelho no cotidiano.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Estilos CSS (Tema Preto e Dourado) -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+  .sacramento-container {
+    background-color: #121212;
+    color: #e0e0e0;
+    padding: 30px 20px;
+    font-family: 'Lora', Georgia, serif;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    max-width: 1100px;
+    margin: 20px auto;
+  }
+
+  .sacramento-titulo {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 12px;
+  }
+
+  .tabela-responsive {
+    overflow-x: auto;
+  }
+
+  .tabela-liturgia {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1a1a1a;
+    color: #d1d1d1;
+    font-size: 0.95rem;
+  }
+
+  .tabela-liturgia th {
+    background-color: #0d0d0d;
+    color: #d4af37;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid #d4af37;
+    letter-spacing: 0.5px;
+  }
+
+  .tabela-liturgia td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #2a2a2a;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .tabela-liturgia tbody tr:hover {
+    background-color: #222222;
+  }
+
+  .etapa-coluna {
+    width: 22%;
+    background-color: #141414;
+    border-right: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .etapa-badge {
+    display: inline-block;
+    color: #f0e6d2;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    border-left: 3px solid #d4af37;
+    background-color: rgba(212, 175, 55, 0.08);
+  }
+
+  .etapa-badge.ouro {
+    color: #ffd700;
+    border-left: 3px solid #ffd700;
+    background-color: rgba(255, 215, 0, 0.15);
+  }
+
+  .momento-titulo {
+    font-weight: 600;
+    color: #e5c158;
+    width: 28%;
+  }
+
+  .linha-destaque {
+    background-color: rgba(212, 175, 55, 0.04);
+  }
+
+  .formula-sacramental {
+    margin: 10px 0 4px 0;
+    padding: 10px 14px;
+    background-color: #0f0f0f;
+    border-left: 3px solid #d4af37;
+    color: #f3e5ab;
+    font-style: italic;
+    font-size: 0.92rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  @media (max-width: 768px) {
+    .sacramento-titulo {
+      font-size: 1.3rem;
+    }
+    .tabela-liturgia th, .tabela-liturgia td {
+      padding: 10px;
+      font-size: 0.88rem;
+    }
+  }
+</style>
+            </article> </div> <div class="col-md-4">
+          <div class="position-sticky" style="top: 2rem">
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden my-4">
+              <div class="card-header bg-dark text-white p-3 border-bottom border-secondary">
+                <h5 class="mb-0">Se tiver dúvidas, pergunte a nossa IA</h5>
+              </div>
+              <div class="card-body p-0" style="height: 70vh; min-height: 500px;">
+                <iframe src="https://ia-catolica.vercel.app/" style="width: 100%; height: 100%; border: none;" title="IA Católica" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+        </div> </div> </main> <footer class="py-5 text-center" style="background-color: rgb(66, 65, 65);">
+      <div class="container">
+        <section class="footer-content">
+          <div class="rodape" id="direitos">
+            <img src="../imagens/logo1.png" style="height: 60px;" id="footer_logo"><br><br>
+            <p class="ca">2026 © Todos os direitos reservados.</p>
+            <p class="ctt"><a href="autor.html" class="ca">Desenvolvido por Emanuel</a></p>
+          </div>
+          <div class="social-media" id="social-media-buttons">
+            <a href="https://wa.me/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/" style="margin: 0 10px; font-size: 24px; color: #efc200;"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </section>
+      </div>
+    </footer>
+    <script
+      src="../assets/dist/js/bootstrap.bundle.min.js"
+      class="astro-vvvwv3sm"
+    ></script>
+    <
+<script>
+function toggleCaixa(idDaCaixa) {
+    const caixa = document.getElementById(idDaCaixa);
+    
+    if (caixa.style.display === "block") {
+        caixa.style.display = "none";
+    } else {
+        caixa.style.display = "block";
+    }
+}
+</script>
+<!-- Para caixa escondida de texto
+<script>
+  function toggleCaixa() {
+    const caixa = document.getElementById('caixa-informativa');
+    
+    if (caixa.style.display === "block") {
+        caixa.style.display = "none";
+    } else {
+        caixa.style.display = "block";
+    }
+}
+</script>-->
+<script>
+    const mobileBtn = document.getElementById('mobile_btn');
+    const mobileMenu = document.getElementById('mobile_menu');
+
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active'); // Isso ativa o display flex configurado no styles.css
+    });
+</script>
+<script src="../dados.js"></script>
+<script src="../js5.js"></script>
+  </body>
+</html>

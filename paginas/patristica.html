@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Biblioteca de fontes para consultar os escritos dos Padres da Igreja e da literatura cristã antiga.">
+    <title>Biblioteca Patrística | O que é ser Católico?</title>
+    <link rel="icon" type="image/png" href="../imagens/logo1.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../header.css">
+    <style>
+        #nav_logo {
+            width: 50px;
+            height: auto;
+        }
+
+        :root {
+            color-scheme: dark;
+            --gold: #efc200;
+            --surface: #171717;
+            --muted: #c3c3c3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background: #000;
+            color: #f8f9fa;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            line-height: 1.65;
+        }
+
+        a {
+            color: var(--gold);
+        }
+
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 14px max(5vw, 20px);
+            border-bottom: 1px solid #292929;
+        }
+
+        .site-header img {
+            width: auto;
+            height: 48px;
+        }
+
+        .site-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 8px 18px;
+        }
+
+        .site-nav a {
+            color: #f8f9fa;
+            text-decoration: none;
+        }
+
+        .site-nav a:hover,
+        .site-nav a[aria-current="page"] {
+            color: var(--gold);
+        }
+
+        main {
+            width: min(100% - 36px, 1000px);
+            margin: 48px auto 80px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        h1, h2, h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.2;
+        }
+
+        h1 {
+            margin: 8px 0 16px;
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+        }
+
+        .intro {
+            max-width: 760px;
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        .notice {
+            margin: 28px 0;
+            padding: 18px 20px;
+            border: 1px solid #665500;
+            border-left: 4px solid var(--gold);
+            border-radius: 10px;
+            background: #171405;
+        }
+
+        .notice p {
+            margin: 0;
+        }
+
+        .section-heading {
+            margin: 42px 0 18px;
+        }
+
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: 16px;
+        }
+
+        .source-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 210px;
+            padding: 22px;
+            border: 1px solid #333;
+            border-radius: 14px;
+            background: var(--surface);
+            color: inherit;
+            text-decoration: none;
+            transition: border-color .2s, transform .2s;
+        }
+
+        .source-card:hover,
+        .source-card:focus-visible {
+            transform: translateY(-2px);
+            border-color: var(--gold);
+        }
+
+        .source-card h3 {
+            margin: 0 0 10px;
+            color: var(--gold);
+            font-size: 1.3rem;
+        }
+
+        .source-card p {
+            margin: 0 0 18px;
+            color: var(--muted);
+        }
+
+        .source-card span {
+            margin-top: auto;
+            font-weight: 700;
+        }
+
+        .steps {
+            padding-left: 22px;
+            color: var(--muted);
+        }
+
+        .steps li {
+            margin: 10px 0;
+        }
+
+        .work-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .author-group {
+            display: grid;
+            grid-column: 1 / -1;
+            gap: 12px;
+        }
+
+        .author-group > h4 {
+            margin: 4px 0 0;
+            color: #f8f9fa;
+            font-size: 1.25rem;
+        }
+
+        .work-entry {
+            padding: 18px 20px;
+            border: 1px solid #333;
+            border-radius: 12px;
+            background: var(--surface);
+        }
+
+        .work-entry h3 {
+            margin: 0 0 6px;
+            color: var(--gold);
+        }
+
+        .work-entry p {
+            margin: 6px 0;
+            color: var(--muted);
+        }
+
+        .work-entry a {
+            display: inline-block;
+            margin-top: 6px;
+        }
+
+        .work-status {
+            display: inline-block;
+            padding: 2px 9px;
+            border: 1px solid #6b5a16;
+            border-radius: 999px;
+            color: #f0d978;
+            font-size: .85rem;
+        }
+
+        .translation {
+            margin-top: 20px;
+            padding: 22px;
+            border: 1px solid #444;
+            border-radius: 14px;
+            background: #101010;
+        }
+
+        .translation h3 {
+            color: var(--gold);
+        }
+
+        .chapter {
+            margin: 10px 0;
+            border: 1px solid #444;
+            border-radius: 8px;
+            background: #171717;
+        }
+
+        .chapter summary {
+            padding: 12px 16px;
+            color: var(--gold);
+            cursor: pointer;
+            font-weight: 700;
+            list-style-position: inside;
+        }
+
+        .chapter summary:hover,
+        .chapter summary:focus-visible {
+            background: #242424;
+        }
+
+        .chapter[open] summary {
+            border-bottom: 1px solid #444;
+        }
+
+        .chapter-content {
+            padding: 8px 16px 14px;
+        }
+
+        .chapter-content p {
+            margin: 12px 0;
+        }
+
+        .translation p {
+            margin: 12px 0;
+        }
+
+        .translation-note {
+            color: var(--muted);
+            font-size: .92rem;
+        }
+
+        footer {
+            padding: 22px;
+            border-top: 1px solid #292929;
+            color: #aaa;
+            text-align: center;
+        }
+
+        @media (max-width: 520px) {
+            .site-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .site-header img {
+                height: 40px;
+            }
+
+            .site-nav {
+                justify-content: flex-start;
+                gap: 8px 14px;
+            }
+
+            main {
+                margin-top: 32px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            #nav_logo {
+                width: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav id="navbar">
+        <img src="../imagens/logo1.png" id="nav_logo" class="lg"alt="Logo">
+
+        <ul id="nav_list">
+            <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="#">Comunidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://arquidiocesesjrp.org.br/">Arquidiocese de Rio Preto</a></li>
+                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="igreja.html">Igreja</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="igreja.html">Fundada por Cristo</a></li>
+                    <li><a href="calendariolit.html">Calendário</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="batismo.html">Sacramentos</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="batismo.html">Batismo</a></li>
+                    <li><a href="confissao.html">Confissão</a></li>
+                    <li><a href="comunhao.html">Eucaristia</a></li>
+                    <li><a href="crisma.html">Crisma</a></li>
+                    <li><a href="sacraordem.html">Ordem</a></li>
+                    <li><a href="sacramatri.html">Matrimônio</a></li>
+                    <li><a href="extremauncao.html">Unção dos Enfermos</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="vocacoes.html">Vocações</a></li> 
+
+            <li class="nav-item active"><a href="patristica.html">Patr&#237;stica</a></li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="santidade.html">Santidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="santidade.html">Santos</a></li>
+                    <li><a href="#">Beatos</a></li>
+                    <li><a href="#">Veneráveis</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/oracoes.html">Orações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Terços</a></li>
+                    <li><a href="#">Novenas</a></li>
+                    <li><a href="#">Orações próprias</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <button id="mobile_btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <a href="search.html" style="text-decoration: none;" class="input-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+    </nav>
+
+    <div id="mobile_menu">
+        <ul id="mobile_nav_list">
+            <li class="nav-item"><a href="index.html">Início</a></li>
+            <li class="nav-item"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="#">Comunidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="https://arquidiocesesjrp.org.br/">Arquidiocese de Rio Preto</a></li><hr style="color: white;">
+                    <li><a href="#">Paróquia Santo Antônio de Lisboa</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="igreja.html">Igreja</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="igreja.html">Fundada por Cristo</a></li>
+                    <li><a href="calendariolit.html">Calendário</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="batismo.html">Sacramentos</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="batismo.html">Batismo</a></li><hr style="color: white;">
+                    <li><a href="confissao.html">Confissão</a></li><hr style="color: white;">
+                    <li><a href="comunhao.html">Eucaristia</a></li><hr style="color: white;">
+                    <li><a href="crisma.html">Crisma</a></li><hr style="color: white;">
+                    <li><a href="sacraordem.html">Ordem</a></li><hr style="color: white;">
+                    <li><a href="sacramatri.html">Matrimônio</a></li><hr style="color: white;">
+                    <li><a href="extremauncao.html">Unção dos Enfermos</a></li><hr style="color: white;">
+                </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/igreja.html">Vocações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="matrimonio.html.html">Matrimôniados</a></li><hr style="color: white;">
+                    <li><a href="ordem.html">Ordenados</a></li><hr style="color: white;">
+                    <li><a href="religioso.html">Religiosos Consagrados</a></li><hr style="color: white;">
+                    <li><a href="leigo.html">Leigos</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item active"><a href="patristica.html">Patr&#237;stica</a></li>
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="santidade.html">Santidade</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="santidade.html">Santos</a></li><hr style="color: white;">
+                    <li><a href="#">Beatos</a></li><hr style="color: white;">
+                    <li><a href="#">Veneráveis</a></li><hr style="color: white;">
+                </ul>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <div class="nav-link">
+                    <a href="paginas/oracoes.html">Orações</a>
+                    <button class="dropdown-btn">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Terços</a></li><hr style="color: white;">
+                    <li><a href="#">Novenas</a></li><hr style="color: white;">
+                    <li><a href="#">Orações próprias</a></li><hr style="color: white;">
+                </ul>
+            </li>
+        </ul>
+        
+    </div>
+</header>
+
+    <main>
+        <p class="eyebrow">Biblioteca</p>
+        <h1>Escritos dos Padres da Igreja</h1>
+        <p class="intro">
+            Consulte aqui acervos digitais e catálogos de autores cristãos antigos. Não existe
+            uma coleção única que reúna, em português, todos os escritos patrísticos conhecidos:
+            há obras perdidas, fragmentos, línguas diferentes e traduções ainda protegidas por direitos autorais.
+        </p>
+
+        <aside class="notice">
+            <p><strong>Importante:</strong> o texto antigo pode estar em domínio público, mas uma tradução moderna,
+                introdução, notas e edição crítica podem ter direitos próprios. Por isso, os links abaixo levam
+                aos acervos para consulta; não copie nem hospede textos integrais sem verificar a licença da edição.</p>
+        </aside>
+
+        <h2 class="section-heading">Acervos para consulta</h2>
+        <div class="source-grid">
+            <a class="source-card" href="https://www.newadvent.org/fathers/" target="_blank" rel="noopener noreferrer">
+                <h3>New Advent — Church Fathers</h3>
+                <p>Catálogo extenso por autor e obra, com muitos textos em inglês. É uma seleção importante, não uma coleção completa de tudo o que sobreviveu.</p>
+                <span>Explorar o catálogo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </a>
+
+            <a class="source-card" href="https://www.ccel.org/fathers.html" target="_blank" rel="noopener noreferrer">
+                <h3>CCEL — Early Church Fathers</h3>
+                <p>Disponibiliza as séries históricas Ante-Nicene Fathers e Nicene and Post-Nicene Fathers, em inglês, organizadas por volumes.</p>
+                <span>Consultar os volumes <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </a>
+
+            <a class="source-card" href="https://archive.org/search?query=church%20fathers%20patristics" target="_blank" rel="noopener noreferrer">
+                <h3>Internet Archive</h3>
+                <p>Pesquise edições digitalizadas, inclusive volumes antigos. As condições de leitura, empréstimo e reutilização variam conforme cada item.</p>
+                <span>Pesquisar edições <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </a>
+
+            <a class="source-card" href="https://books.google.com/books?q=Padres+da+Igreja+patr%C3%ADstica+portugu%C3%AAs" target="_blank" rel="noopener noreferrer">
+                <h3>Livros em português</h3>
+                <p>Use a busca por autor ou título para localizar traduções publicadas em português e conferir a disponibilidade da edição.</p>
+                <span>Buscar traduções <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+            </a>
+        </div>
+
+        <h2 class="section-heading">Traduções e plano de publicação</h2>
+        <p class="intro">
+            As traduções próprias serão publicadas gradualmente, conferidas com o texto antigo e acompanhadas
+            de referência. Os estados abaixo distinguem o que já está disponível do que ainda precisa ser traduzido.
+        </p>
+
+        <h3 class="section-heading">Padres apostólicos</h3>
+        <div class="work-list">
+            <section class="author-group">
+                <h4>Didaqué — autor anônimo</h4>
+            <article class="work-entry">
+                <h3>Didaqué — capítulos 1 a 16</h3>
+                <span class="work-status">Tradução de trabalho completa</span>
+                <div class="translation" lang="pt-br"><details class="chapter"><summary>Capítulo 1 — O caminho da vida</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Há dois caminhos: um da vida e outro da morte; grande é a diferença entre eles.</p>
+                    <p><strong>2.</strong> O caminho da vida é este: primeiro, amarás a Deus, que te criou; segundo, ao teu próximo como a ti mesmo. E tudo aquilo que não queres que te aconteça, não o faças também a outro.</p>
+                    <p><strong>3.</strong> O ensinamento contido nestas palavras é este: bendizei os que vos amaldiçoam, orai pelos vossos inimigos e jejuai por aqueles que vos perseguem. Que mérito há em amar os que vos amam? Não fazem também os gentios o mesmo? Vós, porém, amai os que vos odeiam, e não tereis inimigo.</p>
+                    <p><strong>4.</strong> Abstém-te dos desejos carnais e mundanos. Se alguém te bater na face direita, oferece-lhe também a outra, e serás perfeito. Se alguém te obrigar a caminhar uma milha, vai com ele duas. Se alguém tirar teu manto, dá-lhe também a túnica. Se alguém tomar de ti o que é teu, não o reclames, pois não podes.</p>
+                    <p><strong>5.</strong> Dá a todo aquele que te pede, e não exijas de volta; pois o Pai quer que se dê a todos dos dons que vêm dele. Feliz aquele que dá conforme o mandamento, pois é inocente. Ai daquele que recebe: se alguém recebe por necessidade, é inocente; mas quem recebe sem necessidade dará contas do motivo e do uso do que recebeu. Na prisão será interrogado sobre o que fez e não sairá dali até pagar o último quadrante.</p>
+                    <p><strong>6.</strong> Também a respeito disso foi dito: que tua esmola sue em tuas mãos, até saberes a quem dás.</p>
+                    </div></details><details class="chapter"><summary>Capítulo 2 — O segundo mandamento</summary><div class="chapter-content">
+                    <p>O segundo mandamento do ensinamento é: não matarás, não cometerás adultério, não corromperás meninos, não te prostituirás, não roubarás, não praticarás magia nem feitiçaria, não matarás uma criança por aborto nem tirarás a vida daquela que nasceu. Não cobiçarás o que pertence ao teu próximo.</p>
+                    <p>Não jurarás falsamente, não darás falso testemunho, não falarás mal de ninguém, não guardarás rancor.</p>
+                    <p>Não serás dividido em teu íntimo nem de língua dupla, pois a duplicidade da língua é armadilha mortal.</p>
+                    <p>Tua palavra não será falsa nem vazia, mas confirmada pela ação.</p>
+                    <p>Não serás avarento, ladrão, hipócrita, malicioso ou soberbo. Não tramarás o mal contra teu próximo.</p>
+                    <p>Não odiarás ninguém; a uns repreenderás, por outros orarás, e a outros amarás mais do que a tua própria vida.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 3 — Fuga dos vícios e prática das virtudes</summary><div class="chapter-content">
+                    <p>Meu filho, foge de todo mal e de tudo o que se assemelha a ele. Não sejas irascível, pois a ira conduz ao homicídio; não sejas ciumento, briguento nem exaltado, pois de tudo isso nascem homicídios.</p>
+                    <p>Meu filho, não te entregues à cobiça, pois ela conduz à prostituição. Não sejas obsceno em tuas palavras nem altivo no olhar, pois dessas coisas nascem adultérios.</p>
+                    <p>Meu filho, não consultes presságios, pois isso conduz à idolatria. Não te entregues a encantamentos, astrologia ou ritos de purificação, nem desejes sequer contemplá-los: dessas coisas nasce a idolatria.</p>
+                    <p>Meu filho, não sejas mentiroso, pois a mentira conduz ao roubo. Não sejas amante do dinheiro nem da vanglória, pois dessas coisas nascem roubos.</p>
+                    <p>Meu filho, não sejas murmurador, pois a murmuração conduz à blasfêmia. Não sejas arrogante nem malicioso, pois dessas coisas nascem blasfêmias. Sê manso, pois os mansos herdarão a terra.</p>
+                    <p>Sê paciente, misericordioso, sem malícia, tranquilo, bom e conserva sempre temor das palavras que ouviste.</p>
+                    <p>Não te exaltes nem dês audácia à tua alma. Tua alma não se juntará aos soberbos, mas conviverás com os justos e humildes. Recebe como boas as coisas que te sobrevêm, sabendo que nada acontece sem Deus.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 4 — Deveres para com a comunidade</summary><div class="chapter-content">
+                    <p>Meu filho, lembra-te noite e dia daquele que te anuncia a palavra de Deus e honra-o como ao Senhor; pois onde se proclama a soberania do Senhor, ali está o Senhor.</p>
+                    <p>Procura diariamente a companhia dos santos, para te fortalecer em suas palavras.</p>
+                    <p>Não procures a divisão; reconcilia os que estão em conflito. Julga com justiça e, ao repreender alguém por uma falta, não favoreças pessoa alguma.</p>
+                    <p>Não fiques em dúvida sobre se algo deve ou não ser feito.</p>
+                    <p>Não estendas as mãos para receber enquanto as recolhes quando é hora de dar. Se possuíres algo graças ao trabalho de tuas mãos, dá-o como resgate por teus pecados.</p>
+                    <p>Não hesites em dar nem murmures ao dar; saberás quem é o bom recompensador do salário.</p>
+                    <p>Não rejeites o necessitado; compartilha tudo com teu irmão e não digas que algo é somente teu. Se sois participantes dos bens imortais, quanto mais o deveis ser dos bens mortais.</p>
+                    <p>Não retires tua mão de teu filho ou de tua filha; desde a juventude, ensina-lhes o temor de Deus.</p>
+                    <p>Não dês ordens com amargura ao teu servo ou à tua serva, que esperam no mesmo Deus, para que não deixem de temer aquele que é Deus de ambos. Ele não veio chamar segundo a aparência, mas aqueles que o Espírito preparou. Vós, servos, submetei-vos a vossos senhores com respeito e temor, como à imagem de Deus.</p>
+                    <p>Odeia toda hipocrisia e tudo o que não agrada ao Senhor. Não abandones os mandamentos do Senhor; guarda o que recebeste, sem acrescentar nem retirar.</p>
+                    <p>Confessa tuas faltas na assembleia e não te aproximes da oração com a consciência manchada. Este é o caminho da vida.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 5 — O caminho da morte</summary><div class="chapter-content">
+                    <p>O caminho da morte é este: antes de tudo, é mau e cheio de maldições. Nele estão homicídios, adultérios, desejos desordenados, prostituições, roubos, idolatrias, práticas mágicas, envenenamentos, rapinas, falsos testemunhos, hipocrisias, duplicidade de coração, fraude, soberba, maldade, arrogância, avareza, linguagem obscena, inveja, insolência, altivez e ostentação.</p>
+                    <p>Seus seguidores perseguem o bem, odeiam a verdade e amam a mentira; desconhecem a recompensa da justiça, não se apegam ao bem nem ao julgamento justo, permanecem despertos não para o bem, mas para o mal. Estão longe da mansidão e da paciência; amam coisas vãs e correm atrás da recompensa. Não se compadecem do pobre nem se afligem com o aflito; não reconhecem aquele que os criou. Assassinam crianças, corrompem a obra de Deus, afastam-se do necessitado, oprimem o atribulado, favorecem os ricos e julgam injustamente os pobres. Estão inteiramente entregues ao pecado. Filhos, sede preservados de todas essas coisas.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 6 — Fidelidade ao ensinamento</summary><div class="chapter-content">
+                    <p>Cuida para que ninguém te desvie deste caminho do ensinamento, pois quem assim o faz te afasta de Deus.</p>
+                    <p>Se podes carregar todo o jugo do Senhor, serás perfeito; se não podes, faze o que estiver ao teu alcance.</p>
+                    <p>Quanto aos alimentos, observa o que puderes; mas abstém-te rigorosamente das carnes oferecidas aos ídolos, pois isso é culto a deuses mortos.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 7 — O batismo</summary><div class="chapter-content">
+                    <p>Quanto ao batismo, batizai assim: depois de ensinar tudo isso, batizai em nome do Pai, do Filho e do Espírito Santo, em água corrente.</p>
+                    <p>Se não tiveres água corrente, batiza em outra água; se não puderes usar água fria, usa água morna.</p>
+                    <p>Se não tiveres nenhuma das duas, derrama água sobre a cabeça três vezes, em nome do Pai, do Filho e do Espírito Santo.</p>
+                    <p>Antes do batismo, jejuem o que batiza, o que será batizado e, se puderem, também outras pessoas. Ordena ao que será batizado que jejue um ou dois dias antes.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 8 — Jejum e oração</summary><div class="chapter-content">
+                    <p>Que os vossos jejuns não sejam como os dos hipócritas: eles jejuam no segundo e no quinto dia da semana; vós, porém, jejuai no quarto dia e na preparação para o sábado.</p>
+                    <p>Não rezeis como os hipócritas; fazei-o como o Senhor ordenou em seu Evangelho:</p>
+                    <blockquote>“Pai nosso, que estás nos céus, santificado seja o teu nome; venha o teu reino; seja feita a tua vontade, assim na terra como no céu. Dá-nos hoje o pão de que precisamos; perdoa-nos a dívida, assim como também perdoamos aos nossos devedores; não nos deixes cair em tentação, mas livra-nos do mal. Pois teu é o poder e a glória pelos séculos.”</blockquote>
+                    <p>Rezai assim três vezes ao dia.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 9 — A ação de graças eucarística</summary><div class="chapter-content">
+                    <p>Quanto à ação de graças, dai graças desta maneira. Primeiro, sobre o cálice:</p>
+                    <blockquote>“Nós te damos graças, Pai nosso, pela santa vinha de Davi, teu servo, que nos deste a conhecer por meio de Jesus, teu servo. A ti a glória pelos séculos.”</blockquote>
+                    <p>Sobre o pão partido:</p>
+                    <blockquote>“Nós te damos graças, Pai nosso, pela vida e pelo conhecimento que nos deste a conhecer por meio de Jesus, teu servo. A ti a glória pelos séculos. Assim como este pão partido estava espalhado sobre os montes e, reunido, tornou-se um só, assim seja reunida a tua Igreja desde os confins da terra no teu reino; pois teus são a glória e o poder, por Jesus Cristo, pelos séculos.”</blockquote>
+                    <p>Ninguém coma nem beba da vossa Eucaristia, exceto os batizados em nome do Senhor; pois também a esse respeito o Senhor disse: “Não deis o que é santo aos cães.”</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 10 — Ação de graças depois da refeição</summary><div class="chapter-content">
+                    <p>Depois de vos saciardes, dai graças assim:</p>
+                    <blockquote>“Nós te damos graças, Pai santo, por teu santo nome, que fizeste habitar em nossos corações, e pelo conhecimento, pela fé e pela imortalidade que nos deste a conhecer por meio de Jesus, teu servo. A ti a glória pelos séculos.</blockquote>
+                    <blockquote>Tu, Senhor todo-poderoso, criaste todas as coisas por causa do teu nome; deste alimento e bebida aos seres humanos para seu deleite, a fim de que te deem graças. A nós, porém, concedeste alimento e bebida espirituais e a vida eterna por meio de teu servo.</blockquote>
+                    <blockquote>Acima de tudo, damos-te graças porque és poderoso. A ti a glória pelos séculos.</blockquote>
+                    <blockquote>Lembra-te, Senhor, da tua Igreja: livra-a de todo mal e aperfeiçoa-a no teu amor. Reúne-a dos quatro ventos, ela que foi santificada, no teu reino que preparaste para ela; pois teus são o poder e a glória pelos séculos.</blockquote>
+                    <blockquote>Venha a graça e passe este mundo. Hosana ao Deus de Davi! Se alguém é santo, venha; se não é, arrependa-se. Maranata. Amém.”</blockquote>
+                    <p>Aos profetas, permiti que deem graças como quiserem.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 11 — Mestres, apóstolos e profetas</summary><div class="chapter-content">
+                    <p>Recebei todo aquele que vier e vos ensinar tudo o que foi dito acima. Mas, se o próprio mestre mudar de rumo e ensinar uma doutrina que destrói esse ensinamento, não o escuteis. Se, porém, ensinar para promover a justiça e o conhecimento do Senhor, recebei-o como ao Senhor.</p>
+                    <p>Quanto aos apóstolos e profetas, procedei conforme a regra do Evangelho. Todo apóstolo que vier a vós seja recebido como ao Senhor. Não permaneça mais de um dia; se houver necessidade, também o dia seguinte. Se permanecer três dias, é falso profeta. Ao partir, o apóstolo não leve nada além de pão, até chegar ao lugar onde passará a noite. Se pedir dinheiro, é falso profeta.</p>
+                    <p>Não ponhais à prova nem julgueis todo profeta que fala no Espírito, pois todo pecado será perdoado, mas este pecado não será perdoado. Nem todo aquele que fala no Espírito é profeta; só o é se seguir os caminhos do Senhor. É pelos caminhos que se reconhecem o falso profeta e o profeta.</p>
+                    <p>Se um profeta, falando no Espírito, determinar uma refeição, não comerá dela; se o fizer, é falso profeta. Todo profeta que ensina a verdade, mas não pratica o que ensina, é falso profeta. Quanto ao profeta aprovado e verdadeiro, que age em vista do mistério terreno da Igreja, mas não ensina os outros a fazer tudo o que ele próprio faz, não o julgueis: seu julgamento pertence a Deus. Assim fizeram também os antigos profetas.</p>
+                    <p>Se alguém disser no Espírito: “Dá-me dinheiro” ou qualquer outra coisa, não o escuteis. Mas, se pedir que se dê algo em favor de quem passa necessidade, ninguém o julgue.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 12 — Acolhida aos que chegam</summary><div class="chapter-content">
+                    <p>Seja acolhido todo aquele que vier em nome do Senhor; depois, examinai-o e conhecê-lo-eis, pois tereis discernimento para distinguir o certo do errado.</p>
+                    <p>Se quem chega está de passagem, ajudai-o quanto puderdes; não permaneça convosco mais de dois ou três dias, se necessário. Se quiser ficar convosco e tiver um ofício, trabalhe e coma. Se não tiver ofício, providenciai conforme o vosso discernimento, para que um cristão não viva ocioso entre vós. Se não quiser agir assim, é alguém que faz do Cristo um negócio. Guardai-vos de tais pessoas.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 13 — Sustento dos profetas e mestres</summary><div class="chapter-content">
+                    <p>Todo profeta verdadeiro que queira estabelecer-se entre vós é digno de seu sustento; do mesmo modo, o mestre verdadeiro é digno de seu sustento, como o trabalhador.</p>
+                    <p>Tomai, pois, as primícias dos produtos do lagar e da eira, dos bois e das ovelhas, e dai-as aos profetas, pois eles são os vossos sumos sacerdotes. Se não tiverdes profeta, dai-as aos pobres.</p>
+                    <p>Se preparares massa, toma as primícias e dá-as conforme o mandamento. Do mesmo modo, ao abrir uma vasilha de vinho ou de azeite, toma as primícias e dá-as aos profetas. Do dinheiro, das roupas e de todos os teus bens, toma as primícias conforme te parecer e dá-as segundo o mandamento.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 14 — Assembleia no Dia do Senhor</summary><div class="chapter-content">
+                    <p>Reuni-vos no Dia do Senhor, parti o pão e dai graças, depois de confessar vossas faltas, para que o vosso sacrifício seja puro.</p>
+                    <p>Quem estiver em desavença com seu companheiro não se reúna convosco antes de se reconciliarem, para que o vosso sacrifício não seja profanado. Pois foi isso que o Senhor disse: “Em todo lugar e tempo oferecei-me um sacrifício puro; porque sou um grande Rei — diz o Senhor — e meu nome é admirável entre as nações.”</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 15 — Bispos, diáconos e correção fraterna</summary><div class="chapter-content">
+                    <p>Escolhei para vós bispos e diáconos dignos do Senhor: homens mansos, não amantes do dinheiro, verdadeiros e aprovados. Eles também vos prestam o serviço dos profetas e mestres.</p>
+                    <p>Não os desprezeis, pois são honrados entre vós, junto com os profetas e mestres. Corrigi-vos uns aos outros, não com ira, mas em paz, como tendes no Evangelho. A quem agir mal contra o outro, ninguém fale nem dê ouvidos entre vós até que se arrependa.</p>
+                    <p>Fazei vossas orações, esmolas e todas as vossas ações como tendes no Evangelho de nosso Senhor.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 16 — Vigilância e vinda do Senhor</summary><div class="chapter-content">
+                    <p>Vigiai por causa de vossa vida. Não se apaguem as vossas lâmpadas nem se afrouxem os vossos cintos; estai prontos, pois não sabeis a hora em que nosso Senhor virá.</p>
+                    <p>Reuni-vos frequentemente, buscando o que convém às vossas almas; de nada vos aproveitará todo o tempo da vossa fé se não fordes aperfeiçoados no tempo derradeiro.</p>
+                    <p>Nos últimos dias multiplicar-se-ão os falsos profetas e os corruptores; as ovelhas se transformarão em lobos e o amor se converterá em ódio. Com o aumento da iniquidade, as pessoas se odiarão, perseguirão e entregarão umas às outras. Então aparecerá o enganador do mundo, como se fosse Filho de Deus; fará sinais e prodígios, e a terra será entregue em suas mãos. Cometerá crimes nunca vistos desde o princípio.</p>
+                    <p>Então a humanidade chegará à prova de fogo; muitos tropeçarão e perecerão, mas os que perseverarem na fé serão salvos dessa maldição. Aparecerão então os sinais da verdade: primeiro, o sinal da abertura no céu; depois, o sinal do som da trombeta; e, em terceiro lugar, a ressurreição dos mortos — não de todos, mas como foi dito: “O Senhor virá, e todos os santos com ele.” Então o mundo verá o Senhor vindo sobre as nuvens do céu.</p>
+                </div></details></div>
+                <p class="translation-note">
+                    Tradução de trabalho feita a partir do texto grego; escolhas de vocabulário e variantes textuais
+                    podem ser revistas. O capítulo 4 reflete instruções da sociedade antiga sobre servos; sua publicação
+                    é documental, não endosso da escravidão. Os capítulos 11 e 16 contêm passagens de leitura discutida,
+                    traduzidas aqui de modo provisório. Consulte o <a href="https://el.wikisource.org/wiki/%CE%94%CE%B9%CE%B4%CE%B1%CF%87%CE%AE" target="_blank" rel="noopener noreferrer">texto grego</a>
+                    e uma <a href="https://www.newadvent.org/fathers/0714.htm" target="_blank" rel="noopener noreferrer">edição de consulta</a>.
+                </p>
+            </article>
+
+            </section>
+            <section class="author-group">
+                <h4>São Clemente de Roma</h4>
+            <article class="work-entry">
+                <h3>Clemente de Roma — Primeira Carta aos Coríntios</h3>
+                <span class="work-status">Saudação e capítulos 1 a 26 traduzidos; capítulos seguintes pendentes</span>
+                <div class="translation" lang="pt-br">
+                    <h4>Saudação</h4>
+                    <p>A Igreja de Deus que peregrina em Roma à Igreja de Deus que peregrina em Corinto, aos chamados e santificados pela vontade de Deus, por meio de nosso Senhor Jesus Cristo: que a graça e a paz vos sejam multiplicadas da parte de Deus todo-poderoso, por meio de Jesus Cristo.</p>
+
+                    <details class="chapter"><summary>Capítulo 1 — Elogio aos coríntios antes da discórdia</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Por causa das calamidades e reveses súbitos e sucessivos que nos sobrevieram, irmãos, julgamos ter demorado em voltar nossa atenção às questões que vos preocupam, queridos. Referimo-nos à detestável e ímpia revolta, tão alheia e estranha aos eleitos de Deus, que algumas pessoas imprudentes e arrogantes inflamaram até tamanho desvario que o vosso nome, honrado, célebre e amado por todos, foi gravemente difamado.</p>
+                    <p><strong>2.</strong> Quem esteve entre vós e não aprovou vossa fé tão virtuosa e firme? Quem não admirou vossa piedade prudente e moderada em Cristo? Quem não proclamou a generosa hospitalidade de vosso caráter? Quem não considerou feliz vosso conhecimento íntegro e seguro?</p>
+                    <p><strong>3.</strong> Agíeis sem parcialidade e caminháveis segundo os preceitos de Deus, submetendo-vos aos que entre vós eram presbíteros. Ensináveis os jovens a pensar com moderação e decoro. Às mulheres recomendáveis cumprir tudo com consciência irrepreensível, digna e pura, amar devidamente seus maridos e, observando a regra da submissão, cuidar com decoro dos assuntos da casa, com grande prudência.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 2 — A antiga boa conduta da comunidade</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Todos éreis humildes, sem arrogância, preferindo submeter-vos a impor submissão, e mais alegres em dar do que em receber. Contentáveis-vos com os recursos que Cristo vos concedia. Atentos às suas palavras, guardáveis-nas cuidadosamente no íntimo, e seus sofrimentos estavam diante de vossos olhos.</p>
+                    <p><strong>2.</strong> Assim, uma paz profunda e abundante era dada a todos, junto com um desejo insaciável de praticar o bem; e sobre todos vinha uma efusão plena do Espírito Santo.</p>
+                    <p><strong>3.</strong> Cheios de santo propósito, com zelo generoso e confiança piedosa, estendíeis as mãos ao Deus todo-poderoso, suplicando-lhe que fosse misericordioso caso tivésseis cometido alguma falta involuntariamente.</p>
+                    <p><strong>4.</strong> Dia e noite lutáveis em favor de toda a fraternidade, para que, com misericórdia e consciência firme, fosse salvo o número dos eleitos de Deus.</p>
+                    <p><strong>5.</strong> Éreis sinceros, simples e livres de rancor uns para com os outros.</p>
+                    <p><strong>6.</strong> Toda discórdia e todo cisma vos eram abomináveis. Lamentáveis as faltas do próximo como se fossem vossas e consideráveis próprias as suas necessidades.</p>
+                    <p><strong>7.</strong> Não vos arrependíeis de nenhuma boa ação e estáveis prontos para toda obra boa.</p>
+                    <p><strong>8.</strong> Ornados por uma vida virtuosa e digna, cumpríeis tudo no temor de Deus. Os preceitos e mandamentos do Senhor estavam escritos nas tábuas do vosso coração.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 3 — O ciúme e a inveja como origem da discórdia</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Toda honra e prosperidade vos foram concedidas, e cumpriu-se o que está escrito: “Comeu, bebeu, cresceu, engordou e deu coices o amado.”</p>
+                    <p><strong>2.</strong> Daí vêm o ciúme e a inveja, a contenda e a discórdia, a perseguição e a desordem, a guerra e o cativeiro.</p>
+                    <p><strong>3.</strong> Assim se levantaram os sem honra contra os honrados, os sem glória contra os gloriosos, os insensatos contra os prudentes, os jovens contra os mais velhos.</p>
+                    <p><strong>4.</strong> Por isso, a justiça e a paz estão longe: cada um abandonou o temor de Deus e tornou-se míope na fé; já não caminha segundo os preceitos de Deus nem vive de modo digno de Cristo. Cada qual segue os desejos de seu coração mau, tomando para si um ciúme injusto e ímpio, pelo qual também a morte entrou no mundo.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 4 — Exemplos antigos dos males causados pela inveja</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Pois está escrito: “Depois de alguns dias, Caim ofereceu a Deus frutos da terra; Abel também ofereceu os primogênitos de suas ovelhas e a gordura deles. Deus voltou o olhar para Abel e para suas ofertas, mas não atentou para Caim e suas ofertas. Caim ficou profundamente triste, e seu rosto caiu.”</p>
+                    <p><strong>2.</strong> Deus disse a Caim: “Por que estás triste e por que teu rosto caiu? Se ofereceste corretamente, mas não repartiste corretamente, não pecaste? Fica em paz: a oferta volta para ti, e tu voltarás a possuí-la.”</p>
+                    <p><strong>3.</strong> Caim disse a Abel, seu irmão: “Vamos ao campo.” E, quando estavam no campo, Caim se levantou contra Abel, seu irmão, e o matou. Vede, irmãos: o ciúme e a inveja produziram o fratricídio.</p>
+                    <p><strong>4.</strong> Por causa da inveja, nosso pai Jacó fugiu da presença de Esaú, seu irmão. A inveja fez José ser perseguido até quase a morte e levado à escravidão.</p>
+                    <p><strong>5.</strong> A inveja obrigou Moisés a fugir da presença do faraó, rei do Egito, quando ouviu de um compatriota: “Quem te constituiu juiz ou governante sobre nós? Queres matar-me, como ontem mataste o egípcio?”</p>
+                    <p><strong>6.</strong> Por causa da inveja, Aarão e Miriam tiveram de permanecer fora do acampamento.</p>
+                    <p><strong>7.</strong> A inveja fez Datã e Abirão descerem vivos ao Hades, por se rebelarem contra Moisés, servo de Deus.</p>
+                    <p><strong>8.</strong> Por causa da inveja, Davi não apenas sofreu o ódio dos estrangeiros, mas também foi perseguido por Saul, rei de Israel.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 5 — Os apóstolos Pedro e Paulo</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Mas deixemos os exemplos antigos e voltemo-nos aos atletas que viveram mais perto de nós; tomemos os nobres exemplos de nossa própria geração.</p>
+                    <p><strong>2.</strong> Por causa do ciúme e da inveja, os maiores e mais justos pilares da Igreja foram perseguidos e lutaram até a morte.</p>
+                    <p><strong>3.</strong> Ponhamos diante dos olhos os bons apóstolos.</p>
+                    <p><strong>4.</strong> Pedro, por causa de uma inveja injusta, suportou não um ou dois, mas muitos sofrimentos; depois de dar testemunho até a morte, partiu para o lugar de glória que lhe era devido.</p>
+                    <p><strong>5.</strong> Por causa do ciúme e da contenda, Paulo mostrou o prêmio da perseverança: <strong>6.</strong> carregou correntes sete vezes, foi exilado e apedrejado. Como arauto, no Oriente e no Ocidente, alcançou a nobre fama de sua fé. <strong>7.</strong> Ensinou a justiça ao mundo inteiro, chegou aos confins do Ocidente e deu testemunho diante dos governantes. Assim deixou o mundo e foi recebido no lugar santo, tornando-se o maior exemplo de perseverança.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 6 — Outros exemplos e consequências da inveja</summary><div class="chapter-content">
+                    <p><strong>1.</strong> A esses homens que viveram santamente juntou-se uma grande multidão de eleitos. Tendo suportado, por causa da inveja, muitas indignidades e torturas, tornaram-se para nós um exemplo extraordinário.</p>
+                    <p><strong>2.</strong> Por causa da inveja, mulheres — as Danaides e Dirces — foram perseguidas; depois de sofrerem tormentos terríveis e indescritíveis, chegaram firmes ao termo da corrida da fé e, embora fracas no corpo, receberam nobre recompensa.</p>
+                    <p><strong>3.</strong> A inveja afastou esposas de seus maridos e alterou aquilo que nosso pai Adão dissera: “Esta, agora, é osso dos meus ossos e carne da minha carne.”</p>
+                    <p><strong>4.</strong> A inveja e a contenda destruíram grandes cidades e extirparam grandes nações.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 7 — O chamado ao arrependimento</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Escrevemos estas coisas, amados, não apenas para vos exortar, mas também para recordar a nós mesmos: estamos na mesma arena, e a mesma luta nos aguarda.</p>
+                    <p><strong>2.</strong> Abandonemos, portanto, as preocupações vazias e vãs e aproximemo-nos da regra gloriosa e venerável que nos foi transmitida.</p>
+                    <p><strong>3.</strong> Consideremos o que é bom, agradável e aceito diante daquele que nos criou.</p>
+                    <p><strong>4.</strong> Fixemos o olhar no sangue de Cristo e reconheçamos quão precioso ele é para o Pai: derramado por nossa salvação, trouxe ao mundo inteiro a graça do arrependimento.</p>
+                    <p><strong>5.</strong> Percorramos todas as gerações e aprendamos que, de geração em geração, o Senhor concedeu oportunidade de arrependimento aos que desejam voltar-se para ele.</p>
+                    <p><strong>6.</strong> Noé pregou o arrependimento, e os que lhe obedeceram foram salvos.</p>
+                    <p><strong>7.</strong> Jonas anunciou aos ninivitas a destruição; eles, porém, arrependidos de seus pecados, aplacaram a Deus com suas súplicas e alcançaram a salvação, embora fossem estranhos a Deus.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 8 — O testemunho das Escrituras sobre o arrependimento</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Os ministros da graça de Deus falaram do arrependimento por meio do Espírito Santo.</p>
+                    <p><strong>2.</strong> O próprio Senhor de todas as coisas também falou do arrependimento sob juramento: “Por minha vida, diz o Senhor, não desejo a morte do pecador, mas que se arrependa.”</p>
+                    <p><strong>3.</strong> E acrescentou uma declaração misericordiosa: “Arrependei-vos, casa de Israel, de vossas iniquidades. Dizei aos filhos do meu povo: ainda que vossos pecados se estendam da terra ao céu e sejam mais vermelhos que a púrpura e mais escuros que o pano de saco, se vos converterdes a mim de todo o coração e disserdes: ‘Pai’, eu vos ouvirei como a um povo santo.”</p>
+                    <p><strong>4.</strong> Em outro lugar, diz: “Lavai-vos e purificai-vos; afastai de diante dos meus olhos a maldade de vossas almas. Deixai de praticar o mal, aprendei a fazer o bem, buscai a justiça, livrai o oprimido, julgai em favor do órfão e defendei a viúva. Vinde, e discutamos, diz o Senhor. Ainda que vossos pecados sejam como escarlate, eu os tornarei brancos como a neve; ainda que sejam vermelhos como púrpura, eu os tornarei como a lã. Se quiserdes e me escutardes, comereis os bens da terra; mas, se não quiserdes nem me escutardes, a espada vos devorará, pois a boca do Senhor falou.”</p>
+                    <p><strong>5.</strong> Desejando, portanto, que todos os seus amados participassem do arrependimento, o Senhor confirmou essa vontade com seu poder todo-poderoso.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 9 — Exemplos de obediência e fidelidade</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Obedeçamos, então, à sua vontade majestosa e gloriosa. Como suplicantes de sua misericórdia e bondade, prostremo-nos diante dele e voltemo-nos para suas compaixões, deixando a vã fadiga, a contenda e o ciúme que conduzem à morte.</p>
+                    <p><strong>2.</strong> Fixemos o olhar naqueles que serviram perfeitamente à sua glória majestosa.</p>
+                    <p><strong>3.</strong> Tomemos Enoque: encontrado justo por sua obediência, foi trasladado, e não se encontrou sua morte.</p>
+                    <p><strong>4.</strong> Noé, encontrado fiel, por seu ministério anunciou ao mundo o renascimento; por meio dele, o Senhor salvou os animais que entraram em harmonia na arca.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 10 — A fé e a obediência de Abraão</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Abraão, chamado “amigo”, foi encontrado fiel por obedecer às palavras de Deus.</p>
+                    <p><strong>2.</strong> Por obediência, deixou sua terra, sua parentela e a casa de seu pai, para que, deixando uma terra pequena, uma parentela fraca e uma casa modesta, herdasse as promessas de Deus.</p>
+                    <p><strong>3.</strong> Deus lhe disse: “Sai da tua terra e da tua parentela, e serás abençoado. Abençoarei os que te abençoarem e amaldiçoarei os que te amaldiçoarem; em ti serão abençoadas todas as tribos da terra.”</p>
+                    <p><strong>4.</strong> Quando Abraão se separou de Ló, Deus lhe disse novamente: “Ergue os olhos e, do lugar onde estás, olha para o norte, o sul, o nascente e o mar. Toda a terra que vês, eu a darei a ti e à tua descendência para sempre.”</p>
+                    <p><strong>5.</strong> “Farei tua descendência como a areia da terra: se alguém puder contar a areia da terra, também tua descendência poderá ser contada.”</p>
+                    <p><strong>6.</strong> E ainda lhe disse: “Deus conduziu Abraão para fora e lhe disse: ‘Olha para o céu e conta as estrelas, se és capaz de contá-las; assim será tua descendência.’” Abraão creu em Deus, e isso lhe foi contado como justiça.</p>
+                    <p><strong>7.</strong> Por sua fé e hospitalidade, recebeu um filho na velhice; e, por obediência, ofereceu-o em sacrifício a Deus sobre um dos montes que lhe foram indicados.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 11 — Ló e sua esposa</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Por sua hospitalidade e piedade, Ló foi salvo de Sodoma, enquanto toda a região ao redor foi julgada pelo fogo e pelo enxofre. Assim o Senhor mostrou claramente que não abandona os que esperam nele, mas reserva castigo e tormento aos que se desviam.</p>
+                    <p><strong>2.</strong> A esposa de Ló saiu com ele, mas tinha outra disposição e não estava em harmonia com ele; por isso foi transformada em coluna de sal, como sinal até hoje. Isso ensina a todos que os indecisos e os que duvidam do poder de Deus se tornam advertência e sinal para todas as gerações.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 12 — A fé e a hospitalidade de Raab</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Por sua fé e hospitalidade, Raab, a prostituta, foi salva.</p>
+                    <p><strong>2.</strong> Quando Josué, filho de Navé, enviou os espiões a Jericó, o rei daquela terra soube que eles tinham vindo explorar a região e mandou homens para capturá-los e matá-los.</p>
+                    <p><strong>3.</strong> Raab, porém, acolheu os espiões e os escondeu no terraço, sob as hastes de linho.</p>
+                    <p><strong>4.</strong> Quando chegaram os enviados do rei e disseram: “Os espiões de nossa terra entraram em tua casa; entrega-os, pois assim ordena o rei”, ela respondeu: “Os homens que procurais vieram até mim, mas logo partiram e seguiram caminho”, indicando-lhes uma rota diferente.</p>
+                    <p><strong>5.</strong> Depois disse aos homens: “Sei que o Senhor vosso Deus vos entrega esta terra, pois o medo e o terror de vós caíram sobre seus habitantes. Quando tomardes a cidade, salvai a mim e à casa de meu pai.”</p>
+                    <p><strong>6.</strong> Eles responderam: “Assim será como disseste. Quando souberes que estamos chegando, reúne todos os teus sob o teu teto, e serão salvos; os que forem encontrados fora da casa perecerão.”</p>
+                    <p><strong>7.</strong> Deram-lhe ainda um sinal: que pendurasse um cordão escarlate na janela de sua casa. Com isso mostravam que, pelo sangue do Senhor, haveria redenção para todos os que creem e esperam em Deus.</p>
+                    <p><strong>8.</strong> Vede, amados: naquela mulher se encontravam não só a fé, mas também a profecia.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 13 — Humildade e arrependimento</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Humilhemo-nos, irmãos, abandonando toda arrogância, orgulho, insensatez e ira, e façamos o que está escrito. Pois o Espírito Santo diz: “Não se glorie o sábio em sua sabedoria, nem o forte em sua riqueza; mas quem se gloria, glorie-se no Senhor, procurando-o e praticando o direito e a justiça.” Lembremo-nos sobretudo das palavras do Senhor Jesus, que ensinou mansidão e paciência.</p>
+                    <p><strong>2.</strong> Pois ele disse: “Sede misericordiosos, para que alcanceis misericórdia; perdoai, para que vos seja perdoado. Conforme fizerdes o bem, assim vos será feito o bem. Com a medida com que medis, sereis medidos.”</p>
+                    <p><strong>3.</strong> Firmemo-nos, portanto, nesta ordem e nestes preceitos, caminhando humildemente segundo suas palavras. Pois a palavra santa diz:</p>
+                    <p><strong>4.</strong> “A quem olharei, senão ao manso, pacífico e que treme diante das minhas palavras?”</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 14 — A obediência a Deus e o caminho do bem</summary><div class="chapter-content">
+                    <p><strong>1.</strong> É justo e santo, irmãos, que nos tornemos antes obedientes a Deus do que sigamos os que lideram, com arrogância e desordem, uma inveja detestável.</p>
+                    <p><strong>2.</strong> Sofreremos dano considerável — ou melhor, grande perigo — se nos entregarmos imprudentemente à vontade de pessoas que nos incitam à rivalidade e à discórdia, para nos afastarem do bem.</p>
+                    <p><strong>3.</strong> Sejamos bondosos uns para com os outros, conforme a compaixão e a ternura daquele que nos criou.</p>
+                    <p><strong>4.</strong> Pois está escrito: “Os bondosos habitarão a terra, e os inocentes nela permanecerão; os que praticam a iniquidade serão exterminados dela.”</p>
+                    <p><strong>5.</strong> E também se diz: “Vi o ímpio exaltado e erguido como os cedros do Líbano; passei, e já não estava; procurei seu lugar, mas não o encontrei. Guarda a inocência e observa a retidão, pois há um futuro para o homem pacífico.”</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 15 — Sinceridade e paz</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Unamo-nos, portanto, aos que cultivam a paz com piedade, e não aos que a desejam com hipocrisia.</p>
+                    <p><strong>2.</strong> Pois se diz: “Este povo me honra com os lábios, mas seu coração está longe de mim.”</p>
+                    <p><strong>3.</strong> E também: “Com a boca, eles amaldiçoavam.”</p>
+                    <p><strong>4.</strong> Ainda se diz: “Amaram-no com a boca e mentiram-lhe com a língua; seu coração não era reto para com ele, nem foram fiéis à sua aliança.”</p>
+                    <p><strong>5.</strong> Por isso: “Sejam silenciados os lábios enganadores que falam injustiça contra o justo.” E também: “O Senhor elimine todos os lábios enganadores e a língua que se exalta, os que dizem: ‘Engrandeceremos nossa língua; nossos lábios estão conosco; quem é senhor sobre nós?’”</p>
+                    <p><strong>6.</strong> “Por causa da aflição dos pobres e do gemido dos necessitados, agora me levantarei, diz o Senhor; eu os porei a salvo.”</p>
+                    <p><strong>7.</strong> “Falarei com ousadia por meio dele.”</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 16 — A humildade de Cristo</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Cristo pertence aos humildes, não aos que se exaltam sobre seu rebanho.</p>
+                    <p><strong>2.</strong> O cetro da majestade de Deus, o Senhor Jesus Cristo, embora pudesse vir com grandeza, veio em humildade, como o Espírito Santo falou a seu respeito.</p>
+                    <p><strong>3.</strong> Ele diz: “Senhor, quem acreditou no que ouvimos? E a quem foi revelado o braço do Senhor? Nós o anunciamos diante dele como uma criança, como raiz em terra sedenta. Não tinha aparência nem glória; nós o vimos, e não tinha aparência nem beleza. Sua figura era desprezada, diferente da dos outros homens: homem de feridas e sofrimento, acostumado a suportar a enfermidade. Seu rosto estava desviado; foi desprezado e não levado em conta.”</p>
+                    <p><strong>4.</strong> “Ele carrega nossos pecados e sofre por nós; nós o consideramos ferido, golpeado e afligido.”</p>
+                    <p><strong>5.</strong> “Ele foi ferido por causa de nossas transgressões e esmagado por causa de nossas iniquidades. O castigo que nos traz a paz caiu sobre ele; por suas chagas fomos curados.”</p>
+                    <p><strong>6.</strong> “Todos nós, como ovelhas, nos desviamos; cada um se desviou por seu próprio caminho.”</p>
+                    <p><strong>7.</strong> “O Senhor o entregou por causa de nossos pecados. Ele, afligido, não abriu a boca; como ovelha levada ao matadouro e cordeiro silencioso diante de quem o tosquia, não abriu a boca. Em sua humilhação, seu julgamento foi retirado.”</p>
+                    <p><strong>8.</strong> “Quem contará sua geração? Sua vida é tirada da terra.”</p>
+                    <p><strong>9.</strong> “Por causa das iniquidades do meu povo, ele foi conduzido à morte.”</p>
+                    <p><strong>10.</strong> “Darei os ímpios em troca de seu sepultamento e os ricos em troca de sua morte, pois não praticou iniquidade, nem se encontrou engano em sua boca. O Senhor quer purificá-lo de sua ferida.”</p>
+                    <p><strong>11.</strong> “Se oferecerdes por causa do pecado, vossa alma verá uma descendência de longa vida.”</p>
+                    <p><strong>12.</strong> “O Senhor quer tirar o sofrimento de sua alma, mostrar-lhe a luz e formá-lo na inteligência; o justo servirá bem a muitos e carregará ele mesmo os pecados deles.”</p>
+                    <p><strong>13.</strong> “Por isso herdará muitos e repartirá os despojos dos poderosos, porque sua vida foi entregue à morte e ele foi contado entre os iníquos.”</p>
+                    <p><strong>14.</strong> “Ele carregou os pecados de muitos e foi entregue por causa das iniquidades deles.”</p>
+                    <p><strong>15.</strong> E ele também diz: “Sou verme, e não homem; opróbrio dos homens e desprezado pelo povo.”</p>
+                    <p><strong>16.</strong> “Todos os que me veem zombam de mim; falam com os lábios e meneiam a cabeça: ‘Esperou no Senhor; que o livre, que o salve, já que o ama.’”</p>
+                    <p><strong>17.</strong> Vede, amados, o exemplo que nos foi dado. Se o Senhor se humilhou assim, que faremos nós, que por meio dele estamos sob o jugo de sua graça?</p>
+                    </div></details><details class="chapter"><summary>Capítulo 17 — Os exemplos dos antigos justos</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Imitemos também aqueles que andavam vestidos de peles de cabra e de ovelha, anunciando a vinda de Cristo: Elias, Eliseu e também Ezequiel, os profetas, além dos que deram testemunho fiel.</p>
+                    <p><strong>2.</strong> Abraão recebeu grande testemunho e foi chamado amigo de Deus; contemplando a glória de Deus, disse com humildade: “Eu sou terra e cinza.”</p>
+                    <p><strong>3.</strong> Também está escrito sobre Jó: “Jó era justo, irrepreensível, verdadeiro, temente a Deus e afastado de todo mal.”</p>
+                    <p><strong>4.</strong> Mas ele próprio se acusa, dizendo: “Ninguém está livre de mancha, nem mesmo se sua vida durar um só dia.”</p>
+                    <p><strong>5.</strong> Moisés foi chamado fiel em toda a casa de Deus; por seu ministério, Deus julgou o Egito com pragas e tormentos. Embora grandemente honrado, ele não se envaideceu; quando Deus lhe falou da sarça, respondeu: “Quem sou eu para que me envies? Tenho a voz fraca e a língua lenta.”</p>
+                    <p><strong>6.</strong> E também diz: “Sou como vapor que sai de uma panela.”</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 18 — Davi como exemplo de humildade</summary><div class="chapter-content">
+                    <p><strong>1.</strong> E que diremos de Davi, de quem Deus deu testemunho, dizendo: “Encontrei um homem segundo o meu coração: Davi, filho de Jessé; com misericórdia eterna o ungi”?</p>
+                    <p><strong>2.</strong> Ele também diz a Deus: “Tem misericórdia de mim, ó Deus, segundo tua grande misericórdia; segundo a multidão de tuas compaixões, apaga minha iniquidade.”</p>
+                    <p><strong>3.</strong> “Lava-me ainda mais da minha iniquidade, pois meu pecado está sempre diante de mim.”</p>
+                    <p><strong>4.</strong> “Contra ti somente pequei e fiz o mal diante de ti, para que sejas reconhecido justo em tuas palavras e prevaleças quando fores julgado.”</p>
+                    <p><strong>5.</strong> “Fui concebido em iniquidades, e minha mãe me gerou em pecados.”</p>
+                    <p><strong>6.</strong> “Tu amaste a verdade e me revelaste as coisas ocultas e secretas da tua sabedoria.”</p>
+                    <p><strong>7.</strong> “Aspergir-me-ás com hissopo, e serei purificado; lavar-me-ás, e ficarei mais branco que a neve.”</p>
+                    <p><strong>8.</strong> “Far-me-ás ouvir alegria e júbilo; exultarão os ossos humilhados.”</p>
+                    <p><strong>9.</strong> “Desvia teu rosto dos meus pecados e apaga todas as minhas iniquidades.”</p>
+                    <p><strong>10.</strong> “Cria em mim um coração puro, ó Deus, e renova em meu íntimo um espírito reto.”</p>
+                    <p><strong>11.</strong> “Não me rejeites de tua presença, nem retires de mim teu Espírito Santo.”</p>
+                    <p><strong>12.</strong> “Restitui-me a alegria da tua salvação e sustenta-me com espírito soberano.”</p>
+                    <p><strong>13.</strong> “Ensinarei teus caminhos aos transgressores, e os ímpios voltarão para ti.”</p>
+                    <p><strong>14.</strong> “Livra-me do sangue derramado, ó Deus, Deus da minha salvação; minha língua celebrará tua justiça.”</p>
+                    <p><strong>15.</strong> “Senhor, abrirás meus lábios, e minha boca anunciará teu louvor.”</p>
+                    <p><strong>16.</strong> “Se tivesses desejado sacrifício, eu o teria oferecido; não te agradarás de holocaustos.”</p>
+                    <p><strong>17.</strong> “O sacrifício agradável a Deus é um espírito contrito; Deus não desprezará um coração contrito e humilhado.”</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 19 — A humildade que conduz à paz</summary><div class="chapter-content">
+                    <p><strong>1.</strong> A humildade e a submissão obediente de todos esses homens, tão bem testemunhados, tornaram melhores não só a nós, mas também as gerações anteriores que acolheram as palavras de Deus com temor e verdade.</p>
+                    <p><strong>2.</strong> Tendo participado de tantos feitos grandes e gloriosos, voltemos ao propósito de paz que nos foi transmitido desde o princípio e fixemos o olhar no Pai e Criador de todo o universo. Unamo-nos aos seus dons magníficos e incomparáveis, às bênçãos da paz.</p>
+                    <p><strong>3.</strong> Contemplemo-lo em pensamento e, com os olhos da alma, consideremos sua vontade paciente; compreendamos como ele não se ira contra toda a sua criação.</p>
+
+                    </div></details><details class="chapter"><summary>Capítulo 20 — A ordem e a paz da criação</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Os céus, movidos por sua providência, submetem-se a ele em paz.</p>
+                    <p><strong>2.</strong> O dia e a noite percorrem o curso que ele lhes determinou, sem se impedirem mutuamente.</p>
+                    <p><strong>3.</strong> O sol, a lua e os coros das estrelas percorrem em harmonia as órbitas que lhes foram designadas, sem se desviarem de sua ordem.</p>
+                    <p><strong>4.</strong> A terra, fecundada segundo sua vontade e em cada estação própria, faz brotar alimento abundante para os seres humanos, os animais e todos os viventes que nela existem; não se rebela nem altera o que ele determinou.</p>
+                    <p><strong>5.</strong> As regiões insondáveis dos abismos e os lugares indescritíveis do mundo inferior permanecem sob as mesmas leis.</p>
+                    <p><strong>6.</strong> A imensidão do mar sem limites, reunida em suas bacias pela obra do Criador, não ultrapassa as barreiras que a cercam, mas age como ele lhe ordenou.</p>
+                    <p><strong>7.</strong> Pois ele disse: “Até aqui chegarás, e em ti se quebrarão as tuas ondas.”</p>
+                    <p><strong>8.</strong> O oceano sem fim e os mundos que existem além dele são governados pelas mesmas ordens do Senhor.</p>
+                    <p><strong>9.</strong> As estações da primavera, do verão, do outono e do inverno sucedem-se umas às outras em paz.</p>
+                    <p><strong>10.</strong> Os ventos, em seus tempos determinados, cumprem sem impedimento o próprio serviço; as fontes perenes, criadas para o prazer e a saúde, oferecem sem cessar seus recursos para a vida humana; até os menores animais realizam em harmonia e paz suas reuniões.</p>
+                    <p><strong>11.</strong> O grande Criador e Senhor de todas as coisas ordenou que tudo isso existisse em paz e harmonia, fazendo o bem a todos; e muito mais a nós, que recorremos às suas misericórdias por meio de nosso Senhor Jesus Cristo.</p>
+                    <p><strong>12.</strong> A ele sejam a glória e a majestade pelos séculos dos séculos. Amém.</p>
+                </div></details><details class="chapter"><summary>Capítulo 21 — Fidelidade a Deus e formação da comunidade</summary><div class="chapter-content">
+                    <p><strong>1.</strong> Vede, amados, que as muitas bondades de Deus não se tornem motivo de condenação para nós, caso não caminhemos de modo digno dele e, unidos num só pensamento, não façamos o que é bom e agradável aos seus olhos.</p>
+                    <p><strong>2.</strong> Pois está escrito: “O espírito do Senhor é uma lâmpada que perscruta as profundezas do íntimo.”</p>
+                    <p><strong>3.</strong> Consideremos quão perto ele está e que nenhum pensamento ou raciocínio nosso lhe fica oculto.</p>
+                    <p><strong>4.</strong> Portanto, não abandonemos o posto que sua vontade nos confiou.</p>
+                    <p><strong>5.</strong> É preferível desagradarmos a homens insensatos e imprudentes, soberbos e arrogantes em suas palavras, do que a Deus.</p>
+                    <p><strong>6.</strong> Reverenciemos o Senhor Jesus Cristo, cujo sangue foi derramado por nós; respeitemos os que nos governam, honremos os mais velhos entre nós e eduquemos os jovens no temor de Deus. Orientemos também nossas mulheres para o bem.</p>
+                    <p><strong>7.</strong> Que manifestem a beleza da pureza em toda a sua conduta e a sinceridade de um espírito manso; que demonstrem o domínio da língua por suas palavras e seu amor sem preferências, tratando com igual afeição todos os que temem piedosamente a Deus.</p>
+                    <p><strong>8.</strong> Que os filhos recebam uma verdadeira formação cristã. Aprendam quanto a humildade vale diante de Deus, quanto pode o amor puro e quão grande e admirável é o temor de Deus, que salva os que nele caminham piedosamente e com coração puro.</p>
+                    <p><strong>9.</strong> Deus perscruta os pensamentos e desejos. Seu sopro está em nós e, quando lhe aprouver, o retirará.</p>
+                </div></details><details class="chapter"><summary>Capítulo 22 — A fé confirma estas exortações</summary><div class="chapter-content">
+                    <p><strong>1.</strong> A fé em Cristo confirma todas estas exortações. Pois ele mesmo, pelo Espírito Santo, nos diz:</p>
+                    <p><strong>2.</strong> “Vinde, filhos, escutai-me; eu vos ensinarei o temor do Senhor. Quem deseja a vida e quer ver dias felizes?</p>
+                    <p><strong>3.</strong> Guarda tua língua do mal e teus lábios de palavras enganosas.</p>
+                    <p><strong>4.</strong> Afasta-te do mal e pratica o bem.</p>
+                    <p><strong>5.</strong> Procura a paz e empenha-te por ela.</p>
+                    <p><strong>6.</strong> Os olhos do Senhor estão sobre os justos, e seus ouvidos atentos à oração deles. O rosto do Senhor volta-se contra os que praticam o mal, para apagar da terra a sua lembrança.</p>
+                    <p><strong>7.</strong> O justo clamou, e o Senhor o ouviu e o livrou de todas as tribulações.</p>
+                    <p><strong>8.</strong> Muitas são as aflições do pecador, mas a misericórdia envolve os que esperam no Senhor.”</p>
+                </div></details><details class="chapter"><summary>Capítulo 23 — Esperança humilde na vinda do Senhor</summary><div class="chapter-content">
+                    <p>O Pai, cheio de misericórdia e bondade, compadece-se dos que o temem e concede com ternura e amor seus benefícios aos que se aproximam dele com coração simples. Portanto, não sejamos de ânimo dividido, nem nos ensoberbeçamos por causa de seus dons tão grandes e gloriosos.</p>
+                    <p>Esteja longe de nós o que está escrito: “Infelizes os que têm o coração dividido e a alma vacilante, os que dizem: ‘Ouvimos essas coisas já nos dias de nossos pais; envelhecemos, e nada disso aconteceu.’” Insensatos! Comparai-vos a uma árvore — por exemplo, à videira. Primeiro ela perde as folhas, depois brota, em seguida surgem as folhas e as flores; depois vêm as uvas verdes e, por fim, o fruto maduro. Vedes como, em pouco tempo, o fruto da árvore chega à maturidade.</p>
+                    <p>Assim também, de verdade, a vontade do Senhor se cumprirá depressa e de repente. A Escritura dá testemunho disso, dizendo: “Ele virá sem demora e não tardará”; e também: “O Senhor virá de repente ao seu templo, o Santo que esperais.”</p>
+                </div></details><details class="chapter"><summary>Capítulo 24 — A ressurreição anunciada pela criação</summary><div class="chapter-content">
+                    <p>Consideremos, amados, como o Senhor nos demonstra continuamente que haverá uma ressurreição futura. Ele fez do Senhor Jesus Cristo as primícias dela, ressuscitando-o dentre os mortos.</p>
+                    <p>Contemplemos, amados, a ressurreição que se realiza continuamente. O dia e a noite a anunciam: a noite adormece, e o dia se levanta; depois o dia parte novamente, e chega a noite. Observemos também os frutos da terra e a semeadura do grão. O semeador sai e lança a semente ao solo; embora ela caia seca e nua, pouco a pouco se desfaz. Então, de sua decomposição, o poder grandioso da providência do Senhor a faz ressurgir; de uma só semente nascem muitas, que dão fruto.</p>
+                </div></details><details class="chapter"><summary>Capítulo 25 — A fênix como imagem da ressurreição</summary><div class="chapter-content">
+                    <p>Consideremos o sinal extraordinário da ressurreição que ocorre nas terras do Oriente, na Arábia e nas regiões vizinhas. Há ali uma ave chamada fênix, única de sua espécie, que vive quinhentos anos.</p>
+                    <p>Quando se aproxima o momento de sua morte, ela prepara um ninho de incenso, mirra e outras especiarias; chegada a hora, entra nele e morre. Quando a carne se decompõe, nasce certo tipo de verme que, alimentado pelos líquidos da ave morta, cria penas.</p>
+                    <p>Ao ganhar forças, ele toma o ninho que contém os ossos de seu antecessor e, levando-os, vai da Arábia ao Egito, à cidade chamada Heliópolis. Em pleno dia, à vista de todos, deposita-os no altar do sol e retorna depressa à sua morada. Os sacerdotes examinam então os registros das datas e constatam que a ave voltou exatamente ao completar-se o quingentésimo ano.</p>
+                </div></details><details class="chapter"><summary>Capítulo 26 — Deus pode ressuscitar os que lhe são fiéis</summary><div class="chapter-content">
+                    <p>Será que julgamos grande e admirável que o Criador de todas as coisas ressuscite os que o serviram piedosamente, confiando numa fé sincera, quando até por meio de uma ave ele nos mostra a grandeza de seu poder para cumprir sua promessa?</p>
+                    <p>Pois está escrito em certo lugar: “Tu me levantarás, e eu te darei graças”; e também: “Deitei-me, dormi e despertei, porque tu estás comigo.” E Jó diz ainda: “Tu levantarás esta minha carne, que sofreu todas estas coisas.”</p>
+                </div></details></div>
+                <p class="translation-note">
+                    Tradução de trabalho; esta publicação cobre apenas a saudação e os
+                    capítulos 1 a 26, não a carta inteira. A numeração dos capítulos 13 a 16 foi corrigida nesta
+                    atualização: a redação publicada anteriormente sob os números 7 a 10 corresponde a esses
+                    capítulos; os capítulos 7 a 12 foram agora acrescentados. No capítulo 4, a interpretação de uma
+                    frase sobre a oferta de Caim é incerta. As citações bíblicas refletem a forma transmitida por
+                    Clemente, que pode diferir das traduções correntes; os capítulos 21 a 26 foram acrescentados
+                    nesta atualização. Os capítulos 21 e 22 foram conferidos no texto grego digital; para os capítulos
+                    23 a 26, consultou-se também a edição histórica em inglês, pois o texto grego digital disponível
+                    nesta fonte é incompleto.
+                    No capítulo 6, os nomes tradicionais das
+                    mulheres foram transliterados. O texto digital consultado não substitui uma edição crítica e pode
+                    conter variantes ou erros de transcrição. O relato da fênix no capítulo 25 é apresentado como
+                    imagem antiga da ressurreição, não como descrição zoológica atual.
+                </p>
+                <a href="https://el.wikisource.org/wiki/%CE%9A%CE%BB%CE%AE%CE%BC%CE%B5%CE%BD%CF%84%CE%BF%CF%82_%CE%A0%CF%81%CE%BF%CF%82_%CE%9A%CE%BF%CF%81%CE%B9%CE%BD%CE%B8%CE%AF%CE%BF%CF%85%CF%82_%CE%91%27" target="_blank" rel="noopener noreferrer">Consultar o texto grego</a>
+                <a href="https://www.newadvent.org/fathers/1010.htm" target="_blank" rel="noopener noreferrer">Edição de consulta em inglês</a>
+            </article>
+
+            </section>
+            <section class="author-group">
+                <h4>Santo Inácio de Antioquia</h4>
+            <article class="work-entry">
+                <h3>Inácio de Antioquia — sete cartas</h3>
+                <span class="work-status">Tradução por fazer</span>
+                <p>Éfeso, Magnésia, Trales, Roma, Filadélfia, Esmirna e a carta a Policarpo. A edição-base e as variantes textuais serão indicadas quando a tradução for publicada.</p>
+                <a href="https://www.newadvent.org/fathers/0104.htm" target="_blank" rel="noopener noreferrer">Consultar cartas e referências</a>
+            </article>
+            </section>
+        </div>
+
+        <section class="author-group">
+        <h3 class="section-heading">Santo Agostinho — obras doutrinais e apologéticas</h3>
+        <p>
+            Esta é a primeira seleção, não o catálogo final nem uma afirmação de que todas as obras atribuídas ao santo
+            são tratados doutrinais. O levantamento será ampliado e cada obra será classificada antes da tradução.
+            Obras polêmicas serão contextualizadas; a inclusão não significa que cada formulação seja, isoladamente,
+            definição dogmática. O catálogo externo ajuda a identificar títulos, mas suas traduções não serão copiadas.
+        </p>
+        <div class="work-list">
+            <article class="work-entry"><h3>Da doutrina cristã</h3><span class="work-status">Tradução por fazer</span><p>Escritura, interpretação e ensino cristão.</p><a href="https://www.newadvent.org/fathers/1202.htm" target="_blank" rel="noopener noreferrer">Referência</a></article>
+            <article class="work-entry"><h3>Sobre a Trindade</h3><span class="work-status">Tradução por fazer</span><p>Tratado teológico em quinze livros.</p><a href="https://www.newadvent.org/fathers/1301.htm" target="_blank" rel="noopener noreferrer">Referência</a></article>
+            <article class="work-entry"><h3>Manual sobre a fé, a esperança e a caridade (Enquirídio)</h3><span class="work-status">Tradução por fazer</span><p>Síntese catequética dirigida a Laurêncio.</p><a href="https://www.newadvent.org/fathers/1302.htm" target="_blank" rel="noopener noreferrer">Referência</a></article>
+            <article class="work-entry"><h3>A catequese dos principiantes</h3><span class="work-status">Tradução por fazer</span><p>Orientações para a iniciação cristã.</p><a href="https://www.newadvent.org/fathers/1303.htm" target="_blank" rel="noopener noreferrer">Referência</a></article>
+            <article class="work-entry">
+                <h3>Sobre a fé e o Símbolo — capítulo 1</h3>
+                <span class="work-status">Primeira seção traduzida</span>
+                <p>Exposição da profissão de fé cristã. A tradução do restante da obra será publicada em etapas.</p>
+                <div class="translation" lang="pt-br">
+                    <details class="chapter">
+                        <summary>Capítulo 1 — Motivo e objetivo desta obra</summary>
+                        <div class="chapter-content">
+                    <p><strong>1. Motivo e objetivo desta obra.</strong> Como está escrito e confirmado pela autoridade fortíssima do ensinamento apostólico: “O justo viverá pela fé” (Hab 2,4; Gl 3,11), a fé exige de nós o serviço do coração e da língua. Com efeito, diz o Apóstolo: “Com o coração se crê para a justiça, e com a boca se professa para a salvação” (Rm 10,10). Convém, portanto, que nos lembremos tanto da justiça como da salvação.</p>
+                    <p>Embora estejamos destinados a reinar na justiça eterna, não podemos ser salvos deste século perverso se, empenhados também na salvação dos próximos, não professarmos com a boca a fé que trazemos no coração. Devemos cuidar, com vigilância piedosa e prudente, para que essa fé não seja de algum modo corrompida em nós pelas astúcias fraudulentas dos hereges.</p>
+                    <p>A fé católica está expressa no Símbolo, conhecido pelos fiéis e confiado à memória, com a brevidade que a matéria permitiu. Assim, para os que começam e ainda são como crianças — os renascidos em Cristo que ainda não foram fortalecidos pelo estudo diligente e pela compreensão espiritual das Escrituras divinas — estabeleceu-se em poucas palavras aquilo em que se deve crer; os que progridem e crescem na doutrina divina, com firmeza de humildade e caridade, poderão expô-lo em muitas palavras.</p>
+                    <p>Sob essas poucas palavras do Símbolo, muitos hereges tentaram ocultar seus venenos. Contra eles, a misericórdia divina resistiu e resiste por meio de homens espirituais, que mereceram não apenas receber e crer nas palavras da fé católica, mas também, por revelação do Senhor, entendê-la e conhecê-la. Pois está escrito: “Se não crerdes, não entendereis” (Is 7,9, segundo os Setenta).</p>
+                    <p>A exposição da fé serve para defender o Símbolo: não para que ela seja decorada e recitada em lugar do Símbolo por aqueles que alcançam a graça de Deus, mas para guardar aquilo que se conserva no Símbolo contra as ciladas dos hereges, com autoridade católica e defesa mais firme.</p>
+                        </div>
+                    </details>
+                </div>
+                <p class="translation-note">Tradução de trabalho feita diretamente do latim; será revista junto ao restante do tratado.</p>
+                <a href="https://la.wikisource.org/wiki/De_fide_et_symbolo" target="_blank" rel="noopener noreferrer">Consultar o texto latino</a>
+            </article>
+            <article class="work-entry"><h3>Sobre a utilidade de crer</h3><span class="work-status">Tradução por fazer</span><p>Defesa do papel da fé na busca da verdade.</p><a href="https://www.newadvent.org/fathers/1306.htm" target="_blank" rel="noopener noreferrer">Referência</a></article>
+            <article class="work-entry"><h3>Sobre os costumes da Igreja Católica</h3><span class="work-status">Tradução por fazer</span><p>Exposição da vida moral cristã e resposta aos maniqueus.</p><a href="https://www.newadvent.org/fathers/1401.htm" target="_blank" rel="noopener noreferrer">Referência</a></article>
+            <article class="work-entry"><h3>Sobre duas almas, contra os maniqueus</h3><span class="work-status">Tradução por fazer</span><p>Discussão sobre liberdade e responsabilidade moral.</p><a href="https://www.newadvent.org/fathers/1403.htm" target="_blank" rel="noopener noreferrer">Referência</a></article>
+            <article class="work-entry"><h3>Sobre a natureza do bem, contra os maniqueus</h3><span class="work-status">Tradução por fazer</span><p>Tratado sobre o bem, o mal e a criação.</p><a href="https://www.newadvent.org/fathers/1407.htm" target="_blank" rel="noopener noreferrer">Referência</a></article>
+            <article class="work-entry"><h3>Sobre o batismo, contra os donatistas</h3><span class="work-status">Tradução por fazer</span><p>Sete livros sobre o batismo e a unidade da Igreja.</p><a href="https://www.newadvent.org/fathers/1408.htm" target="_blank" rel="noopener noreferrer">Referência</a></article>
+            <article class="work-entry"><h3>Sobre os méritos e a remissão dos pecados e o batismo das crianças</h3><span class="work-status">Tradução por fazer</span><p>Tratado sobre pecado, graça e batismo infantil.</p><a href="https://www.newadvent.org/fathers/1501.htm" target="_blank" rel="noopener noreferrer">Referência</a></article>
+            <article class="work-entry"><h3>Sobre o Espírito e a letra</h3><span class="work-status">Tradução por fazer</span><p>Lei, graça e ação do Espírito Santo.</p><a href="https://www.newadvent.org/fathers/1502.htm" target="_blank" rel="noopener noreferrer">Referência</a></article>
+            <article class="work-entry"><h3>Sobre a natureza e a graça</h3><span class="work-status">Tradução por fazer</span><p>Debate sobre a natureza humana e a necessidade da graça.</p><a href="https://www.newadvent.org/fathers/1503.htm" target="_blank" rel="noopener noreferrer">Referência</a></article>
+            <article class="work-entry"><h3>Sobre a graça de Cristo e o pecado original</h3><span class="work-status">Tradução por fazer</span><p>Escrito no contexto da controvérsia pelagiana.</p><a href="https://www.newadvent.org/fathers/1506.htm" target="_blank" rel="noopener noreferrer">Referência</a></article>
+            <article class="work-entry"><h3>Sobre a graça e o livre-arbítrio</h3><span class="work-status">Tradução por fazer</span><p>Exame da relação entre a graça divina e a vontade humana.</p><a href="https://www.newadvent.org/fathers/1510.htm" target="_blank" rel="noopener noreferrer">Referência</a></article>
+            <article class="work-entry"><h3>A cidade de Deus</h3><span class="work-status">Tradução por fazer</span><p>Obra apologética e teológica em vinte e dois livros.</p><a href="https://www.newadvent.org/fathers/1201.htm" target="_blank" rel="noopener noreferrer">Referência</a></article>
+            <article class="work-entry"><h3>Outros tratados, comentários e sermões doutrinais</h3><span class="work-status">Levantamento pendente</span><p>A lista será completada após classificar o corpus, incluindo obras sobre os Salmos, o Evangelho de João, a fé, a Igreja e as controvérsias doutrinais.</p><a href="https://www.newadvent.org/fathers/" target="_blank" rel="noopener noreferrer">Consultar catálogo de títulos</a></article>
+        </div>
+        </section>
+
+        <h2 class="section-heading">Como adicionar textos a este site</h2>
+        <ol class="steps">
+            <li>Conferir o texto antigo e registrar a edição ou o manuscrito de referência.</li>
+            <li>Publicar a tradução em partes revisáveis, preservando a divisão em livros, capítulos ou cartas.</li>
+            <li>Indicar variantes e incertezas textuais sem apresentar uma tradução de trabalho como edição crítica definitiva.</li>
+        </ol>
+    </main>
+
+    <footer>O que é ser Católico? — fontes para estudo e consulta.</footer>
+
+    <script>
+        const mobileBtn = document.getElementById('mobile_btn');
+        const mobileMenu = document.getElementById('mobile_menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.toggle('active');
+                mobileBtn.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+        document.querySelectorAll('#mobile_menu .nav-link').forEach(container => {
+            container.addEventListener('click', event => {
+                const submenu = container.nextElementSibling;
+                if (submenu && submenu.classList.contains('dropdown-menu')) {
+                    event.preventDefault();
+                    submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -662,13 +662,10 @@
             .update({ completed: status })
             .eq('user_id', currentUser.id)
             .eq('day_number', day)
-            .select('day_number')
           : await supabaseClient
             .from('cic_progress')
-            .insert([{ user_id: currentUser.id, day_number: day, completed: status }])
-            .select('day_number');
+            .insert([{ user_id: currentUser.id, day_number: day, completed: status }]);
         if (result.error) throw result.error;
-        if (!result.data?.length) throw new Error('O banco não confirmou a gravação do progresso.');
 
         if (status) cicCompletedDays.add(day);
         else cicCompletedDays.delete(day);

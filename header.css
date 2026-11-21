@@ -138,6 +138,11 @@ ul, li {
 
 /* DESKTOP: submenu oculto */
 @media screen and (min-width: 1171px) {
+    #nav_logo {
+        position: relative;
+        left: -3.5%;
+    }
+
     #nav_list {
         position: absolute;
         left: 50%;
@@ -148,7 +153,7 @@ ul, li {
 
     #navbar .input-icon {
         position: absolute;
-        right: -10%;
+        right: -2%;
         margin-left: 0;
     }
 

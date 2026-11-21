@@ -426,6 +426,15 @@
       document.getElementById('profile-avatar').src = metadata.avatar_data_url || '../imagens/logo1.png';
     }
 
+    async function activateSession(user) {
+      if (currentUser?.id === user.id && !document.getElementById('app-screen').classList.contains('hidden')) return;
+      currentUser = user;
+      document.getElementById('auth-screen').classList.add('hidden');
+      document.getElementById('app-screen').classList.remove('hidden');
+      showProfile(currentUser);
+      await loadAllData();
+    }
+
     async function checkSession() {
       try {
         if (!supabaseClient) throw new Error('O serviço de autenticação não foi carregado.');
@@ -433,11 +442,7 @@
         if (error) throw error;
         if (!data.session) return;
 
-        currentUser = data.session.user;
-        document.getElementById('auth-screen').classList.add('hidden');
-        document.getElementById('app-screen').classList.remove('hidden');
-        showProfile(currentUser);
-        await loadAllData();
+        await activateSession(data.session.user);
       } catch (error) {
         const detail = error instanceof Error ? ` ${error.message}` : '';
         showAuthMessage(`Não foi possível verificar a sessão.${detail}`);
@@ -476,7 +481,11 @@
 
       try {
         if (!supabaseClient) throw new Error('O serviço de autenticação não foi carregado.');
-        const { data, error } = await supabaseClient.auth.signUp({ email, password });
+        const { data, error } = await supabaseClient.auth.signUp({
+          email,
+          password,
+          options: { emailRedirectTo: 'https://catolicweb.vercel.app/paginas/rotina.html' }
+        });
         if (error) {
           showAuthMessage(error.message);
           return;
@@ -1101,6 +1110,19 @@
       cancelNoteEdit();
       showAppMessage('Anotação excluída.', 'success');
       await loadNotes();
+    }
+
+    if (supabaseClient) {
+      supabaseClient.auth.onAuthStateChange((event, session) => {
+        if (session && ['SIGNED_IN', 'INITIAL_SESSION', 'PASSWORD_RECOVERY'].includes(event)) {
+          queueMicrotask(() => {
+            activateSession(session.user);
+            if (window.location.hash) {
+              window.history.replaceState({}, document.title, `${window.location.pathname}${window.location.search}`);
+            }
+          });
+        }
+      });
     }
 
     document.getElementById('schedule-list').addEventListener('change', updateScheduleCompletion);

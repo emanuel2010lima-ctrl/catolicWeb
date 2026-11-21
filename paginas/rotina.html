@@ -639,7 +639,7 @@
       time.textContent = item.time_slot ? item.time_slot.slice(0, 5) : '--:--';
       const title = document.createElement('span');
       title.className = 'font-bold text-gray-800';
-      title.textContent = `${item.item_type === 'prayer' ? '📿 ' : ''}${item.title}`;
+      title.textContent = item.title;
       titleRow.append(time, title);
       content.append(titleRow);
 

@@ -332,7 +332,7 @@
       document.getElementById('profile-email').textContent = user.email || '';
       document.getElementById('display-name').value = metadata.display_name || '';
       document.getElementById('profile-bio').value = metadata.bio || '';
-      document.getElementById('profile-display-name').textContent = metadata.display_name || 'Meu perfil';
+      document.getElementById('profile-display-name').textContent = metadata.display_name || 'Perfil';
       document.getElementById('avatar-preview').src = metadata.avatar_data_url || '../imagens/logo1.png';
       readPages = new Set(
         Array.isArray(metadata.oqcat_read_pages)

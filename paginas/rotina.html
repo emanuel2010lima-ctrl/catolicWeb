@@ -133,9 +133,9 @@
         </div>
       </div>
       <div class="flex items-center gap-4">
-        <a href="perfil.html" class="profile-link flex items-center gap-2" aria-label="Abrir meu perfil">
+        <a href="perfil.html" class="profile-link flex items-center gap-2" aria-label="Abrir perfil">
           <img id="profile-avatar" src="../imagens/logo1.png" alt="">
-          <span id="profile-name" class="hidden sm:inline text-sm">Meu perfil</span>
+          <span id="profile-name" class="hidden sm:inline text-sm">Perfil</span>
         </a>
         <button onclick="handleLogout()" class="text-xs border border-yellow-400 text-yellow-300 px-3 py-1.5 rounded hover:bg-yellow-400 hover:text-gray-900 transition">Sair</button>
       </div>
@@ -318,7 +318,7 @@
 
     function showProfile(user) {
       const metadata = user.user_metadata || {};
-      document.getElementById('profile-name').textContent = metadata.display_name || 'Meu perfil';
+      document.getElementById('profile-name').textContent = metadata.display_name || 'Perfil';
       document.getElementById('profile-avatar').src = metadata.avatar_data_url || '../imagens/logo1.png';
     }
 
@@ -639,15 +639,50 @@
     }
 
     async function toggleCicDone(day, status) {
-      const { error } = await supabaseClient.from('cic_progress').upsert({ user_id: currentUser.id, day_number: day, completed: status }, { onConflict: 'user_id,day_number' });
-      if (error) {
-        showAppMessage(`Não foi possível atualizar o Catecismo. ${error.message}`);
-        return;
+      const button = document.querySelector('#cic-card button');
+      const buttonLabel = button?.textContent;
+      if (button) {
+        button.disabled = true;
+        button.textContent = 'Salvando...';
       }
-      if (status) cicCompletedDays.add(day);
-      else cicCompletedDays.delete(day);
-      showAppMessage(status ? 'Dia marcado como concluído.' : 'Conclusão removida.', 'success');
-      renderCicDay();
+
+      showAppMessage('Salvando progresso do Catecismo...', 'success');
+      try {
+        const { data: existingRows, error: lookupError } = await supabaseClient
+          .from('cic_progress')
+          .select('day_number')
+          .eq('user_id', currentUser.id)
+          .eq('day_number', day)
+          .limit(1);
+        if (lookupError) throw lookupError;
+
+        const result = existingRows?.length
+          ? await supabaseClient
+            .from('cic_progress')
+            .update({ completed: status })
+            .eq('user_id', currentUser.id)
+            .eq('day_number', day)
+            .select('day_number')
+          : await supabaseClient
+            .from('cic_progress')
+            .insert([{ user_id: currentUser.id, day_number: day, completed: status }])
+            .select('day_number');
+        if (result.error) throw result.error;
+        if (!result.data?.length) throw new Error('O banco não confirmou a gravação do progresso.');
+
+        if (status) cicCompletedDays.add(day);
+        else cicCompletedDays.delete(day);
+        showAppMessage(status ? 'Dia marcado como concluído.' : 'Conclusão removida.', 'success');
+        renderCicDay();
+      } catch (error) {
+        const detail = error instanceof Error ? ` ${error.message}` : '';
+        showAppMessage(`Não foi possível atualizar o Catecismo.${detail}`);
+      } finally {
+        if (button?.isConnected) {
+          button.disabled = false;
+          button.textContent = buttonLabel;
+        }
+      }
     }
 
     // ANOTAÇÕES

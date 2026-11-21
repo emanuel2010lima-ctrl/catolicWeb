@@ -65,7 +65,7 @@ header{
     cursor: pointer;
     margin-left: 5px;
 }
-@media screen and (max-width: 1170px) {
+@media screen and (max-width: 1250px) {
     #nav_list,
     #navbar .btn-default {
         display: none;
@@ -89,7 +89,7 @@ header{
     #mobile_nav_list {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 14px;
         margin: 12px 0px;
 
     }
@@ -137,18 +137,18 @@ ul, li {
 
 
 /* DESKTOP: submenu oculto */
-@media screen and (min-width: 1171px) {
+@media screen and (min-width: 1251px) {
     #nav_logo {
         position: relative;
-        left: -3.5%;
+        left: -4.5%;
     }
 
     #nav_list {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        gap: 8px;
-        font-size: 14px;
+        gap: 10px;
+        font-size: 13px;
     }
 
     #navbar .input-icon {

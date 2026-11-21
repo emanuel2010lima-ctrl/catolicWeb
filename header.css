@@ -138,23 +138,54 @@ ul, li {
 
 /* DESKTOP: submenu oculto */
 @media screen and (min-width: 1251px) {
+    header {
+        padding: 8px 2%;
+    }
+
+    #navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(8px, 1vw, 14px);
+        min-height: 66px;
+    }
+
     #nav_logo {
-        position: relative;
-        left: -4.5%;
+        position: static;
+        display: block;
+        flex: 0 0 46px;
+        width: 46px;
+        height: 56px;
+        object-fit: contain;
+        object-position: center;
     }
 
     #nav_list {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        gap: 10px;
-        font-size: 13px;
+        position: static;
+        transform: none;
+        flex: 0 1 auto;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: clamp(5px, .55vw, 8px);
+        font-size: clamp(10px, .82vw, 11px);
+    }
+
+    #nav_list > .nav-item,
+    #nav_list .nav-link,
+    #nav_list .nav-item > a {
+        white-space: nowrap;
     }
 
     #navbar .input-icon {
-        position: absolute;
-        right: -2%;
-        margin-left: 0;
+        position: static;
+        display: inline-flex;
+        flex: 0 0 36px;
+        width: 36px;
+        height: 36px;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
     }
 
     .nav-item {

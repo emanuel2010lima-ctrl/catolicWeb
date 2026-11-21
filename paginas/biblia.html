@@ -231,9 +231,10 @@
 
         <ul id="nav_list">
             <li class="nav-item"><a href="index.html">Início</a></li>
-            <li class="nav-item active"><a href="biblia.html">Bíblia</a></li>
-            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
             <li class="nav-item"><a href="perfil.html">Perfil</a></li>
+            <li class="nav-item active"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="https://www.vatican.va/archive/cathechism_po/index_new/prima-pagina-cic_po.html">Catecismo</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
             <li class="nav-item"><a href="rotina.html">ORDO VITAE</a></li>
 
             <li class="nav-item has-dropdown">
@@ -321,9 +322,10 @@
     <div id="mobile_menu">
         <ul id="mobile_nav_list">
          <li class="nav-item"><a href="index.html">Início</a></li>
-            <li class="nav-item active"><a href="biblia.html">Bíblia</a></li>
-            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
             <li class="nav-item"><a href="perfil.html">Perfil</a></li>
+            <li class="nav-item active"><a href="biblia.html">Bíblia</a></li>
+            <li class="nav-item"><a href="https://www.vatican.va/archive/cathechism_po/index_new/prima-pagina-cic_po.html">Catecismo</a></li>
+            <li class="nav-item"><a href="breviario.html">Breviário</a></li>
             <li class="nav-item"><a href="rotina.html">ORDO VITAE</a></li>
 
             <li class="nav-item has-dropdown">
@@ -430,143 +432,20 @@
 
   <div class="row g-5">
     <div class="col-md-8">
-      <h3 class="pb-4 mb-4 fst-italic border-bottom">
-        <span style="color: lightcoral; ">Bíblia Sagrada</span> - Ave Maria
-      </h3>
-        
-
-
-      <div class="img-fluid vh-100 shadow rounded overflow-hidden" alt="Full screen image">
-        <div class="col-md-8">
-  <h3 class="pb-4 mb-0 fst-italic" style="text-align: center;">
-    <div class="text-center my-4">
-    <button type="button" class="btn btn-outline-warning btn-lg" data-bs-toggle="modal" data-bs-target="#modalBusca">
-        <i class="fas fa-search me-2"></i> Buscar por Passagem ou Trecho
-    </button>
-</div>
-  </h3>
-
-  <div class="d-flex gap-3 mb-2 flex-wrap">
-  <select id="select-livro" class="form-select w-auto bg-dark text-white border-secondary" onchange="carregarTexto()">
-    <optgroup label="Pentateuco">
-  <option value="Gênesis">Gênesis</option>
-  <option value="Êxodo">Êxodo</option>
-  <option value="Levítico">Levítico</option>
-  <option value="Números">Números</option>
-  <option value="Deuteronômio">Deuteronômio</option>
-</optgroup>
-<optgroup label="Históricos">
-  <option value="Josué">Josué</option>
-  <option value="Juízes">Juízes</option>
-  <option value="Rute">Rute</option>
-  <option value="I Samuel">1 Samuel</option>
-  <option value="II Samuel">2 Samuel</option>
-  <option value="I Reis">1 Reis</option>
-  <option value="II Reis">2 Reis</option>
-  <option value="I Crônicas">1 Crônicas</option>
-  <option value="II Crônicas">2 Crônicas</option>
-  <option value="Esdras">Esdras</option>
-  <option value="Neemias">Neemias</option>
-  <option value="Tobias">Tobias</option>
-  <option value="Judite">Judite</option>
-  <option value="Ester">Ester</option>
-  <option value="I Macabeus">1 Macabeus</option>
-  <option value="II Macabeus">2 Macabeus</option>
-</optgroup>
-<optgroup label="Sapienciais">
-  <option value="Jó">Jó</option>
-  <option value="Salmos">Salmos</option>
-  <option value="Provérbios">Provérbios</option>
-  <option value="Eclesiastes">Eclesiastes</option>
-  <option value="Cântico dos Cânticos">Cântico dos Cânticos</option>
-  <option value="Sabedoria">Sabedoria</option>
-  <option value="Eclesiástico">Eclesiástico</option>
-</optgroup>
-<optgroup label="Profetas Maiores">
-  <option value="Isaías">Isaías</option>
-  <option value="Jeremias">Jeremias</option>
-  <option value="Lamentações">Lamentações</option>
-  <option value="Baruc">Baruc</option>
-  <option value="Ezequiel">Ezequiel</option>
-  <option value="Daniel">Daniel</option>
-</optgroup>
-<optgroup label="Profetas Menores">
-  <option value="Oseias">Oseias</option>
-  <option value="Joel">Joel</option>
-  <option value="Amós">Amós</option>
-  <option value="Abdias">Abdias</option>
-  <option value="Jonas">Jonas</option>
-  <option value="Miqueias">Miqueias</option>
-  <option value="Naum">Naum</option>
-  <option value="Habacuc">Habacuc</option>
-  <option value="Sofonias">Sofonias</option>
-  <option value="Ageu">Ageu</option>
-  <option value="Zacarias">Zacarias</option>
-  <option value="Malaquias">Malaquias</option>
-</optgroup>
-<optgroup label="Evangelhos e Atos">
-  <option value="São Mateus">Mateus</option>
-  <option value="São Marcos">Marcos</option>
-  <option value="São Lucas">Lucas</option>
-  <option value="São João">João</option>
-  <option value="Atos dos Apóstolos">Atos dos Apóstolos</option>
-</optgroup>
-<optgroup label="Epístolas de São Paulo">
-  <option value="Romanos">Romanos</option>
-  <option value="I Coríntios">1 Coríntios</option>
-  <option value="II Coríntios">2 Coríntios</option>
-  <option value="Gálatas">Gálatas</option>
-  <option value="Efésios">Efésios</option>
-  <option value="Filipenses">Filipenses</option>
-  <option value="Colossenses">Colossenses</option>
-  <option value="I Tessalonicenses">1 Tessalonicenses</option>
-  <option value="II Tessalonicenses">2 Tessalonicenses</option>
-  <option value="I Timóteo">1 Timóteo</option>
-  <option value="II Timóteo">2 Timóteo</option>
-  <option value="Tito">Tito</option>
-  <option value="Filêmon">Filêmon</option>
-  <option value="Hebreus">Hebreus</option>
-</optgroup>
-<optgroup label="Epístolas Católicas e Apocalipse">
-  <option value="São Tiago">Tiago</option>
-  <option value="I São Pedro">1 Pedro</option>
-  <option value="II São Pedro">2 Pedro</option>
-  <option value="I São João">1 João</option>
-  <option value="II São João">2 João</option>
-  <option value="III São João">3 João</option>
-  <option value="São Judas">Judas</option>
-  <option value="Apocalipse">Apocalipse</option>
-</optgroup>
-</select>
-
- <input type="number" id="select-capitulo" class="form-control w-auto bg-dark text-white border-secondary" value="1" min="1" onchange="carregarTexto()">
-</div>
-
-  <div id="leitor-texto" class="p-4 rounded shadow-sm bg-dark border border-secondary" style="height: 37em; overflow-y: auto; line-height: 1.8; font-size: 1.1rem;">
-  </div>
-</div>
-      </div>
-    </div>
-<div class="modal fade" id="modalBusca" tabindex="-1" aria-labelledby="modalBuscaLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content bg-dark border-secondary">
-      <div class="modal-header border-secondary">
-        <h5 class="modal-title text-warning" id="modalBuscaLabel">Explorar a Bíblia</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="input-group mb-3">
-          <input type="text" id="termoBusca" class="form-control bg-dark text-white border-secondary" placeholder="Ex: O pão da vida..." onkeypress="handleSearchKeyPress(event)">
-          <button class="btn btn-warning" type="button" onclick="realizarBusca()">Buscar</button>
+      <section class="p-4 p-md-5 bg-dark text-white rounded-4 shadow">
+        <h2 class="text-warning">B&#237;blia Sagrada — Padre Manuel de Matos Soares</h2>
+        <p>Tradu&#231;&#227;o cat&#243;lica em portugu&#234;s a partir da Vulgata, com aprova&#231;&#227;o eclesi&#225;stica e os 73 livros do c&#226;non cat&#243;lico. Selecione um livro e cap&#237;tulo.</p>
+        <div class="d-flex gap-2 flex-wrap mb-3">
+          <label class="visually-hidden" for="select-livro">Livro</label>
+          <select id="select-livro" class="form-select w-auto" aria-label="Livro b&#237;blico"><option>Carregando livros&#8230;</option></select>
+          <label class="visually-hidden" for="select-capitulo">Cap&#237;tulo</label>
+          <input id="select-capitulo" class="form-control w-auto" type="number" min="1" value="1" aria-label="Cap&#237;tulo">
+          <button id="carregar-capitulo" class="btn btn-warning" type="button">Ler cap&#237;tulo</button>
         </div>
-        
-        <div id="resultadosBusca" class="mt-3" style="max-height: 400px; overflow-y: auto;">
-            <p class="text-muted text-center italic">Digite um termo acima para pesquisar em toda a Bíblia.</p>
-        </div>
-      </div>
+        <div id="leitor-texto" class="p-3 rounded bg-black border border-secondary" style="min-height: 22rem; max-height: 65vh; overflow-y: auto; line-height: 1.8;" aria-live="polite">Carregando a B&#237;blia&#8230;</div>
+        <p class="small text-secondary mt-3 mb-0">Tradu&#231;&#227;o do Pe. Manuel de Matos Soares. Base JSON de <a href="https://github.com/bibliacatolica/biblia" target="_blank" rel="noopener noreferrer">bibliacatolica/biblia</a>, disponibilizada sob <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.pt-br" target="_blank" rel="noopener noreferrer">CC0 1.0</a>. O projeto informa que revisou erros de OCR com aux&#237;lio de IA.</p>
+      </section>
     </div>
-  </div>
-</div>
    <div class="col-md-4">
           <div class="position-sticky" style="top: 2rem">
             <div class="card shadow-lg border-0 rounded-4 overflow-hidden my-4">
@@ -598,131 +477,79 @@
       class="astro-vvvwv3sm"
     ></script>
     
+
 <script>
-let bibliaCache = null;
+(() => {
+  const bookSelect = document.getElementById('select-livro');
+  const chapterInput = document.getElementById('select-capitulo');
+  const reader = document.getElementById('leitor-texto');
+  const loadButton = document.getElementById('carregar-capitulo');
+  let bible = null;
+  let books = [];
 
-// Chama a função automaticamente quando a página terminar de carregar
-document.addEventListener("DOMContentLoaded", () => {
-  carregarTexto();
-});
-
-async function carregarTexto() {
-  const livroSelecionado = document.getElementById('select-livro').value;
-  const capituloSelecionado = parseInt(document.getElementById('select-capitulo').value);
-  const container = document.getElementById('leitor-texto');
-
-  try {
-    if (!bibliaCache) {
-      const response = await fetch('biblia.json');
-      bibliaCache = await response.json();
+  async function initialize() {
+    try {
+      const response = await fetch('biblia-matos-soares-completa.json');
+      if (!response.ok) throw new Error(`Não foi possível abrir a base bíblica (${response.status}).`);
+      bible = await response.json();
+      books = bible.books || [];
+      if (bible.totalBooks !== 73 || books.length !== 73) throw new Error('A base não contém os 73 livros esperados.');
+      bookSelect.replaceChildren(...books.map((book, position) => new Option(book.name, String(position))));
+      const params = new URLSearchParams(window.location.search);
+      const requestedBook = books.findIndex(book => book.id === params.get('livro'));
+      if (requestedBook >= 0) bookSelect.value = String(requestedBook);
+      if (params.has('capitulo')) chapterInput.value = params.get('capitulo');
+      bookSelect.addEventListener('change', updateChapterLimit);
+      loadButton.addEventListener('click', loadChapter);
+      chapterInput.addEventListener('keydown', event => { if (event.key === 'Enter') loadChapter(); });
+      updateChapterLimit();
+      await loadChapter();
+    } catch (error) {
+      reader.textContent = `Não foi possível carregar a Bíblia: ${error.message}`;
+      console.error(error);
     }
-
-    // Procura primeiro no Antigo Testamento, se não achar, procura no Novo
-    let livro = bibliaCache.antigoTestamento.find(l => l.nome === livroSelecionado);
-    if (!livro) {
-      livro = bibliaCache.novoTestamento.find(l => l.nome === livroSelecionado);
-    }
-
-    // Encontra o capítulo
-    const capitulo = livro ? livro.capitulos.find(c => c.capitulo === capituloSelecionado) : null;
-
-    if (livro && capitulo) {
-      let html = `<h2 style="color: goldenrod;">${livro.nome} ${capituloSelecionado}</h2><hr>`;
-      capitulo.versiculos.forEach(v => {
-        html += `<p><b style="color: goldenrod;">${v.versiculo}</b> ${v.texto}</p>`;
-      });
-      container.innerHTML = html;
-      container.scrollTop = 0;
-    } else {
-      container.innerHTML = '<p class="text-danger">Livro ou Capítulo não encontrado.</p>';
-    }
-  } catch (e) {
-    container.innerHTML = '<p class="text-danger">Erro ao ler o ficheiro biblia.json.</p>';
   }
-}
-</script>
-<script>
-function realizarBusca() {
-    const termoInput = document.getElementById('termoBusca');
-    const termo = termoInput.value.toLowerCase().trim();
-    const containerResultados = document.getElementById('resultadosBusca');
-    
-    containerResultados.innerHTML = "";
 
-    if (!bibliaCache) {
-        containerResultados.innerHTML = '<p class="text-warning text-center">Aguarde... A Bíblia ainda está carregando.</p>';
-        return;
+  function updateChapterLimit() {
+    const book = books[Number(bookSelect.value)];
+    if (!book) return;
+    chapterInput.min = '1';
+    chapterInput.max = String(book.chaptersCount);
+    chapterInput.value = String(Math.min(Math.max(Number(chapterInput.value) || 1, 1), book.chaptersCount));
+  }
+
+  async function loadChapter() {
+    const book = books[Number(bookSelect.value)];
+    const chapter = Number(chapterInput.value);
+    if (!book || !Number.isInteger(chapter) || chapter < 1 || chapter > book.chaptersCount) return;
+    loadButton.disabled = true;
+    reader.textContent = 'Carregando capítulo…';
+    try {
+      const verses = book.chapters?.[String(chapter)] || [];
+      if (!verses.length) throw new Error('Este capítulo não contém versículos na base.');
+      const heading = document.createElement('h3');
+      heading.className = 'text-warning';
+      heading.textContent = `${book.name} ${chapter} · Matos Soares`;
+      reader.replaceChildren(heading, document.createElement('hr'));
+      verses.forEach(verse => {
+        const paragraph = document.createElement('p');
+        const number = document.createElement('strong');
+        number.className = 'text-warning me-2';
+        number.textContent = verse.v ?? verse.number ?? '';
+        paragraph.append(number, document.createTextNode(verse.t ?? verse.text ?? ''));
+        reader.append(paragraph);
+      });
+      reader.scrollTop = 0;
+    } catch (error) {
+      reader.textContent = `Não foi possível carregar o capítulo: ${error.message}`;
+      console.error(error);
+    } finally {
+      loadButton.disabled = false;
     }
+  }
 
-    if (termo.length < 3) {
-        containerResultados.innerHTML = '<p class="text-warning text-center">Digite pelo menos 3 letras para pesquisar.</p>';
-        return;
-    }
-
-    let encontrados = [];
-
-    const varrer = (lista) => {
-        lista.forEach(livro => {
-            livro.capitulos.forEach(cap => {
-                cap.versiculos.forEach(vers => {
-                    if (vers.texto.toLowerCase().includes(termo)) {
-                        encontrados.push({
-                            livro: livro.nome,
-                            cap: cap.capitulo,
-                            ver: vers.versiculo,
-                            texto: vers.texto
-                        });
-                    }
-                });
-            });
-        });
-    };
-
-    varrer(bibliaCache.antigoTestamento);
-    varrer(bibliaCache.novoTestamento);
-
-    if (encontrados.length > 0) {
-        let html = `<p class="text-muted small">Foram encontrados ${encontrados.length} versículos.</p>`;
-        
-        encontrados.slice(0, 50).forEach(item => {
-            const textoFormatado = item.texto.replace(new RegExp(termo, "gi"), (match) => `<span style="background-color: #efc200; color: black; font-weight: bold;">${match}</span>`);
-
-            html += `
-                <div class="card-resultado p-3 mb-2 border-bottom border-secondary" 
-                     style="cursor: pointer; background: #1a1a1a;" 
-                     onclick="irParaCapitulo('${item.livro}', ${item.cap})">
-                    <strong style="color: #efc200;">${item.livro} ${item.cap},${item.ver}</strong>
-                    <p class="mb-0 text-white" style="font-size: 0.95rem;">${textoFormatado}</p>
-                </div>
-            `;
-        });
-        containerResultados.innerHTML = html;
-    } else {
-        containerResultados.innerHTML = '<p class="text-center text-muted">Nenhuma passagem encontrada com esse termo.</p>';
-    }
-}
-
-function irParaCapitulo(nomeLivro, numeroCapitulo) {
-    const modalElement = document.getElementById('modalBusca');
-    const modal = bootstrap.Modal.getInstance(modalElement);
-    if (modal) modal.hide();
-
-    const selectLivro = document.getElementById('select-livro');
-    selectLivro.value = nomeLivro;
-
-    const selectCapitulo = document.getElementById('select-capitulo');
-    selectCapitulo.value = numeroCapitulo;
-    
-    carregarTexto();
-    
-    document.getElementById('leitor-texto').scrollIntoView({ behavior: 'smooth' });
-}
-
-function handleSearchKeyPress(e) {
-    if (e.key === 'Enter') {
-        realizarBusca();
-    }
-}
+  initialize();
+})();
 </script>
 <script>
     const mobileBtn = document.getElementById('mobile_btn');

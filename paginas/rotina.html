@@ -150,6 +150,7 @@
       </div>
       <div class="flex items-center gap-4">
         <a href="index.html" class="text-white hover:text-yellow-400 transition">Início</a>
+        <a href="https://www.vatican.va/archive/cathechism_po/index_new/prima-pagina-cic_po.html" class="text-white hover:text-yellow-400 transition">Catecismo</a>
         <a href="perfil.html" class="profile-link flex items-center gap-2" aria-label="Abrir perfil">
           <img id="profile-avatar" src="../imagens/logo1.png" alt="">
           <span id="profile-name" class="hidden sm:inline text-sm">Perfil</span>
@@ -165,6 +166,7 @@
       <button onclick="switchTab('semanal')" id="tab-semanal" class="py-3 font-semibold text-gray-500 hover:text-yellow-800">Planejamento Semanal</button>
       <button onclick="switchTab('oracoes')" id="tab-oracoes" class="py-3 font-semibold text-gray-500 hover:text-yellow-800">Minhas Orações</button>
       <button onclick="switchTab('catecismo')" id="tab-catecismo" class="py-3 font-semibold text-gray-500 hover:text-yellow-800">Catecismo em 1 Ano</button>
+      <button onclick="switchTab('biblia')" id="tab-biblia" class="py-3 font-semibold text-gray-500 hover:text-yellow-800">Bíblia Católica em 1 Ano</button>
       <button onclick="switchTab('notas')" id="tab-notas" class="py-3 font-semibold text-gray-500 hover:text-yellow-800">Caderno de Notas</button>
     </nav>
 
@@ -271,6 +273,37 @@
         </div>
       </section>
 
+      <!-- PLANO DE LEITURA DA BÍBLIA CATÓLICA -->
+      <section id="view-biblia" class="hidden space-y-6">
+        <div class="bg-white p-6 rounded-lg shadow border gold-border">
+          <div class="flex flex-wrap justify-between items-center gap-4 mb-4">
+            <div>
+              <h2 class="text-xl font-bold text-gray-800">Plano anual &#8212; Bíblia Católica (73 livros)</h2>
+              <p class="text-sm text-gray-600">Leia os 1.189 capítulos da tradução de Matos Soares em 365 dias, na ordem da Bíblia.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <label for="bible-day-input" class="text-sm font-semibold">Dia (1 a 365):</label>
+              <input id="bible-day-input" type="number" min="1" max="365" value="1" onchange="renderBibleDay()" class="w-20 p-2 border rounded text-center font-bold">
+            </div>
+          </div>
+          <div id="bible-day-card" class="p-5 bg-gray-50 rounded-lg border border-yellow-600/40"></div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow border border-gray-200">
+          <div class="flex flex-wrap justify-between items-center gap-3 mb-4">
+            <div>
+              <h2 class="text-lg font-bold">Seu progresso anual</h2>
+              <p id="bible-progress-count" class="text-sm text-gray-600">0 de 365 dias concluídos</p>
+            </div>
+            <span id="bible-progress-percent" class="text-sm font-bold text-yellow-800">0%</span>
+          </div>
+          <div class="w-full h-2 rounded bg-gray-700 mb-5" role="progressbar" aria-label="Progresso da Bíblia Católica em 1 ano" aria-valuemin="0" aria-valuemax="365" aria-valuenow="0">
+            <div id="bible-progress-bar" class="h-2 rounded bg-yellow-600 transition-all"></div>
+          </div>
+          <div id="bible-dashboard-grid" class="cic-dashboard-grid" aria-label="Dias do plano de leitura da Bíblia"></div>
+          <p class="text-xs text-gray-500 mt-3">Selecione um dia para ver os capítulos; os dias concluídos aparecem em verde.</p>
+        </div>
+      </section>
+
       <!-- ABA 4: CADERNO DE NOTAS -->
       <section id="view-notas" class="hidden space-y-6">
         <div class="bg-white p-6 rounded-lg shadow border gold-border">
@@ -306,6 +339,9 @@
     let currentUser = null;
     let userPrayers = [];
     let cicCompletedDays = new Set();
+    let bibleCompletedDays = new Set();
+    let biblePlanChapters = [];
+    let biblePlanReady = false;
     let scheduleItems = [];
     let completedScheduleItems = new Set();
 
@@ -511,7 +547,7 @@
 
     // NAVEGAÇÃO ENTRE ABAS
     function switchTab(tab) {
-      ['rotina', 'semanal', 'oracoes', 'catecismo', 'notas'].forEach(t => {
+      ['rotina', 'semanal', 'oracoes', 'catecismo', 'biblia', 'notas'].forEach(t => {
         document.getElementById(`view-${t}`).classList.add('hidden');
         document.getElementById(`tab-${t}`).classList.remove('border-b-2', 'border-yellow-600', 'text-yellow-800');
         document.getElementById(`tab-${t}`).classList.add('text-gray-500');
@@ -519,6 +555,7 @@
       document.getElementById(`view-${tab}`).classList.remove('hidden');
       document.getElementById(`tab-${tab}`).classList.add('border-b-2', 'border-yellow-600', 'text-yellow-800');
       if (tab === 'catecismo') renderCicDay();
+      if (tab === 'biblia') renderBibleDay();
       if (tab === 'rotina' || tab === 'semanal') loadSchedule();
     }
 
@@ -527,6 +564,8 @@
       await loadPrayers();
       await loadSchedule();
       await loadNotes();
+      await loadBiblePlan();
+      await loadBibleProgress();
       await loadCicProgress();
     }
 
@@ -895,6 +934,99 @@
       await loadSchedule();
       if (completionError) {
         showAppMessage(`A atividade foi removida, mas não foi possível limpar as conclusões antigas. ${completionError.message}`);
+      }
+    }
+
+    // PLANO DE LEITURA DA BÍBLIA CATÓLICA EM 1 ANO
+    async function loadBiblePlan() {
+      try {
+        const response = await fetch('biblia-matos-soares-completa.json');
+        if (!response.ok) throw new Error(`Não foi possível carregar a Bíblia (${response.status}).`);
+        const bible = await response.json();
+        if (bible.books?.length !== 73) throw new Error('A tradução carregada não contém os 73 livros esperados.');
+        biblePlanChapters = bible.books.flatMap(book =>
+          Array.from({ length: book.chaptersCount }, (_, index) => ({ book, chapter: index + 1 }))
+        );
+        if (biblePlanChapters.length !== 1189) throw new Error('A Bíblia carregada não contém os 1.189 capítulos esperados.');
+        biblePlanReady = true;
+      } catch (error) {
+        document.getElementById('bible-day-card').textContent = `Não foi possível carregar o plano bíblico: ${error.message}`;
+      }
+    }
+
+    function getBibleDayReadings(day) {
+      const start = Math.floor(((day - 1) * biblePlanChapters.length) / 365);
+      const end = Math.floor((day * biblePlanChapters.length) / 365);
+      return biblePlanChapters.slice(start, end);
+    }
+
+    function renderBibleDay() {
+      if (!biblePlanReady) return;
+      const input = document.getElementById('bible-day-input');
+      const requestedDay = Number.parseInt(input.value, 10);
+      const day = Math.min(365, Math.max(1, Number.isNaN(requestedDay) ? 1 : requestedDay));
+      input.value = day;
+      const readings = getBibleDayReadings(day);
+      const isDone = bibleCompletedDays.has(day);
+      const first = readings[0];
+      const link = first ? `biblia.html?livro=${encodeURIComponent(first.book.id)}&capitulo=${first.chapter}` : 'biblia.html';
+      document.getElementById('bible-day-card').innerHTML = `
+        <div class="flex flex-wrap justify-between items-center gap-3 border-b border-yellow-600/30 pb-3 mb-4">
+          <div><span class="text-xs uppercase tracking-wider text-yellow-800 font-bold">Dia ${day} de 365</span>
+            <h3 class="text-xl font-bold text-gray-900">${readings.map(item => `${item.book.name} ${item.chapter}`).join(' · ')}</h3>
+          </div>
+          <button onclick="toggleBibleDone(${day}, ${!isDone})" class="px-4 py-2 rounded text-sm font-semibold ${isDone ? 'bg-green-700 text-white' : 'border border-yellow-700 text-yellow-900'}">${isDone ? '✓ Concluído' : 'Marcar como Lido'}</button>
+        </div>
+        <p class="text-sm text-gray-700">Leia os capítulos indicados na Bíblia Católica, tradução de Matos Soares.</p>
+        <a class="inline-block mt-3 rounded bg-yellow-600 px-4 py-2 text-sm font-semibold text-white" href="${link}">Abrir leitura na Bíblia</a>`;
+      renderBibleDashboard();
+    }
+
+    async function loadBibleProgress() {
+      const { data, error } = await supabaseClient.from('bible_progress').select('day_number').eq('user_id', currentUser.id).eq('completed', true);
+      if (error) { showAppMessage(`Não foi possível carregar o progresso da Bíblia. ${error.message}`); return; }
+      bibleCompletedDays = new Set((data || []).map(item => item.day_number));
+      renderBibleDashboard();
+    }
+
+    function renderBibleDashboard() {
+      const completed = bibleCompletedDays.size;
+      const percent = Math.round((completed / 365) * 100);
+      document.getElementById('bible-progress-count').textContent = `${completed} de 365 dias concluídos`;
+      document.getElementById('bible-progress-percent').textContent = `${percent}%`;
+      document.getElementById('bible-progress-bar').style.width = `${percent}%`;
+      document.querySelector('#view-biblia [role="progressbar"]').setAttribute('aria-valuenow', String(completed));
+      document.getElementById('bible-dashboard-grid').innerHTML = Array.from({ length: 365 }, (_, index) => {
+        const day = index + 1;
+        const isCompleted = bibleCompletedDays.has(day);
+        const isSelected = Number(document.getElementById('bible-day-input').value) === day;
+        return `<button type="button" class="rounded border border-gray-600 ${isCompleted ? 'completed' : 'bg-gray-900 text-white'} ${isSelected ? 'selected' : ''}" aria-label="Dia ${day}${isCompleted ? ', concluído' : ''}" aria-pressed="${isSelected}" onclick="selectBibleDay(${day})">${day}</button>`;
+      }).join('');
+    }
+
+    function selectBibleDay(day) {
+      document.getElementById('bible-day-input').value = day;
+      renderBibleDay();
+    }
+
+    async function toggleBibleDone(day, status) {
+      const button = document.querySelector('#bible-day-card button');
+      const buttonLabel = button?.textContent;
+      if (button) { button.disabled = true; button.textContent = 'Salvando...'; }
+      try {
+        const { data: rows, error: lookupError } = await supabaseClient.from('bible_progress').select('day_number').eq('user_id', currentUser.id).eq('day_number', day).limit(1);
+        if (lookupError) throw lookupError;
+        const result = rows?.length
+          ? await supabaseClient.from('bible_progress').update({ completed: status }).eq('user_id', currentUser.id).eq('day_number', day)
+          : await supabaseClient.from('bible_progress').insert([{ user_id: currentUser.id, day_number: day, completed: status }]);
+        if (result.error) throw result.error;
+        if (status) bibleCompletedDays.add(day); else bibleCompletedDays.delete(day);
+        showAppMessage(status ? 'Dia da Bíblia marcado como concluído.' : 'Conclusão da Bíblia removida.', 'success');
+        renderBibleDay();
+      } catch (error) {
+        showAppMessage(`Não foi possível atualizar o plano bíblico.${error instanceof Error ? ` ${error.message}` : ''}`);
+      } finally {
+        if (button?.isConnected) { button.disabled = false; button.textContent = buttonLabel; }
       }
     }
 

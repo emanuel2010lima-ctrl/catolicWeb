@@ -188,6 +188,8 @@
     
     <nav class="header-links" aria-label="Navegação do perfil">
       <a href="index.html" style="font-weight: bold;">OQCAT</a>
+      <a href="perfil.html" style="font-weight: bold;" aria-current="page">Perfil</a>
+      <a href="https://www.vatican.va/archive/cathechism_po/index_new/prima-pagina-cic_po.html" style="font-weight: bold;">Catecismo</a>
       <a href="rotina.html" style="font-weight: bold;">Ordo Vitae</a>
       <button id="sign-out" class="secondary hidden" type="button">Sair</button>
     </nav>
@@ -257,6 +259,10 @@
               <div class="summary-card">
                 <div id="cic-count" class="summary-value">0/365</div>
                 <small>Dias do Catecismo concluídos</small>
+              </div>
+              <div class="summary-card">
+                <div id="bible-count" class="summary-value">0/365</div>
+                <small>Dias da Bíblia Católica concluídos</small>
               </div>
             </div>
             <div class="progress-track" role="progressbar" aria-label="Progresso de leitura no OQCAT" aria-valuemin="0" aria-valuemax="100">
@@ -373,6 +379,7 @@
       setAuthenticatedView(true);
       renderReadingList();
       loadCatechismProgress(user.id);
+      loadBibleProgress(user.id);
     }
 
     async function persistMetadata(changes) {
@@ -397,6 +404,20 @@
       }
       document.getElementById('cic-count').textContent = `${count || 0}/365`;
       showMessage('cic-message', '');
+    }
+
+    async function loadBibleProgress(userId) {
+      const { count, error } = await authClient
+        .from('bible_progress')
+        .select('day_number', { count: 'exact', head: true })
+        .eq('user_id', userId)
+        .eq('completed', true);
+      if (error) {
+        document.getElementById('bible-count').textContent = '?/365';
+        showMessage('cic-message', 'Nao foi possivel carregar o progresso da Biblia Catolica.', 'error');
+        return;
+      }
+      document.getElementById('bible-count').textContent = `${count || 0}/365`;
     }
 
     async function compressAvatar(file) {

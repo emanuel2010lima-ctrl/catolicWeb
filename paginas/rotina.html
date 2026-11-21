@@ -279,7 +279,7 @@
           <div class="flex flex-wrap justify-between items-center gap-4 mb-4">
             <div>
               <h2 class="text-xl font-bold text-gray-800">Plano anual &#8212; Bíblia Católica (73 livros)</h2>
-              <p class="text-sm text-gray-600">Leia os 1.189 capítulos da tradução de Matos Soares em 365 dias, na ordem da Bíblia.</p>
+              <p class="text-sm text-gray-600">Plano distribuído pelos 73 livros e pelos capítulos disponíveis na Bíblia de Matos Soares.</p>
             </div>
             <div class="flex items-center gap-2">
               <label for="bible-day-input" class="text-sm font-semibold">Dia (1 a 365):</label>
@@ -941,16 +941,26 @@
     async function loadBiblePlan() {
       try {
         const response = await fetch('biblia-matos-soares-completa.json');
-        if (!response.ok) throw new Error(`Não foi possível carregar a Bíblia (${response.status}).`);
+        if (!response.ok) throw new Error(`N\u00e3o foi poss\u00edvel carregar a B\u00edblia (${response.status}).`);
         const bible = await response.json();
-        if (bible.books?.length !== 73) throw new Error('A tradução carregada não contém os 73 livros esperados.');
+        if (bible.totalBooks !== 73 || bible.books?.length !== 73) {
+          throw new Error('A base da B\u00edblia de Matos Soares n\u00e3o cont\u00e9m os 73 livros esperados.');
+        }
         biblePlanChapters = bible.books.flatMap(book =>
-          Array.from({ length: book.chaptersCount }, (_, index) => ({ book, chapter: index + 1 }))
+          Object.keys(book.chapters || {})
+            .map(Number)
+            .filter(chapter => Number.isInteger(chapter) && chapter > 0)
+            .sort((a, b) => a - b)
+            .map(chapter => ({ book, chapter }))
         );
-        if (biblePlanChapters.length !== 1189) throw new Error('A Bíblia carregada não contém os 1.189 capítulos esperados.');
+        const expectedChapters = Number(bible.totalChapters);
+        if (!biblePlanChapters.length || (expectedChapters && biblePlanChapters.length !== expectedChapters)) {
+          throw new Error('A lista de cap\u00edtulos n\u00e3o corresponde ao\u00a0\u00edndice da B\u00edblia de Matos Soares.');
+        }
         biblePlanReady = true;
+        renderBibleDay();
       } catch (error) {
-        document.getElementById('bible-day-card').textContent = `Não foi possível carregar o plano bíblico: ${error.message}`;
+        document.getElementById('bible-day-card').textContent = `N\u00e3o foi poss\u00edvel carregar o plano b\u00edblico: ${error.message}`;
       }
     }
 
@@ -968,17 +978,19 @@
       input.value = day;
       const readings = getBibleDayReadings(day);
       const isDone = bibleCompletedDays.has(day);
-      const first = readings[0];
-      const link = first ? `biblia.html?livro=${encodeURIComponent(first.book.id)}&capitulo=${first.chapter}` : 'biblia.html';
+      const dayReadings = readings.map(item => {
+        const link = `biblia.html?livro=${encodeURIComponent(item.book.id)}&capitulo=${item.chapter}`;
+        return `<a class="rounded border border-yellow-700 px-3 py-2 text-sm font-semibold text-yellow-900 hover:bg-yellow-100" href="${link}">${item.book.name} ${item.chapter}</a>`;
+      }).join('');
       document.getElementById('bible-day-card').innerHTML = `
         <div class="flex flex-wrap justify-between items-center gap-3 border-b border-yellow-600/30 pb-3 mb-4">
           <div><span class="text-xs uppercase tracking-wider text-yellow-800 font-bold">Dia ${day} de 365</span>
-            <h3 class="text-xl font-bold text-gray-900">${readings.map(item => `${item.book.name} ${item.chapter}`).join(' · ')}</h3>
+            <p class="mt-2 text-sm font-semibold text-gray-800">Cap\u00edtulos para ler:</p>
           </div>
-          <button onclick="toggleBibleDone(${day}, ${!isDone})" class="px-4 py-2 rounded text-sm font-semibold ${isDone ? 'bg-green-700 text-white' : 'border border-yellow-700 text-yellow-900'}">${isDone ? '✓ Concluído' : 'Marcar como Lido'}</button>
+          <button onclick="toggleBibleDone(${day}, ${!isDone})" class="px-4 py-2 rounded text-sm font-semibold ${isDone ? 'bg-green-700 text-white' : 'border border-yellow-700 text-yellow-900'}">${isDone ? 'Conclu\u00eddo' : 'Marcar como Lido'}</button>
         </div>
-        <p class="text-sm text-gray-700">Leia os capítulos indicados na Bíblia Católica, tradução de Matos Soares.</p>
-        <a class="inline-block mt-3 rounded bg-yellow-600 px-4 py-2 text-sm font-semibold text-white" href="${link}">Abrir leitura na Bíblia</a>`;
+        <div class="flex flex-wrap gap-2">${dayReadings}</div>
+        <p class="mt-3 text-sm text-gray-600">Cada livro abre no capitulo correspondente da tradu\u00e7\u00e3o cat\u00f3lica de Matos Soares.</p>`;
       renderBibleDashboard();
     }
 

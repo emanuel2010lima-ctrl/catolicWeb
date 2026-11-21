@@ -167,18 +167,10 @@
               <option value="activity">Atividade Diária</option>
               <option value="prayer">Momento de Oração</option>
             </select>
-            <label class="text-sm font-semibold">Dia da semana
-              <select id="sched-day" required class="w-full p-2 border rounded">
-                <option value="">Escolha o dia...</option>
-                <option value="1">Segunda-feira</option>
-                <option value="2">Terça-feira</option>
-                <option value="3">Quarta-feira</option>
-                <option value="4">Quinta-feira</option>
-                <option value="5">Sexta-feira</option>
-                <option value="6">Sábado</option>
-                <option value="0">Domingo</option>
-              </select>
-            </label>
+            <fieldset class="text-sm font-semibold">
+              <legend class="mb-1">Dias da semana</legend>
+              <div id="sched-days" class="grid grid-cols-2 gap-x-3 gap-y-1 text-xs"></div>
+            </fieldset>
             <input id="sched-title" type="text" required placeholder="Título da atividade" class="p-2 border rounded">
             <select id="sched-prayer-link" class="hidden p-2 border rounded">
               <option value="">Vincular oração salva...</option>
@@ -264,6 +256,16 @@
       </section>
 
     </main>
+    <dialog id="schedule-edit-dialog" class="w-full max-w-lg rounded-lg border border-yellow-600 bg-neutral-900 p-6 text-white backdrop:bg-black/70">
+      <form id="schedule-edit-form" class="space-y-4">
+        <h2 class="text-lg font-bold">Editar atividade</h2>
+        <label class="block text-sm">Título<input id="edit-sched-title" required class="mt-1 w-full rounded border border-gray-600 bg-black p-2 text-white"></label>
+        <label class="block text-sm">Horário<input id="edit-sched-time" type="time" required class="mt-1 w-full rounded border border-gray-600 bg-black p-2 text-white"></label>
+        <fieldset><legend class="mb-2 text-sm font-semibold">Dias da semana</legend><div id="edit-sched-days" class="grid grid-cols-2 gap-2 text-sm"></div></fieldset>
+        <label class="block text-sm">Descrição<textarea id="edit-sched-desc" rows="3" class="mt-1 w-full rounded border border-gray-600 bg-black p-2 text-white"></textarea></label>
+        <div class="flex justify-end gap-3"><button type="button" onclick="document.getElementById('schedule-edit-dialog').close()" class="rounded border border-gray-500 px-4 py-2">Cancelar</button><button type="submit" class="rounded bg-yellow-500 px-4 py-2 font-semibold text-black">Salvar</button></div>
+      </form>
+    </dialog>
   </div>
 
   <script>
@@ -284,6 +286,14 @@
       { value: 6, name: 'Sábado' },
       { value: 0, name: 'Domingo' }
     ];
+
+    document.getElementById('sched-days').innerHTML = weekdays.map(day => `
+      <label class="flex items-center gap-1 font-normal"><input type="checkbox" name="sched-day" value="${day.value}" class="accent-yellow-600">${day.name}</label>
+    `).join('');
+    document.getElementById('edit-sched-days').innerHTML = weekdays.map(day => `
+      <label class="flex items-center gap-2"><input type="checkbox" name="edit-sched-day" value="${day.value}" class="accent-yellow-600">${day.name}</label>
+    `).join('');
+    let scheduleItemBeingEdited = null;
 
     function getLocalDateKey(date = new Date()) {
       const year = date.getFullYear();
@@ -652,7 +662,7 @@
     function renderTodaySchedule(day, completionEnabled) {
       const list = document.getElementById('schedule-list');
       const todayItems = scheduleItems.filter(item => item.day_of_week === null || item.day_of_week === undefined
-        || Number(item.day_of_week) === day);
+        || (Array.isArray(item.day_of_week) ? item.day_of_week.map(Number).includes(day) : Number(item.day_of_week) === day));
       list.replaceChildren();
       if (!todayItems.length) {
         const emptyMessage = document.createElement('p');
@@ -680,7 +690,7 @@
         section.append(heading);
 
         const dayItems = scheduleItems.filter(item => item.day_of_week === null || item.day_of_week === undefined
-          || Number(item.day_of_week) === weekday.value);
+          || (Array.isArray(item.day_of_week) ? item.day_of_week.map(Number).includes(weekday.value) : Number(item.day_of_week) === weekday.value));
         if (!dayItems.length) {
           const emptyMessage = document.createElement('p');
           emptyMessage.className = 'text-sm text-gray-600';
@@ -699,15 +709,15 @@
     async function addScheduleItem() {
       const time_slot = document.getElementById('sched-time').value;
       const item_type = document.getElementById('sched-type').value;
-      const day_of_week = Number.parseInt(document.getElementById('sched-day').value, 10);
+      const day_of_week = Array.from(document.querySelectorAll('input[name="sched-day"]:checked'), input => Number(input.value));
       const titleInput = document.getElementById('sched-title');
       const title = titleInput.value.trim() || (item_type === 'prayer'
         ? userPrayers.find(prayer => prayer.id === document.getElementById('sched-prayer-link').value)?.title || ''
         : '');
       const description = document.getElementById('sched-desc').value.trim();
       const prayer_id = item_type === 'prayer' ? (document.getElementById('sched-prayer-link').value || null) : null;
-      if (!time_slot || !title || Number.isNaN(day_of_week)) {
-        showAppMessage('Informe o horário, o dia da semana e o título da atividade.');
+      if (!time_slot || !title || day_of_week.length === 0) {
+        showAppMessage('Informe o horário, selecione ao menos um dia da semana e informe o título da atividade.');
         return;
       }
       if (item_type === 'prayer' && !prayer_id) {
@@ -731,6 +741,7 @@
       document.getElementById('sched-time').value = '';
       document.getElementById('sched-desc').value = '';
       document.getElementById('sched-prayer-link').value = '';
+      document.querySelectorAll('input[name="sched-day"]').forEach(input => { input.checked = false; });
       const refreshed = await loadSchedule();
       if (refreshed) showAppMessage('Atividade adicionada à rotina.', 'success');
     }
@@ -769,29 +780,39 @@
       }
     }
 
-    async function editScheduleItem(item) {
-      const title = prompt('Título da atividade:', item.title);
-      if (title === null) return;
-      const time = prompt('Horário (HH:MM):', item.time_slot.slice(0, 5));
-      if (time === null) return;
-      const currentDay = weekdays.find(weekday => weekday.value === Number(item.day_of_week))?.name || 'Segunda-feira';
-      const day = prompt('Dia da semana (Segunda-feira, Terça-feira, Quarta-feira, Quinta-feira, Sexta-feira, Sábado ou Domingo):', currentDay);
-      if (day === null) return;
-      const description = prompt('Descrição (opcional):', item.description || '');
-      if (description === null) return;
-      const cleanTitle = title.trim();
-      const dayNumber = weekdays.find(weekday => weekday.name.toLocaleLowerCase('pt-BR') === day.trim().toLocaleLowerCase('pt-BR'))?.value;
-      if (!cleanTitle || !/^\d{2}:\d{2}$/.test(time) || !Number.isInteger(dayNumber) || dayNumber < 0 || dayNumber > 6) {
-        showAppMessage('Informe um título, horário HH:MM e dia entre 0 (domingo) e 6 (sábado).');
+    function editScheduleItem(item) {
+      scheduleItemBeingEdited = item;
+      document.getElementById('edit-sched-title').value = item.title;
+      document.getElementById('edit-sched-time').value = item.time_slot.slice(0, 5);
+      document.getElementById('edit-sched-desc').value = item.description || '';
+      const selectedDays = Array.isArray(item.day_of_week) ? item.day_of_week.map(Number)
+        : item.day_of_week === null || item.day_of_week === undefined ? [] : [Number(item.day_of_week)];
+      document.querySelectorAll('input[name="edit-sched-day"]').forEach(input => {
+        input.checked = selectedDays.includes(Number(input.value));
+      });
+      document.getElementById('schedule-edit-dialog').showModal();
+    }
+
+    async function saveEditedScheduleItem(event) {
+      event.preventDefault();
+      if (!scheduleItemBeingEdited) return;
+      const title = document.getElementById('edit-sched-title').value.trim();
+      const time_slot = document.getElementById('edit-sched-time').value;
+      const description = document.getElementById('edit-sched-desc').value.trim();
+      const day_of_week = Array.from(document.querySelectorAll('input[name="edit-sched-day"]:checked'), input => Number(input.value));
+      if (!title || !time_slot || day_of_week.length === 0) {
+        showAppMessage('Informe título, horário e selecione ao menos um dia da semana.');
         return;
       }
       const { error } = await supabaseClient.from('schedule_items').update({
-        title: cleanTitle, time_slot: time, day_of_week: dayNumber, description: description.trim()
-      }).eq('id', item.id).eq('user_id', currentUser.id);
+        title, time_slot, day_of_week, description
+      }).eq('id', scheduleItemBeingEdited.id).eq('user_id', currentUser.id);
       if (error) {
         showAppMessage(`Não foi possível atualizar a atividade. ${error.message}`);
         return;
       }
+      document.getElementById('schedule-edit-dialog').close();
+      scheduleItemBeingEdited = null;
       await loadSchedule();
       showAppMessage('Atividade atualizada.', 'success');
     }
@@ -958,6 +979,7 @@
     }
 
     document.getElementById('schedule-list').addEventListener('change', updateScheduleCompletion);
+    document.getElementById('schedule-edit-form').addEventListener('submit', saveEditedScheduleItem);
     checkSession();
   </script>
 </body>

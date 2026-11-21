@@ -589,7 +589,7 @@
       time.textContent = item.time_slot ? item.time_slot.slice(0, 5) : '--:--';
       const title = document.createElement('span');
       title.className = 'font-bold text-gray-800';
-      title.textContent = `${item.item_type === 'prayer' ? '📿 ' : '📌 '}${item.title}`;
+      title.textContent = `${item.item_type === 'prayer' ? '📿 ' : ''}${item.title}`;
       titleRow.append(time, title);
       content.append(titleRow);
 
@@ -689,7 +689,7 @@
         } else {
           const list = document.createElement('div');
           list.className = 'space-y-2';
-          dayItems.forEach(item => list.append(createScheduleCard(item)));
+          dayItems.forEach(item => list.append(createScheduleCard(item, { manage: true })));
           section.append(list);
         }
         plan.append(section);

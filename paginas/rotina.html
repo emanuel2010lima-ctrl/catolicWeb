@@ -71,6 +71,10 @@
     .cic-dashboard-grid button.completed { background: #166534; color: #fff; }
     .cic-dashboard-grid button.selected { outline: 2px solid var(--site-gold); outline-offset: 1px; }
     .weekly-plan { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; }
+    .schedule-form-control { background: #090909; border: 1px solid #454545; color: #fff; border-radius: .5rem; }
+    .schedule-form-control:focus { outline: 2px solid var(--site-gold); outline-offset: 1px; }
+    .day-picker summary { cursor: pointer; list-style: none; }
+    .day-picker summary::-webkit-details-marker { display: none; }
 
     @media (max-width: 640px) {
       .cic-dashboard-grid { grid-template-columns: repeat(10, minmax(0, 1fr)); }
@@ -157,27 +161,38 @@
 
       <!-- ABA 1: ROTINA DIÁRIA -->
       <section id="view-rotina" class="space-y-6">
-        <div class="bg-white p-6 rounded-lg shadow border gold-border">
-          <h2 class="text-lg font-bold mb-4 text-gray-800">Adicionar atividade à semana</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
-            <label class="text-sm font-semibold">Horário
-              <input id="sched-time" type="time" required class="w-full p-2 border rounded">
+        <div class="bg-white p-6 rounded-xl shadow-lg border gold-border">
+          <div class="mb-5 flex items-start gap-3">
+            <span class="rounded-lg bg-yellow-500/15 p-3 text-xl text-yellow-400" aria-hidden="true">✦</span>
+            <div><h2 class="text-lg font-bold text-gray-800">Planeje uma atividade</h2><p class="text-sm text-gray-500">Escolha quando ela acontece e organize sua semana.</p></div>
+          </div>
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <label class="text-sm font-semibold">Título da atividade
+              <input id="sched-title" type="text" required placeholder="Ex.: Leitura espiritual" class="schedule-form-control mt-1 w-full p-3">
             </label>
-            <select id="sched-type" onchange="togglePrayerSelect()" class="p-2 border rounded">
+            <label class="text-sm font-semibold">Horário
+              <input id="sched-time" type="time" required class="schedule-form-control mt-1 w-full p-3">
+            </label>
+            <label class="text-sm font-semibold">Tipo de atividade
+            <select id="sched-type" onchange="togglePrayerSelect()" class="schedule-form-control mt-1 w-full p-3">
               <option value="activity">Atividade Diária</option>
               <option value="prayer">Momento de Oração</option>
             </select>
-            <fieldset class="text-sm font-semibold">
-              <legend class="mb-1">Dias da semana</legend>
-              <div id="sched-days" class="grid grid-cols-2 gap-x-3 gap-y-1 text-xs"></div>
-            </fieldset>
-            <input id="sched-title" type="text" required placeholder="Título da atividade" class="p-2 border rounded">
-            <select id="sched-prayer-link" class="hidden p-2 border rounded">
+            </label>
+            <label id="prayer-link-wrap" class="hidden text-sm font-semibold">Oração salva
+            <select id="sched-prayer-link" class="schedule-form-control mt-1 w-full p-3">
               <option value="">Vincular oração salva...</option>
             </select>
+            </label>
           </div>
-          <textarea id="sched-desc" rows="2" placeholder="Descrição opcional (ex: Leitura espiritual ou metas da tarefa)..." class="w-full p-2 border rounded mt-3"></textarea>
-          <button onclick="addScheduleItem()" class="mt-3 bg-marian text-white px-5 py-2 rounded text-sm font-semibold hover:opacity-90">+ Adicionar à Rotina</button>
+          <details class="day-picker mt-4 rounded-lg border border-gray-700 bg-black/30 p-4">
+            <summary class="flex items-center justify-between gap-2 font-semibold"><span>Escolher dias da semana <span class="text-red-400">*</span></span><span id="sched-days-summary" class="text-xs font-normal text-gray-400">Selecione um ou mais dias ▾</span></summary>
+            <div id="sched-days" class="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4"></div>
+          </details>
+          <label class="mt-4 block text-sm font-semibold">Descrição <span class="font-normal text-gray-500">(opcional)</span>
+            <textarea id="sched-desc" rows="3" placeholder="Detalhes ou metas da atividade..." class="schedule-form-control mt-1 w-full p-3"></textarea>
+          </label>
+          <button onclick="addScheduleItem()" class="mt-4 rounded-lg bg-gold px-5 py-3 text-sm font-bold hover:brightness-110">+ Adicionar à rotina</button>
         </div>
 
         <div class="bg-white p-6 rounded-lg shadow border border-gray-200">
@@ -250,9 +265,14 @@
           <h2 class="text-lg font-bold mb-4">Nova Anotação Espiritual ou de Estudo</h2>
           <input id="note-title" type="text" placeholder="Assunto / Título" class="w-full p-2 border rounded mb-3">
           <textarea id="note-content" rows="4" placeholder="Escreva suas reflexões, propósitos de confissão ou resumos..." class="w-full p-2 border rounded mb-3"></textarea>
-          <button onclick="addNote()" class="bg-marian text-white px-5 py-2 rounded text-sm font-semibold">Salvar Anotação</button>
+          <div class="flex flex-wrap gap-3">
+            <button id="note-save-button" onclick="saveNote()" class="bg-marian text-white px-5 py-2 rounded text-sm font-semibold">Salvar anotação</button>
+            <button id="note-cancel-edit" onclick="cancelNoteEdit()" class="hidden rounded border border-gray-500 px-5 py-2 text-sm">Cancelar edição</button>
+            <button id="note-delete-selected" onclick="deleteSelectedNote()" disabled class="rounded border border-red-500 px-5 py-2 text-sm text-red-400 disabled:cursor-not-allowed disabled:opacity-40">Excluir selecionada</button>
+          </div>
         </div>
-        <div id="notes-list" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+        <p id="notes-empty" class="hidden rounded-lg border border-gray-700 p-5 text-sm text-gray-400">Ainda não há anotações salvas.</p>
+        <div id="notes-list" class="grid grid-cols-1 gap-4 md:grid-cols-2"></div>
       </section>
 
     </main>
@@ -288,12 +308,14 @@
     ];
 
     document.getElementById('sched-days').innerHTML = weekdays.map(day => `
-      <label class="flex items-center gap-1 font-normal"><input type="checkbox" name="sched-day" value="${day.value}" class="accent-yellow-600">${day.name}</label>
+      <label class="flex cursor-pointer items-center gap-2 rounded-md border border-gray-700 p-2 font-normal hover:border-yellow-500"><input type="checkbox" name="sched-day" value="${day.value}" class="accent-yellow-600">${day.name}</label>
     `).join('');
+    document.querySelectorAll('input[name="sched-day"]').forEach(input => input.addEventListener('change', updateSelectedDaysLabel));
     document.getElementById('edit-sched-days').innerHTML = weekdays.map(day => `
       <label class="flex items-center gap-2"><input type="checkbox" name="edit-sched-day" value="${day.value}" class="accent-yellow-600">${day.name}</label>
     `).join('');
     let scheduleItemBeingEdited = null;
+    let selectedNoteId = null;
 
     function getLocalDateKey(date = new Date()) {
       const year = date.getFullYear();
@@ -538,6 +560,7 @@
       const select = document.getElementById('sched-prayer-link');
       const isPrayer = type === 'prayer';
       select.classList.toggle('hidden', !isPrayer);
+      document.getElementById('prayer-link-wrap').classList.toggle('hidden', !isPrayer);
       select.required = isPrayer;
       select.disabled = isPrayer && userPrayers.length === 0;
       if (isPrayer && userPrayers.length === 0) {
@@ -545,6 +568,15 @@
       } else {
         showAppMessage('');
       }
+    }
+
+    function updateSelectedDaysLabel() {
+      const selected = Array.from(document.querySelectorAll('input[name="sched-day"]:checked'))
+        .map(input => weekdays.find(day => day.value === Number(input.value))?.name.replace('-feira', '') || '')
+        .filter(Boolean);
+      document.getElementById('sched-days-summary').textContent = selected.length
+        ? `${selected.length} dia${selected.length === 1 ? '' : 's'}: ${selected.join(', ')}`
+        : 'Selecione um ou mais dias ▾';
     }
 
     async function loadSchedule() {
@@ -742,6 +774,7 @@
       document.getElementById('sched-desc').value = '';
       document.getElementById('sched-prayer-link').value = '';
       document.querySelectorAll('input[name="sched-day"]').forEach(input => { input.checked = false; });
+      updateSelectedDaysLabel();
       const refreshed = await loadSchedule();
       if (refreshed) showAppMessage('Atividade adicionada à rotina.', 'success');
     }
@@ -951,31 +984,95 @@
 
     // ANOTAÇÕES
     async function loadNotes() {
-      const { data } = await supabaseClient.from('notes').select('*').order('updated_at', { ascending: false });
-      document.getElementById('notes-list').innerHTML = (data || []).map(n => `
-        <div class="bg-white p-5 rounded-lg shadow border border-gray-200">
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="font-bold text-gray-800">${n.title}</h3>
-            <button onclick="deleteNote('${n.id}')" class="text-xs text-red-500 hover:underline">Excluir</button>
-          </div>
-          <p class="text-sm text-gray-700 whitespace-pre-line">${n.content}</p>
-        </div>
-      `).join('');
+      const { data, error } = await supabaseClient.from('notes').select('*').order('updated_at', { ascending: false });
+      if (error) {
+        showAppMessage(`Não foi possível carregar as anotações. ${error.message}`);
+        return;
+      }
+      const notes = data || [];
+      const list = document.getElementById('notes-list');
+      const empty = document.getElementById('notes-empty');
+      list.replaceChildren();
+      empty.classList.toggle('hidden', notes.length > 0);
+      notes.forEach(note => {
+        const card = document.createElement('article');
+        card.className = `rounded-lg border p-5 ${String(note.id) === String(selectedNoteId) ? 'border-yellow-500 bg-yellow-500/5' : 'border-gray-700 bg-neutral-900'}`;
+        const header = document.createElement('div');
+        header.className = 'mb-3 flex items-start gap-3';
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'mt-1 h-4 w-4 accent-yellow-500';
+        checkbox.checked = String(note.id) === String(selectedNoteId);
+        checkbox.setAttribute('aria-label', `Selecionar anotação ${note.title}`);
+        checkbox.addEventListener('change', () => selectNote(checkbox.checked ? note : null));
+        const title = document.createElement('h3');
+        title.className = 'font-bold text-yellow-400';
+        title.textContent = note.title;
+        header.append(checkbox, title);
+        const content = document.createElement('p');
+        content.className = 'whitespace-pre-line text-sm text-gray-300';
+        content.textContent = note.content;
+        card.append(header, content);
+        list.append(card);
+      });
+      document.getElementById('note-delete-selected').disabled = !selectedNoteId;
     }
 
-    async function addNote() {
-      const title = document.getElementById('note-title').value;
-      const content = document.getElementById('note-content').value;
-      if (!title || !content) return;
-      await supabaseClient.from('notes').insert([{ user_id: currentUser.id, title, content }]);
+    function selectNote(note) {
+      selectedNoteId = note?.id || null;
+      if (note) {
+        document.getElementById('note-title').value = note.title;
+        document.getElementById('note-content').value = note.content;
+        document.getElementById('note-save-button').textContent = 'Atualizar anotação selecionada';
+        document.getElementById('note-cancel-edit').classList.remove('hidden');
+      } else {
+        cancelNoteEdit();
+      }
+      document.getElementById('note-delete-selected').disabled = !selectedNoteId;
+      loadNotes();
+    }
+
+    function cancelNoteEdit() {
+      selectedNoteId = null;
       document.getElementById('note-title').value = '';
       document.getElementById('note-content').value = '';
+      document.getElementById('note-save-button').textContent = 'Salvar anotação';
+      document.getElementById('note-cancel-edit').classList.add('hidden');
+      document.getElementById('note-delete-selected').disabled = true;
       loadNotes();
     }
 
-    async function deleteNote(id) {
-      await supabaseClient.from('notes').delete().eq('id', id);
-      loadNotes();
+    async function saveNote() {
+      const title = document.getElementById('note-title').value.trim();
+      const content = document.getElementById('note-content').value.trim();
+      const wasEditing = Boolean(selectedNoteId);
+      if (!title || !content) {
+        showAppMessage('Informe o título e o conteúdo da anotação.');
+        return;
+      }
+      const result = selectedNoteId
+        ? await supabaseClient.from('notes').update({ title, content }).eq('id', selectedNoteId).eq('user_id', currentUser.id)
+        : await supabaseClient.from('notes').insert([{ user_id: currentUser.id, title, content }]);
+      if (result.error) {
+        showAppMessage(`Não foi possível salvar a anotação. ${result.error.message}`);
+        return;
+      }
+      cancelNoteEdit();
+      showAppMessage(wasEditing ? 'Anotação atualizada.' : 'Anotação salva.', 'success');
+      await loadNotes();
+    }
+
+    async function deleteSelectedNote() {
+      if (!selectedNoteId) return;
+      const id = selectedNoteId;
+      const { error } = await supabaseClient.from('notes').delete().eq('id', id).eq('user_id', currentUser.id);
+      if (error) {
+        showAppMessage(`Não foi possível excluir a anotação. ${error.message}`);
+        return;
+      }
+      cancelNoteEdit();
+      showAppMessage('Anotação excluída.', 'success');
+      await loadNotes();
     }
 
     document.getElementById('schedule-list').addEventListener('change', updateScheduleCompletion);

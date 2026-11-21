@@ -195,18 +195,22 @@
 
   <main>
     <section id="auth-view" class="panel">
-      <h1>Entre no seu perfil</h1>
-      <p>Use a mesma conta do Ordo Vitae para acessar seu perfil e progresso no OQCAT.</p>
+      <h1 id="auth-title">Entre no seu perfil</h1>
+      <p id="auth-description">Use a mesma conta do Ordo Vitae para acessar seu perfil e progresso no OQCAT.</p>
       <form id="auth-form" class="form-grid">
         <label for="auth-email">E-mail
           <input id="auth-email" type="email" autocomplete="email" required>
         </label>
         <label for="auth-password">Senha
-          <input id="auth-password" type="password" autocomplete="current-password" required>
+          <input id="auth-password" type="password" autocomplete="current-password" minlength="6" required>
         </label>
-        <div class="actions">
+        <div id="login-actions" class="actions">
           <button type="submit">Entrar</button>
-          <button id="sign-up" class="secondary" type="button">Criar conta</button>
+          <button id="show-sign-up" class="secondary" type="button">Cadastrar</button>
+        </div>
+        <div id="sign-up-actions" class="actions hidden">
+          <button id="sign-up" type="button">Criar conta</button>
+          <button id="show-sign-in" class="secondary" type="button">Voltar ao login</button>
         </div>
       </form>
       <p id="auth-message" class="message" role="status" aria-live="polite"></p>
@@ -309,6 +313,18 @@
       document.getElementById('auth-view').classList.toggle('hidden', isAuthenticated);
       document.getElementById('profile-view').classList.toggle('hidden', !isAuthenticated);
       document.getElementById('sign-out').classList.toggle('hidden', !isAuthenticated);
+    }
+
+    function setAuthMode(mode) {
+      const signingUp = mode === 'sign-up';
+      document.getElementById('auth-title').textContent = signingUp ? 'Cadastre sua conta' : 'Entre no seu perfil';
+      document.getElementById('auth-description').textContent = signingUp
+        ? 'Crie sua conta para usar o perfil e o Ordo Vitae.'
+        : 'Use a mesma conta do Ordo Vitae para acessar seu perfil e progresso no OQCAT.';
+      document.getElementById('login-actions').classList.toggle('hidden', signingUp);
+      document.getElementById('sign-up-actions').classList.toggle('hidden', !signingUp);
+      document.getElementById('auth-password').autocomplete = signingUp ? 'new-password' : 'current-password';
+      showMessage('auth-message', '');
     }
 
     function renderReadingList() {
@@ -430,11 +446,9 @@
       try {
         const { data, error } = await authClient.auth.signUp({ email, password });
         if (error) throw error;
-        if (data.session) {
-          displayProfile(data.user);
-          return;
-        }
-        showMessage('auth-message', 'Conta criada. Verifique seu e-mail antes de entrar.', 'success');
+        if (data.session) await authClient.auth.signOut();
+        setAuthMode('sign-in');
+        showMessage('auth-message', 'Conta criada. Entre com seu e-mail e senha para continuar.', 'success');
       } catch (error) {
         showMessage('auth-message', error instanceof Error ? error.message : 'Não foi possível criar a conta.', 'error');
       }
@@ -513,6 +527,8 @@
 
     document.getElementById('auth-form').addEventListener('submit', signIn);
     document.getElementById('sign-up').addEventListener('click', signUp);
+    document.getElementById('show-sign-up').addEventListener('click', () => setAuthMode('sign-up'));
+    document.getElementById('show-sign-in').addEventListener('click', () => setAuthMode('sign-in'));
     document.getElementById('profile-form').addEventListener('submit', saveProfile);
     document.getElementById('remove-avatar').addEventListener('click', removeAvatar);
     document.getElementById('reading-list').addEventListener('change', updateReadPage);

@@ -119,14 +119,18 @@
   <div id="auth-screen" class="flex-1 flex items-center justify-center p-4">
     <div class="bg-white p-8 rounded-lg shadow-lg border-2 gold-border max-w-md w-full text-center">
       <img class="ordo-logo" src="../imagens/logo1.png" alt="Logo OQCAT">
-      <h1 class="text-2xl font-bold text-gray-800 mb-1">Ordo Vitae</h1>
-      <p class="text-sm text-gray-500 italic mb-6">"Ora et Labora" — Regra de Vida e Estudo</p>
+      <h1 id="auth-title" class="text-2xl font-bold text-gray-800 mb-1">Ordo Vitae</h1>
+      <p id="auth-description" class="text-sm text-gray-500 italic mb-6">"Ora et Labora" — Regra de Vida e Estudo</p>
       <form id="auth-form" onsubmit="event.preventDefault(); handleLogin()">
         <input id="email" type="email" placeholder="Seu e-mail" autocomplete="email" required class="w-full p-3 mb-3 border rounded focus:outline-none focus:border-yellow-600">
-        <input id="password" type="password" placeholder="Sua senha" autocomplete="current-password" required class="w-full p-3 mb-4 border rounded focus:outline-none focus:border-yellow-600">
-        <div class="flex gap-2">
+        <input id="password" type="password" placeholder="Sua senha" autocomplete="current-password" minlength="6" required class="w-full p-3 mb-4 border rounded focus:outline-none focus:border-yellow-600">
+        <div id="login-actions" class="flex gap-2">
           <button type="submit" class="flex-1 bg-marian text-white py-2.5 rounded font-semibold hover:opacity-90">Entrar</button>
-          <button type="button" onclick="handleSignUp()" class="flex-1 bg-gold text-white py-2.5 rounded font-semibold hover:opacity-90">Criar Perfil</button>
+          <button type="button" onclick="setAuthMode('sign-up')" class="flex-1 bg-gold text-white py-2.5 rounded font-semibold hover:opacity-90">Cadastrar</button>
+        </div>
+        <div id="sign-up-actions" class="hidden flex gap-2">
+          <button type="button" onclick="handleSignUp()" class="flex-1 bg-gold text-white py-2.5 rounded font-semibold hover:opacity-90">Criar conta</button>
+          <button type="button" onclick="setAuthMode('sign-in')" class="flex-1 border border-gray-400 py-2.5 rounded font-semibold">Voltar ao login</button>
         </div>
         <p id="auth-msg" class="text-xs mt-3" role="status" aria-live="polite"></p>
       </form>
@@ -396,6 +400,18 @@
       element.classList.toggle('text-gold', type === 'success');
     }
 
+    function setAuthMode(mode) {
+      const signingUp = mode === 'sign-up';
+      document.getElementById('auth-title').textContent = signingUp ? 'Criar conta' : 'Ordo Vitae';
+      document.getElementById('auth-description').textContent = signingUp
+        ? 'Cadastre seu e-mail e senha. Depois, entre para acessar sua rotina.'
+        : '"Ora et Labora" — Regra de Vida e Estudo';
+      document.getElementById('login-actions').classList.toggle('hidden', signingUp);
+      document.getElementById('sign-up-actions').classList.toggle('hidden', !signingUp);
+      document.getElementById('password').autocomplete = signingUp ? 'new-password' : 'current-password';
+      showAuthMessage('', 'success');
+    }
+
     function showAppMessage(message, type = 'error') {
       const element = document.getElementById('app-message');
       element.textContent = message;
@@ -465,11 +481,9 @@
           showAuthMessage(error.message);
           return;
         }
-        if (data.session) {
-          await checkSession();
-          return;
-        }
-        showAuthMessage('Conta criada. Verifique seu e-mail antes de entrar.', 'success');
+        if (data.session) await supabaseClient.auth.signOut();
+        setAuthMode('sign-in');
+        showAuthMessage('Conta criada. Entre com seu e-mail e senha para continuar.', 'success');
       } catch (error) {
         const detail = error instanceof Error ? ` ${error.message}` : '';
         showAuthMessage(`Não foi possível criar a conta.${detail}`);

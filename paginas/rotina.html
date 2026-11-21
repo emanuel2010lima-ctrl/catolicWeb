@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ordo Vitae — Rotina, Oração & Estudo do Catecismo</title>
+  <link rel="icon" type="image/png" href="../imagens/logo2.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth-client.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -49,6 +51,31 @@
     }
 
     #app-screen > header .text-yellow-300 { color: var(--site-gold); }
+    #app-screen > header .profile-link { color: #fff; text-decoration: none; }
+    #app-screen > header .profile-link:hover { color: var(--site-gold); }
+    #app-screen > header .profile-link img {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--site-gold);
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .ordo-logo { display: block; width: 72px; height: 72px; margin: 0 auto 8px; object-fit: contain; }
+    #app-message { min-height: 0; }
+    #app-message:not(:empty) { min-height: 36px; padding: 8px 24px; }
+    #app-message.error { color: #ff7777; }
+    #app-message.success { color: var(--site-gold); }
+    .cic-dashboard-grid { display: grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap: 5px; }
+    .cic-dashboard-grid button { aspect-ratio: 1; min-width: 0; padding: 0; font-size: .7rem; }
+    .cic-dashboard-grid button.completed { background: #166534; color: #fff; }
+    .cic-dashboard-grid button.selected { outline: 2px solid var(--site-gold); outline-offset: 1px; }
+
+    @media (max-width: 640px) {
+      .cic-dashboard-grid { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+      #app-screen > header { padding-left: 12px; padding-right: 12px; }
+    }
+
     #app-screen > nav {
       background-color: var(--site-surface);
       border-color: #333;
@@ -79,7 +106,7 @@
   <!-- TELA DE LOGIN / CADASTRO -->
   <div id="auth-screen" class="flex-1 flex items-center justify-center p-4">
     <div class="bg-white p-8 rounded-lg shadow-lg border-2 gold-border max-w-md w-full text-center">
-      <div class="text-4xl text-gold mb-2">✝</div>
+      <img class="ordo-logo" src="../imagens/logo1.png" alt="Logo OQCAT">
       <h1 class="text-2xl font-bold text-gray-800 mb-1">Ordo Vitae</h1>
       <p class="text-sm text-gray-500 italic mb-6">"Ora et Labora" — Regra de Vida e Estudo</p>
       <form id="auth-form" onsubmit="event.preventDefault(); handleLogin()">
@@ -99,14 +126,21 @@
     <!-- Cabeçalho -->
     <header class="bg-marian text-white py-4 px-6 shadow-md border-b-4 gold-border flex justify-between items-center">
       <div class="flex items-center gap-3">
-        <span class="text-2xl text-yellow-400">✝</span>
+        <img class="w-12 h-12 object-contain" src="../imagens/logo1.png" alt="Logo OQCAT">
         <div>
           <h1 class="text-xl font-bold tracking-wider">ORDO VITAE</h1>
           <p class="text-xs text-gray-300">Santuário Interior & Formação Católica</p>
         </div>
       </div>
-      <button onclick="handleLogout()" class="text-xs border border-yellow-400 text-yellow-300 px-3 py-1.5 rounded hover:bg-yellow-400 hover:text-gray-900 transition">Sair</button>
+      <div class="flex items-center gap-4">
+        <a href="perfil.html" class="profile-link flex items-center gap-2" aria-label="Abrir meu perfil">
+          <img id="profile-avatar" src="../imagens/logo1.png" alt="">
+          <span id="profile-name" class="hidden sm:inline text-sm">Meu perfil</span>
+        </a>
+        <button onclick="handleLogout()" class="text-xs border border-yellow-400 text-yellow-300 px-3 py-1.5 rounded hover:bg-yellow-400 hover:text-gray-900 transition">Sair</button>
+      </div>
     </header>
+    <p id="app-message" class="hidden text-sm" role="status" aria-live="polite"></p>
 
     <!-- Navegação -->
     <nav class="bg-white border-b border-gray-200 px-6 flex gap-6 overflow-x-auto">
@@ -129,7 +163,7 @@
               <option value="activity">Atividade Diária</option>
               <option value="prayer">Momento de Oração</option>
             </select>
-            <input id="sched-title" type="text" placeholder="Título (ex: Trabalho, Terço)" class="p-2 border rounded">
+            <input id="sched-title" type="text" placeholder="Título da atividade (opcional ao vincular oração)" class="p-2 border rounded">
             <select id="sched-prayer-link" class="hidden p-2 border rounded">
               <option value="">Vincular oração salva...</option>
             </select>
@@ -172,6 +206,21 @@
 
           <div id="cic-card" class="p-5 bg-gray-50 rounded-lg border border-yellow-600/40"></div>
         </div>
+
+        <div class="bg-white p-6 rounded-lg shadow border border-gray-200">
+          <div class="flex flex-wrap justify-between items-center gap-3 mb-4">
+            <div>
+              <h2 class="text-lg font-bold">Seu progresso anual</h2>
+              <p id="cic-progress-count" class="text-sm text-gray-600">0 de 365 dias concluídos</p>
+            </div>
+            <span id="cic-progress-percent" class="text-sm font-bold text-yellow-800">0%</span>
+          </div>
+          <div class="w-full h-2 rounded bg-gray-700 mb-5" role="progressbar" aria-label="Progresso do Catecismo em 1 ano" aria-valuemin="0" aria-valuemax="365" aria-valuenow="0">
+            <div id="cic-progress-bar" class="h-2 rounded bg-yellow-600 transition-all"></div>
+          </div>
+          <div id="cic-dashboard-grid" class="cic-dashboard-grid" aria-label="Dias do Catecismo"></div>
+          <p class="text-xs text-gray-500 mt-3">Selecione um dia para abrir a leitura; os dias concluídos aparecem em verde.</p>
+        </div>
       </section>
 
       <!-- ABA 4: CADERNO DE NOTAS -->
@@ -189,13 +238,11 @@
   </div>
 
   <script>
-    // CONFIGURAÇÃO DO SUPABASE (Substitua pelos dados do seu projeto)
-    const SUPABASE_URL = 'https://jeabmxjrjqxoewmcxcgl.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_zO0VFr51GRuYq_ytBuHM4Q_zuWk5_qL';
-    const supabaseClient = window.supabase?.createClient(SUPABASE_URL, SUPABASE_KEY);
+    const supabaseClient = window.catolicWebSupabase;
 
     let currentUser = null;
     let userPrayers = [];
+    let cicCompletedDays = new Set();
 
     // BASE INTERDISCIPLINAR DO CATECISMO (Amostra estruturada dos principais blocos)
     const cicInterdisciplinaryMap = [
@@ -261,6 +308,20 @@
       element.classList.toggle('text-gold', type === 'success');
     }
 
+    function showAppMessage(message, type = 'error') {
+      const element = document.getElementById('app-message');
+      element.textContent = message;
+      element.classList.toggle('hidden', !message);
+      element.classList.toggle('error', type === 'error');
+      element.classList.toggle('success', type === 'success');
+    }
+
+    function showProfile(user) {
+      const metadata = user.user_metadata || {};
+      document.getElementById('profile-name').textContent = metadata.display_name || 'Meu perfil';
+      document.getElementById('profile-avatar').src = metadata.avatar_data_url || '../imagens/logo1.png';
+    }
+
     async function checkSession() {
       try {
         if (!supabaseClient) throw new Error('O serviço de autenticação não foi carregado.');
@@ -271,6 +332,7 @@
         currentUser = data.session.user;
         document.getElementById('auth-screen').classList.add('hidden');
         document.getElementById('app-screen').classList.remove('hidden');
+        showProfile(currentUser);
         await loadAllData();
       } catch (error) {
         const detail = error instanceof Error ? ` ${error.message}` : '';
@@ -327,8 +389,13 @@
     }
 
     async function handleLogout() {
-      await supabaseClient.auth.signOut();
-      location.reload();
+      try {
+        const { error } = await supabaseClient.auth.signOut();
+        if (error) throw error;
+        location.reload();
+      } catch (error) {
+        showAppMessage(`Não foi possível sair. ${error instanceof Error ? error.message : ''}`);
+      }
     }
 
     // NAVEGAÇÃO ENTRE ABAS
@@ -348,17 +415,23 @@
       await loadPrayers();
       await loadSchedule();
       await loadNotes();
+      await loadCicProgress();
     }
 
     // ORAÇÕES
     async function loadPrayers() {
-      const { data } = await supabaseClient.from('prayers').select('*').order('created_at', { ascending: false });
+      const { data, error } = await supabaseClient.from('prayers').select('*').order('created_at', { ascending: false });
+      if (error) {
+        showAppMessage(`Não foi possível carregar as orações. ${error.message}`);
+        return;
+      }
       userPrayers = data || [];
       const list = document.getElementById('prayers-list');
       const select = document.getElementById('sched-prayer-link');
-      select.innerHTML = '<option value="">Vincular oração salva...</option>';
+      select.replaceChildren(new Option(userPrayers.length ? 'Vincular oração salva...' : 'Cadastre uma oração primeiro', ''));
       list.innerHTML = userPrayers.map(p => {
-        select.innerHTML += `<option value="${p.id}">${p.title}</option>`;
+        const option = new Option(p.title, p.id);
+        select.add(option);
         return `
           <div class="bg-white p-5 rounded-lg shadow border border-gray-200 flex flex-col justify-between">
             <div>
@@ -368,31 +441,59 @@
             <button onclick="deletePrayer('${p.id}')" class="text-xs text-red-500 mt-4 self-end hover:underline">Excluir</button>
           </div>`;
       }).join('');
+      togglePrayerSelect();
+      showAppMessage('');
     }
 
     async function addPrayer() {
-      const title = document.getElementById('prayer-title').value;
-      const content = document.getElementById('prayer-content').value;
-      if (!title || !content) return;
-      await supabaseClient.from('prayers').insert([{ user_id: currentUser.id, title, content }]);
+      const title = document.getElementById('prayer-title').value.trim();
+      const content = document.getElementById('prayer-content').value.trim();
+      if (!title || !content) {
+        showAppMessage('Informe o título e o texto da oração.');
+        return;
+      }
+      const { error } = await supabaseClient.from('prayers').insert([{ user_id: currentUser.id, title, content }]);
+      if (error) {
+        showAppMessage(`Não foi possível salvar a oração. ${error.message}`);
+        return;
+      }
       document.getElementById('prayer-title').value = '';
       document.getElementById('prayer-content').value = '';
-      loadPrayers();
+      await loadPrayers();
+      showAppMessage('Oração salva.', 'success');
     }
 
     async function deletePrayer(id) {
-      await supabaseClient.from('prayers').delete().eq('id', id);
-      loadPrayers();
+      const { error } = await supabaseClient.from('prayers').delete().eq('id', id);
+      if (error) {
+        showAppMessage(`Não foi possível excluir a oração. ${error.message}`);
+        return;
+      }
+      await loadPrayers();
+      await loadSchedule();
     }
 
     // ROTINA DIÁRIA
     function togglePrayerSelect() {
       const type = document.getElementById('sched-type').value;
-      document.getElementById('sched-prayer-link').classList.toggle('hidden', type !== 'prayer');
+      const select = document.getElementById('sched-prayer-link');
+      const isPrayer = type === 'prayer';
+      select.classList.toggle('hidden', !isPrayer);
+      select.required = isPrayer;
+      select.disabled = isPrayer && userPrayers.length === 0;
+      if (isPrayer && userPrayers.length === 0) {
+        showAppMessage('Cadastre uma oração em “Minhas Orações” antes de adicioná-la à rotina.');
+      } else {
+        showAppMessage('');
+      }
     }
 
     async function loadSchedule() {
-      const { data } = await supabaseClient.from('schedule_items').select('*, prayers(title, content)').order('time_slot', { ascending: true });
+      const { data, error } = await supabaseClient.from('schedule_items').select('*, prayers(title, content)').order('time_slot', { ascending: true });
+      if (error) {
+        showAppMessage(`Não foi possível carregar a rotina. ${error.message}`);
+        return;
+      }
       const list = document.getElementById('schedule-list');
       list.innerHTML = (data || []).map(item => `
         <div class="p-4 rounded border ${item.item_type === 'prayer' ? 'bg-amber-50/70 border-yellow-600/40' : 'bg-gray-50 border-gray-200'} flex justify-between items-start">
@@ -415,39 +516,69 @@
     async function addScheduleItem() {
       const time_slot = document.getElementById('sched-time').value;
       const item_type = document.getElementById('sched-type').value;
-      const title = document.getElementById('sched-title').value;
-      const description = document.getElementById('sched-desc').value;
+      const titleInput = document.getElementById('sched-title');
+      const title = titleInput.value.trim() || (item_type === 'prayer'
+        ? userPrayers.find(prayer => prayer.id === document.getElementById('sched-prayer-link').value)?.title || ''
+        : '');
+      const description = document.getElementById('sched-desc').value.trim();
       const prayer_id = item_type === 'prayer' ? (document.getElementById('sched-prayer-link').value || null) : null;
-      if (!time_slot || !title) return;
-      await supabaseClient.from('schedule_items').insert([{ user_id: currentUser.id, time_slot, item_type, title, description, prayer_id }]);
-      document.getElementById('sched-title').value = '';
+      if (!time_slot || !title) {
+        showAppMessage('Informe o horário e o título da atividade.');
+        return;
+      }
+      if (item_type === 'prayer' && !prayer_id) {
+        showAppMessage('Selecione uma oração salva para vinculá-la à rotina.');
+        return;
+      }
+      const { error } = await supabaseClient.from('schedule_items').insert([{ user_id: currentUser.id, time_slot, item_type, title, description, prayer_id }]);
+      if (error) {
+        showAppMessage(`Não foi possível adicionar à rotina. ${error.message}`);
+        return;
+      }
+      titleInput.value = '';
       document.getElementById('sched-desc').value = '';
-      loadSchedule();
+      document.getElementById('sched-prayer-link').value = '';
+      await loadSchedule();
+      showAppMessage('Item adicionado à rotina.', 'success');
     }
 
     async function editScheduleTime(id, oldTime) {
       const newTime = prompt("Novo horário (HH:MM):", oldTime.slice(0,5));
       if (newTime) {
-        await supabaseClient.from('schedule_items').update({ time_slot: newTime }).eq('id', id);
-        loadSchedule();
+        if (!/^\d{2}:\d{2}$/.test(newTime)) {
+          showAppMessage('Informe o horário no formato HH:MM.');
+          return;
+        }
+        const { error } = await supabaseClient.from('schedule_items').update({ time_slot: newTime }).eq('id', id);
+        if (error) {
+          showAppMessage(`Não foi possível atualizar o horário. ${error.message}`);
+          return;
+        }
+        await loadSchedule();
       }
     }
 
     async function deleteSchedule(id) {
-      await supabaseClient.from('schedule_items').delete().eq('id', id);
-      loadSchedule();
+      const { error } = await supabaseClient.from('schedule_items').delete().eq('id', id);
+      if (error) {
+        showAppMessage(`Não foi possível remover o item. ${error.message}`);
+        return;
+      }
+      await loadSchedule();
     }
 
     // CATECISMO EM 1 ANO + INTERDISCIPLINARIDADE
     async function renderCicDay() {
-      const day = parseInt(document.getElementById('cic-day-input').value) || 1;
+      const input = document.getElementById('cic-day-input');
+      const requestedDay = Number.parseInt(input.value, 10);
+      const day = Math.min(365, Math.max(1, Number.isNaN(requestedDay) ? 1 : requestedDay));
+      input.value = day;
       const totalParagraphs = 2865;
       const startP = Math.floor(((day - 1) * totalParagraphs) / 365) + 1;
       const endP = Math.floor((day * totalParagraphs) / 365);
 
       const block = cicInterdisciplinaryMap.find(b => day >= b.startDay && day <= b.endDay) || cicInterdisciplinaryMap[0];
-      const { data } = await supabaseClient.from('cic_progress').select('completed').eq('day_number', day).single();
-      const isDone = data?.completed || false;
+      const isDone = cicCompletedDays.has(day);
 
       document.getElementById('cic-card').innerHTML = `
         <div class="flex justify-between items-center border-b border-yellow-600/30 pb-3 mb-4">
@@ -470,10 +601,52 @@
           `).join('')}
         </div>
       `;
+      renderCicDashboard();
+    }
+
+    async function loadCicProgress() {
+      const { data, error } = await supabaseClient
+        .from('cic_progress')
+        .select('day_number')
+        .eq('user_id', currentUser.id)
+        .eq('completed', true);
+      if (error) {
+        showAppMessage(`Não foi possível carregar o progresso do Catecismo. ${error.message}`);
+        return;
+      }
+      cicCompletedDays = new Set((data || []).map(item => item.day_number));
+      renderCicDashboard();
+    }
+
+    function renderCicDashboard() {
+      const completed = cicCompletedDays.size;
+      const percent = Math.round((completed / 365) * 100);
+      document.getElementById('cic-progress-count').textContent = `${completed} de 365 dias concluídos`;
+      document.getElementById('cic-progress-percent').textContent = `${percent}%`;
+      document.getElementById('cic-progress-bar').style.width = `${percent}%`;
+      document.querySelector('#view-catecismo [role="progressbar"]').setAttribute('aria-valuenow', String(completed));
+      document.getElementById('cic-dashboard-grid').innerHTML = Array.from({ length: 365 }, (_, index) => {
+        const day = index + 1;
+        const isCompleted = cicCompletedDays.has(day);
+        const isSelected = Number(document.getElementById('cic-day-input').value) === day;
+        return `<button type="button" class="rounded border border-gray-600 ${isCompleted ? 'completed' : 'bg-gray-900 text-white'} ${isSelected ? 'selected' : ''}" aria-label="Dia ${day}${isCompleted ? ', concluído' : ''}" aria-pressed="${isSelected}" onclick="selectCicDay(${day})">${day}</button>`;
+      }).join('');
+    }
+
+    function selectCicDay(day) {
+      document.getElementById('cic-day-input').value = day;
+      renderCicDay();
     }
 
     async function toggleCicDone(day, status) {
-      await supabaseClient.from('cic_progress').upsert({ user_id: currentUser.id, day_number: day, completed: status }, { onConflict: 'user_id,day_number' });
+      const { error } = await supabaseClient.from('cic_progress').upsert({ user_id: currentUser.id, day_number: day, completed: status }, { onConflict: 'user_id,day_number' });
+      if (error) {
+        showAppMessage(`Não foi possível atualizar o Catecismo. ${error.message}`);
+        return;
+      }
+      if (status) cicCompletedDays.add(day);
+      else cicCompletedDays.delete(day);
+      showAppMessage(status ? 'Dia marcado como concluído.' : 'Conclusão removida.', 'success');
       renderCicDay();
     }
 

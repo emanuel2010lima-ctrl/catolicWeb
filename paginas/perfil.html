@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>Meu perfil | O que é ser Católico?</title>
+  <link rel="icon" type="image/png" href="../imagens/logo2.png">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    :root {
+      color-scheme: dark;
+      --gold: #efc200;
+      --surface: #111;
+      --border: #333;
+      --muted: #bbb;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #000;
+      color: #fff;
+      font-family: Poppins, sans-serif;
+    }
+
+    .profile-header {
+      position: static;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px max(5%, calc((100% - 1120px) / 2));
+      border-bottom: 1px solid var(--border);
+      background: #0a0a0a;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand img { width: 44px; height: 44px; object-fit: contain; }
+    .brand-title { display: block; color: #fff; font-size: 1rem; font-weight: 700; }
+    .brand-subtitle { display: block; color: var(--muted); font-size: .75rem; }
+
+    .header-links { display: flex; align-items: center; gap: 18px; }
+    .header-links a, .text-link { color: var(--gold); text-decoration: none; }
+    .header-links a:hover, .text-link:hover { text-decoration: underline; }
+
+    main {
+      width: min(100% - 32px, 1040px);
+      margin: 36px auto 64px;
+    }
+
+    .panel {
+      padding: clamp(20px, 4vw, 36px);
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: 0 12px 36px #0008;
+    }
+
+    .panel + .panel { margin-top: 24px; }
+    h1, h2, h3 { color: #fff; }
+    h1 { margin-bottom: 8px; font-size: clamp(1.5rem, 3vw, 2rem); }
+    h2 { margin-bottom: 8px; font-size: 1.25rem; }
+    p { color: var(--muted); }
+
+    .form-grid { display: grid; gap: 14px; margin-top: 22px; }
+    label { display: grid; gap: 6px; color: #eee; font-size: .9rem; }
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid #444;
+      border-radius: 6px;
+      padding: 11px 12px;
+      background: #080808;
+      color: #fff;
+      font: inherit;
+    }
+
+    input:focus, textarea:focus { outline: 1px solid var(--gold); border-color: var(--gold); }
+    input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--gold); }
+    input[type="file"] { padding: 8px; }
+    textarea { min-height: 88px; resize: vertical; }
+
+    button, .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--gold);
+      border-radius: 6px;
+      padding: 10px 16px;
+      background: var(--gold);
+      color: #000;
+      font: inherit;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    button.secondary { background: transparent; color: var(--gold); }
+    button:disabled { cursor: wait; opacity: .65; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .message { min-height: 1.4em; margin-top: 12px; font-size: .9rem; }
+    .message.error { color: #ff7777; }
+    .message.success { color: var(--gold); }
+    .hidden { display: none !important; }
+
+    .profile-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(250px, .75fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .avatar-wrap { display: flex; align-items: center; gap: 16px; margin: 22px 0; }
+    .avatar {
+      width: 88px;
+      height: 88px;
+      flex: 0 0 88px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      background: #000;
+      object-fit: cover;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .summary-card { padding: 16px; border: 1px solid var(--border); border-radius: 8px; background: #080808; }
+    .summary-value { color: var(--gold); font-size: 1.4rem; font-weight: 700; }
+    .progress-track { height: 8px; overflow: hidden; border-radius: 8px; background: #333; }
+    .progress-fill { width: 0; height: 100%; background: var(--gold); transition: width .2s ease; }
+
+    .reading-list { display: grid; gap: 8px; margin-top: 18px; }
+    .reading-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #080808;
+    }
+
+    .reading-item a { flex: 1; color: #fff; text-decoration: none; }
+    .reading-item a:hover { color: var(--gold); }
+    .reading-item small { color: var(--muted); }
+
+    @media (max-width: 700px) {
+      .profile-header { align-items: flex-start; padding: 12px 16px; }
+      .header-links { flex-direction: column; align-items: flex-end; gap: 8px; }
+      .profile-layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="profile-header">
+    <a class="brand" href="index.html" aria-label="Voltar ao OQCAT">
+      <img src="../imagens/logo1.png" alt="">
+      <span>
+        <span class="brand-title">O que é ser Católico?</span>
+        <span class="brand-subtitle">Perfil compartilhado com Ordo Vitae</span>
+      </span>
+    </a>
+    <nav class="header-links" aria-label="Navegação do perfil">
+      <a href="index.html">OQCAT</a>
+      <a href="rotina.html">Ordo Vitae</a>
+      <button id="sign-out" class="secondary hidden" type="button">Sair</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="auth-view" class="panel">
+      <h1>Entre no seu perfil</h1>
+      <p>Use a mesma conta do Ordo Vitae para acessar seu perfil e progresso no OQCAT.</p>
+      <form id="auth-form" class="form-grid">
+        <label for="auth-email">E-mail
+          <input id="auth-email" type="email" autocomplete="email" required>
+        </label>
+        <label for="auth-password">Senha
+          <input id="auth-password" type="password" autocomplete="current-password" required>
+        </label>
+        <div class="actions">
+          <button type="submit">Entrar</button>
+          <button id="sign-up" class="secondary" type="button">Criar conta</button>
+        </div>
+      </form>
+      <p id="auth-message" class="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="profile-view" class="hidden">
+      <div class="panel">
+        <div class="profile-layout">
+          <section>
+            <h1>Meu perfil</h1>
+            <p id="profile-email"></p>
+            <div class="avatar-wrap">
+              <img id="avatar-preview" class="avatar" src="../imagens/logo1.png" alt="Foto do perfil">
+              <div>
+                <strong id="profile-display-name">Perfil OQCAT</strong>
+                <p>Esta identidade é compartilhada com o Ordo Vitae.</p>
+              </div>
+            </div>
+            <form id="profile-form" class="form-grid">
+              <label for="display-name">Nome de exibição
+                <input id="display-name" maxlength="60" autocomplete="name" required>
+              </label>
+              <label for="profile-bio">Sobre mim
+                <textarea id="profile-bio" maxlength="240" placeholder="Uma breve descrição (opcional)"></textarea>
+              </label>
+              <label for="avatar-file">Foto de perfil
+                <input id="avatar-file" type="file" accept="image/*">
+              </label>
+              <div class="actions">
+                <button type="submit">Salvar perfil</button>
+                <button id="remove-avatar" class="secondary" type="button">Remover foto</button>
+              </div>
+            </form>
+            <p id="profile-message" class="message" role="status" aria-live="polite"></p>
+          </section>
+
+          <aside>
+            <h2>Meu progresso</h2>
+            <div class="summary">
+              <div class="summary-card">
+                <div id="read-count" class="summary-value">0/16</div>
+                <small>Páginas OQCAT lidas</small>
+              </div>
+              <div class="summary-card">
+                <div id="cic-count" class="summary-value">0/365</div>
+                <small>Dias do Catecismo concluídos</small>
+              </div>
+            </div>
+            <div class="progress-track" role="progressbar" aria-label="Progresso de leitura no OQCAT" aria-valuemin="0" aria-valuemax="100">
+              <div id="read-progress" class="progress-fill"></div>
+            </div>
+            <p id="cic-message" class="message"></p>
+          </aside>
+        </div>
+      </div>
+
+      <section class="panel">
+        <h2>Páginas do OQCAT que já li</h2>
+        <p>Marque as páginas concluídas. Seu progresso fica salvo na mesma conta usada no Ordo Vitae.</p>
+        <div id="reading-list" class="reading-list"></div>
+        <p id="reading-message" class="message" role="status" aria-live="polite"></p>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth-client.js"></script>
+  <script>
+    const authClient = window.catolicWebSupabase;
+    const oqcatPages = [
+      { slug: 'index.html', title: 'Início' },
+      { slug: 'igreja.html', title: 'Igreja' },
+      { slug: 'batismo.html', title: 'Batismo' },
+      { slug: 'confissao.html', title: 'Confissão' },
+      { slug: 'comunhao.html', title: 'Eucaristia' },
+      { slug: 'crisma.html', title: 'Crisma' },
+      { slug: 'sacraordem.html', title: 'Ordem' },
+      { slug: 'matrimonio.html', title: 'Matrimônio' },
+      { slug: 'extremauncao.html', title: 'Unção dos Enfermos' },
+      { slug: 'santidade.html', title: 'Santidade' },
+      { slug: 'biblia.html', title: 'Bíblia' },
+      { slug: 'breviario.html', title: 'Breviário' },
+      { slug: 'calendariolit.html', title: 'Calendário Litúrgico' },
+      { slug: 'vocacoes.html', title: 'Vocações' },
+      { slug: 'patristica.html', title: 'Patrística' },
+      { slug: 'sacramatri.html', title: 'Sacramento do Matrimônio' }
+    ];
+
+    let currentUser = null;
+    let readPages = new Set();
+
+    function showMessage(elementId, message, type = '') {
+      const element = document.getElementById(elementId);
+      element.textContent = message;
+      element.classList.toggle('error', type === 'error');
+      element.classList.toggle('success', type === 'success');
+    }
+
+    function setAuthenticatedView(isAuthenticated) {
+      document.getElementById('auth-view').classList.toggle('hidden', isAuthenticated);
+      document.getElementById('profile-view').classList.toggle('hidden', !isAuthenticated);
+      document.getElementById('sign-out').classList.toggle('hidden', !isAuthenticated);
+    }
+
+    function renderReadingList() {
+      const list = document.getElementById('reading-list');
+      list.replaceChildren(...oqcatPages.map(page => {
+        const row = document.createElement('label');
+        row.className = 'reading-item';
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.dataset.page = page.slug;
+        checkbox.checked = readPages.has(page.slug);
+        checkbox.setAttribute('aria-label', `Marcar ${page.title} como lida`);
+
+        const link = document.createElement('a');
+        link.href = page.slug;
+        link.textContent = page.title;
+
+        const status = document.createElement('small');
+        status.textContent = checkbox.checked ? 'Lida' : 'Pendente';
+
+        row.append(checkbox, link, status);
+        return row;
+      }));
+
+      const count = readPages.size;
+      document.getElementById('read-count').textContent = `${count}/${oqcatPages.length}`;
+      const percent = Math.round((count / oqcatPages.length) * 100);
+      document.getElementById('read-progress').style.width = `${percent}%`;
+      document.querySelector('[role="progressbar"]').setAttribute('aria-valuenow', String(percent));
+    }
+
+    function displayProfile(user) {
+      currentUser = user;
+      const metadata = user.user_metadata || {};
+      document.getElementById('profile-email').textContent = user.email || '';
+      document.getElementById('display-name').value = metadata.display_name || '';
+      document.getElementById('profile-bio').value = metadata.bio || '';
+      document.getElementById('profile-display-name').textContent = metadata.display_name || 'Meu perfil';
+      document.getElementById('avatar-preview').src = metadata.avatar_data_url || '../imagens/logo1.png';
+      readPages = new Set(
+        Array.isArray(metadata.oqcat_read_pages)
+          ? metadata.oqcat_read_pages.filter(slug => oqcatPages.some(page => page.slug === slug))
+          : []
+      );
+      setAuthenticatedView(true);
+      renderReadingList();
+      loadCatechismProgress(user.id);
+    }
+
+    async function persistMetadata(changes) {
+      const { data, error } = await authClient.auth.updateUser({
+        data: { ...(currentUser.user_metadata || {}), ...changes }
+      });
+      if (error) throw error;
+      currentUser = data.user;
+      return currentUser;
+    }
+
+    async function loadCatechismProgress(userId) {
+      const { count, error } = await authClient
+        .from('cic_progress')
+        .select('day_number', { count: 'exact', head: true })
+        .eq('user_id', userId)
+        .eq('completed', true);
+      if (error) {
+        document.getElementById('cic-count').textContent = '—/365';
+        showMessage('cic-message', 'Não foi possível carregar o progresso do Catecismo.', 'error');
+        return;
+      }
+      document.getElementById('cic-count').textContent = `${count || 0}/365`;
+      showMessage('cic-message', '');
+    }
+
+    async function compressAvatar(file) {
+      if (!file.type.startsWith('image/')) throw new Error('Selecione um arquivo de imagem.');
+      if (file.size > 5 * 1024 * 1024) throw new Error('A imagem deve ter no máximo 5 MB.');
+
+      const image = await createImageBitmap(file);
+      const scale = Math.min(1, 256 / Math.max(image.width, image.height));
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.max(1, Math.round(image.width * scale));
+      canvas.height = Math.max(1, Math.round(image.height * scale));
+      canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
+      image.close();
+      return canvas.toDataURL('image/jpeg', 0.8);
+    }
+
+    async function signIn(event) {
+      event.preventDefault();
+      if (!authClient) {
+        showMessage('auth-message', 'O serviço de autenticação não foi carregado.', 'error');
+        return;
+      }
+
+      const email = document.getElementById('auth-email').value.trim();
+      const password = document.getElementById('auth-password').value;
+      try {
+        const { data, error } = await authClient.auth.signInWithPassword({ email, password });
+        if (error) throw error;
+        displayProfile(data.user);
+        showMessage('auth-message', '');
+      } catch (error) {
+        showMessage('auth-message', error instanceof Error ? error.message : 'Não foi possível entrar.', 'error');
+      }
+    }
+
+    async function signUp() {
+      if (!authClient) {
+        showMessage('auth-message', 'O serviço de autenticação não foi carregado.', 'error');
+        return;
+      }
+
+      const form = document.getElementById('auth-form');
+      if (!form.reportValidity()) return;
+
+      const email = document.getElementById('auth-email').value.trim();
+      const password = document.getElementById('auth-password').value;
+      try {
+        const { data, error } = await authClient.auth.signUp({ email, password });
+        if (error) throw error;
+        if (data.session) {
+          displayProfile(data.user);
+          return;
+        }
+        showMessage('auth-message', 'Conta criada. Verifique seu e-mail antes de entrar.', 'success');
+      } catch (error) {
+        showMessage('auth-message', error instanceof Error ? error.message : 'Não foi possível criar a conta.', 'error');
+      }
+    }
+
+    async function saveProfile(event) {
+      event.preventDefault();
+      const button = document.querySelector('#profile-form button[type="submit"]');
+      button.disabled = true;
+      try {
+        const name = document.getElementById('display-name').value.trim();
+        if (!name) throw new Error('Informe um nome para o perfil.');
+
+        const file = document.getElementById('avatar-file').files[0];
+        const avatar = file
+          ? await compressAvatar(file)
+          : currentUser.user_metadata?.avatar_data_url || '';
+        const user = await persistMetadata({
+          display_name: name,
+          bio: document.getElementById('profile-bio').value.trim(),
+          avatar_data_url: avatar
+        });
+        document.getElementById('avatar-file').value = '';
+        displayProfile(user);
+        showMessage('profile-message', 'Perfil salvo.', 'success');
+      } catch (error) {
+        showMessage('profile-message', error instanceof Error ? error.message : 'Não foi possível salvar o perfil.', 'error');
+      } finally {
+        button.disabled = false;
+      }
+    }
+
+    async function removeAvatar() {
+      try {
+        const user = await persistMetadata({ avatar_data_url: '' });
+        displayProfile(user);
+        showMessage('profile-message', 'Foto removida.', 'success');
+      } catch (error) {
+        showMessage('profile-message', error instanceof Error ? error.message : 'Não foi possível remover a foto.', 'error');
+      }
+    }
+
+    async function updateReadPage(event) {
+      const checkbox = event.target.closest('input[data-page]');
+      if (!checkbox) return;
+
+      const page = checkbox.dataset.page;
+      const updatedPages = new Set(readPages);
+      if (checkbox.checked) updatedPages.add(page);
+      else updatedPages.delete(page);
+
+      document.querySelectorAll('#reading-list input').forEach(input => { input.disabled = true; });
+      try {
+        const user = await persistMetadata({ oqcat_read_pages: [...updatedPages] });
+        readPages = new Set(user.user_metadata?.oqcat_read_pages || []);
+        renderReadingList();
+        showMessage('reading-message', 'Progresso de leitura salvo.', 'success');
+      } catch (error) {
+        checkbox.checked = !checkbox.checked;
+        showMessage('reading-message', error instanceof Error ? error.message : 'Não foi possível salvar a leitura.', 'error');
+      } finally {
+        document.querySelectorAll('#reading-list input').forEach(input => { input.disabled = false; });
+      }
+    }
+
+    async function signOut() {
+      try {
+        const { error } = await authClient.auth.signOut();
+        if (error) throw error;
+        currentUser = null;
+        setAuthenticatedView(false);
+      } catch (error) {
+        showMessage('profile-message', error instanceof Error ? error.message : 'Não foi possível sair.', 'error');
+      }
+    }
+
+    document.getElementById('auth-form').addEventListener('submit', signIn);
+    document.getElementById('sign-up').addEventListener('click', signUp);
+    document.getElementById('profile-form').addEventListener('submit', saveProfile);
+    document.getElementById('remove-avatar').addEventListener('click', removeAvatar);
+    document.getElementById('reading-list').addEventListener('change', updateReadPage);
+    document.getElementById('sign-out').addEventListener('click', signOut);
+
+    async function initializeProfile() {
+      if (!authClient) {
+        showMessage('auth-message', 'O serviço de autenticação não foi carregado. Recarregue a página.', 'error');
+        return;
+      }
+      try {
+        const { data, error } = await authClient.auth.getSession();
+        if (error) throw error;
+        if (data.session) displayProfile(data.session.user);
+      } catch (error) {
+        showMessage('auth-message', error instanceof Error ? error.message : 'Não foi possível verificar a sessão.', 'error');
+      }
+    }
+
+    initializeProfile();
+  </script>
+</body>
+</html>

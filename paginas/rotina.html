@@ -998,21 +998,27 @@
         const card = document.createElement('article');
         card.className = `rounded-lg border p-5 ${String(note.id) === String(selectedNoteId) ? 'border-yellow-500 bg-yellow-500/5' : 'border-gray-700 bg-neutral-900'}`;
         const header = document.createElement('div');
-        header.className = 'mb-3 flex items-start gap-3';
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.className = 'mt-1 h-4 w-4 accent-yellow-500';
-        checkbox.checked = String(note.id) === String(selectedNoteId);
-        checkbox.setAttribute('aria-label', `Selecionar anotação ${note.title}`);
-        checkbox.addEventListener('change', () => selectNote(checkbox.checked ? note : null));
+        header.className = 'mb-3';
         const title = document.createElement('h3');
         title.className = 'font-bold text-yellow-400';
         title.textContent = note.title;
-        header.append(checkbox, title);
+        header.append(title);
         const content = document.createElement('p');
         content.className = 'whitespace-pre-line text-sm text-gray-300';
         content.textContent = note.content;
         card.append(header, content);
+        card.tabIndex = 0;
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-pressed', String(String(note.id) === String(selectedNoteId)));
+        card.setAttribute('aria-label', `Selecionar anotação: ${note.title}`);
+        card.classList.add('cursor-pointer', 'transition-colors', 'hover:border-yellow-500/70');
+        card.addEventListener('click', () => selectNote(String(note.id) === String(selectedNoteId) ? null : note));
+        card.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            selectNote(String(note.id) === String(selectedNoteId) ? null : note);
+          }
+        });
         list.append(card);
       });
       document.getElementById('note-delete-selected').disabled = !selectedNoteId;

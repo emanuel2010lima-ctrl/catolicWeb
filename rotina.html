@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ordo Vitae — Rotina, Oração & Estudo do Catecismo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Lora', serif; background-color: #FAF7F2; color: #2C241E; }
+    h1, h2, h3, .font-sacred { font-family: 'Cinzel', serif; }
+    .gold-border { border-color: #C5A059; }
+    .bg-marian { background-color: #1E3A5F; }
+    .text-gold { color: #B48A3E; }
+    .bg-gold { background-color: #C5A059; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- TELA DE LOGIN / CADASTRO -->
+  <div id="auth-screen" class="flex-1 flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-lg shadow-lg border-2 gold-border max-w-md w-full text-center">
+      <div class="text-4xl text-gold mb-2">✝</div>
+      <h1 class="text-2xl font-bold text-gray-800 mb-1">Ordo Vitae</h1>
+      <p class="text-sm text-gray-500 italic mb-6">"Ora et Labora" — Regra de Vida e Estudo</p>
+      
+      <input id="email" type="email" placeholder="Seu e-mail" class="w-full p-3 mb-3 border rounded focus:outline-none focus:border-yellow-600">
+      <input id="password" type="password" placeholder="Sua senha" class="w-full p-3 mb-4 border rounded focus:outline-none focus:border-yellow-600">
+      
+      <div class="flex gap-2">
+        <button onclick="handleLogin()" class="flex-1 bg-marian text-white py-2.5 rounded font-semibold hover:opacity-90">Entrar</button>
+        <button onclick="handleSignUp()" class="flex-1 bg-gold text-white py-2.5 rounded font-semibold hover:opacity-90">Criar Perfil</button>
+      </div>
+      <p id="auth-msg" class="text-xs text-red-600 mt-3"></p>
+    </div>
+  </div>
+
+  <!-- PAINEL PRINCIPAL -->
+  <div id="app-screen" class="hidden flex-1 flex flex-col">
+    <!-- Cabeçalho -->
+    <header class="bg-marian text-white py-4 px-6 shadow-md border-b-4 gold-border flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl text-yellow-400">✝</span>
+        <div>
+          <h1 class="text-xl font-bold tracking-wider">ORDO VITAE</h1>
+          <p class="text-xs text-gray-300">Santuário Interior & Formação Católica</p>
+        </div>
+      </div>
+      <button onclick="handleLogout()" class="text-xs border border-yellow-400 text-yellow-300 px-3 py-1.5 rounded hover:bg-yellow-400 hover:text-gray-900 transition">Sair</button>
+    </header>
+
+    <!-- Navegação -->
+    <nav class="bg-white border-b border-gray-200 px-6 flex gap-6 overflow-x-auto">
+      <button onclick="switchTab('rotina')" id="tab-rotina" class="py-3 font-semibold border-b-2 border-yellow-600 text-yellow-800">🕯️ Rotina Diária</button>
+      <button onclick="switchTab('oracoes')" id="tab-oracoes" class="py-3 font-semibold text-gray-500 hover:text-yellow-800">📿 Minhas Orações</button>
+      <button onclick="switchTab('catecismo')" id="tab-catecismo" class="py-3 font-semibold text-gray-500 hover:text-yellow-800">📖 Catecismo em 1 Ano</button>
+      <button onclick="switchTab('notas')" id="tab-notas" class="py-3 font-semibold text-gray-500 hover:text-yellow-800">🪶 Caderno de Notas</button>
+    </nav>
+
+    <!-- Conteúdo -->
+    <main class="flex-1 max-w-5xl w-full mx-auto p-6">
+
+      <!-- ABA 1: ROTINA DIÁRIA -->
+      <section id="view-rotina" class="space-y-6">
+        <div class="bg-white p-6 rounded-lg shadow border gold-border">
+          <h2 class="text-lg font-bold mb-4 text-gray-800">Adicionar Horário na Regra de Vida</h2>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+            <input id="sched-time" type="time" class="p-2 border rounded">
+            <select id="sched-type" onchange="togglePrayerSelect()" class="p-2 border rounded">
+              <option value="activity">Atividade Diária</option>
+              <option value="prayer">Momento de Oração</option>
+            </select>
+            <input id="sched-title" type="text" placeholder="Título (ex: Trabalho, Terço)" class="p-2 border rounded">
+            <select id="sched-prayer-link" class="hidden p-2 border rounded">
+              <option value="">Vincular oração salva...</option>
+            </select>
+          </div>
+          <textarea id="sched-desc" rows="2" placeholder="Descrição opcional (ex: Leitura espiritual ou metas da tarefa)..." class="w-full p-2 border rounded mt-3"></textarea>
+          <button onclick="addScheduleItem()" class="mt-3 bg-marian text-white px-5 py-2 rounded text-sm font-semibold hover:opacity-90">+ Adicionar à Rotina</button>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow border border-gray-200">
+          <h2 class="text-lg font-bold mb-4">Ordo Diário (Linha do Tempo)</h2>
+          <div id="schedule-list" class="space-y-3 border-l-2 border-yellow-600 pl-4 ml-2"></div>
+        </div>
+      </section>
+
+      <!-- ABA 2: MINHAS ORAÇÕES -->
+      <section id="view-oracoes" class="hidden space-y-6">
+        <div class="bg-white p-6 rounded-lg shadow border gold-border">
+          <h2 class="text-lg font-bold mb-4">Cadastrar Nova Oração</h2>
+          <input id="prayer-title" type="text" placeholder="Título da Oração (ex: Oração a São Miguel Arcanjo)" class="w-full p-2 border rounded mb-3">
+          <textarea id="prayer-content" rows="4" placeholder="Texto completo da oração..." class="w-full p-2 border rounded mb-3"></textarea>
+          <button onclick="addPrayer()" class="bg-gold text-white px-5 py-2 rounded text-sm font-semibold hover:opacity-90">Salvar Oração</button>
+        </div>
+
+        <div id="prayers-list" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- ABA 3: CATECISMO EM 1 ANO -->
+      <section id="view-catecismo" class="hidden space-y-6">
+        <div class="bg-white p-6 rounded-lg shadow border gold-border">
+          <div class="flex flex-wrap justify-between items-center gap-4 mb-4">
+            <div>
+              <h2 class="text-xl font-bold text-gray-800">Itinerário Anual — Catecismo da Igreja Católica</h2>
+              <p class="text-sm text-gray-600">Leitura diária estruturada (~7 a 8 parágrafos/dia) com apoios interdisciplinares.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <label class="text-sm font-semibold">Dia (1 a 365):</label>
+              <input id="cic-day-input" type="number" min="1" max="365" value="1" onchange="renderCicDay()" class="w-20 p-2 border rounded text-center font-bold">
+            </div>
+          </div>
+
+          <div id="cic-card" class="p-5 bg-[#FAF7F2] rounded-lg border border-yellow-600/40"></div>
+        </div>
+      </section>
+
+      <!-- ABA 4: CADERNO DE NOTAS -->
+      <section id="view-notas" class="hidden space-y-6">
+        <div class="bg-white p-6 rounded-lg shadow border gold-border">
+          <h2 class="text-lg font-bold mb-4">Nova Anotação Espiritual ou de Estudo</h2>
+          <input id="note-title" type="text" placeholder="Assunto / Título" class="w-full p-2 border rounded mb-3">
+          <textarea id="note-content" rows="4" placeholder="Escreva suas reflexões, propósitos de confissão ou resumos..." class="w-full p-2 border rounded mb-3"></textarea>
+          <button onclick="addNote()" class="bg-marian text-white px-5 py-2 rounded text-sm font-semibold">Salvar Anotação</button>
+        </div>
+        <div id="notes-list" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    // CONFIGURAÇÃO DO SUPABASE (Substitua pelos dados do seu projeto)
+    const SUPABASE_URL = 'https://jeabmxjrjqxoewmcxcgl.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_zO0VFr51GRuYq_ytBuHM4Q_zuWk5_qL';
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    let currentUser = null;
+    let userPrayers = [];
+
+    // BASE INTERDISCIPLINAR DO CATECISMO (Amostra estruturada dos principais blocos)
+    const cicInterdisciplinaryMap = [
+      {
+        startDay: 1, endDay: 7,
+        part: "Prólogo & Profissão de Fé (§§ 1–49)",
+        interdisciplinary: [
+          { area: "Filosofia (Metafísica e Teodiceia)", topic: "As Cinco Vias de São Tomás de Aquino e o conceito de 'Motor Imóvel' e 'Causa Primeira' em Aristóteles (Metafísica, Livro XII) para entender como a razão humana conhece Deus." },
+          { area: "História da Igreja", topic: "O Concílio Vaticano II e o Sínodo Extraordinário de 1985 que motivou a redação do Catecismo." }
+        ]
+      },
+      {
+        startDay: 8, endDay: 25,
+        part: "A Revelação Divina e a Sagrada Escritura (§§ 50–141)",
+        interdisciplinary: [
+          { area: "Hermenêutica Bíblica", topic: "Os quatro sentidos da Escritura (Literal, Alegórico, Moral e Anagógico) desenvolvidos pelos Padres da Igreja (Orígenes e Santo Agostinho)." },
+          { area: "Patrística", topic: "O conceito de Tradição Apostólica em Santo Irineu de Lyon (Adversus Haereses)." }
+        ]
+      },
+      {
+        startDay: 26, endDay: 60,
+        part: "A Criação, os Anjos e o Homem (§§ 279–421)",
+        interdisciplinary: [
+          { area: "Antropologia Filosófica (Hilemorfismo)", topic: "A união substancial de corpo e alma segundo Aristóteles (De Anima) e São Tomás de Aquino: a alma como 'forma' do corpo (CIC § 365)." },
+          { area: "Ciência e Fé", topic: "Distinção entre causa primeira (criação ex nihilo) e causas secundárias (evolução e leis físicas)." }
+        ]
+      },
+      {
+        startDay: 61, endDay: 150,
+        part: "Cristologia e Mistério Pascal (§§ 422–682)",
+        interdisciplinary: [
+          { area: "Filosofia Grega (Ontologia)", topic: "Os conceitos de 'Substância' (Ousia), 'Natureza' (Physis) e 'Pessoa' (Hypostasis) definidos nos Concílios de Niceia, Éfeso e Calcedônia." }
+        ]
+      },
+      {
+        startDay: 151, endDay: 240,
+        part: "Os Sacramentos da Igreja (§§ 1066–1690)",
+        interdisciplinary: [
+          { area: "Filosofia Aristotélico-Tomista", topic: "Teoria da 'Substância e Acidentes' para compreender a Transubstanciação na Eucaristia (§ 1376), além da distinção entre 'Matéria e Forma' nos sacramentos." }
+        ]
+      },
+      {
+        startDay: 241, endDay: 320,
+        part: "A Vida em Cristo e Moral Católica (§§ 1691–2557)",
+        interdisciplinary: [
+          { area: "Ética das Virtudes", topic: "Ética a Nicômaco de Aristóteles (o justo meio e o hábito virtuoso) integrada às Virtudes Teologais e à Lei Natural em São Tomás de Aquino." }
+        ]
+      },
+      {
+        startDay: 321, endDay: 365,
+        part: "A Oração Cristã e o Pai-Nosso (§§ 2558–2865)",
+        interdisciplinary: [
+          { area: "Teologia Mística e Espiritualidade", topic: "As três vias da vida espiritual (Purgativa, Iluminativa e Unitiva) em Santa Teresa d'Ávila e São João da Cruz." }
+        ]
+      }
+    ];
+
+    // AUTENTICAÇÃO
+    async function checkSession() {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        currentUser = session.user;
+        document.getElementById('auth-screen').classList.add('hidden');
+        document.getElementById('app-screen').classList.remove('hidden');
+        loadAllData();
+      }
+    }
+
+    async function handleLogin() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) document.getElementById('auth-msg').innerText = error.message;
+      else checkSession();
+    }
+
+    async function handleSignUp() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const { error } = await supabase.auth.signUp({ email, password });
+      if (error) document.getElementById('auth-msg').innerText = error.message;
+      else document.getElementById('auth-msg').innerText = "Conta criada! Verifique seu e-mail ou clique em Entrar.";
+    }
+
+    async function handleLogout() {
+      await supabase.auth.signOut();
+      location.reload();
+    }
+
+    // NAVEGAÇÃO ENTRE ABAS
+    function switchTab(tab) {
+      ['rotina', 'oracoes', 'catecismo', 'notas'].forEach(t => {
+        document.getElementById(`view-${t}`).classList.add('hidden');
+        document.getElementById(`tab-${t}`).classList.remove('border-b-2', 'border-yellow-600', 'text-yellow-800');
+        document.getElementById(`tab-${t}`).classList.add('text-gray-500');
+      });
+      document.getElementById(`view-${tab}`).classList.remove('hidden');
+      document.getElementById(`tab-${tab}`).classList.add('border-b-2', 'border-yellow-600', 'text-yellow-800');
+      if (tab === 'catecismo') renderCicDay();
+    }
+
+    // CARREGAR DADOS
+    async function loadAllData() {
+      await loadPrayers();
+      await loadSchedule();
+      await loadNotes();
+    }
+
+    // ORAÇÕES
+    async function loadPrayers() {
+      const { data } = await supabase.from('prayers').select('*').order('created_at', { ascending: false });
+      userPrayers = data || [];
+      const list = document.getElementById('prayers-list');
+      const select = document.getElementById('sched-prayer-link');
+      select.innerHTML = '<option value="">Vincular oração salva...</option>';
+      list.innerHTML = userPrayers.map(p => {
+        select.innerHTML += `<option value="${p.id}">${p.title}</option>`;
+        return `
+          <div class="bg-white p-5 rounded-lg shadow border border-gray-200 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-lg text-yellow-900 mb-2">${p.title}</h3>
+              <p class="text-sm text-gray-700 whitespace-pre-line">${p.content}</p>
+            </div>
+            <button onclick="deletePrayer('${p.id}')" class="text-xs text-red-500 mt-4 self-end hover:underline">Excluir</button>
+          </div>`;
+      }).join('');
+    }
+
+    async function addPrayer() {
+      const title = document.getElementById('prayer-title').value;
+      const content = document.getElementById('prayer-content').value;
+      if (!title || !content) return;
+      await supabase.from('prayers').insert([{ user_id: currentUser.id, title, content }]);
+      document.getElementById('prayer-title').value = '';
+      document.getElementById('prayer-content').value = '';
+      loadPrayers();
+    }
+
+    async function deletePrayer(id) {
+      await supabase.from('prayers').delete().eq('id', id);
+      loadPrayers();
+    }
+
+    // ROTINA DIÁRIA
+    function togglePrayerSelect() {
+      const type = document.getElementById('sched-type').value;
+      document.getElementById('sched-prayer-link').classList.toggle('hidden', type !== 'prayer');
+    }
+
+    async function loadSchedule() {
+      const { data } = await supabase.from('schedule_items').select('*, prayers(title, content)').order('time_slot', { ascending: true });
+      const list = document.getElementById('schedule-list');
+      list.innerHTML = (data || []).map(item => `
+        <div class="p-4 rounded border ${item.item_type === 'prayer' ? 'bg-amber-50/70 border-yellow-600/40' : 'bg-gray-50 border-gray-200'} flex justify-between items-start">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-sm bg-marian text-white px-2 py-0.5 rounded">${item.time_slot.slice(0,5)}</span>
+              <span class="font-bold text-gray-800">${item.item_type === 'prayer' ? '📿 ' : '📌 '}${item.title}</span>
+            </div>
+            ${item.description ? `<p class="text-sm text-gray-600 mt-1">${item.description}</p>` : ''}
+            ${item.prayers ? `<details class="mt-2 text-xs text-yellow-900 cursor-pointer"><summary class="font-semibold">Ler texto da oração: ${item.prayers.title}</summary><p class="mt-1 p-2 bg-white rounded border whitespace-pre-line">${item.prayers.content}</p></details>` : ''}
+          </div>
+          <div class="flex gap-2">
+            <button onclick="editScheduleTime('${item.id}', '${item.time_slot}')" class="text-xs text-blue-700 hover:underline">Ajustar Hora</button>
+            <button onclick="deleteSchedule('${item.id}')" class="text-xs text-red-500 hover:underline">Remover</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function addScheduleItem() {
+      const time_slot = document.getElementById('sched-time').value;
+      const item_type = document.getElementById('sched-type').value;
+      const title = document.getElementById('sched-title').value;
+      const description = document.getElementById('sched-desc').value;
+      const prayer_id = item_type === 'prayer' ? (document.getElementById('sched-prayer-link').value || null) : null;
+      if (!time_slot || !title) return;
+      await supabase.from('schedule_items').insert([{ user_id: currentUser.id, time_slot, item_type, title, description, prayer_id }]);
+      document.getElementById('sched-title').value = '';
+      document.getElementById('sched-desc').value = '';
+      loadSchedule();
+    }
+
+    async function editScheduleTime(id, oldTime) {
+      const newTime = prompt("Novo horário (HH:MM):", oldTime.slice(0,5));
+      if (newTime) {
+        await supabase.from('schedule_items').update({ time_slot: newTime }).eq('id', id);
+        loadSchedule();
+      }
+    }
+
+    async function deleteSchedule(id) {
+      await supabase.from('schedule_items').delete().eq('id', id);
+      loadSchedule();
+    }
+
+    // CATECISMO EM 1 ANO + INTERDISCIPLINARIDADE
+    async function renderCicDay() {
+      const day = parseInt(document.getElementById('cic-day-input').value) || 1;
+      const totalParagraphs = 2865;
+      const startP = Math.floor(((day - 1) * totalParagraphs) / 365) + 1;
+      const endP = Math.floor((day * totalParagraphs) / 365);
+
+      const block = cicInterdisciplinaryMap.find(b => day >= b.startDay && day <= b.endDay) || cicInterdisciplinaryMap[0];
+      const { data } = await supabase.from('cic_progress').select('completed').eq('day_number', day).single();
+      const isDone = data?.completed || false;
+
+      document.getElementById('cic-card').innerHTML = `
+        <div class="flex justify-between items-center border-b border-yellow-600/30 pb-3 mb-4">
+          <div>
+            <span class="text-xs uppercase tracking-wider text-yellow-800 font-bold">Dia ${day} de 365</span>
+            <h3 class="text-xl font-bold text-gray-900">Leitura: Parágrafos §§ ${startP} a ${endP}</h3>
+            <p class="text-xs text-gray-500">${block.part}</p>
+          </div>
+          <button onclick="toggleCicDone(${day}, ${!isDone})" class="px-4 py-2 rounded text-sm font-semibold ${isDone ? 'bg-green-700 text-white' : 'border border-yellow-700 text-yellow-900'}">
+            ${isDone ? '✓ Concluído' : 'Marcar como Lido'}
+          </button>
+        </div>
+        <h4 class="font-bold text-sm text-marian uppercase tracking-wide mb-2">📚 Conteúdos Interdisciplinares Necessários para Compreensão:</h4>
+        <div class="space-y-3">
+          ${block.interdisciplinary.map(item => `
+            <div class="bg-white p-3 rounded border border-gray-200">
+              <span class="text-xs font-bold text-yellow-800 block">${item.area}</span>
+              <p class="text-sm text-gray-700 mt-0.5">${item.topic}</p>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    async function toggleCicDone(day, status) {
+      await supabase.from('cic_progress').upsert({ user_id: currentUser.id, day_number: day, completed: status }, { onConflict: 'user_id,day_number' });
+      renderCicDay();
+    }
+
+    // ANOTAÇÕES
+    async function loadNotes() {
+      const { data } = await supabase.from('notes').select('*').order('updated_at', { ascending: false });
+      document.getElementById('notes-list').innerHTML = (data || []).map(n => `
+        <div class="bg-white p-5 rounded-lg shadow border border-gray-200">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-bold text-gray-800">${n.title}</h3>
+            <button onclick="deleteNote('${n.id}')" class="text-xs text-red-500 hover:underline">Excluir</button>
+          </div>
+          <p class="text-sm text-gray-700 whitespace-pre-line">${n.content}</p>
+        </div>
+      `).join('');
+    }
+
+    async function addNote() {
+      const title = document.getElementById('note-title').value;
+      const content = document.getElementById('note-content').value;
+      if (!title || !content) return;
+      await supabase.from('notes').insert([{ user_id: currentUser.id, title, content }]);
+      document.getElementById('note-title').value = '';
+      document.getElementById('note-content').value = '';
+      loadNotes();
+    }
+
+    async function deleteNote(id) {
+      await supabase.from('notes').delete().eq('id', id);
+      loadNotes();
+    }
+
+    checkSession();
+  </script>
+</body>
+</html>

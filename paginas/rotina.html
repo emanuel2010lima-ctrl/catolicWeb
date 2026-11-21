@@ -6,14 +6,72 @@
   <title>Ordo Vitae — Rotina, Oração & Estudo do Catecismo</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Lora', serif; background-color: #FAF7F2; color: #2C241E; }
-    h1, h2, h3, .font-sacred { font-family: 'Cinzel', serif; }
-    .gold-border { border-color: #C5A059; }
-    .bg-marian { background-color: #1E3A5F; }
-    .text-gold { color: #B48A3E; }
-    .bg-gold { background-color: #C5A059; }
+    :root {
+      color-scheme: dark;
+      --site-black: #000;
+      --site-surface: #111;
+      --site-gold: #efc200;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--site-black);
+      color: #f5f5f5;
+    }
+
+    h1, h2, h3, .font-sacred { font-family: 'Poppins', sans-serif; }
+    .gold-border { border-color: var(--site-gold); }
+    .bg-marian, .bg-gold { background-color: var(--site-gold); color: var(--site-black); }
+    .text-gold { color: var(--site-gold); }
+
+    #auth-screen > div {
+      background-color: var(--site-surface);
+      border-color: var(--site-gold);
+      color: #f5f5f5;
+    }
+
+    #auth-screen h1 { color: #fff; }
+    #auth-screen .text-gray-500 { color: #bbb; }
+    #auth-screen input {
+      background-color: #080808;
+      border-color: #444;
+      color: #fff;
+    }
+
+    #auth-screen input::placeholder { color: #999; }
+    #auth-screen input:focus { border-color: var(--site-gold); }
+
+    #app-screen > header {
+      background-color: var(--site-surface);
+      border-color: var(--site-gold);
+    }
+
+    #app-screen > header .text-yellow-300 { color: var(--site-gold); }
+    #app-screen > nav {
+      background-color: var(--site-surface);
+      border-color: #333;
+    }
+
+    #app-screen > nav button { color: #bbb; }
+    #app-screen .bg-white { background-color: var(--site-surface); color: #f5f5f5; }
+    #app-screen .bg-gray-50,
+    #app-screen [class~="bg-amber-50/70"] { background-color: #181818; }
+    #app-screen .border-gray-200 { border-color: #333; }
+    #app-screen .text-gray-900,
+    #app-screen .text-gray-800,
+    #app-screen .text-gray-700 { color: #f5f5f5; }
+    #app-screen .text-gray-600,
+    #app-screen .text-gray-500 { color: #bbb; }
+    #app-screen .text-yellow-900,
+    #app-screen .text-yellow-800,
+    #app-screen .text-yellow-700,
+    #app-screen .text-blue-700 { color: var(--site-gold); }
+    #app-screen .border-yellow-600,
+    #app-screen .border-yellow-700,
+    #app-screen .border-yellow-600\/30,
+    #app-screen .border-yellow-600\/40 { border-color: var(--site-gold); }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -24,15 +82,15 @@
       <div class="text-4xl text-gold mb-2">✝</div>
       <h1 class="text-2xl font-bold text-gray-800 mb-1">Ordo Vitae</h1>
       <p class="text-sm text-gray-500 italic mb-6">"Ora et Labora" — Regra de Vida e Estudo</p>
-      
-      <input id="email" type="email" placeholder="Seu e-mail" class="w-full p-3 mb-3 border rounded focus:outline-none focus:border-yellow-600">
-      <input id="password" type="password" placeholder="Sua senha" class="w-full p-3 mb-4 border rounded focus:outline-none focus:border-yellow-600">
-      
-      <div class="flex gap-2">
-        <button onclick="handleLogin()" class="flex-1 bg-marian text-white py-2.5 rounded font-semibold hover:opacity-90">Entrar</button>
-        <button onclick="handleSignUp()" class="flex-1 bg-gold text-white py-2.5 rounded font-semibold hover:opacity-90">Criar Perfil</button>
-      </div>
-      <p id="auth-msg" class="text-xs text-red-600 mt-3"></p>
+      <form id="auth-form" onsubmit="event.preventDefault(); handleLogin()">
+        <input id="email" type="email" placeholder="Seu e-mail" autocomplete="email" required class="w-full p-3 mb-3 border rounded focus:outline-none focus:border-yellow-600">
+        <input id="password" type="password" placeholder="Sua senha" autocomplete="current-password" required class="w-full p-3 mb-4 border rounded focus:outline-none focus:border-yellow-600">
+        <div class="flex gap-2">
+          <button type="submit" class="flex-1 bg-marian text-white py-2.5 rounded font-semibold hover:opacity-90">Entrar</button>
+          <button type="button" onclick="handleSignUp()" class="flex-1 bg-gold text-white py-2.5 rounded font-semibold hover:opacity-90">Criar Perfil</button>
+        </div>
+        <p id="auth-msg" class="text-xs mt-3" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </div>
 
@@ -112,7 +170,7 @@
             </div>
           </div>
 
-          <div id="cic-card" class="p-5 bg-[#FAF7F2] rounded-lg border border-yellow-600/40"></div>
+          <div id="cic-card" class="p-5 bg-gray-50 rounded-lg border border-yellow-600/40"></div>
         </div>
       </section>
 
@@ -134,7 +192,7 @@
     // CONFIGURAÇÃO DO SUPABASE (Substitua pelos dados do seu projeto)
     const SUPABASE_URL = 'https://jeabmxjrjqxoewmcxcgl.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_zO0VFr51GRuYq_ytBuHM4Q_zuWk5_qL';
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    const supabaseClient = window.supabase?.createClient(SUPABASE_URL, SUPABASE_KEY);
 
     let currentUser = null;
     let userPrayers = [];
@@ -196,34 +254,80 @@
     ];
 
     // AUTENTICAÇÃO
+    function showAuthMessage(message, type = 'error') {
+      const element = document.getElementById('auth-msg');
+      element.textContent = message;
+      element.classList.toggle('text-red-600', type === 'error');
+      element.classList.toggle('text-gold', type === 'success');
+    }
+
     async function checkSession() {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session) {
-        currentUser = session.user;
+      try {
+        if (!supabaseClient) throw new Error('O serviço de autenticação não foi carregado.');
+        const { data, error } = await supabaseClient.auth.getSession();
+        if (error) throw error;
+        if (!data.session) return;
+
+        currentUser = data.session.user;
         document.getElementById('auth-screen').classList.add('hidden');
         document.getElementById('app-screen').classList.remove('hidden');
-        loadAllData();
+        await loadAllData();
+      } catch (error) {
+        const detail = error instanceof Error ? ` ${error.message}` : '';
+        showAuthMessage(`Não foi possível verificar a sessão.${detail}`);
       }
     }
 
     async function handleLogin() {
-      const email = document.getElementById('email').value;
+      const form = document.getElementById('auth-form');
+      if (!form.reportValidity()) return;
+
+      const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) document.getElementById('auth-msg').innerText = error.message;
-      else checkSession();
+      showAuthMessage('');
+
+      try {
+        if (!supabaseClient) throw new Error('O serviço de autenticação não foi carregado.');
+        const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) {
+          showAuthMessage(error.message);
+          return;
+        }
+        await checkSession();
+      } catch (error) {
+        const detail = error instanceof Error ? ` ${error.message}` : '';
+        showAuthMessage(`Não foi possível entrar.${detail}`);
+      }
     }
 
     async function handleSignUp() {
-      const email = document.getElementById('email').value;
+      const form = document.getElementById('auth-form');
+      if (!form.reportValidity()) return;
+
+      const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
-      const { error } = await supabase.auth.signUp({ email, password });
-      if (error) document.getElementById('auth-msg').innerText = error.message;
-      else document.getElementById('auth-msg').innerText = "Conta criada! Verifique seu e-mail ou clique em Entrar.";
+      showAuthMessage('');
+
+      try {
+        if (!supabaseClient) throw new Error('O serviço de autenticação não foi carregado.');
+        const { data, error } = await supabaseClient.auth.signUp({ email, password });
+        if (error) {
+          showAuthMessage(error.message);
+          return;
+        }
+        if (data.session) {
+          await checkSession();
+          return;
+        }
+        showAuthMessage('Conta criada. Verifique seu e-mail antes de entrar.', 'success');
+      } catch (error) {
+        const detail = error instanceof Error ? ` ${error.message}` : '';
+        showAuthMessage(`Não foi possível criar a conta.${detail}`);
+      }
     }
 
     async function handleLogout() {
-      await supabase.auth.signOut();
+      await supabaseClient.auth.signOut();
       location.reload();
     }
 
@@ -248,7 +352,7 @@
 
     // ORAÇÕES
     async function loadPrayers() {
-      const { data } = await supabase.from('prayers').select('*').order('created_at', { ascending: false });
+      const { data } = await supabaseClient.from('prayers').select('*').order('created_at', { ascending: false });
       userPrayers = data || [];
       const list = document.getElementById('prayers-list');
       const select = document.getElementById('sched-prayer-link');
@@ -270,14 +374,14 @@
       const title = document.getElementById('prayer-title').value;
       const content = document.getElementById('prayer-content').value;
       if (!title || !content) return;
-      await supabase.from('prayers').insert([{ user_id: currentUser.id, title, content }]);
+      await supabaseClient.from('prayers').insert([{ user_id: currentUser.id, title, content }]);
       document.getElementById('prayer-title').value = '';
       document.getElementById('prayer-content').value = '';
       loadPrayers();
     }
 
     async function deletePrayer(id) {
-      await supabase.from('prayers').delete().eq('id', id);
+      await supabaseClient.from('prayers').delete().eq('id', id);
       loadPrayers();
     }
 
@@ -288,7 +392,7 @@
     }
 
     async function loadSchedule() {
-      const { data } = await supabase.from('schedule_items').select('*, prayers(title, content)').order('time_slot', { ascending: true });
+      const { data } = await supabaseClient.from('schedule_items').select('*, prayers(title, content)').order('time_slot', { ascending: true });
       const list = document.getElementById('schedule-list');
       list.innerHTML = (data || []).map(item => `
         <div class="p-4 rounded border ${item.item_type === 'prayer' ? 'bg-amber-50/70 border-yellow-600/40' : 'bg-gray-50 border-gray-200'} flex justify-between items-start">
@@ -315,7 +419,7 @@
       const description = document.getElementById('sched-desc').value;
       const prayer_id = item_type === 'prayer' ? (document.getElementById('sched-prayer-link').value || null) : null;
       if (!time_slot || !title) return;
-      await supabase.from('schedule_items').insert([{ user_id: currentUser.id, time_slot, item_type, title, description, prayer_id }]);
+      await supabaseClient.from('schedule_items').insert([{ user_id: currentUser.id, time_slot, item_type, title, description, prayer_id }]);
       document.getElementById('sched-title').value = '';
       document.getElementById('sched-desc').value = '';
       loadSchedule();
@@ -324,13 +428,13 @@
     async function editScheduleTime(id, oldTime) {
       const newTime = prompt("Novo horário (HH:MM):", oldTime.slice(0,5));
       if (newTime) {
-        await supabase.from('schedule_items').update({ time_slot: newTime }).eq('id', id);
+        await supabaseClient.from('schedule_items').update({ time_slot: newTime }).eq('id', id);
         loadSchedule();
       }
     }
 
     async function deleteSchedule(id) {
-      await supabase.from('schedule_items').delete().eq('id', id);
+      await supabaseClient.from('schedule_items').delete().eq('id', id);
       loadSchedule();
     }
 
@@ -342,7 +446,7 @@
       const endP = Math.floor((day * totalParagraphs) / 365);
 
       const block = cicInterdisciplinaryMap.find(b => day >= b.startDay && day <= b.endDay) || cicInterdisciplinaryMap[0];
-      const { data } = await supabase.from('cic_progress').select('completed').eq('day_number', day).single();
+      const { data } = await supabaseClient.from('cic_progress').select('completed').eq('day_number', day).single();
       const isDone = data?.completed || false;
 
       document.getElementById('cic-card').innerHTML = `
@@ -369,13 +473,13 @@
     }
 
     async function toggleCicDone(day, status) {
-      await supabase.from('cic_progress').upsert({ user_id: currentUser.id, day_number: day, completed: status }, { onConflict: 'user_id,day_number' });
+      await supabaseClient.from('cic_progress').upsert({ user_id: currentUser.id, day_number: day, completed: status }, { onConflict: 'user_id,day_number' });
       renderCicDay();
     }
 
     // ANOTAÇÕES
     async function loadNotes() {
-      const { data } = await supabase.from('notes').select('*').order('updated_at', { ascending: false });
+      const { data } = await supabaseClient.from('notes').select('*').order('updated_at', { ascending: false });
       document.getElementById('notes-list').innerHTML = (data || []).map(n => `
         <div class="bg-white p-5 rounded-lg shadow border border-gray-200">
           <div class="flex justify-between items-start mb-2">
@@ -391,14 +495,14 @@
       const title = document.getElementById('note-title').value;
       const content = document.getElementById('note-content').value;
       if (!title || !content) return;
-      await supabase.from('notes').insert([{ user_id: currentUser.id, title, content }]);
+      await supabaseClient.from('notes').insert([{ user_id: currentUser.id, title, content }]);
       document.getElementById('note-title').value = '';
       document.getElementById('note-content').value = '';
       loadNotes();
     }
 
     async function deleteNote(id) {
-      await supabase.from('notes').delete().eq('id', id);
+      await supabaseClient.from('notes').delete().eq('id', id);
       loadNotes();
     }
 

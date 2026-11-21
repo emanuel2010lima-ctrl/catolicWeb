@@ -636,8 +636,8 @@
         const editButton = document.createElement('button');
         editButton.type = 'button';
         editButton.className = 'text-xs text-blue-700 hover:underline';
-        editButton.textContent = 'Ajustar horário';
-        editButton.addEventListener('click', () => editScheduleTime(item.id, item.time_slot));
+        editButton.textContent = 'Editar atividade';
+        editButton.addEventListener('click', () => editScheduleItem(item));
         const deleteButton = document.createElement('button');
         deleteButton.type = 'button';
         deleteButton.className = 'text-xs text-red-500 hover:underline';
@@ -769,20 +769,31 @@
       }
     }
 
-    async function editScheduleTime(id, oldTime) {
-      const newTime = prompt("Novo horário (HH:MM):", oldTime.slice(0,5));
-      if (newTime) {
-        if (!/^\d{2}:\d{2}$/.test(newTime)) {
-          showAppMessage('Informe o horário no formato HH:MM.');
-          return;
-        }
-        const { error } = await supabaseClient.from('schedule_items').update({ time_slot: newTime }).eq('id', id);
-        if (error) {
-          showAppMessage(`Não foi possível atualizar o horário. ${error.message}`);
-          return;
-        }
-        await loadSchedule();
+    async function editScheduleItem(item) {
+      const title = prompt('Título da atividade:', item.title);
+      if (title === null) return;
+      const time = prompt('Horário (HH:MM):', item.time_slot.slice(0, 5));
+      if (time === null) return;
+      const currentDay = weekdays.find(weekday => weekday.value === Number(item.day_of_week))?.name || 'Segunda-feira';
+      const day = prompt('Dia da semana (Segunda-feira, Terça-feira, Quarta-feira, Quinta-feira, Sexta-feira, Sábado ou Domingo):', currentDay);
+      if (day === null) return;
+      const description = prompt('Descrição (opcional):', item.description || '');
+      if (description === null) return;
+      const cleanTitle = title.trim();
+      const dayNumber = weekdays.find(weekday => weekday.name.toLocaleLowerCase('pt-BR') === day.trim().toLocaleLowerCase('pt-BR'))?.value;
+      if (!cleanTitle || !/^\d{2}:\d{2}$/.test(time) || !Number.isInteger(dayNumber) || dayNumber < 0 || dayNumber > 6) {
+        showAppMessage('Informe um título, horário HH:MM e dia entre 0 (domingo) e 6 (sábado).');
+        return;
       }
+      const { error } = await supabaseClient.from('schedule_items').update({
+        title: cleanTitle, time_slot: time, day_of_week: dayNumber, description: description.trim()
+      }).eq('id', item.id).eq('user_id', currentUser.id);
+      if (error) {
+        showAppMessage(`Não foi possível atualizar a atividade. ${error.message}`);
+        return;
+      }
+      await loadSchedule();
+      showAppMessage('Atividade atualizada.', 'success');
     }
 
     async function deleteSchedule(id) {

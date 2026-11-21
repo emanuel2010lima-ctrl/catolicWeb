@@ -11,6 +11,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
     
 }
 
@@ -137,6 +138,19 @@ ul, li {
 
 /* DESKTOP: submenu oculto */
 @media screen and (min-width: 1171px) {
+    #nav_list {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        gap: 8px;
+        font-size: 14px;
+    }
+
+    #navbar .input-icon {
+        position: absolute;
+        right: -10%;
+        margin-left: 0;
+    }
 
     .nav-item {
         position: relative;

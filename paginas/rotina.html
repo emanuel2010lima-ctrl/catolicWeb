@@ -70,6 +70,7 @@
     .cic-dashboard-grid button { aspect-ratio: 1; min-width: 0; padding: 0; font-size: .7rem; }
     .cic-dashboard-grid button.completed { background: #166534; color: #fff; }
     .cic-dashboard-grid button.selected { outline: 2px solid var(--site-gold); outline-offset: 1px; }
+    .weekly-plan { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; }
 
     @media (max-width: 640px) {
       .cic-dashboard-grid { grid-template-columns: repeat(10, minmax(0, 1fr)); }
@@ -144,7 +145,8 @@
 
     <!-- Navegação -->
     <nav class="bg-white border-b border-gray-200 px-6 flex gap-6 overflow-x-auto">
-      <button onclick="switchTab('rotina')" id="tab-rotina" class="py-3 font-semibold border-b-2 border-yellow-600 text-yellow-800">Rotina Diária</button>
+      <button onclick="switchTab('rotina')" id="tab-rotina" class="py-3 font-semibold border-b-2 border-yellow-600 text-yellow-800">Minha Rotina Hoje</button>
+      <button onclick="switchTab('semanal')" id="tab-semanal" class="py-3 font-semibold text-gray-500 hover:text-yellow-800">Planejamento Semanal</button>
       <button onclick="switchTab('oracoes')" id="tab-oracoes" class="py-3 font-semibold text-gray-500 hover:text-yellow-800">Minhas Orações</button>
       <button onclick="switchTab('catecismo')" id="tab-catecismo" class="py-3 font-semibold text-gray-500 hover:text-yellow-800">Catecismo em 1 Ano</button>
       <button onclick="switchTab('notas')" id="tab-notas" class="py-3 font-semibold text-gray-500 hover:text-yellow-800">Caderno de Notas</button>
@@ -156,14 +158,28 @@
       <!-- ABA 1: ROTINA DIÁRIA -->
       <section id="view-rotina" class="space-y-6">
         <div class="bg-white p-6 rounded-lg shadow border gold-border">
-          <h2 class="text-lg font-bold mb-4 text-gray-800">Adicionar Horário na Regra de Vida</h2>
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
-            <input id="sched-time" type="time" class="p-2 border rounded">
+          <h2 class="text-lg font-bold mb-4 text-gray-800">Adicionar atividade à semana</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
+            <label class="text-sm font-semibold">Horário
+              <input id="sched-time" type="time" required class="w-full p-2 border rounded">
+            </label>
             <select id="sched-type" onchange="togglePrayerSelect()" class="p-2 border rounded">
               <option value="activity">Atividade Diária</option>
               <option value="prayer">Momento de Oração</option>
             </select>
-            <input id="sched-title" type="text" placeholder="Título da atividade (opcional ao vincular oração)" class="p-2 border rounded">
+            <label class="text-sm font-semibold">Dia da semana
+              <select id="sched-day" required class="w-full p-2 border rounded">
+                <option value="">Escolha o dia...</option>
+                <option value="1">Segunda-feira</option>
+                <option value="2">Terça-feira</option>
+                <option value="3">Quarta-feira</option>
+                <option value="4">Quinta-feira</option>
+                <option value="5">Sexta-feira</option>
+                <option value="6">Sábado</option>
+                <option value="0">Domingo</option>
+              </select>
+            </label>
+            <input id="sched-title" type="text" required placeholder="Título da atividade" class="p-2 border rounded">
             <select id="sched-prayer-link" class="hidden p-2 border rounded">
               <option value="">Vincular oração salva...</option>
             </select>
@@ -173,8 +189,21 @@
         </div>
 
         <div class="bg-white p-6 rounded-lg shadow border border-gray-200">
-          <h2 class="text-lg font-bold mb-4">Ordo Diário (Linha do Tempo)</h2>
+          <div class="mb-4">
+            <h2 class="text-lg font-bold">Minha rotina de hoje</h2>
+            <p id="today-date" class="text-sm text-gray-600"></p>
+            <p class="text-sm text-gray-600">Marque cada atividade ao concluí-la.</p>
+          </div>
           <div id="schedule-list" class="space-y-3 border-l-2 border-yellow-600 pl-4 ml-2"></div>
+        </div>
+      </section>
+
+      <!-- ABA 2: PLANEJAMENTO SEMANAL -->
+      <section id="view-semanal" class="hidden space-y-6">
+        <div class="bg-white p-6 rounded-lg shadow border gold-border">
+          <h2 class="text-lg font-bold text-gray-800">Planejamento semanal</h2>
+          <p class="text-sm text-gray-600">Veja as atividades recorrentes de cada dia da semana.</p>
+          <div id="weekly-plan" class="weekly-plan mt-5"></div>
         </div>
       </section>
 
@@ -243,6 +272,25 @@
     let currentUser = null;
     let userPrayers = [];
     let cicCompletedDays = new Set();
+    let scheduleItems = [];
+    let completedScheduleItems = new Set();
+
+    const weekdays = [
+      { value: 1, name: 'Segunda-feira' },
+      { value: 2, name: 'Terça-feira' },
+      { value: 3, name: 'Quarta-feira' },
+      { value: 4, name: 'Quinta-feira' },
+      { value: 5, name: 'Sexta-feira' },
+      { value: 6, name: 'Sábado' },
+      { value: 0, name: 'Domingo' }
+    ];
+
+    function getLocalDateKey(date = new Date()) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
 
     // BASE INTERDISCIPLINAR DO CATECISMO (Amostra estruturada dos principais blocos)
     const cicInterdisciplinaryMap = [
@@ -400,7 +448,7 @@
 
     // NAVEGAÇÃO ENTRE ABAS
     function switchTab(tab) {
-      ['rotina', 'oracoes', 'catecismo', 'notas'].forEach(t => {
+      ['rotina', 'semanal', 'oracoes', 'catecismo', 'notas'].forEach(t => {
         document.getElementById(`view-${t}`).classList.add('hidden');
         document.getElementById(`tab-${t}`).classList.remove('border-b-2', 'border-yellow-600', 'text-yellow-800');
         document.getElementById(`tab-${t}`).classList.add('text-gray-500');
@@ -408,6 +456,7 @@
       document.getElementById(`view-${tab}`).classList.remove('hidden');
       document.getElementById(`tab-${tab}`).classList.add('border-b-2', 'border-yellow-600', 'text-yellow-800');
       if (tab === 'catecismo') renderCicDay();
+      if (tab === 'rotina' || tab === 'semanal') loadSchedule();
     }
 
     // CARREGAR DADOS
@@ -489,57 +538,235 @@
     }
 
     async function loadSchedule() {
-      const { data, error } = await supabaseClient.from('schedule_items').select('*, prayers(title, content)').order('time_slot', { ascending: true });
+      const { data, error } = await supabaseClient
+        .from('schedule_items')
+        .select('*, prayers(title, content)')
+        .order('time_slot', { ascending: true });
       if (error) {
         showAppMessage(`Não foi possível carregar a rotina. ${error.message}`);
+        return false;
+      }
+      scheduleItems = data || [];
+      const today = new Date();
+      const todayKey = getLocalDateKey(today);
+      document.getElementById('today-date').textContent = today.toLocaleDateString('pt-BR', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+
+      const { data: completions, error: completionError } = await supabaseClient
+        .from('schedule_completions')
+        .select('schedule_item_id')
+        .eq('user_id', currentUser.id)
+        .eq('completion_date', todayKey)
+        .eq('completed', true);
+      if (completionError) {
+        completedScheduleItems = new Set();
+        showAppMessage(`Não foi possível carregar as atividades concluídas de hoje. ${completionError.message}`);
+      } else {
+        completedScheduleItems = new Set((completions || []).map(item => String(item.schedule_item_id)));
+      }
+
+      renderTodaySchedule(today.getDay(), !completionError);
+      renderWeeklySchedule();
+      return !completionError;
+    }
+
+    function createScheduleCard(item, { showCompletion = false, manage = false, completionEnabled = true } = {}) {
+      const card = document.createElement('article');
+      card.className = `p-4 rounded border ${item.item_type === 'prayer' ? 'bg-amber-50/70 border-yellow-600/40' : 'bg-gray-50 border-gray-200'}`;
+
+      const header = document.createElement('div');
+      header.className = 'flex flex-wrap justify-between items-start gap-3';
+      const content = document.createElement('div');
+
+      const titleRow = document.createElement('div');
+      titleRow.className = 'flex flex-wrap items-center gap-2';
+      const time = document.createElement('span');
+      time.className = 'font-bold text-sm bg-marian text-white px-2 py-0.5 rounded';
+      time.textContent = item.time_slot ? item.time_slot.slice(0, 5) : '--:--';
+      const title = document.createElement('span');
+      title.className = 'font-bold text-gray-800';
+      title.textContent = `${item.item_type === 'prayer' ? '📿 ' : '📌 '}${item.title}`;
+      titleRow.append(time, title);
+      content.append(titleRow);
+
+      if (item.description) {
+        const description = document.createElement('p');
+        description.className = 'text-sm text-gray-600 mt-1';
+        description.textContent = item.description;
+        content.append(description);
+      }
+      if (item.prayers) {
+        const details = document.createElement('details');
+        details.className = 'mt-2 text-xs text-yellow-900 cursor-pointer';
+        const summary = document.createElement('summary');
+        summary.className = 'font-semibold';
+        summary.textContent = `Ler texto da oração: ${item.prayers.title}`;
+        const prayerContent = document.createElement('p');
+        prayerContent.className = 'mt-1 p-2 bg-white rounded border whitespace-pre-line';
+        prayerContent.textContent = item.prayers.content;
+        details.append(summary, prayerContent);
+        content.append(details);
+      }
+      header.append(content);
+
+      if (showCompletion) {
+        const label = document.createElement('label');
+        label.className = 'flex items-center gap-2 text-sm font-semibold cursor-pointer';
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'w-5 h-5 accent-green-700';
+        checkbox.dataset.scheduleItemId = String(item.id);
+        checkbox.checked = completedScheduleItems.has(String(item.id));
+        checkbox.disabled = !completionEnabled;
+        checkbox.setAttribute('aria-label', `Marcar ${item.title} como concluída`);
+        const status = document.createElement('span');
+        status.textContent = checkbox.checked ? 'Concluída' : 'Marcar como feita';
+        label.append(checkbox, status);
+        header.append(label);
+      }
+
+      card.append(header);
+      if (manage) {
+        const actions = document.createElement('div');
+        actions.className = 'flex gap-3 mt-3';
+        const editButton = document.createElement('button');
+        editButton.type = 'button';
+        editButton.className = 'text-xs text-blue-700 hover:underline';
+        editButton.textContent = 'Ajustar horário';
+        editButton.addEventListener('click', () => editScheduleTime(item.id, item.time_slot));
+        const deleteButton = document.createElement('button');
+        deleteButton.type = 'button';
+        deleteButton.className = 'text-xs text-red-500 hover:underline';
+        deleteButton.textContent = 'Remover';
+        deleteButton.addEventListener('click', () => deleteSchedule(item.id));
+        actions.append(editButton, deleteButton);
+        card.append(actions);
+      }
+      return card;
+    }
+
+    function renderTodaySchedule(day, completionEnabled) {
+      const list = document.getElementById('schedule-list');
+      const todayItems = scheduleItems.filter(item => item.day_of_week === null || item.day_of_week === undefined
+        || Number(item.day_of_week) === day);
+      list.replaceChildren();
+      if (!todayItems.length) {
+        const emptyMessage = document.createElement('p');
+        emptyMessage.className = 'text-sm text-gray-600';
+        emptyMessage.textContent = 'Nenhuma atividade planejada para hoje. Adicione uma atividade ou confira o planejamento semanal.';
+        list.append(emptyMessage);
         return;
       }
-      const list = document.getElementById('schedule-list');
-      list.innerHTML = (data || []).map(item => `
-        <div class="p-4 rounded border ${item.item_type === 'prayer' ? 'bg-amber-50/70 border-yellow-600/40' : 'bg-gray-50 border-gray-200'} flex justify-between items-start">
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="font-bold text-sm bg-marian text-white px-2 py-0.5 rounded">${item.time_slot.slice(0,5)}</span>
-              <span class="font-bold text-gray-800">${item.item_type === 'prayer' ? '📿 ' : '📌 '}${item.title}</span>
-            </div>
-            ${item.description ? `<p class="text-sm text-gray-600 mt-1">${item.description}</p>` : ''}
-            ${item.prayers ? `<details class="mt-2 text-xs text-yellow-900 cursor-pointer"><summary class="font-semibold">Ler texto da oração: ${item.prayers.title}</summary><p class="mt-1 p-2 bg-white rounded border whitespace-pre-line">${item.prayers.content}</p></details>` : ''}
-          </div>
-          <div class="flex gap-2">
-            <button onclick="editScheduleTime('${item.id}', '${item.time_slot}')" class="text-xs text-blue-700 hover:underline">Ajustar Hora</button>
-            <button onclick="deleteSchedule('${item.id}')" class="text-xs text-red-500 hover:underline">Remover</button>
-          </div>
-        </div>
-      `).join('');
+      todayItems.forEach(item => list.append(createScheduleCard(item, {
+        showCompletion: true,
+        manage: true,
+        completionEnabled
+      })));
+    }
+
+    function renderWeeklySchedule() {
+      const plan = document.getElementById('weekly-plan');
+      plan.replaceChildren();
+      weekdays.forEach(weekday => {
+        const section = document.createElement('section');
+        section.className = 'p-4 rounded-lg border border-gray-200 bg-gray-50';
+        const heading = document.createElement('h3');
+        heading.className = 'font-bold text-gray-800 mb-3';
+        heading.textContent = weekday.name;
+        section.append(heading);
+
+        const dayItems = scheduleItems.filter(item => item.day_of_week === null || item.day_of_week === undefined
+          || Number(item.day_of_week) === weekday.value);
+        if (!dayItems.length) {
+          const emptyMessage = document.createElement('p');
+          emptyMessage.className = 'text-sm text-gray-600';
+          emptyMessage.textContent = 'Sem atividades planejadas.';
+          section.append(emptyMessage);
+        } else {
+          const list = document.createElement('div');
+          list.className = 'space-y-2';
+          dayItems.forEach(item => list.append(createScheduleCard(item)));
+          section.append(list);
+        }
+        plan.append(section);
+      });
     }
 
     async function addScheduleItem() {
       const time_slot = document.getElementById('sched-time').value;
       const item_type = document.getElementById('sched-type').value;
+      const day_of_week = Number.parseInt(document.getElementById('sched-day').value, 10);
       const titleInput = document.getElementById('sched-title');
       const title = titleInput.value.trim() || (item_type === 'prayer'
         ? userPrayers.find(prayer => prayer.id === document.getElementById('sched-prayer-link').value)?.title || ''
         : '');
       const description = document.getElementById('sched-desc').value.trim();
       const prayer_id = item_type === 'prayer' ? (document.getElementById('sched-prayer-link').value || null) : null;
-      if (!time_slot || !title) {
-        showAppMessage('Informe o horário e o título da atividade.');
+      if (!time_slot || !title || Number.isNaN(day_of_week)) {
+        showAppMessage('Informe o horário, o dia da semana e o título da atividade.');
         return;
       }
       if (item_type === 'prayer' && !prayer_id) {
         showAppMessage('Selecione uma oração salva para vinculá-la à rotina.');
         return;
       }
-      const { error } = await supabaseClient.from('schedule_items').insert([{ user_id: currentUser.id, time_slot, item_type, title, description, prayer_id }]);
+      const { error } = await supabaseClient.from('schedule_items').insert([{
+        user_id: currentUser.id,
+        time_slot,
+        item_type,
+        title,
+        description,
+        prayer_id,
+        day_of_week
+      }]);
       if (error) {
         showAppMessage(`Não foi possível adicionar à rotina. ${error.message}`);
         return;
       }
       titleInput.value = '';
+      document.getElementById('sched-time').value = '';
       document.getElementById('sched-desc').value = '';
       document.getElementById('sched-prayer-link').value = '';
-      await loadSchedule();
-      showAppMessage('Item adicionado à rotina.', 'success');
+      const refreshed = await loadSchedule();
+      if (refreshed) showAppMessage('Atividade adicionada à rotina.', 'success');
+    }
+
+    async function updateScheduleCompletion(event) {
+      const checkbox = event.target.closest('input[data-schedule-item-id]');
+      if (!checkbox) return;
+
+      const scheduleItemId = checkbox.dataset.scheduleItemId;
+      const completed = checkbox.checked;
+      const today = getLocalDateKey();
+      checkbox.disabled = true;
+
+      try {
+        const result = completed
+          ? await supabaseClient.from('schedule_completions').upsert({
+            user_id: currentUser.id,
+            schedule_item_id: scheduleItemId,
+            completion_date: today,
+            completed: true
+          }, { onConflict: 'user_id,schedule_item_id,completion_date' })
+          : await supabaseClient.from('schedule_completions').delete()
+            .eq('user_id', currentUser.id)
+            .eq('schedule_item_id', scheduleItemId)
+            .eq('completion_date', today);
+        if (result.error) throw result.error;
+
+        if (completed) completedScheduleItems.add(scheduleItemId);
+        else completedScheduleItems.delete(scheduleItemId);
+        renderTodaySchedule(new Date().getDay(), true);
+        showAppMessage(completed ? 'Atividade marcada como concluída.' : 'Conclusão desmarcada.', 'success');
+      } catch (error) {
+        checkbox.checked = !completed;
+        checkbox.disabled = false;
+        showAppMessage(`Não foi possível atualizar a atividade. ${error instanceof Error ? error.message : ''}`);
+      }
     }
 
     async function editScheduleTime(id, oldTime) {
@@ -564,7 +791,15 @@
         showAppMessage(`Não foi possível remover o item. ${error.message}`);
         return;
       }
+      const { error: completionError } = await supabaseClient
+        .from('schedule_completions')
+        .delete()
+        .eq('user_id', currentUser.id)
+        .eq('schedule_item_id', String(id));
       await loadSchedule();
+      if (completionError) {
+        showAppMessage(`A atividade foi removida, mas não foi possível limpar as conclusões antigas. ${completionError.message}`);
+      }
     }
 
     // CATECISMO EM 1 ANO + INTERDISCIPLINARIDADE
@@ -711,6 +946,7 @@
       loadNotes();
     }
 
+    document.getElementById('schedule-list').addEventListener('change', updateScheduleCompletion);
     checkSession();
   </script>
 </body>

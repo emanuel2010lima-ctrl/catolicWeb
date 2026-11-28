@@ -55,14 +55,3 @@ body::after {
     100% { transform: translateX(120vw) skewX(-18deg); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    body::after {
-        display: none;
-    }
-
-    .feature-card,
-    .feature-card::before {
-        transition: none;
-        animation: none;
-    }
-}

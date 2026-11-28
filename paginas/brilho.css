@@ -50,8 +50,17 @@ body::after {
 }
 
 @keyframes content-page-shine {
-    0% { transform: translateX(-120vw) skewX(-18deg); }
-    28% { transform: translateX(120vw) skewX(-18deg); }
-    100% { transform: translateX(120vw) skewX(-18deg); }
+    0% {
+        transform: translateX(-120vw) skewX(-18deg);
+        opacity: 1;
+    }
+    28% {
+        transform: translateX(120vw) skewX(-18deg);
+        opacity: 1;
+    }
+    29%, 100% {
+        transform: translateX(120vw) skewX(-18deg);
+        opacity: 0;
+    }
 }
 

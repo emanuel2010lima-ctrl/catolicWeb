@@ -11,7 +11,7 @@ body::after {
     background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.03) 25%, rgba(255, 255, 255, 0.22) 43%, rgba(255, 255, 255, 0.72) 50%, rgba(255, 255, 255, 0.22) 57%, rgba(255, 255, 255, 0.03) 75%, transparent 100%);
     filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.4));
     transform: translateX(-120vw) skewX(-18deg);
-    animation: content-page-shine 8s cubic-bezier(.65, 0, .35, 1) infinite;
+    animation: content-page-shine 8s cubic-bezier(.65, 0, .35, 1) 1 both;
 }
 
 .feature-card {

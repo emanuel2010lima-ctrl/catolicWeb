@@ -4,14 +4,49 @@ body::after {
     position: fixed;
     z-index: 2147483647;
     inset: 0 auto 0 0;
-    width: 16vw;
-    min-width: 110px;
-    max-width: 230px;
+    width: 24vw;
+    min-width: 150px;
+    max-width: 320px;
     pointer-events: none;
-    background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.02) 25%, rgba(255, 255, 255, 0.16) 43%, rgba(255, 255, 255, 0.52) 50%, rgba(255, 255, 255, 0.16) 57%, rgba(255, 255, 255, 0.02) 75%, transparent 100%);
-    filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.28));
+    background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.03) 25%, rgba(255, 255, 255, 0.22) 43%, rgba(255, 255, 255, 0.72) 50%, rgba(255, 255, 255, 0.22) 57%, rgba(255, 255, 255, 0.03) 75%, transparent 100%);
+    filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.4));
     transform: translateX(-120vw) skewX(-18deg);
     animation: content-page-shine 8s cubic-bezier(.65, 0, .35, 1) infinite;
+}
+
+.feature-card {
+    isolation: isolate;
+    transition: transform 350ms cubic-bezier(.2, .75, .25, 1), box-shadow 350ms ease;
+}
+
+.feature-card::before {
+    content: "";
+    position: absolute;
+    z-index: 3;
+    top: -45%;
+    bottom: -45%;
+    left: 0;
+    width: 38%;
+    pointer-events: none;
+    background: linear-gradient(100deg, transparent, rgba(218, 165, 32, .08) 30%, rgba(255, 248, 220, .72) 50%, rgba(218, 165, 32, .16) 70%, transparent);
+    transform: translateX(-150%) skewX(-20deg);
+}
+
+.feature-card:hover,
+.feature-card:focus-within,
+.feature-card:active {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(218, 165, 32, .28), 0 0 14px rgba(218, 165, 32, .2) !important;
+}
+
+.feature-card:hover::before,
+.feature-card:focus-within::before,
+.feature-card:active::before {
+    animation: feature-card-reflection 1.15s cubic-bezier(.65, 0, .35, 1) both;
+}
+
+@keyframes feature-card-reflection {
+    to { transform: translateX(360%) skewX(-20deg); }
 }
 
 @keyframes content-page-shine {
@@ -22,6 +57,12 @@ body::after {
 
 @media (prefers-reduced-motion: reduce) {
     body::after {
-        /*animation: none;;*/
+        display: none;
+    }
+
+    .feature-card,
+    .feature-card::before {
+        transition: none;
+        animation: none;
     }
 }

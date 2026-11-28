@@ -20,14 +20,7 @@
             || blocks[targetIndex];
         if (!target) return;
 
-        const style = document.createElement("style");
-        style.textContent = ".search-target-highlight { outline: 3px solid #d4af37; background: rgba(212, 175, 55, .22); transition: background .3s ease; }";
-        document.head.append(style);
-        target.classList.add("search-target-highlight");
-        target.tabIndex = -1;
         target.scrollIntoView({ behavior: "smooth", block: "center" });
-        target.focus({ preventScroll: true });
-        window.setTimeout(() => target.classList.remove("search-target-highlight"), 5000);
     };
 
     if (document.readyState === "complete") {

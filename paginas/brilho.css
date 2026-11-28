@@ -1,0 +1,27 @@
+﻿/* Faixa luminosa decorativa das páginas de conteúdo */
+body::after {
+    content: "";
+    position: fixed;
+    z-index: 2147483647;
+    inset: 0 auto 0 0;
+    width: 16vw;
+    min-width: 110px;
+    max-width: 230px;
+    pointer-events: none;
+    background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.02) 25%, rgba(255, 255, 255, 0.16) 43%, rgba(255, 255, 255, 0.52) 50%, rgba(255, 255, 255, 0.16) 57%, rgba(255, 255, 255, 0.02) 75%, transparent 100%);
+    filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.28));
+    transform: translateX(-120vw) skewX(-18deg);
+    animation: content-page-shine 8s cubic-bezier(.65, 0, .35, 1) infinite;
+}
+
+@keyframes content-page-shine {
+    0% { transform: translateX(-120vw) skewX(-18deg); }
+    28% { transform: translateX(120vw) skewX(-18deg); }
+    100% { transform: translateX(120vw) skewX(-18deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::after {
+        /*animation: none;;*/
+    }
+}

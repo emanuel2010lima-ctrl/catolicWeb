@@ -122,14 +122,20 @@
 
         .item {
             display: flex;
-            gap: 15px;
+            width: 100%;
             padding: 15px;
+            box-sizing: border-box;
             border-bottom: 1px solid #333;
-            transition: 0.2s;
+            transition: background-color 0.2s;
+            background: transparent;
+            color: inherit;
+            font: inherit;
+            text-align: left;
             text-decoration: none;
+            cursor: pointer;
         }
 
-        .item:hover { background-color: #252525; }
+        .item:hover, .item:focus-visible { background-color: #252525; outline: 2px solid #efc200; outline-offset: -2px; }
 
         .item-image img {
             width: 50px; height: 50px;
@@ -137,8 +143,11 @@
             border-radius: 10px;
         }
 
-        .item-title { color: #efc200; font-weight: bold; margin: 0; font-size: 1rem; }
-        .item-description { color: #aaa; font-size: 0.85rem; margin-top: 4px; }
+        .item-content { display: flex; flex-direction: column; gap: 5px; }
+        .item-title { color: #efc200; font-weight: bold; font-size: 1rem; }
+        .item-description { color: #aaa; font-size: 0.9rem; }
+        .item-action { color: #d9bd69; font-size: 0.8rem; margin-top: 5px; }
+
 
         .search-status {
             min-height: 1.5em;
@@ -387,7 +396,7 @@
         <div class="itens" aria-label="Resultados da pesquisa"></div>
 
     </div>
-    
+
     <script src="search.js"></script>
 <script>
         const mobileBtn = document.getElementById('mobile_btn');
